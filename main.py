@@ -20,7 +20,7 @@ def index():
 def cpu():
     response = requests.request("GET", url, headers=headers)
 
-    return jsonify(response.text)
+    return jsonify(response.json())
 
 
 if __name__ == '__main__':
