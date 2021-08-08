@@ -5,15 +5,15 @@ from sqlalchemy.orm import sessionmaker
 from sqlalchemy.types import String
 
 url = "https://cpu-data.p.rapidapi.com/cpus"
-
 headers = {
     'x-rapidapi-key': "1c2a41ba92mshec9d61014ca2e68p1e3f1cjsn84607970fe3a",
     'x-rapidapi-host': "cpu-data.p.rapidapi.com"
-    }
+}
 engine = create_engine('mysql+pymysql://root:@127.0.0.1:3306/api_test')
 Session = sessionmaker(bind=engine)
 db = Session()
 Base = declarative_base()
+
 
 # "CPUMark": "548",
 #     "Clockspeed": "1.9 GHz",
@@ -42,6 +42,7 @@ class cpuData(Base):
     Threads = Column(String)
     Turbospeed = Column(String)
 
+
 response = requests.request("GET", url, headers=headers)
 
 # print(type(response.json())
@@ -52,4 +53,3 @@ data = response.json()
 #     db.add(entry)
 #     db.commit()
 #     print('done')
-
