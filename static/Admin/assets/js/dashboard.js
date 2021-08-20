@@ -65,7 +65,7 @@
       var areaData = {
         labels: ["Paypal", "Stripe","Cash"],
         datasets: [{
-            data: [55, 25, 20],
+            data: [55,10,56],
             backgroundColor: [
               "#111111","#00d25b","#ffab00"
             ]
