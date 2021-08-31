@@ -12,13 +12,13 @@ result = []
 #         algo()    
         
 def algo(data, high):
-    result =[]
-    if (high!=0):
-        if (max(data)<=high):
-            result.append(max(data))
-            high = high - max(data)
-            print(high)
-            print(result)
-        else:
-            algo()
+    result = []
+    if high==0:
+        return result
+    else:
+        if high != 0:
+            if result == None:
+                print("hello")
+
             
+algo(number, a)
