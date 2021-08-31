@@ -5,7 +5,7 @@ app = Flask(__name__)
 
 @app.route('/')
 def home():
-    return render_template('Admin/index.html', data = [56, 85, 12])
+    return render_template('Admin/index.html')
 
 
 @app.route('/messages')
