@@ -38,9 +38,17 @@ for cpu in cpus:
                             remainingBudget.append(budget-expected)
                             # print(cpu, motherboard, ram, hdd, cabinet, budget-expected)
                             resultNotZero.append([cpu, motherboard, ram, hdd, cabinet, budget-expected])
-print("------------------------------------------------THIS IS RESULT ZERO PC------------------------------------------------")
-for result in resultZero:
-    print(result)
-print("------------------------------------------------THIS IS RESULT NOT ZERO PC------------------------------------")
+                            
+# print("------------------------------------------------THIS IS RESULT ZERO PC------------------------------------------------")
+# for result in resultZero:
+#     print(result)
+# print("------------------------------------------------THIS IS RESULT NOT ZERO PC------------------------------------")
+# for result in resultNotZero:
+#     print(result)
+remainingBudget.sort()
+least = []
 for result in resultNotZero:
+    if result[-1] == remainingBudget[1]:
+        least.append(result)
+for result in least:
     print(result)
