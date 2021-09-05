@@ -2,6 +2,15 @@ from flask import Flask, render_template
 
 app = Flask(__name__)
 
+counter = 1
+@app.before_request
+def countVisitor():
+    global counter
+    counter +=1
+    counterFile = open('counter.txt', 'w')
+    counterFile.write(str(counter))
+    counterFile.close()
+
 
 @app.route('/')
 def home():
