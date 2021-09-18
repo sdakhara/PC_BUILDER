@@ -6,6 +6,69 @@
   box-sizing: border-box;
 }
 
+
+
+
+
+
+/* -----------    Custom Scroll Bar     -----------*/
+::-webkit-scrollbar {
+  width: 12px;
+  background: #141414;
+}
+::-webkit-scrollbar-thumb {
+  /* border-radius: 8px;
+  border: 2px solid #6f00ff; */
+  border-radius: 8px;
+  background: linear-gradient(transparent, #6f00ff);
+}
+/* -----------    Custom Scroll Bar End     -----------*/
+
+
+
+
+
+/* -----------    Explore Section     -----------*/
+.Explore-heading {
+  color: #fff;
+  text-align: center;
+  font-family: "Titillium Web", sans-serif;
+  font-style: italic;
+  position: relative;
+  margin-top: 3rem;
+}
+
+.Explore-heading::after {
+  content: "";
+  position: absolute;
+  display: block;
+  width: 8rem;
+  background-color: #6f00ff;
+  height: 5px;
+  left: 50%;
+  bottom: -20%;
+  transform: translateX(-50%);
+}
+/* -----------    Explore Section End     -----------*/
+
+
+
+
+
+
+.active::after{
+  height: 5px;
+  content: "";
+  position: absolute;
+  background-color: #6f00ff;
+  bottom: 1%;
+  width: 100%;
+}
+
+body {
+  background-color: #141414 !important;
+}
+
 .navbar {
   padding-bottom: 0rem !important;
   padding-top: 0rem !important;
@@ -41,7 +104,7 @@
 }
 
 .nav-container .btn-outline-success {
-  color: #6f00ff;
+  color: #fff;
   border-color: #6f00ff;
   font-family: "Titillium Web", sans-serif;
 }
@@ -71,10 +134,20 @@
 nav .navbar-toggler {
   border: 2px solid transparent !important;
 }
+
 nav .navbar-toggler {
   border: 2px solid #6f00ff !important;
   box-shadow: 0 0 0.2rem #fff, 0 0 0.2rem #fff, 0 0 1rem #6f00ff,
     0 0 0.4rem #6f00ff, 0 0 0.4rem #6f00ff;
+}
+
+.top-content {
+  font-family: "Titillium Web", sans-serif;
+  font-style: italic;
+}
+
+.top-content p {
+  font-size: 1.4rem;
 }
 
 .main-page {
@@ -117,6 +190,16 @@ nav .navbar-toggler {
 }
 
 
+.Explore_photo_1 {
+  width: 100%;
+}
+
+
+
+
+/* -----------      Animations      -----------*/
+
+
 
 
 
@@ -130,7 +213,6 @@ nav .navbar-toggler {
   }
 
   .nav-list::before {
-    transition: 300ms;
     height: 5px;
     content: "";
     background-color: #6f00ff;
@@ -147,5 +229,21 @@ nav .navbar-toggler {
     position: static;
   }
 
-  
+  nav .container-fluid {
+    background: rgba(0, 0, 0, 0.9);
+  }
+
+  .navbar-nav {
+    height: 40rem;
+  }
+
+  .active::after{
+    height: 5px;
+    content: "";
+    position: absolute;
+    background-color: #6f00ff;
+    width: 20%;
+    bottom: 1%;
+    transform: translate(-50%, -50%);
+  }
 }
