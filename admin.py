@@ -1,16 +1,19 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, jsonify, request
 
 app = Flask(__name__)
 
-counter = 1
+counter = 0
 @app.before_request
 def countVisitor():
     global counter
     counter +=1
+    total = counter/48
     counterFile = open('counter.txt', 'w')
-    counterFile.write(str(counter))
+    counterFile.write(str(total))
     counterFile.close()
-
+@app.route('/getip')
+def getIP():
+    return jsonify({"ip":request.remote_addr, 'user':request.remote_user})
 
 @app.route('/')
 def home():
@@ -43,4 +46,4 @@ def system():
 
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(host= "0.0.0.0")
