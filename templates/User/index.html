@@ -18,14 +18,14 @@
     <!-- Nav-Bar (Header)  -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-transperent fixed-top">
         <div class="container-fluid" id="container-fluid">
-          <a class="navbar-brand" href="#"><img src="{{url_for('static', filename='User/IMG/PCBUILDER.png')}}" alt="" width="60"></a>
+          <a class="navbar-brand" href="#"><img src="{{url_for('static', filename='User/IMG/PCB-LOGO.png')}}" alt="" width="60"></a>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
           <div class="collapse navbar-collapse m-3" id="navbarNav">
 
             <ul class="navbar-nav nav-container">
-              <li class="nav-item nav-list">
+              <li class="nav-item nav-list active">
                 <a class="nav-link" aria-current="page" href="#">Home</a>
               </li>
               <li class="nav-item nav-list">
@@ -38,11 +38,9 @@
                 <a class="nav-link" href="#">Contact</a>
               </li>
 
-
-
               <li class="nav-item nav-list">
-                <button class="btn btn-outline-success sign-up"  type="submit">Sign-Up</button>
-                <button class="btn btn-outline-success log-in" type="submit">Log-In</button>
+                <button class="btn btn-outline-pcb sign-up"  type="submit">Sign-Up</button>
+                <button class="btn btn-outline-pcb log-in" type="submit">Log-In</button>
               </li>
             </ul>
 
@@ -52,47 +50,90 @@
       <section class="main-page">
         <video src="{{url_for('static', filename='User/VIDEOS/4.mp4')}}" autoplay muted loop class="video-play"></video>
 
-        <div class="top-content">
+        <div class="top-content ml3">
           <h1>WELCOME TO PC BUILDER</h1>
           <p>BUILD YOUR DREAM PC NOW</p>
+          <button class="btn btn-outline-pcb sign-up"  type="submit">Build Now</button>
+          <button class="btn btn-outline-pcb sign-up"  type="submit">Explore</button>
         </div>
       </section>
 
-        <div class="card" style="width: 18rem;">
-          <img src="..." class="card-img-top" alt="...">
-          <div class="card-body">
-            <h5 class="card-title">Card title</h5>
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-            <a href="#" class="btn btn-primary">Go somewhere</a>
+
+      <div class="Explore">
+
+          <div class="Explore-div">
+            <h1 class="Explore-heading">Explore</h1>
           </div>
-        </div><div class="card" style="width: 18rem;">
-          <img src="..." class="card-img-top" alt="...">
-          <div class="card-body">
-            <h5 class="card-title">Card title</h5>
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-            <a href="#" class="btn btn-primary">Go somewhere</a>
-          </div>
-        </div><div class="card" style="width: 18rem;">
-          <img src="..." class="card-img-top" alt="...">
-          <div class="card-body">
-            <h5 class="card-title">Card title</h5>
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-            <a href="#" class="btn btn-primary">Go somewhere</a>
-          </div>
-        </div><div class="card" style="width: 18rem;">
-          <img src="..." class="card-img-top" alt="...">
-          <div class="card-body">
-            <h5 class="card-title">Card title</h5>
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-            <a href="#" class="btn btn-primary">Go somewhere</a>
+
+          <div class="Explore-cards">
+            <div class="container">
+              <div class="row">
+                <div class="col">
+                  <div class="card text-white bg-dark mb-3" style="max-width: 540px;">
+                  <div class="row g-0">
+
+                          <div class="col-md-4">
+                            <img src="/static/User/IMG/build-pc.svg" class="img-fluid mx-auto align-middle" alt="...">
+                          </div>
+
+                          <div class="col-md-8">
+                            <div class="card-body">
+                              <h5 class="card-title">Card title</h5>
+                              <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                              <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                            </div>
+                          </div>
+
+                        </div>
+                      </div>
+                </div>
+                <div class="col">
+                  <div class="card mb-3" style="max-width: 540px;">
+                  <div class="row g-0">
+
+                          <div class="col-md-4">
+                            <img src="..." class="img-fluid rounded-start" alt="...">
+                          </div>
+
+                          <div class="col-md-8">
+                            <div class="card-body">
+                              <h5 class="card-title">Card title</h5>
+                              <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                              <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                            </div>
+                          </div>
+                          
+                        </div>
+                      </div>
+                </div>
+                <div class="col">
+                  <div class="card mb-3" style="max-width: 540px;">
+                    <div class="row g-0">
+  
+                            <div class="col-md-4">
+                              <img src="..." class="img-fluid rounded-start" alt="...">
+                            </div>
+  
+                            <div class="col-md-8">
+                              <div class="card-body">
+                                <h5 class="card-title">Card title</h5>
+                                <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                                <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                              </div>
+                            </div>
+                            
+                          </div>
+                        </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
-
 
 </body>
 
 <!-- Include JavaScript -->
-<script src="{{url_for('static', filename='JS/User/index.js')}}"></script>
-<script src="{{url_for('static', filename='JS/User/bootstrap.min.js')}}"></script>
+<script src="{{url_for('static', filename='User/JS/index.js')}}"></script>
+<script src="{{url_for('static', filename='User/JS/bootstrap.min.js')}}"></script>
 
 </html>
