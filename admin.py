@@ -6,7 +6,7 @@ counter = 0
 @app.before_request
 def countVisitor():
     global counter
-    counter +=1
+    counter += 1
     total = counter/48
     counterFile = open('counter.txt', 'w')
     counterFile.write(str(total))
