@@ -33,9 +33,9 @@ class ramdata(Base):
 
 class hdddata(Base):
     __tablename__ = 'hdddata'
-
     hddID = Column(Integer, primary_key=True)
     Price = Column(Integer)
+
 
 def printer(a):
     print(f"""
