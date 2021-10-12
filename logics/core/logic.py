@@ -1,14 +1,3 @@
-# data = 10000
-# cpus = [5000, 9000, 20000]
-# motherboards = [2000, 2500, 3500]
-# for cpu in cpus:
-#     for motherboard in motherboards:
-#         if ((cpu+motherboard)==data):
-#             print(cpu, motherboard)
-#         else:
-#             if((cpu+motherboard)<data):
-#                 print(cpu, motherboard, data-(cpu+motherboard))
-
 budget = int(input("Enter Your Budget: "))
 cpus = [5000, 7500, 10000]
 motherboards = [2000, 3000, 3500]

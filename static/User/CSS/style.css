@@ -1,78 +1,73 @@
 @import url("https://fonts.googleapis.com/css2?family=Titillium+Web:wght@600&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Lato:wght@900&display=swap");
 * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
-
-
-
-
 
 
 /* -----------    Custom Scroll Bar     -----------*/
+
 ::-webkit-scrollbar {
-  width: 12px;
-  background: #141414;
+    width: 12px;
+    background: #141414;
 }
+
 ::-webkit-scrollbar-thumb {
-  /* border-radius: 8px;
+    /* border-radius: 8px;
   border: 2px solid #6f00ff; */
-  border-radius: 8px;
-  background: linear-gradient(transparent, #6f00ff);
+    border-radius: 8px;
+    background: linear-gradient(transparent, #6f00ff);
 }
+
+
 /* -----------    Custom Scroll Bar End     -----------*/
 
 
-
-
-
 /* -----------    Explore Section     -----------*/
+
 .Explore-heading {
-  color: #fff;
-  text-align: center;
-  font-family: "Titillium Web", sans-serif;
-  font-style: italic;
-  position: relative;
-  margin-top: 3rem;
+    color: #fff;
+    text-align: center;
+    font-family: "Titillium Web", sans-serif;
+    font-style: italic;
+    position: relative;
+    margin-top: 3rem;
 }
 
 .Explore-heading::after {
-  content: "";
-  position: absolute;
-  display: block;
-  width: 8rem;
-  background-color: #6f00ff;
-  height: 5px;
-  left: 50%;
-  bottom: -20%;
-  transform: translateX(-50%);
+    content: "";
+    position: absolute;
+    display: block;
+    width: 8rem;
+    background-color: #6f00ff;
+    height: 5px;
+    left: 50%;
+    bottom: -20%;
+    transform: translateX(-50%);
 }
+
+
 /* -----------    Explore Section End     -----------*/
 
-
-
-
-
-
-.active::after{
-  height: 5px;
-  content: "";
-  position: absolute;
-  background-color: #6f00ff;
-  bottom: 1%;
-  width: 100%;
+.active::after {
+    height: 5px;
+    content: "";
+    position: absolute;
+    background-color: #6f00ff;
+    bottom: 1%;
+    width: 100%;
 }
 
 body {
-  background-color: #141414 !important;
+    background-color: #141414 !important;
 }
 
 .navbar {
-  padding-bottom: 0rem !important;
-  padding-top: 0rem !important;
-  background: transparent;
+    padding-bottom: 0rem !important;
+    padding-top: 0rem !important;
+    background: transparent;
 }
 
 .navbar-dark .navbar-nav .nav-link {
@@ -80,64 +75,73 @@ body {
 }
 
 .nav-list {
-  -ms-transform: skewX(-20deg);
-  -webkit-transform: skewX(-20deg);
-  transform: skewX(-20deg);
-  margin-left: 35px;
-  border: 3px solid transparent;
-  font-family: "Titillium Web", sans-serif;
-  letter-spacing: 1.5px;
+    -ms-transform: skewX(-20deg);
+    -webkit-transform: skewX(-20deg);
+    transform: skewX(-20deg);
+    margin-left: 35px;
+    border: 3px solid transparent;
+    font-family: "Titillium Web", sans-serif;
+    letter-spacing: 1.5px;
 }
 
 .nav-container li:last-child {
-  -ms-transform: skewX(0deg);
-  -webkit-transform: skewX(0deg);
-  transform: skewX(0deg);
-  position: absolute;
-  right: 5%;
+    -ms-transform: skewX(0deg);
+    -webkit-transform: skewX(0deg);
+    transform: skewX(0deg);
+    position: absolute;
+    right: 5%;
 }
 
 .nav-list:last-child::before {
-  height: 0px;
-  width: 0%;
-  background-color: transparent;
+    height: 0px;
+    width: 0%;
+    background-color: transparent;
+}
+
+.nav-container .btn-outline-success {
+    color: #fff;
+    border-color: #6f00ff;
+    font-family: "Titillium Web", sans-serif;
+}
+
+.nav-container .btn-outline-success:hover {
+    background-color: #6f00ff;
 }
 
 .sign-up {
-  margin-right: 10px;
+    margin-right: 10px;
 }
 
 .nav-list::before {
-  transition: 300ms;
-  height: 5px;
-  content: "";
-  position: absolute;
-  background-color: #6f00ff;
-  width: 0%;
-  bottom: 1%;
+    transition: 300ms;
+    height: 5px;
+    content: "";
+    position: absolute;
+    background-color: #6f00ff;
+    width: 0%;
+    bottom: 1%;
 }
 
 .nav-list:hover::before {
-  width: 100%;
+    width: 100%;
 }
 
 nav .navbar-toggler {
-  border: 2px solid transparent !important;
+    border: 2px solid transparent !important;
 }
 
 nav .navbar-toggler {
-  border: 2px solid #6f00ff !important;
-  box-shadow: 0 0 0.2rem #fff, 0 0 0.2rem #fff, 0 0 1rem #6f00ff,
-    0 0 0.4rem #6f00ff, 0 0 0.4rem #6f00ff;
+    border: 2px solid #6f00ff !important;
+    box-shadow: 0 0 0.2rem #fff, 0 0 0.2rem #fff, 0 0 1rem #6f00ff, 0 0 0.4rem #6f00ff, 0 0 0.4rem #6f00ff;
 }
 
 .top-content {
-  font-family: "Titillium Web", sans-serif;
-  font-style: italic;
+    font-family: "Titillium Web", sans-serif;
+    font-style: italic;
 }
 
 .top-content p {
-  font-size: 1.4rem;
+    font-size: 1.4rem;
 }
 
 .main-page {
@@ -168,7 +172,6 @@ nav .navbar-toggler {
     text-align: center;
 }
 
-
 .main-page video {
     z-index: 000;
     position: absolute;
@@ -179,67 +182,48 @@ nav .navbar-toggler {
     object-fit: cover;
 }
 
-.Explore-cards {
-  display: flex;
-  justify-content: center;
-  padding-top: 1rem;
+.card {
+    margin: 2rem;
 }
-
-.Explore-cards .card {
-  margin: 10px;
-}
-
-
-
 
 
 /* -----------      Animations      -----------*/
 
 
- 
-
-
-
 /* -----------      Media Query      -----------*/
 
 @media screen and (max-width: 991px) {
-  .nav-list {
-    margin-top: 10px;
-    text-align: center;
-  }
-
-  .nav-list::before {
-    height: 5px;
-    content: "";
-    background-color: #6f00ff;
-    width: 0%;
-    bottom: 1%;
-    transform: translate(-50%, -50%);
-  }
-
-  .nav-list:hover::before {
-    width: 20%;
-  }
-
-  .nav-container li:last-child {
-    position: static;
-  }
-
-  nav .container-fluid {
-    background: rgba(0, 0, 0, 0.1);
-  }
-
-  .navbar-nav {
-    height: 40rem;
-  }
-
-  .active::after{
-    height: 5px;
-    content: "";
-    position: absolute;
-    background-color: #6f00ff;
-    width: 20%;
-    bottom: 1%;
-    transform: translate(-50%, -50%);
-  }
+    .nav-list {
+        margin-top: 10px;
+        text-align: center;
+    }
+    .nav-list::before {
+        height: 5px;
+        content: "";
+        background-color: #6f00ff;
+        width: 0%;
+        bottom: 1%;
+        transform: translate(-50%, -50%);
+    }
+    .nav-list:hover::before {
+        width: 20%;
+    }
+    .nav-container li:last-child {
+        position: static;
+    }
+    nav .container-fluid {
+        background: rgba(0, 0, 0, 0.9);
+    }
+    .navbar-nav {
+        height: 40rem;
+    }
+    .active::after {
+        height: 5px;
+        content: "";
+        position: absolute;
+        background-color: #6f00ff;
+        width: 20%;
+        bottom: 1%;
+        transform: translate(-50%, -50%);
+    }
 }
