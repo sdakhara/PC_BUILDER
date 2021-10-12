@@ -103,16 +103,6 @@ body {
   background-color: transparent;
 }
 
-.nav-container .btn-outline-success {
-  color: #fff;
-  border-color: #6f00ff;
-  font-family: "Titillium Web", sans-serif;
-}
-
-.nav-container .btn-outline-success:hover {
-  background-color: #6f00ff;
-}
-
 .sign-up {
   margin-right: 10px;
 }
@@ -189,10 +179,16 @@ nav .navbar-toggler {
     object-fit: cover;
 }
 
-
-.Explore_photo_1 {
-  width: 100%;
+.Explore-cards {
+  display: flex;
+  justify-content: center;
+  padding-top: 1rem;
 }
+
+.Explore-cards .card {
+  margin: 10px;
+}
+
 
 
 
@@ -200,7 +196,7 @@ nav .navbar-toggler {
 /* -----------      Animations      -----------*/
 
 
-
+ 
 
 
 
@@ -230,7 +226,7 @@ nav .navbar-toggler {
   }
 
   nav .container-fluid {
-    background: rgba(0, 0, 0, 0.9);
+    background: rgba(0, 0, 0, 0.1);
   }
 
   .navbar-nav {

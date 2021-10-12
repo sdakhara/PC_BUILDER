@@ -3015,7 +3015,6 @@ fieldset:disabled .btn {
 .btn-outline-pcb:hover {
   color: #fff;
   background-color: #6f00ff;
-  border-color: #6f00ff;
 }
   
 .btn-check:focus + .btn-outline-success,
