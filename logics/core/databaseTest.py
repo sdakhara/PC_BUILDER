@@ -131,16 +131,27 @@ for result in resultNotZero:
         least.append(result)
 # for result in least:
 #     printer(result)
-high = 0
-finalList = []
 
+counter = 0
+onePCScore = 0
+highestRecordedScore = 0
+highScorePC = []
 for pc in least:
-    for components in pc:
-        totalScore = 0
-        totalScore = components[2] + totalScore
-        if high <= totalScore:
-            high = totalScore
-            finalList = pc
-        else:
-            continue
-print(finalList)
+    for component in pc:
+        if counter < 4:
+            onePCScore += component[2]
+            # print(onePCScore)
+            counter += 1
+        elif counter == 4:
+            if highestRecordedScore <= onePCScore:
+                highestRecordedScore = onePCScore
+                highScorePC = pc
+                onePCScore = 0
+            else:
+                onePCScore = 0
+                # print(highestRecordedScore)
+            counter = 0
+
+print(highScorePC)
+print(highestRecordedScore)
+

@@ -61,7 +61,7 @@ def printer(a):
 
 class logic:
     def buildpc(self, budget):
-        remainingBudget = []
+        remainingBudgets = []
         resultZero = []
         resultNotZero = []
         cpuData = db.query(cpudata).all()
@@ -80,18 +80,19 @@ class logic:
                             break
                         else:
                             if (expected < budget):
-                                remainingBudget.append(budget - expected)
+                                tempRemainBudget = budget-expected
+                                remainingBudgets.append(tempRemainBudget)
                                 cpulist = [cpu.cpuID, cpu.cpuName, cpu.cpuScore, cpu.Price]
                                 boardlist = [motherboard.boardID, motherboard.boardName, motherboard.boardScore,
                                              motherboard.Price]
                                 ramlist = [ram.ramID, ram.ramName, ram.ramScore, ram.Price]
                                 hddlist = [hdd.hddID, hdd.hddName, hdd.hddScore, hdd.Price]
-                                remainingBudget = [budget - expected]
+                                remainingBudget = [tempRemainBudget]
                                 resultNotZero.append([cpulist, boardlist, ramlist, hddlist, remainingBudget])
-        remainingBudget.sort()
+        remainingBudgets.sort()
         least = []
         for result in resultNotZero:
-            if result[-1] == remainingBudget[1]:
+            if result[-1][0] == remainingBudgets[1]:
                 least.append(result)
         # for result in least:
             # printer(result)
