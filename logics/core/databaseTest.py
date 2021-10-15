@@ -127,7 +127,7 @@ for cpu in cpuData:
 remainingBudgets.sort()
 least = []
 for result in resultNotZero:
-    if result[-1][0] == remainingBudgets[1]:
+    if result[-1][0] == remainingBudgets[0]:
         least.append(result)
 # for result in least:
 #     printer(result)
