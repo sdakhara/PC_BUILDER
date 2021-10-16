@@ -102,12 +102,12 @@ class logic:
             for component in pc:
                 if counter < 4:
                     onePCScore += component[2]
-                    # print(onePCScore)
                     counter += 1
                 elif counter == 4:
                     if highestRecordedScore <= onePCScore:
                         highestRecordedScore = onePCScore
-                        highScorePC = pc
+                        highScorePC.append(pc)
+                        highScorePC.append(onePCScore)
                         onePCScore = 0
                     else:
                         onePCScore = 0
