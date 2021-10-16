@@ -3,6 +3,15 @@
         <title>Logic Test</title>
     </head>
     <body>
+        <form action="/test" method="POST">
+            <table>
+                <tr>
+                    <td>Enter Your  Budget: </td>
+                    <td><input type="number" name="budget"></td>
+                    <td><input type="submit" ></td>
+                </tr>
+            </table>
+        </form>
         {% for list in data %}
             <p>{{list}}</p>
         {% endfor %}
