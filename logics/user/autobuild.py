@@ -90,14 +90,13 @@ def highscoreincpu(leastpclist):
         for component in pc:
             if counter < 4:
                 onePCScore += component[2]
-                if counter == 0 :
+                if counter == 0:
                     onecpuscore = component[2]
                 counter += 1
             elif counter == 4:
                 if highestRecordedCPUScore <= onecpuscore:
                     highestRecordedCPUScore = onecpuscore
                     highCPUScorePC.append(pc)
-                    highCPUScorePC.append(onecpuscore)
                     onecpuscore = 0
                 else:
                     onecpuscore = 0
@@ -106,11 +105,51 @@ def highscoreincpu(leastpclist):
 
 
 def highscoreinram(leastpclist):
-    return ['not defined for ram']
+    counter = 0
+    onePCScore = 0
+    oneramscore = 0
+    highestRecordedRAMScore = 0
+    highRAMScorePC = []
+    for pc in leastpclist:
+        for component in pc:
+            if counter < 4:
+                onePCScore += component[2]
+                if counter == 2:
+                    oneramscore = component[2]
+                counter += 1
+            elif counter == 4:
+                if highestRecordedRAMScore <= oneramscore:
+                    highestRecordedRAMScore = oneramscore
+                    highRAMScorePC.append(pc)
+                    oneramscore = 0
+                else:
+                    oneramscore = 0
+                counter = 0
+    return highRAMScorePC[-1]
 
 
 def highscoreinhdd(leastpclist):
-    return ['not defined for hdd']
+    counter = 0
+    onePCScore = 0
+    onehddscore = 0
+    highestRecordedHDDScore = 0
+    highHDDScorePC = []
+    for pc in leastpclist:
+        for component in pc:
+            if counter < 4:
+                onePCScore += component[2]
+                if counter == 3:
+                    onehddscore = component[2]
+                counter += 1
+            elif counter == 4:
+                if highestRecordedHDDScore <= onehddscore:
+                    highestRecordedHDDScore = onehddscore
+                    highHDDScorePC.append(pc)
+                    onehddscore = 0
+                else:
+                    onehddscore = 0
+                counter = 0
+    return highHDDScorePC[-1]
 
 
 class logic:
