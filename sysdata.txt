@@ -18,7 +18,7 @@ admin
 record{pc records of user contains the user and pc table}
 session{data session}
 
-educaation
+education
 
 
 login sys{

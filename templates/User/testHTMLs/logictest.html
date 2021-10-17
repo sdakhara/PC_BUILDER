@@ -7,11 +7,28 @@
             <table>
                 <tr>
                     <td>Enter Your  Budget: </td>
-                    <td><input type="number" name="budget"></td>
+                    <td><input type="number" name="budget" ></td>
                     <td><input type="submit" ></td>
+                </tr>
+                <tr>
+                    <td><input type="checkbox" name="CPU" value="True"></td>
+                    <td><label for="CPU">CPU</label></td>
+                </tr>
+                <tr>
+                    <td><input type="checkbox" name="RAM" value="True"></td>
+                    <td><label for="RAM">RAM</label></td>
+                </tr>
+                <tr>
+                    <td><input type="checkbox" name="HDD" value="True"></td>
+                    <td><label for="HDD">HDD</label></td>
                 </tr>
             </table>
         </form>
+        <br>
+        <br>
+        <h2>-------------------------------------------------------------------------------------------------------------------</h2>
+        <h1>THIS IS YOUR COMPUTERS...!</h1>
+        <h2>-------------------------------------------------------------------------------------------------------------------</h2>
         {% for list in data %}
             <p>{{list}}</p>
         {% endfor %}
