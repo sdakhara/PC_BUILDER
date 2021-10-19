@@ -2,6 +2,7 @@ from sqlalchemy import create_engine, Column
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import sessionmaker
 from sqlalchemy.types import Integer, Float, String
+from logics.user.autobuildfunctions import *
 
 engine = create_engine("mysql+pymysql://root:@127.0.0.1:3306/logictest")
 Session = sessionmaker()
@@ -58,99 +59,6 @@ def printer(a):
 --------------------------------
     """)
 
-def highestscorepc(leastpclist):
-    counter = 0
-    onePCScore = 0
-    highestRecordedScore = 0
-    highScorePC = []
-    for pc in leastpclist:
-        for component in pc:
-            if counter < 4:
-                onePCScore += component[2]
-                counter += 1
-            elif counter == 4:
-                if highestRecordedScore <= onePCScore:
-                    highestRecordedScore = onePCScore
-                    highScorePC.append(pc)
-                    highScorePC.append(onePCScore)
-                    onePCScore = 0
-                else:
-                    onePCScore = 0
-                counter = 0
-    return highScorePC
-
-
-def highscoreincpu(leastpclist):
-    counter = 0
-    onePCScore = 0
-    onecpuscore = 0
-    highestRecordedCPUScore = 0
-    highCPUScorePC = []
-    for pc in leastpclist:
-        for component in pc:
-            if counter < 4:
-                onePCScore += component[2]
-                if counter == 0:
-                    onecpuscore = component[2]
-                counter += 1
-            elif counter == 4:
-                if highestRecordedCPUScore <= onecpuscore:
-                    highestRecordedCPUScore = onecpuscore
-                    highCPUScorePC.append(pc)
-                    onecpuscore = 0
-                else:
-                    onecpuscore = 0
-                counter = 0
-    return highCPUScorePC[-1]
-
-
-def highscoreinram(leastpclist):
-    counter = 0
-    onePCScore = 0
-    oneramscore = 0
-    highestRecordedRAMScore = 0
-    highRAMScorePC = []
-    for pc in leastpclist:
-        for component in pc:
-            if counter < 4:
-                onePCScore += component[2]
-                if counter == 2:
-                    oneramscore = component[2]
-                counter += 1
-            elif counter == 4:
-                if highestRecordedRAMScore <= oneramscore:
-                    highestRecordedRAMScore = oneramscore
-                    highRAMScorePC.append(pc)
-                    oneramscore = 0
-                else:
-                    oneramscore = 0
-                counter = 0
-    return highRAMScorePC[-1]
-
-
-def highscoreinhdd(leastpclist):
-    counter = 0
-    onePCScore = 0
-    onehddscore = 0
-    highestRecordedHDDScore = 0
-    highHDDScorePC = []
-    for pc in leastpclist:
-        for component in pc:
-            if counter < 4:
-                onePCScore += component[2]
-                if counter == 3:
-                    onehddscore = component[2]
-                counter += 1
-            elif counter == 4:
-                if highestRecordedHDDScore <= onehddscore:
-                    highestRecordedHDDScore = onehddscore
-                    highHDDScorePC.append(pc)
-                    onehddscore = 0
-                else:
-                    onehddscore = 0
-                counter = 0
-    return highHDDScorePC[-1]
-
 
 class logic:
     def buildpc(self, budget, CPUneed = False, RAMneed = False, HDDneed = False):
@@ -176,8 +84,7 @@ class logic:
                                 tempRemainBudget = budget-expected
                                 remainingBudgets.append(tempRemainBudget)
                                 cpulist = [cpu.cpuID, cpu.cpuName, cpu.cpuScore, cpu.Price]
-                                boardlist = [motherboard.boardID, motherboard.boardName, motherboard.boardScore,
-                                             motherboard.Price]
+                                boardlist = [motherboard.boardID, motherboard.boardName, motherboard.boardScore, motherboard.Price]
                                 ramlist = [ram.ramID, ram.ramName, ram.ramScore, ram.Price]
                                 hddlist = [hdd.hddID, hdd.hddName, hdd.hddScore, hdd.Price]
                                 remainingBudget = [tempRemainBudget]
@@ -187,12 +94,5 @@ class logic:
         for result in resultNotZero:
             if result[-1][0] == remainingBudgets[0]:
                 least.append(result)
-
-        if CPUneed:
-            return highscoreincpu(least)
-        elif RAMneed:
-            return highscoreinram(least)
-        elif HDDneed:
-            return highscoreinhdd(least)
-        else:
-            return highestscorepc(least)
+        return pcwithfilter(least, CPUneed, RAMneed, HDDneed)
+        # return highestscorepc(least)
