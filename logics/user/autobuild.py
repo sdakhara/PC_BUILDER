@@ -2,6 +2,7 @@ from sqlalchemy import create_engine, Column
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import sessionmaker
 from sqlalchemy.types import Integer, Float, String
+from logics.user.autobuildfunctions import *
 
 engine = create_engine("mysql+pymysql://root:@127.0.0.1:3306/logictest")
 Session = sessionmaker()
@@ -60,7 +61,7 @@ def printer(a):
 
 
 class logic:
-    def buildpc(self, budget):
+    def buildpc(self, budget, CPUneed = False, RAMneed = False, HDDneed = False):
         remainingBudgets = []
         resultZero = []
         resultNotZero = []
@@ -83,8 +84,7 @@ class logic:
                                 tempRemainBudget = budget-expected
                                 remainingBudgets.append(tempRemainBudget)
                                 cpulist = [cpu.cpuID, cpu.cpuName, cpu.cpuScore, cpu.Price]
-                                boardlist = [motherboard.boardID, motherboard.boardName, motherboard.boardScore,
-                                             motherboard.Price]
+                                boardlist = [motherboard.boardID, motherboard.boardName, motherboard.boardScore, motherboard.Price]
                                 ramlist = [ram.ramID, ram.ramName, ram.ramScore, ram.Price]
                                 hddlist = [hdd.hddID, hdd.hddName, hdd.hddScore, hdd.Price]
                                 remainingBudget = [tempRemainBudget]
@@ -94,22 +94,5 @@ class logic:
         for result in resultNotZero:
             if result[-1][0] == remainingBudgets[0]:
                 least.append(result)
-        counter = 0
-        onePCScore = 0
-        highestRecordedScore = 0
-        highScorePC = []
-        for pc in least:
-            for component in pc:
-                if counter < 4:
-                    onePCScore += component[2]
-                    # print(onePCScore)
-                    counter += 1
-                elif counter == 4:
-                    if highestRecordedScore <= onePCScore:
-                        highestRecordedScore = onePCScore
-                        highScorePC = pc
-                        onePCScore = 0
-                    else:
-                        onePCScore = 0
-                    counter = 0
-        return highScorePC
+        return pcwithfilter(least, CPUneed, RAMneed, HDDneed)
+        # return highestscorepc(least)
