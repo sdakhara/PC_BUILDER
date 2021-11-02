@@ -79,26 +79,50 @@ class logic:
         gpuData = db.query(gpudata).all()
         ramData = db.query(ramdata).all()
         hddData = db.query(hdddata).all()
-        for cpu in cpuData:
-            for motherboard in boardData:
-                for ram in ramData:
-                    for hdd in hddData:
-                        expected = cpu.Price + motherboard.Price + ram.Price + hdd.Price
-                        if expected == budget:
+        if not GPUneed:
+            for cpu in cpuData:
+                for motherboard in boardData:
+                    for ram in ramData:
+                        for hdd in hddData:
                             expected = cpu.Price + motherboard.Price + ram.Price + hdd.Price
-                            # print(cpu, motherboard, ram, hdd, cabinet,"this is 0")
-                            resultZero.append([cpu.cpuID, motherboard.boardID, ram.ramID, hdd.hddID])
-                            break
-                        else:
-                            if (expected < budget):
-                                tempRemainBudget = budget-expected
-                                remainingBudgets.append(tempRemainBudget)
-                                cpulist = [cpu.cpuID, cpu.cpuName, cpu.cpuScore, cpu.Price]
-                                boardlist = [motherboard.boardID, motherboard.boardName, motherboard.boardScore, motherboard.Price]
-                                ramlist = [ram.ramID, ram.ramName, ram.ramScore, ram.Price]
-                                hddlist = [hdd.hddID, hdd.hddName, hdd.hddScore, hdd.Price]
-                                remainingBudget = [tempRemainBudget]
-                                resultNotZero.append([cpulist, boardlist, ramlist, hddlist, remainingBudget])
+                            if expected == budget:
+                                expected = cpu.Price + motherboard.Price + ram.Price + hdd.Price
+                                # print(cpu, motherboard, ram, hdd, cabinet,"this is 0")
+                                resultZero.append([cpu.cpuID, motherboard.boardID, ram.ramID, hdd.hddID])
+                                break
+                            else:
+                                if (expected < budget):
+                                    tempRemainBudget = budget-expected
+                                    remainingBudgets.append(tempRemainBudget)
+                                    cpulist = [cpu.cpuID, cpu.cpuName, cpu.cpuScore, cpu.Price]
+                                    boardlist = [motherboard.boardID, motherboard.boardName, motherboard.boardScore, motherboard.Price]
+                                    ramlist = [ram.ramID, ram.ramName, ram.ramScore, ram.Price]
+                                    hddlist = [hdd.hddID, hdd.hddName, hdd.hddScore, hdd.Price]
+                                    remainingBudget = [tempRemainBudget]
+                                    resultNotZero.append([cpulist, boardlist, ramlist, hddlist, remainingBudget])
+        if GPUneed:
+            for cpu in cpuData:
+                for motherboard in boardData:
+                    for ram in ramData:
+                        for hdd in hddData:
+                            for gpu in gpuData:
+                                expected = cpu.Price + motherboard.Price + ram.Price + hdd.Price + gpu.Price
+                                if expected == budget:
+                                    expected = cpu.Price + motherboard.Price + ram.Price + hdd.Price + gpu.Price
+                                    # print(cpu, motherboard, ram, hdd, cabinet,"this is 0")
+                                    resultZero.append([cpu.cpuID, motherboard.boardID, ram.ramID, hdd.hddID, gpu.gpuID])
+                                    break
+                                else:
+                                    if (expected < budget):
+                                        tempRemainBudget = budget-expected
+                                        remainingBudgets.append(tempRemainBudget)
+                                        cpulist = [cpu.cpuID, cpu.cpuName, cpu.cpuScore, cpu.Price]
+                                        boardlist = [motherboard.boardID, motherboard.boardName, motherboard.boardScore, motherboard.Price]
+                                        ramlist = [ram.ramID, ram.ramName, ram.ramScore, ram.Price]
+                                        hddlist = [hdd.hddID, hdd.hddName, hdd.hddScore, hdd.Price]
+                                        gpulist = [gpu.gpuID, gpu.gpuName, gpu.gpuScore, gpu.Price]
+                                        remainingBudget = [tempRemainBudget]
+                                        resultNotZero.append([cpulist, boardlist, ramlist, hddlist, gpulist, remainingBudget])
         remainingBudgets.sort()
         least = []
         for result in resultNotZero:
@@ -106,3 +130,4 @@ class logic:
                 least.append(result)
         return pcwithfilter(least, CPUneed, RAMneed, HDDneed, GPUneed)
         # return highestscorepc(least)
+        # return least

@@ -17,6 +17,7 @@ def index():
 def test():
     budget = 0
     cpu = 0
+    gpu = 0
     ram = 0
     hdd = 0
     if request.method == 'POST':
