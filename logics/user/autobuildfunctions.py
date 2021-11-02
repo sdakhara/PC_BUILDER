@@ -1,22 +1,7 @@
 
-# 1. Retuens the pc with the highest score of one pc
-# 2. Retuens the PC with highest score in CPU only
-# 3. Returns the PC with highest score in RAM only
-# 4. Returns the PC with the highest score in HDD only
-
 # total 3 needs ram and cpu=1, cpu and hdd=2, hdd and ram=3
-def multipleneed(leastpclist, needs=0):
-    if needs == 0:
-        pcwithfilter(leastpclist)
-    if needs == 1:
-        pass
-    if needs == 2:
-        pass
-    if needs == 3:
-        pass
-
 # returns the pc with the filters
-def pcwithfilter(leastpclist, cpuneed=False, ramneed=False, hddneed=False):
+def pcwithfilter(leastpclist, cpuneed=False, ramneed=False, hddneed=False, gpuneed=False):
     counter = 0
     onescore = 0
     highestscore = 0

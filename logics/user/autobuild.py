@@ -19,6 +19,15 @@ class cpudata(Base):
     Price = Column(Integer)
 
 
+class gpudata(Base):
+    __tablename__ = 'gpudata'
+
+    gpuID = Column(Integer, primary_key=True)
+    gpuName = Column(String)
+    gpuScore = Column(Float)
+    Price = Column(Integer)
+
+
 class boarddata(Base):
     __tablename__ = 'boarddata'
 
@@ -61,12 +70,13 @@ def printer(a):
 
 
 class logic:
-    def buildpc(self, budget, CPUneed = False, RAMneed = False, HDDneed = False):
+    def buildpc(self, budget, CPUneed = False, RAMneed = False, HDDneed = False, GPUneed = False):
         remainingBudgets = []
         resultZero = []
         resultNotZero = []
         cpuData = db.query(cpudata).all()
         boardData = db.query(boarddata).all()
+        gpuData = db.query(gpudata).all()
         ramData = db.query(ramdata).all()
         hddData = db.query(hdddata).all()
         for cpu in cpuData:
@@ -94,5 +104,5 @@ class logic:
         for result in resultNotZero:
             if result[-1][0] == remainingBudgets[0]:
                 least.append(result)
-        return pcwithfilter(least, CPUneed, RAMneed, HDDneed)
+        return pcwithfilter(least, CPUneed, RAMneed, HDDneed, GPUneed)
         # return highestscorepc(least)

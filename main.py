@@ -24,8 +24,9 @@ def test():
         cpu = request.form.get('CPU')
         ram = request.form.get('RAM')
         hdd = request.form.get('HDD')
-    #     hhhh
-    return render_template('User/testHTMLs/logictest.html', data=logic.buildpc(int(budget), bool(cpu), bool(ram), bool(hdd)))
+        gpu = request.form.get('GPU')
+    #
+    return render_template('User/testHTMLs/logictest.html', data=logic.buildpc(int(budget), bool(cpu), bool(ram), bool(hdd), bool(gpu)))
 
 
 if __name__ == '__main__':
