@@ -54,19 +54,7 @@ class hdddata(Base):
     Price = Column(Integer)
 
 
-def printer(a):
-    print(f"""
-    CPU ID: {a[0]}
-    CPU Price: {a[1]}
-    Board ID: {a[2]}
-    Board Price: {a[3]}
-    RAM ID: {a[4]}
-    RAM Price: {a[5]}
-    HDD ID: {a[6]}
-    HDD Price: {a[7]}
-    Remaining Budget: {a[8]}
---------------------------------
-    """)
+
 
 
 class logic:

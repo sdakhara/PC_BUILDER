@@ -5,7 +5,7 @@ def pcwithfilter(leastpclist, cpuneed=False, ramneed=False, hddneed=False, gpune
     counter = 0
     onescore = 0
     highestscore = 0
-    finalpc = []
+    finalpclist = []
     if not gpuneed:
         for pc in leastpclist:
             for component in pc:
@@ -39,10 +39,13 @@ def pcwithfilter(leastpclist, cpuneed=False, ramneed=False, hddneed=False, gpune
                 elif counter == 4:
                     if highestscore <= onescore:
                         highestscore = onescore
-                        finalpc.append(pc)
+                        finalpclist.append(pc)
                         onescore = 0
                     else:
                         onescore = 0
                     counter = 0
-    
-    return finalpc[-1]
+    if finalpclist[-1]:
+        return finalpclist[-1]
+    else:
+        return 0
+
