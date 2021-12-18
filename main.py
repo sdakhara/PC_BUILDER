@@ -17,7 +17,7 @@ def index():
 def test():
     budget = 0
     cpu = 0
-    ram = 0
+    ram = 00
     hdd = 0
     if request.method == 'POST':
         budget = request.form.get('budget')

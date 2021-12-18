@@ -59,4 +59,4 @@ def pcwithfilter(leastpclist, cpuneed=False, ramneed=False, hddneed=False):
                     onescore = 0
                 counter = 0
 
-    return finalpc[-1]
+    return finalpc
