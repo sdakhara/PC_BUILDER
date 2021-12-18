@@ -14,7 +14,15 @@ def countVisitor():
     counterFile.write(str(total))
     counterFile.close()
 
-
+# count build
+"""
+create = 0
+@app.before_request
+def countBuild():
+    global create
+    create = create + # pass variable to build button
+    print()
+"""
 
 @app.route('/getip')
 def getIP():
