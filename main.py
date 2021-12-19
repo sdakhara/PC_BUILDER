@@ -17,19 +17,15 @@ def index():
 def test():
     budget = 0
     cpu = 0
-    gpu = 0
     ram = 0
     hdd = 0
-    data = []
     if request.method == 'POST':
         budget = request.form.get('budget')
         cpu = request.form.get('CPU')
         ram = request.form.get('RAM')
         hdd = request.form.get('HDD')
-        gpu = request.form.get('GPU')
-        data = logic.buildpc(int(budget), bool(cpu), bool(ram), bool(hdd), bool(gpu))
-    #
-    return render_template('User/testHTMLs/logictest.html', data=data)
+    #     hhhh
+    return render_template('User/testHTMLs/logictest.html', data=logic.buildpc(int(budget), bool(cpu), bool(ram), bool(hdd)))
 
 
 if __name__ == '__main__':
