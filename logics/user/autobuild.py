@@ -2,7 +2,6 @@ from sqlalchemy import create_engine, Column
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import sessionmaker
 from sqlalchemy.types import Integer, Float, String
-from logics.user.autobuildfunctions import *
 
 engine = create_engine("mysql+pymysql://root:@127.0.0.1:3306/logictest")
 Session = sessionmaker()
@@ -59,6 +58,60 @@ def printer(a):
 --------------------------------
     """)
 
+def highestscorepc(leastpclist):
+    counter = 0
+    onePCScore = 0
+    highestRecordedScore = 0
+    highScorePC = []
+    for pc in leastpclist:
+        for component in pc:
+            if counter < 4:
+                onePCScore += component[2]
+                counter += 1
+            elif counter == 4:
+                if highestRecordedScore <= onePCScore:
+                    highestRecordedScore = onePCScore
+                    highScorePC.append(pc)
+                    highScorePC.append(onePCScore)
+                    onePCScore = 0
+                else:
+                    onePCScore = 0
+                counter = 0
+    return highScorePC
+
+
+def highscoreincpu(leastpclist):
+    counter = 0
+    onePCScore = 0
+    onecpuscore = 0
+    highestRecordedCPUScore = 0
+    highCPUScorePC = []
+    for pc in leastpclist:
+        for component in pc:
+            if counter < 4:
+                onePCScore += component[2]
+                if counter == 0 :
+                    onecpuscore = component[2]
+                counter += 1
+            elif counter == 4:
+                if highestRecordedCPUScore <= onecpuscore:
+                    highestRecordedCPUScore = onecpuscore
+                    highCPUScorePC.append(pc)
+                    highCPUScorePC.append(onecpuscore)
+                    onecpuscore = 0
+                else:
+                    onecpuscore = 0
+                counter = 0
+    return highCPUScorePC[-1]
+
+
+def highscoreinram(leastpclist):
+    return ['not defined for ram']
+
+
+def highscoreinhdd(leastpclist):
+    return ['not defined for hdd']
+
 
 class logic:
     def buildpc(self, budget, CPUneed = False, RAMneed = False, HDDneed = False):
@@ -84,7 +137,8 @@ class logic:
                                 tempRemainBudget = budget-expected
                                 remainingBudgets.append(tempRemainBudget)
                                 cpulist = [cpu.cpuID, cpu.cpuName, cpu.cpuScore, cpu.Price]
-                                boardlist = [motherboard.boardID, motherboard.boardName, motherboard.boardScore, motherboard.Price]
+                                boardlist = [motherboard.boardID, motherboard.boardName, motherboard.boardScore,
+                                             motherboard.Price]
                                 ramlist = [ram.ramID, ram.ramName, ram.ramScore, ram.Price]
                                 hddlist = [hdd.hddID, hdd.hddName, hdd.hddScore, hdd.Price]
                                 remainingBudget = [tempRemainBudget]
@@ -94,5 +148,12 @@ class logic:
         for result in resultNotZero:
             if result[-1][0] == remainingBudgets[0]:
                 least.append(result)
-        return pcwithfilter(least, CPUneed, RAMneed, HDDneed)
-        # return highestscorepc(least)
+
+        if CPUneed:
+            return highscoreincpu(least)
+        elif RAMneed:
+            return highscoreinram(least)
+        elif HDDneed:
+            return highscoreinhdd(least)
+        else:
+            return highestscorepc(least)
