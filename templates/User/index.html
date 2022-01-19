@@ -16,7 +16,7 @@
 <body>
 
     <!-- Nav-Bar (Header)  -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-transperent fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-transperent fixed-top" id="Navbar">
         <div class="container-fluid" id="container-fluid">
             <a class="navbar-brand" href="#"><img src="{{url_for('static', filename='User/IMG/PCB-LOGO.png')}}" alt="" width="60"></a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -66,50 +66,90 @@
         </div>
 
         <div class="card-group">
-            <div class="card">
+            <div class="card explore-crd">
                 <div class="card-body">
-                    <h5 class="card-title">Card title</h5>
-                    <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                    <h5 class="card-title">
+                    <img src="{{url_for('static', filename='User/IMG/build.png')}}" alt="" class="cards-icons">
+                    Build PC</h5>
+                    <p class="card-text">Build your PC by adding components.</p>
+                    <a href='/buildpc'><button type="button" class="btn btn-outline-pcb">BUILD NOW</button></a>
                 </div>
             </div>
 
-            <div class="card">
+            <div class="card explore-crd">
                 <div class="card-body">
-                    <h5 class="card-titl/e">Card title</h5>
-                    <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>
-                </div>
-            </div>
-
-            <div class="card">
-                <div class="card-body">
-                    <h5 class="card-titl/e">Card title</h5>
-                    <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>
+                    <h5 class="card-titl/e">
+                        <img src="{{url_for('static', filename='User/IMG/customize.png')}}" alt="" class="cards-icons">
+                        Customize</h5>
+                    <p class="card-text">Customize the Build which Builded previously.</p>
+                    <button type="button" class="btn btn-outline-pcb">CUSTOMIZE</button>
                 </div>
             </div>
         </div>
 
         <div class="card-group">
-            <div class="card">
+            <div class="card explore-crd">
                 <div class="card-body">
-                    <h5 class="card-title">Card title</h5>
-                    <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                    <h5 class="card-title">
+                        <img src="{{url_for('static', filename='User/IMG/search-components.png')}}" alt="" class="cards-icons">
+                        Search Components</h5>
+                    <p class="card-text">Search the components which you are looking for.</p>
+                    <button type="button" class="btn btn-outline-pcb">SEARCH</button>
                 </div>
             </div>
 
-            <div class="card">
+            <div class="card explore-crd">
                 <div class="card-body">
-                    <h5 class="card-title">Card title</h5>
-                    <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                </div>
-            </div>
-
-            <div class="card">
-                <div class="card-body">
-                    <h5 class="card-titl/e">Card title</h5>
-                    <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>
+                    <h5 class="card-titl/e">
+                        <img src="{{url_for('static', filename='User/IMG/auto-build.png')}}" alt="" class="cards-icons">
+                        Auto Build</h5>
+                    <p class="card-text">Build PC by just entering your budget & needs</p>
+                    <button type="button" class="btn btn-outline-pcb">AUTO BUILD</button>
                 </div>
             </div>
         </div>
+
+        <div class="card-group">
+            <div class="card explore-crd">
+                <div class="card-body">
+                    <h5 class="card-title">
+                        <img src="{{url_for('static', filename='User/IMG/build-guide.png')}}" alt="" class="cards-icons">
+                        Build Guide</h5>
+                    <p class="card-text">Read Build Guide if you dont have enough knowledge about pc build.</p>
+                    <button type="button" class="btn btn-outline-pcb">READ GUIDE</button>
+                </div>
+            </div>
+
+            <div class="card explore-crd">
+                <div class="card-body">
+                    <h5 class="card-titl/e">
+                        <img src="{{url_for('static', filename='User/IMG/second-hand-pc.png')}}" alt="" class="cards-icons">
+                        Second Hand PC</h5>
+                    <p class="card-text">Buy Second hand PC & Sell PC</p>
+                    <button type="button" class="btn btn-outline-pcb">BUY / SELL</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="card-group">
+            <div class="card explore-crd">
+                <div class="card-body">
+                    <h5 class="card-title">
+                        <img src="{{url_for('static', filename='User/IMG/users-build.png')}}" alt="" class="cards-icons">
+                        Users Build</h5>
+                    <p class="card-text">View & Rate other users PC Builds</p>
+                    <button type="button" class="btn btn-outline-pcb">VIEW / RATE</button>
+                </div>
+            </div>
+
+            <div class="card explore-crd">
+                <div class="card-body">
+                    <h5 class="card-titl/e">Other...</h5>
+                    <p class="card-text">st to show that equal height action.</p>
+                </div>
+            </div>
+        </div>
+        
     </div>
 
 </body>

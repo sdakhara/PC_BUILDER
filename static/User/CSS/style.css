@@ -51,6 +51,32 @@
 
 /* -----------    Explore Section End     -----------*/
 
+/* -----------    build pc Section     -----------*/
+
+.build-pc-heading {
+    color: #fff;
+    text-align: center;
+    font-family: "Titillium Web", sans-serif;
+    font-style: italic;
+    position: relative;
+    margin-top: 5rem;
+}
+
+.build-pc-heading::after {
+    content: "";
+    position: absolute;
+    display: block;
+    width: 12rem;
+    background-color: #6f00ff;
+    height: 5px;
+    left: 50%;
+    bottom: -20%;
+    transform: translateX(-50%);
+}
+
+
+/* -----------    Explore Section End     -----------*/
+
 .active::after {
     height: 5px;
     content: "";
@@ -186,11 +212,67 @@ nav .navbar-toggler {
     margin: 2rem;
 }
 
+.card-body {
+    color: #fff;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.explore-crd {
+    background-color: #212529 !important;
+    border-radius: 0.5em !important;
+}
+
+.cards-icons {
+    width: 2rem;
+    margin-right: 5px;
+}
+
+/* -----------      buildpc style      -----------*/
+
+.build-pc-section {
+    margin-top: 2rem;
+}
+
+.pc-bucket {
+    width: 55rem;
+    margin-top: 1.5rem;
+}
+
+.components-notice {
+    width: 80rem;
+    color: white;
+    background-color: #212529 !important;
+    text-align: center;
+    border-radius: 0.3em;
+}
+
+#pc-component-note-span {
+    color: #6f00ff;
+}
+
+.select-component-box {
+    color: white;
+}
+
+.pc-bucket .card {
+    border-radius: 0.5em;
+    margin: 1rem;
+}
+
+
+/* -----------      buildpc style end      -----------*/
+
+
+
+
 
 /* -----------      Animations      -----------*/
 
 
 /* -----------      Media Query      -----------*/
+
 
 @media screen and (max-width: 991px) {
     .nav-list {
