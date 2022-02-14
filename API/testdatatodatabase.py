@@ -100,6 +100,4 @@ cpucounter = 3
 oddcounter = 1
 while oddcounter <= 25:
     if oddcounter % 2 == 0:  # if addcounter%2==0 the processor will be the intel else processor is AMD
-        id = cpuid + str(oddcounter)
-        name = intel
-        model = intelmodel + str(cpucounter)
+        pass
