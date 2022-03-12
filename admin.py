@@ -2,6 +2,8 @@ from flask import Flask, render_template, jsonify, request
 
 app = Flask(__name__)
 
+# visitor counter
+
 counter = 0
 @app.before_request
 def countVisitor():
@@ -11,6 +13,17 @@ def countVisitor():
     counterFile = open('counter.txt', 'w')
     counterFile.write(str(total))
     counterFile.close()
+
+# count build
+"""
+create = 0
+@app.before_request
+def countBuild():
+    global create
+    create = create + # pass variable to build button
+    print()
+"""
+
 @app.route('/getip')
 def getIP():
     return jsonify({"ip":request.remote_addr, 'user':request.remote_user})
