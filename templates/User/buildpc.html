@@ -55,7 +55,7 @@
     <div class="build-pc-div">
         <h1 class="build-pc-heading">Build PC</h1>
     </div>
-    
+
 
 
     <div class="build-pc-section">
@@ -65,130 +65,1006 @@
 
 
 
-            <!-- 1 -->
-            <div class="card-group">
-                <div class="card bg-dark select-component-box" style="height: 8rem;">
-                    <div class="card-body">
-                        <h5 class="card-title">CPU</h5>
-                                            <button type="button" class="btn btn-outline-pcb" data-bs-toggle="modal" data-bs-target="#exampleModal">+ Add</button>
-                                            <!-- Modal -->
-                                        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                            <div class="modal-dialog">
-                                            <div class="modal-content">
-                                                <div class="modal-header">
-                                                <h5 class="modal-title text-dark" id="exampleModalLabel">Select CPU</h5>
-                                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                                </div>
-                                                <div class="modal-body">
+        <!-- 1 -->
+        <div class="card-group">
+            <div class="card bg-dark select-component-box" style="height: 8rem;">
+                <div class="card-body">
+                    <h5 class="card-title">CPU</h5>
+                    <button type="button" class="btn btn-outline-pcb" data-bs-toggle="modal"
+                        data-bs-target="#exampleModal-1">+ Add</button>
+                    <!-- Modal -->
+                    <div class="modal fade" id="exampleModal-1" tabindex="-1" aria-labelledby="exampleModalLabel"
+                        aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title text-dark" id="exampleModalLabel">Select CPU</h5>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                        aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
 
-                                                      <div class="row d-flex justify-content-center">
-                                                        <div class="col-md-4">
-                                                            <div class="input-group">
-                                                              <span class="input-group-text">Min ₹</span>
-                                                              <input type="text" class="form-control"aria-describedby="inputGroupPrepend2">
-                                                            </div>
-                                                          </div>
-                                                        <div class="col-md-4">
-                                                            <div class="input-group">
-                                                              <span class="input-group-text">Max ₹</span>
-                                                              <input type="text" class="form-control"aria-describedby="inputGroupPrepend2">
-                                                            </div>
-                                                          </div>
-                                                      </div>
-                                                </div>
-                                                <div class="modal-footer">
-                                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                                <button type="button" class="btn btn-primary">Apply</button>
-                                                </div>
-                                            </div>
+                                    <div class="row d-flex justify-content-center">
+                                        <div class="col-md-4">
+                                            <div class="input-group">
+                                                <span class="input-group-text">Min ₹</span>
+                                                <input type="text" class="form-control"
+                                                    aria-describedby="inputGroupPrepend2">
                                             </div>
                                         </div>
-                    </div>
-                  </div> 
-                  
-
-                <div class="card bg-dark select-component-box" style="height: 8rem;">
-                    <div class="card-body">
-                        <h5 class="card-title">CPU Cooler</h5>
-                        <button type="button" class="btn btn-outline-pcb" data-bs-toggle="modal" data-bs-target="#exampleModal">+ Add</button>
-                                            <!-- Modal -->
-                                        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                            <div class="modal-dialog">
-                                            <div class="modal-content">
-                                                <div class="modal-header">
-                                                <h5 class="modal-title text-dark" id="exampleModalLabel">Modal title</h5>
-                                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                                </div>
-                                                <div class="modal-body">
-                                                    
-                                                </div>
-                                                <div class="modal-footer">
-                                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                                <button type="button" class="btn btn-primary">Apply</button>
-                                                </div>
-                                            </div>
+                                        <div class="col-md-4">
+                                            <div class="input-group">
+                                                <span class="input-group-text">Max ₹</span>
+                                                <input type="text" class="form-control"
+                                                    aria-describedby="inputGroupPrepend2">
                                             </div>
                                         </div>
+                                    </div>
+
+                                    <div class="border border-black mt-2">
+                                        <p class="text-dark fw-bold">Core Selection</p>
+
+
+                                        <div class="core-row-1">
+                                            <div class="form-check form-check-inline">
+                                                <input class="form-check-input" type="checkbox" id="inlineCheckbox1"
+                                                    value="option1">
+                                                <label class="form-check-label text-dark"
+                                                    for="inlineCheckbox1">Single</label>
+                                            </div>
+                                            <div class="form-check form-check-inline">
+                                                <input class="form-check-input" type="checkbox" id="inlineCheckbox2"
+                                                    value="option2">
+                                                <label class="form-check-label text-dark"
+                                                    for="inlineCheckbox2">Dual</label>
+                                            </div>
+                                            <div class="form-check form-check-inline">
+                                                <input class="form-check-input" type="checkbox" id="inlineCheckbox3"
+                                                    value="option3">
+                                                <label class="form-check-label text-dark"
+                                                    for="inlineCheckbox3">Triple</label>
+                                            </div>
+                                        </div>
+
+                                        <div class="core-row-2">
+                                            <div class="form-check form-check-inline">
+                                                <input class="form-check-input" type="checkbox" id="inlineCheckbox1"
+                                                    value="option1">
+                                                <label class="form-check-label text-dark"
+                                                    for="inlineCheckbox1">Quad</label>
+                                            </div>
+                                            <div class="form-check form-check-inline">
+                                                <input class="form-check-input" type="checkbox" id="inlineCheckbox2"
+                                                    value="option2">
+                                                <label class="form-check-label text-dark"
+                                                    for="inlineCheckbox2">Hexa</label>
+                                            </div>
+                                            <div class="form-check form-check-inline">
+                                                <input class="form-check-input" type="checkbox" id="inlineCheckbox3"
+                                                    value="option3">
+                                                <label class="form-check-label text-dark"
+                                                    for="inlineCheckbox3">Octa</label>
+                                            </div>
+                                        </div>
+
+                                    </div>
+
+                                    <div class="border border-black mt-2">
+                                        <p class="text-dark fw-bold">Brand Selection</p>
+
+
+                                        <div class="brand-row-1">
+                                            <div class="form-check form-check-inline">
+                                                <input class="form-check-input" type="checkbox" id="inlineCheckbox1"
+                                                    value="option1">
+                                                <label class="form-check-label text-dark"
+                                                    for="inlineCheckbox1">AMD</label>
+                                            </div>
+                                            <div class="form-check form-check-inline">
+                                                <input class="form-check-input" type="checkbox" id="inlineCheckbox2"
+                                                    value="option2">
+                                                <label class="form-check-label text-dark"
+                                                    for="inlineCheckbox2">Intel</label>
+                                            </div>
+                                            <div class="form-check form-check-inline">
+                                                <input class="form-check-input" type="checkbox" id="inlineCheckbox3"
+                                                    value="option3">
+                                                <label class="form-check-label text-dark"
+                                                    for="inlineCheckbox3">Other</label>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary"
+                                        data-bs-dismiss="modal">Close</button>
+                                    <button type="button" class="btn btn-primary">Apply</button>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
-            <!-- 1 end --> 
 
 
+            <div class="card bg-dark select-component-box" style="height: 8rem;">
+                <div class="card-body">
+                    <h5 class="card-title">CPU Cooler</h5>
+                    <button type="button" class="btn btn-outline-pcb" data-bs-toggle="modal"
+                        data-bs-target="#exampleModal-2">+ Add</button>
+                    <!-- Modal -->
+                    <div class="modal fade" id="exampleModal-2" tabindex="-1" aria-labelledby="exampleModalLabel"
+                        aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title text-dark" id="exampleModalLabel">Select CPU Cooler</h5>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                        aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
 
-            <!-- 2 -->
-            <div class="card-group">
-                <div class="card bg-dark select-component-box" style="height: 8rem;">
-                    <div class="card-body">
-                        <h5 class="card-title">RAM</h5>
-                        <a href='/buildpc'><button type="button" class="btn btn-outline-pcb">+ Add</button></a>
-                    </div>
-                </div>
+                                    <div class="row d-flex justify-content-center">
+                                        <div class="col-md-4">
+                                            <div class="input-group">
+                                                <span class="input-group-text">Min ₹</span>
+                                                <input type="text" class="form-control"
+                                                    aria-describedby="inputGroupPrepend2">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <div class="input-group">
+                                                <span class="input-group-text">Max ₹</span>
+                                                <input type="text" class="form-control"
+                                                    aria-describedby="inputGroupPrepend2">
+                                            </div>
+                                        </div>
+                                    </div>
 
-                <div class="card bg-dark select-component-box" style="height: 8rem;">
-                    <div class="card-body">
-                        <h5 class="card-title">Graphics Card</h5>
-                        <a href='/buildpc'><button type="button" class="btn btn-outline-pcb">+ Add</button></a>
+                                    <div class="border border-black mt-2">
+                                        <p class="text-dark fw-bold">Brand Selection</p>
+
+
+                                        <div class="brand-row-1">
+                                            <div class="form-check form-check-inline">
+                                                <input class="form-check-input" type="checkbox" id="inlineCheckbox1"
+                                                    value="option1">
+                                                <label class="form-check-label text-dark"
+                                                    for="inlineCheckbox1">Noctua</label>
+                                            </div>
+                                            <div class="form-check form-check-inline">
+                                                <input class="form-check-input" type="checkbox" id="inlineCheckbox2"
+                                                    value="option2">
+                                                <label class="form-check-label text-dark"
+                                                    for="inlineCheckbox2">Cooler Master</label>
+                                            </div>
+                                            <div class="form-check form-check-inline">
+                                                <input class="form-check-input" type="checkbox" id="inlineCheckbox3"
+                                                    value="option3">
+                                                <label class="form-check-label text-dark"
+                                                    for="inlineCheckbox3">DeepCool</label>
+                                            </div>
+                                            <div class="form-check form-check-inline">
+                                                <input class="form-check-input" type="checkbox" id="inlineCheckbox3"
+                                                    value="option3">
+                                                <label class="form-check-label text-dark"
+                                                    for="inlineCheckbox3">Arctic</label>
+                                            </div>
+                                            <div class="form-check form-check-inline">
+                                                <input class="form-check-input" type="checkbox" id="inlineCheckbox3"
+                                                    value="option3">
+                                                <label class="form-check-label text-dark"
+                                                    for="inlineCheckbox3">Corsair</label>
+                                            </div>
+                                            <div class="form-check form-check-inline">
+                                                <input class="form-check-input" type="checkbox" id="inlineCheckbox3"
+                                                    value="option3">
+                                                <label class="form-check-label text-dark"
+                                                    for="inlineCheckbox3">Zebronics</label>
+                                            </div>
+                                            <div class="form-check form-check-inline">
+                                                <input class="form-check-input" type="checkbox" id="inlineCheckbox3"
+                                                    value="option3">
+                                                <label class="form-check-label text-dark"
+                                                    for="inlineCheckbox3">MSI</label>
+                                            </div>
+                                            <div class="form-check form-check-inline">
+                                                <input class="form-check-input" type="checkbox" id="inlineCheckbox3"
+                                                    value="option3">
+                                                <label class="form-check-label text-dark"
+                                                    for="inlineCheckbox3">AMD</label>
+                                            </div>
+                                            <div class="form-check form-check-inline">
+                                                <input class="form-check-input" type="checkbox" id="inlineCheckbox3"
+                                                    value="option3">
+                                                <label class="form-check-label text-dark"
+                                                    for="inlineCheckbox3">Intel</label>
+                                            </div>
+                                            <div class="form-check form-check-inline">
+                                                <input class="form-check-input" type="checkbox" id="inlineCheckbox3"
+                                                    value="option3">
+                                                <label class="form-check-label text-dark"
+                                                    for="inlineCheckbox3">Other</label>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary"
+                                        data-bs-dismiss="modal">Close</button>
+                                    <button type="button" class="btn btn-primary">Apply</button>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
-            <!-- 2 end -->
+        </div>
+        <!-- 1 end -->
 
-            <!-- 3 -->
-            <div class="card-group">
-                <div class="card bg-dark select-component-box" style="height: 8rem;">
-                    <div class="card-body">
-                        <h5 class="card-title">Motherboard</h5>
-                        <a href='/buildpc'><button type="button" class="btn btn-outline-pcb">+ Add</button></a>
-                    </div>
-                </div>
 
-                <div class="card bg-dark select-component-box" style="height: 8rem;">
-                    <div class="card-body">
-                        <h5 class="card-title">Storage</h5>
-                        <a href='/buildpc'><button type="button" class="btn btn-outline-pcb">+ Add</button></a>
+
+        <!-- 2 -->
+        <div class="card-group">
+            <div class="card bg-dark select-component-box" style="height: 8rem;">
+                <div class="card-body">
+                    <h5 class="card-title">RAM</h5>
+                    <button type="button" class="btn btn-outline-pcb" data-bs-toggle="modal"
+                    data-bs-target="#exampleModal-3">+ Add</button>
+                     <!-- Modal -->
+                    <div class="modal fade" id="exampleModal-3" tabindex="-1" aria-labelledby="exampleModalLabel"
+                        aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title text-dark" id="exampleModalLabel">Select RAM</h5>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                        aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+
+                                    <div class="row d-flex justify-content-center">
+                                        <div class="col-md-4">
+                                            <div class="input-group">
+                                                <span class="input-group-text">Min ₹</span>
+                                                <input type="text" class="form-control"
+                                                    aria-describedby="inputGroupPrepend2">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <div class="input-group">
+                                                <span class="input-group-text">Max ₹</span>
+                                                <input type="text" class="form-control"
+                                                    aria-describedby="inputGroupPrepend2">
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="border border-black mt-2">
+                                        <p class="text-dark fw-bold">Type Selection</p>
+
+
+                                        <div class="type-row-1">
+                                            <div class="form-check form-check-inline">
+                                                <input class="form-check-input" type="checkbox" id="inlineCheckbox1"
+                                                    value="option1">
+                                                <label class="form-check-label text-dark"
+                                                    for="inlineCheckbox1">DDR</label>
+                                            </div>
+                                            <div class="form-check form-check-inline">
+                                                <input class="form-check-input" type="checkbox" id="inlineCheckbox2"
+                                                    value="option2">
+                                                <label class="form-check-label text-dark"
+                                                    for="inlineCheckbox2">DDR-2</label>
+                                            </div>
+                                            <div class="form-check form-check-inline">
+                                                <input class="form-check-input" type="checkbox" id="inlineCheckbox3"
+                                                    value="option3">
+                                                <label class="form-check-label text-dark"
+                                                    for="inlineCheckbox3">DDR-3</label>
+                                            </div>
+                                        </div>
+
+                                        <div class="type-row-2">
+                                            <div class="form-check form-check-inline">
+                                                <input class="form-check-input" type="checkbox" id="inlineCheckbox1"
+                                                    value="option1">
+                                                <label class="form-check-label text-dark"
+                                                    for="inlineCheckbox1">DDR-4</label>
+                                            </div>
+                                            <div class="form-check form-check-inline">
+                                                <input class="form-check-input" type="checkbox" id="inlineCheckbox2"
+                                                    value="option2">
+                                                <label class="form-check-label text-dark"
+                                                    for="inlineCheckbox2">DDR-5</label>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="border border-black mt-2">
+                                        <p class="text-dark fw-bold">Brand Selection</p>
+
+
+                                        <div class="brand-row-1">
+                                            <div class="form-check form-check-inline">
+                                                <input class="form-check-input" type="checkbox" id="inlineCheckbox1"
+                                                    value="option1">
+                                                <label class="form-check-label text-dark"
+                                                    for="inlineCheckbox1">HyperX</label>
+                                            </div>
+                                            <div class="form-check form-check-inline">
+                                                <input class="form-check-input" type="checkbox" id="inlineCheckbox2"
+                                                    value="option2">
+                                                <label class="form-check-label text-dark"
+                                                    for="inlineCheckbox2">Crucial</label>
+                                            </div>
+                                            <div class="form-check form-check-inline">
+                                                <input class="form-check-input" type="checkbox" id="inlineCheckbox3"
+                                                    value="option3">
+                                                <label class="form-check-label text-dark"
+                                                    for="inlineCheckbox3">Corsair</label>
+                                            </div>
+                                            <div class="form-check form-check-inline">
+                                                <input class="form-check-input" type="checkbox" id="inlineCheckbox3"
+                                                    value="option3">
+                                                <label class="form-check-label text-dark"
+                                                    for="inlineCheckbox3">A-DATA</label>
+                                            </div>
+                                            <div class="form-check form-check-inline">
+                                                <input class="form-check-input" type="checkbox" id="inlineCheckbox3"
+                                                    value="option3">
+                                                <label class="form-check-label text-dark"
+                                                    for="inlineCheckbox3">Samsung</label>
+                                            </div>
+                                            <div class="form-check form-check-inline">
+                                                <input class="form-check-input" type="checkbox" id="inlineCheckbox3"
+                                                    value="option3">
+                                                <label class="form-check-label text-dark"
+                                                    for="inlineCheckbox3">Kingston</label>
+                                            </div>
+                                            <div class="form-check form-check-inline">
+                                                <input class="form-check-input" type="checkbox" id="inlineCheckbox3"
+                                                    value="option3">
+                                                <label class="form-check-label text-dark"
+                                                    for="inlineCheckbox3">GIGABYTE</label>
+                                            </div>
+                                            <div class="form-check form-check-inline">
+                                                <input class="form-check-input" type="checkbox" id="inlineCheckbox3"
+                                                    value="option3">
+                                                <label class="form-check-label text-dark"
+                                                    for="inlineCheckbox3">HP</label>
+                                            </div>
+                                            <div class="form-check form-check-inline">
+                                                <input class="form-check-input" type="checkbox" id="inlineCheckbox3"
+                                                    value="option3">
+                                                <label class="form-check-label text-dark"
+                                                    for="inlineCheckbox3">Acer</label>
+                                            </div>
+                                            <div class="form-check form-check-inline">
+                                                <input class="form-check-input" type="checkbox" id="inlineCheckbox3"
+                                                    value="option3">
+                                                <label class="form-check-label text-dark"
+                                                    for="inlineCheckbox3">Other</label>
+                                            </div>
+                                        </div>
+                                    </div>
+
+
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary"
+                                        data-bs-dismiss="modal">Close</button>
+                                    <button type="button" class="btn btn-primary">Apply</button>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
-            <!-- 3 end -->
 
-            <!-- 4 -->
-            <div class="card-group">
-                <div class="card bg-dark select-component-box" style="height: 8rem;">
-                    <div class="card-body">
-                        <h5 class="card-title">Video Card</h5>
-                        <a href='/buildpc'><button type="button" class="btn btn-outline-pcb">+ Add</button></a>
+            <div class="card bg-dark select-component-box" style="height: 8rem;">
+                <div class="card-body">
+                    <h5 class="card-title">Graphics Card</h5>
+                    <button type="button" class="btn btn-outline-pcb" data-bs-toggle="modal"
+                        data-bs-target="#exampleModal-4">+ Add</button>
+                         <!-- Modal -->
+                    <div class="modal fade" id="exampleModal-4" tabindex="-1" aria-labelledby="exampleModalLabel"
+                    aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title text-dark" id="exampleModalLabel">Select Graphics Card</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                    aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+
+                                <div class="row d-flex justify-content-center">
+                                    <div class="col-md-4">
+                                        <div class="input-group">
+                                            <span class="input-group-text">Min ₹</span>
+                                            <input type="text" class="form-control"
+                                                aria-describedby="inputGroupPrepend2">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="input-group">
+                                            <span class="input-group-text">Max ₹</span>
+                                            <input type="text" class="form-control"
+                                                aria-describedby="inputGroupPrepend2">
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="border border-black mt-2">
+                                    <p class="text-dark fw-bold">Interface Selection</p>
+
+
+                                    <div class="Interface-row-1">
+                                        <div class="form-check form-check-inline">
+                                            <input class="form-check-input" type="checkbox" id="inlineCheckbox1"
+                                                value="option1">
+                                            <label class="form-check-label text-dark"
+                                                for="inlineCheckbox1">PCI</label>
+                                        </div>
+                                        <div class="form-check form-check-inline">
+                                            <input class="form-check-input" type="checkbox" id="inlineCheckbox2"
+                                                value="option2">
+                                            <label class="form-check-label text-dark"
+                                                for="inlineCheckbox2">AGP</label>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                    <div class="border border-black mt-2">
+                                        <p class="text-dark fw-bold">Brand Selection</p>
+
+                                        <div class="brand-row-1">
+                                            <div class="form-check form-check-inline">
+                                                <input class="form-check-input" type="checkbox" id="inlineCheckbox1"
+                                                    value="option1">
+                                                <label class="form-check-label text-dark"
+                                                    for="inlineCheckbox1">Asus</label>
+                                            </div>
+                                            <div class="form-check form-check-inline">
+                                                <input class="form-check-input" type="checkbox" id="inlineCheckbox2"
+                                                    value="option2">
+                                                <label class="form-check-label text-dark"
+                                                    for="inlineCheckbox2">Zotac</label>
+                                            </div>
+                                            <div class="form-check form-check-inline">
+                                                <input class="form-check-input" type="checkbox" id="inlineCheckbox3"
+                                                    value="option3">
+                                                <label class="form-check-label text-dark"
+                                                    for="inlineCheckbox3">Gigabyte</label>
+                                            </div>
+                                        </div>
+
+                                        <div class="brand-row-2">
+                                            <div class="form-check form-check-inline">
+                                                <input class="form-check-input" type="checkbox" id="inlineCheckbox1"
+                                                    value="option1">
+                                                <label class="form-check-label text-dark"
+                                                    for="inlineCheckbox1">MSI</label>
+                                            </div>
+                                            <div class="form-check form-check-inline">
+                                                <input class="form-check-input" type="checkbox" id="inlineCheckbox2"
+                                                    value="option2">
+                                                <label class="form-check-label text-dark"
+                                                    for="inlineCheckbox2">Nvidia</label>
+                                            </div>
+                                            <div class="form-check form-check-inline">
+                                                <input class="form-check-input" type="checkbox" id="inlineCheckbox3"
+                                                    value="option3">
+                                                <label class="form-check-label text-dark"
+                                                    for="inlineCheckbox3">Other</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary"
+                                    data-bs-dismiss="modal">Close</button>
+                                <button type="button" class="btn btn-primary">Apply</button>
+                            </div>
+                        </div>
                     </div>
                 </div>
+                </div>
+            </div>
+        </div>
+        <!-- 2 end -->
 
-                <div class="card bg-dark select-component-box" style="height: 8rem;">
-                    <div class="card-body">
-                        <h5 class="card-title">Power Supply</h5>
-                        <a href='/buildpc'><button type="button" class="btn btn-outline-pcb">+ Add</button></a>
+        <!-- 3 -->
+        <div class="card-group">
+            <div class="card bg-dark select-component-box" style="height: 8rem;">
+                <div class="card-body">
+                    <h5 class="card-title">Motherboard</h5>
+                    <button type="button" class="btn btn-outline-pcb" data-bs-toggle="modal"
+                        data-bs-target="#exampleModal-5">+ Add</button>
+                         <!-- Modal -->
+                    <div class="modal fade" id="exampleModal-5" tabindex="-1" aria-labelledby="exampleModalLabel"
+                    aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title text-dark" id="exampleModalLabel">Select Motherboard</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                    aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+
+                                <div class="row d-flex justify-content-center">
+                                    <div class="col-md-4">
+                                        <div class="input-group">
+                                            <span class="input-group-text">Min ₹</span>
+                                            <input type="text" class="form-control"
+                                                aria-describedby="inputGroupPrepend2">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="input-group">
+                                            <span class="input-group-text">Max ₹</span>
+                                            <input type="text" class="form-control"
+                                                aria-describedby="inputGroupPrepend2">
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="border border-black mt-2">
+                                    <p class="text-dark fw-bold">Memory Type Selection</p>
+
+
+                                    <div class="memory-row-1">
+                                        <div class="form-check form-check-inline">
+                                            <input class="form-check-input" type="checkbox" id="inlineCheckbox1"
+                                                value="option1">
+                                            <label class="form-check-label text-dark"
+                                                for="inlineCheckbox1">DDR</label>
+                                        </div>
+                                        <div class="form-check form-check-inline">
+                                            <input class="form-check-input" type="checkbox" id="inlineCheckbox2"
+                                                value="option2">
+                                            <label class="form-check-label text-dark"
+                                                for="inlineCheckbox2">DDR-2</label>
+                                        </div>
+                                        <div class="form-check form-check-inline">
+                                            <input class="form-check-input" type="checkbox" id="inlineCheckbox2"
+                                                value="option2">
+                                            <label class="form-check-label text-dark"
+                                                for="inlineCheckbox2">DDR-3</label>
+                                        </div>
+                                    </div>
+
+                                    <div class="memory-row-2">
+                                        <div class="form-check form-check-inline">
+                                            <input class="form-check-input" type="checkbox" id="inlineCheckbox1"
+                                                value="option1">
+                                            <label class="form-check-label text-dark"
+                                                for="inlineCheckbox1">DDR-4</label>
+                                        </div>
+                                        <div class="form-check form-check-inline">
+                                            <input class="form-check-input" type="checkbox" id="inlineCheckbox2"
+                                                value="option2">
+                                            <label class="form-check-label text-dark"
+                                                for="inlineCheckbox2">DDR-5</label>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                    <div class="border border-black mt-2">
+                                        <p class="text-dark fw-bold">Brand Selection</p>
+
+                                        <div class="brand-row-1">
+                                            <div class="form-check form-check-inline">
+                                                <input class="form-check-input" type="checkbox" id="inlineCheckbox1"
+                                                    value="option1">
+                                                <label class="form-check-label text-dark"
+                                                    for="inlineCheckbox1">Asus</label>
+                                            </div>
+                                            <div class="form-check form-check-inline">
+                                                <input class="form-check-input" type="checkbox" id="inlineCheckbox2"
+                                                    value="option2">
+                                                <label class="form-check-label text-dark"
+                                                    for="inlineCheckbox2">MSI</label>
+                                            </div>
+                                            <div class="form-check form-check-inline">
+                                                <input class="form-check-input" type="checkbox" id="inlineCheckbox3"
+                                                    value="option3">
+                                                <label class="form-check-label text-dark"
+                                                    for="inlineCheckbox3">Gigabyte</label>
+                                            </div>
+                                        </div>
+
+                                        <div class="brand-row-2">
+                                            <div class="form-check form-check-inline">
+                                                <input class="form-check-input" type="checkbox" id="inlineCheckbox1"
+                                                    value="option1">
+                                                <label class="form-check-label text-dark"
+                                                    for="inlineCheckbox1">Intel</label>
+                                            </div>
+                                            <div class="form-check form-check-inline">
+                                                <input class="form-check-input" type="checkbox" id="inlineCheckbox2"
+                                                    value="option2">
+                                                <label class="form-check-label text-dark"
+                                                    for="inlineCheckbox2">Zebronics</label>
+                                            </div>
+                                            <div class="form-check form-check-inline">
+                                                <input class="form-check-input" type="checkbox" id="inlineCheckbox3"
+                                                    value="option3">
+                                                <label class="form-check-label text-dark"
+                                                    for="inlineCheckbox3">Aorus</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary"
+                                    data-bs-dismiss="modal">Close</button>
+                                <button type="button" class="btn btn-primary">Apply</button>
+                            </div>
+                        </div>
+                      </div>
                     </div>
                 </div>
             </div>
-            <!-- 4 end -->
+
+            <div class="card bg-dark select-component-box" style="height: 8rem;">
+                <div class="card-body">
+                    <h5 class="card-title">Storage</h5>
+                    <button type="button" class="btn btn-outline-pcb" data-bs-toggle="modal"
+                        data-bs-target="#exampleModal-6">+ Add</button>
+                         <!-- Modal -->
+                    <div class="modal fade" id="exampleModal-6" tabindex="-1" aria-labelledby="exampleModalLabel"
+                    aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title text-dark" id="exampleModalLabel">Select Storage</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                    aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+
+                                <div class="row d-flex justify-content-center">
+                                    <div class="col-md-4">
+                                        <div class="input-group">
+                                            <span class="input-group-text">Min ₹</span>
+                                            <input type="text" class="form-control"
+                                                aria-describedby="inputGroupPrepend2">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="input-group">
+                                            <span class="input-group-text">Max ₹</span>
+                                            <input type="text" class="form-control"
+                                                aria-describedby="inputGroupPrepend2">
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="border border-black mt-2">
+                                    <p class="text-dark fw-bold">Interface Selection</p>
+
+
+                                    <div class="interface-row-1">
+                                        <div class="form-check form-check-inline">
+                                            <input class="form-check-input" type="checkbox" id="inlineCheckbox1"
+                                                value="option1">
+                                            <label class="form-check-label text-dark"
+                                                for="inlineCheckbox1">SAS 12 Gb/s</label>
+                                        </div>
+                                        <div class="form-check form-check-inline">
+                                            <input class="form-check-input" type="checkbox" id="inlineCheckbox2"
+                                                value="option2">
+                                            <label class="form-check-label text-dark"
+                                                for="inlineCheckbox2">SAS 6 Gb/s</label>
+                                        </div>
+                                        <div class="form-check form-check-inline">
+                                            <input class="form-check-input" type="checkbox" id="inlineCheckbox2"
+                                                value="option2">
+                                            <label class="form-check-label text-dark"
+                                                for="inlineCheckbox2">SAS 3 Gb/s</label>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="interface-row-2">
+                                        <div class="form-check form-check-inline">
+                                            <input class="form-check-input" type="checkbox" id="inlineCheckbox2"
+                                                value="option2">
+                                            <label class="form-check-label text-dark"
+                                                for="inlineCheckbox2">SATA 6 Gb/s</label>
+                                        </div>
+                                        <div class="form-check form-check-inline">
+                                            <input class="form-check-input" type="checkbox" id="inlineCheckbox1"
+                                                value="option1">
+                                            <label class="form-check-label text-dark"
+                                                for="inlineCheckbox1">SATA 3 Gb/s</label>
+                                        </div>
+                                        <div class="form-check form-check-inline">
+                                            <input class="form-check-input" type="checkbox" id="inlineCheckbox2"
+                                                value="option2">
+                                            <label class="form-check-label text-dark"
+                                                for="inlineCheckbox2">SATA 1.5 Gb/s</label>
+                                        </div>
+                                    </div>
+
+                                    <div class="interface-row-3">
+                                        <div class="form-check form-check-inline">
+                                            <input class="form-check-input" type="checkbox" id="inlineCheckbox2"
+                                                value="option2">
+                                            <label class="form-check-label text-dark"
+                                                for="inlineCheckbox2">Micro SATA 6 Gb/s</label>
+                                        </div>
+                                        <div class="form-check form-check-inline">
+                                            <input class="form-check-input" type="checkbox" id="inlineCheckbox1"
+                                                value="option1">
+                                            <label class="form-check-label text-dark"
+                                                for="inlineCheckbox1">Micro SATA 3 Gb/s</label>
+                                        </div>
+                                    </div>
+
+                                    <div class="interface-row-4">
+                                        <div class="form-check form-check-inline">
+                                            <input class="form-check-input" type="checkbox" id="inlineCheckbox2"
+                                                value="option2">
+                                            <label class="form-check-label text-dark"
+                                                for="inlineCheckbox2">PATA 133</label>
+                                        </div>
+                                        <div class="form-check form-check-inline">
+                                            <input class="form-check-input" type="checkbox" id="inlineCheckbox1"
+                                                value="option1">
+                                            <label class="form-check-label text-dark"
+                                                for="inlineCheckbox1">PATA 100</label>
+                                        </div>
+                                        <div class="form-check form-check-inline">
+                                            <input class="form-check-input" type="checkbox" id="inlineCheckbox1"
+                                                value="option1">
+                                            <label class="form-check-label text-dark"
+                                                for="inlineCheckbox1">PCIe x16</label>
+                                        </div>
+                                    </div>
+
+                                    <div class="interface-row-5">
+                                        <div class="form-check form-check-inline">
+                                            <input class="form-check-input" type="checkbox" id="inlineCheckbox2"
+                                                value="option2">
+                                            <label class="form-check-label text-dark"
+                                                for="inlineCheckbox2">PCIe x8</label>
+                                        </div>
+                                        <div class="form-check form-check-inline">
+                                            <input class="form-check-input" type="checkbox" id="inlineCheckbox1"
+                                                value="option1">
+                                            <label class="form-check-label text-dark"
+                                                for="inlineCheckbox1">PCIe x4</label>
+                                        </div>
+                                        <div class="form-check form-check-inline">
+                                            <input class="form-check-input" type="checkbox" id="inlineCheckbox1"
+                                                value="option1">
+                                            <label class="form-check-label text-dark"
+                                                for="inlineCheckbox1">PCIe x2</label>
+                                        </div>
+                                    </div>
+
+                                    <div class="interface-row-6">
+                                        <div class="form-check form-check-inline">
+                                            <input class="form-check-input" type="checkbox" id="inlineCheckbox2"
+                                                value="option2">
+                                            <label class="form-check-label text-dark"
+                                                for="inlineCheckbox2">PCIe x1</label>
+                                        </div>
+                                        <div class="form-check form-check-inline">
+                                            <input class="form-check-input" type="checkbox" id="inlineCheckbox1"
+                                                value="option1">
+                                            <label class="form-check-label text-dark"
+                                                for="inlineCheckbox1">mSATA</label>
+                                        </div>
+                                        <div class="form-check form-check-inline">
+                                            <input class="form-check-input" type="checkbox" id="inlineCheckbox1"
+                                                value="option1">
+                                            <label class="form-check-label text-dark"
+                                                for="inlineCheckbox1">Other</label>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                    <div class="border border-black mt-2">
+                                        <p class="text-dark fw-bold">Brand Selection</p>
+
+                                        <div class="brand-row-1">
+                                            <div class="form-check form-check-inline">
+                                                <input class="form-check-input" type="checkbox" id="inlineCheckbox1"
+                                                    value="option1">
+                                                <label class="form-check-label text-dark"
+                                                    for="inlineCheckbox1">Crucial</label>
+                                            </div>
+                                            <div class="form-check form-check-inline">
+                                                <input class="form-check-input" type="checkbox" id="inlineCheckbox2"
+                                                    value="option2">
+                                                <label class="form-check-label text-dark"
+                                                    for="inlineCheckbox2">Samsung</label>
+                                            </div>
+                                            <div class="form-check form-check-inline">
+                                                <input class="form-check-input" type="checkbox" id="inlineCheckbox3"
+                                                    value="option3">
+                                                <label class="form-check-label text-dark"
+                                                    for="inlineCheckbox3">WD</label>
+                                            </div>
+                                            <div class="form-check form-check-inline">
+                                                <input class="form-check-input" type="checkbox" id="inlineCheckbox3"
+                                                    value="option3">
+                                                <label class="form-check-label text-dark"
+                                                    for="inlineCheckbox3">GIGABYTE</label>
+                                            </div>
+                                        </div>
+
+                                        <div class="brand-row-2">
+                                            <div class="form-check form-check-inline">
+                                                <input class="form-check-input" type="checkbox" id="inlineCheckbox1"
+                                                    value="option1">
+                                                <label class="form-check-label text-dark"
+                                                    for="inlineCheckbox1">Seagate</label>
+                                            </div>
+                                            <div class="form-check form-check-inline">
+                                                <input class="form-check-input" type="checkbox" id="inlineCheckbox2"
+                                                    value="option2">
+                                                <label class="form-check-label text-dark"
+                                                    for="inlineCheckbox2">Kingston</label>
+                                            </div>
+                                            <div class="form-check form-check-inline">
+                                                <input class="form-check-input" type="checkbox" id="inlineCheckbox3"
+                                                    value="option3">
+                                                <label class="form-check-label text-dark"
+                                                    for="inlineCheckbox3">HP</label>
+                                            </div>
+                                            <div class="form-check form-check-inline">
+                                                <input class="form-check-input" type="checkbox" id="inlineCheckbox3"
+                                                    value="option3">
+                                                <label class="form-check-label text-dark"
+                                                    for="inlineCheckbox3">Acer</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary"
+                                    data-bs-dismiss="modal">Close</button>
+                                <button type="button" class="btn btn-primary">Apply</button>
+                            </div>
+                        </div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+
+        <!-- 3 end -->
+
+        <!-- 4 -->
+        <div class="card-group">
+            <div class="card bg-dark select-component-box" style="height: 8rem;">
+                <div class="card-body">
+                    <h5 class="card-title">Power Supply</h5>
+                    <button type="button" class="btn btn-outline-pcb" data-bs-toggle="modal"
+                        data-bs-target="#exampleModal-7">+ Add</button>
+                    <!-- Modal -->
+                    <div class="modal fade" id="exampleModal-7" tabindex="-1" aria-labelledby="exampleModalLabel"
+                        aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title text-dark" id="exampleModalLabel">Select Power Supply</h5>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                        aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+
+                                    <div class="row d-flex justify-content-center">
+                                        <div class="col-md-4">
+                                            <div class="input-group">
+                                                <span class="input-group-text">Min ₹</span>
+                                                <input type="text" class="form-control"
+                                                    aria-describedby="inputGroupPrepend2">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <div class="input-group">
+                                                <span class="input-group-text">Max ₹</span>
+                                                <input type="text" class="form-control"
+                                                    aria-describedby="inputGroupPrepend2">
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="border border-black mt-2">
+                                        <p class="text-dark fw-bold">Brand Selection</p>
+
+
+                                        <div class="brand-row-1">
+                                            <div class="form-check form-check-inline">
+                                                <input class="form-check-input" type="checkbox" id="inlineCheckbox1"
+                                                    value="option1">
+                                                <label class="form-check-label text-dark"
+                                                    for="inlineCheckbox1">Corsair</label>
+                                            </div>
+                                            <div class="form-check form-check-inline">
+                                                <input class="form-check-input" type="checkbox" id="inlineCheckbox2"
+                                                    value="option2">
+                                                <label class="form-check-label text-dark"
+                                                    for="inlineCheckbox2">Artis</label>
+                                            </div>
+                                            <div class="form-check form-check-inline">
+                                                <input class="form-check-input" type="checkbox" id="inlineCheckbox3"
+                                                    value="option3">
+                                                <label class="form-check-label text-dark"
+                                                    for="inlineCheckbox3">Cooler Master</label>
+                                            </div>
+                                        </div>
+
+                                        <div class="brand-row-2">
+                                            <div class="form-check form-check-inline">
+                                                <input class="form-check-input" type="checkbox" id="inlineCheckbox1"
+                                                    value="option1">
+                                                <label class="form-check-label text-dark"
+                                                    for="inlineCheckbox1">Asus</label>
+                                            </div>
+                                            <div class="form-check form-check-inline">
+                                                <input class="form-check-input" type="checkbox" id="inlineCheckbox2"
+                                                    value="option2">
+                                                <label class="form-check-label text-dark"
+                                                    for="inlineCheckbox2">Deepcool</label>
+                                            </div>
+                                            <div class="form-check form-check-inline">
+                                                <input class="form-check-input" type="checkbox" id="inlineCheckbox3"
+                                                    value="option3">
+                                                <label class="form-check-label text-dark"
+                                                    for="inlineCheckbox3">GAMDIAS</label>
+                                            </div>
+                                        </div>
+
+                                        <div class="brand-row-3">
+                                            <div class="form-check form-check-inline">
+                                                <input class="form-check-input" type="checkbox" id="inlineCheckbox1"
+                                                    value="option1">
+                                                <label class="form-check-label text-dark"
+                                                    for="inlineCheckbox1">Gigabyte</label>
+                                            </div>
+                                            <div class="form-check form-check-inline">
+                                                <input class="form-check-input" type="checkbox" id="inlineCheckbox2"
+                                                    value="option2">
+                                                <label class="form-check-label text-dark"
+                                                    for="inlineCheckbox2">NZXT</label>
+                                            </div>
+                                            <div class="form-check form-check-inline">
+                                                <input class="form-check-input" type="checkbox" id="inlineCheckbox3"
+                                                    value="option3">
+                                                <label class="form-check-label text-dark"
+                                                    for="inlineCheckbox3">GAMDIAS</label>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary"
+                                        data-bs-dismiss="modal">Close</button>
+                                    <button type="button" class="btn btn-primary">Apply</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card bg-dark select-component-box" style="height: 8rem;">
+                <div class="card-body">
+                    <h5 class="card-title">Power Supply</h5>
+                    <a href='/buildpc'><button type="button" class="btn btn-outline-pcb">+ Add</button></a>
+                </div>
+            </div>
+        </div>
+        <!-- 4 end -->
 
 
     </div>
@@ -197,8 +1073,12 @@
     <!-- Include JavaScript -->
     <script src="{{url_for('static', filename='User/JS/index.js')}}"></script>
     <script src="{{url_for('static', filename='User/JS/bootstrap.min.js')}}"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
+        integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"
+        integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF"
+        crossorigin="anonymous"></script>
 </body>
 
 
