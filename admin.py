@@ -1,4 +1,5 @@
 from flask import Flask, render_template, jsonify, request
+from logics.admin.IPLocation import get_ip
 
 app = Flask(__name__)
 
@@ -26,7 +27,8 @@ def countBuild():
 
 @app.route('/getip')
 def getIP():
-    return jsonify({"ip":request.remote_addr, 'user':request.remote_user})
+    country = get_ip(request.remote_addr)
+    return jsonify(country)
 
 @app.route('/')
 def home():
@@ -59,4 +61,4 @@ def system():
 
 
 if __name__ == '__main__':
-    app.run(host= "0.0.0.0")
+    app.run(debug=True)

@@ -1,16 +1,14 @@
 import requests
 
-#single ip request
+
+# single ip request
+
+def get_ip(ip):
+    response = requests.get(f"http://ip-api.com/json/{ip}").json()
+    return response
 
 
-response = requests.get("http://ip-api.com/json/24.48.0.1").json()
-print(response)
-
-print(response['country'])
-
-
-
-#batch ip  request
+# batch ip  request
 
 '''
 response = requests.post("http://ip-api.com/batch", json=[

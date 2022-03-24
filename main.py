@@ -1,29 +1,35 @@
 from flask import Flask, render_template, request
 from logics.user.autobuild import logic
-
+from logics.user.iplogics import ipControl
 
 app = Flask(__name__)
 
 logic = logic()
-
+ipcontrol = ipControl()
 
 # User Routes
 @app.route('/')
 def home():
+    ipcontrol.getIP(request.remote_addr)
     return render_template('User/index.html')
 
 @app.route('/index')
 def index():
+    ipcontrol.getIP(request.remote_addr)
     return render_template('User/index.html')
     
-@app.route('/buildpc')
+@app.route('/buildpc', methods=['GET', 'POST'])
 def buildpc():
+    ipcontrol.getIP(request.remote_addr)
+    if request.method == 'POST':
+        pass
     return render_template('User/buildpc.html')
     
 
 
 @app.route('/test', methods=['GET', 'POST'])
 def test():
+
     budget = 0
     cpu = 0
     ram = 0
@@ -37,4 +43,4 @@ def test():
 
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(host="0.0.0.0")
