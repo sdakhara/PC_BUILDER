@@ -1,3 +1,5 @@
+
+// NavBar Color Change When Page Scroll 
 window.onscroll = function() {scrollFunction()};
 
 function scrollFunction() {
@@ -9,3 +11,22 @@ function scrollFunction() {
         document.getElementById("Navbar").style.backgroundColor = "transparent";
     }
 }
+
+
+
+// Get Value Of Slider 
+// https://www.youtube.com/watch?v=FShnKqPXknI
+const SliderInput = document.querySelectorAll(".budget-slider input");
+PriceInput = document.querySelectorAll("budget-input input");
+
+SliderInput.forEach(input => {
+    input.addEventListener("input", e => {
+        let SliderVal = parseInt(SliderInput[0].value);
+        // console.log(SliderVal);
+
+        PriceInput.value = SliderVal;
+
+    });
+
+
+})

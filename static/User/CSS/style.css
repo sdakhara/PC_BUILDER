@@ -232,7 +232,7 @@ nav .navbar-toggler {
 /* -----------      buildpc style      -----------*/
 
 .build-pc-section {
-    margin-top: 2rem;
+    margin-top: 3rem !important;
 }
 
 .pc-bucket {
@@ -241,7 +241,7 @@ nav .navbar-toggler {
 }
 
 .components-notice {
-    width: 80rem;
+    width: 90%;
     color: white;
     background-color: #212529 !important;
     text-align: center;
@@ -263,6 +263,31 @@ nav .navbar-toggler {
 
 
 /* -----------      buildpc style end      -----------*/
+
+
+
+
+
+/* -----------      autobuild style      -----------*/
+
+.slider-label {
+    margin-top: 4rem !important;
+}
+
+.form-range::-webkit-slider-thumb {
+    background-color: #6f00ff !important;
+    border: solid 1px white !important;
+  }
+  
+  .form-range::-moz-range-thumb {
+    background-color: #6f00ff !important;
+  }
+  
+  .form-range::-ms-thumb {
+    background-color: #6f00ff !important;
+  }
+
+/* -----------      autobuild style end      -----------*/
 
 
 
@@ -307,5 +332,9 @@ nav .navbar-toggler {
         width: 20%;
         bottom: 1%;
         transform: translate(-50%, -50%);
+    }
+
+    .build-pc-section {
+        margin-top: 6rem !important;
     }
 }

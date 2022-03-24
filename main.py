@@ -24,6 +24,13 @@ def buildpc():
     if request.method == 'POST':
         pass
     return render_template('User/buildpc.html')
+
+@app.route('/autobuild', methods=['GET', 'POST'])
+def autobuild():
+    ipcontrol.getIP(request.remote_addr)
+    if request.method == 'POST':
+        pass
+    return render_template('User/autobuild.html')
     
 
 
@@ -43,4 +50,4 @@ def test():
 
 
 if __name__ == '__main__':
-    app.run(host="0.0.0.0")
+    app.run(debug=True)
