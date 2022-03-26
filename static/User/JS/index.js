@@ -14,19 +14,22 @@ function scrollFunction() {
 
 
 
-// Get Value Of Slider 
-// https://www.youtube.com/watch?v=FShnKqPXknI
-const SliderInput = document.querySelectorAll(".budget-slider input");
-PriceInput = document.querySelectorAll("budget-input input");
-
-SliderInput.forEach(input => {
-    input.addEventListener("input", e => {
-        let SliderVal = parseInt(SliderInput[0].value);
-        // console.log(SliderVal);
-
-        PriceInput.value = SliderVal;
-
-    });
 
 
-})
+// Change Input Value When Slider Slides And Change Value of Slider When We Enter Input
+
+var Slider = document.getElementById("range-slider");
+var PriceInput = document.getElementById("price-value-input");
+
+function sliderInput(){
+    Slider.value = PriceInput.value;
+}
+
+PriceInput.addEventListener("input",sliderInput);
+
+
+function updateInput(){
+    PriceInput.value = Slider.value;
+}
+
+Slider.addEventListener("input",updateInput);
