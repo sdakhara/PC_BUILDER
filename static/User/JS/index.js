@@ -1,5 +1,5 @@
 
-// NavBar Color Change When Page Scroll 
+// JS-1 : NavBar Color Change When Page Scroll 
 window.onscroll = function() {scrollFunction()};
 
 function scrollFunction() {
@@ -14,19 +14,33 @@ function scrollFunction() {
 
 
 
-// Get Value Of Slider 
-// https://www.youtube.com/watch?v=FShnKqPXknI
-const SliderInput = document.querySelectorAll(".budget-slider input");
-PriceInput = document.querySelectorAll("budget-input input");
-
-SliderInput.forEach(input => {
-    input.addEventListener("input", e => {
-        let SliderVal = parseInt(SliderInput[0].value);
-        // console.log(SliderVal);
-
-        PriceInput.value = SliderVal;
-
-    });
 
 
-})
+// JS-1 : Change Input Value When Slider Slides And Change Value of Slider When We Enter Input
+
+var Slider = document.getElementById("range-slider");
+var PriceInput = document.getElementById("price-value-input");
+
+function sliderInput(){
+    Slider.value = PriceInput.value;
+}
+PriceInput.addEventListener("input",sliderInput);
+
+function updateInput(){
+    PriceInput.value = Slider.value;
+}
+Slider.addEventListener("input",updateInput);
+
+
+
+
+
+
+// JS-1 : it clicks the submit button when user press enter in input field
+var ipOnSubmit = document.getElementById("price-value-input");
+ipOnSubmit.addEventListener("keyup", function(event) {
+    if (event.keyCode === 13) {
+        event.preventDefault();
+        document.getElementById("budget-apply-btn").click();
+    }
+});

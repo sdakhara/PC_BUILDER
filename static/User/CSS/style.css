@@ -274,6 +274,17 @@ nav .navbar-toggler {
     margin-top: 4rem !important;
 }
 
+.products-table-1 {
+    width: 95vw;
+    margin-top: 4rem !important;
+}
+
+.budget-slider input::-webkit-slider-thumb ::before {
+    content: "hello" !important;
+    background-color: white !important;
+}
+
+
 .form-range::-webkit-slider-thumb {
     background-color: #6f00ff !important;
     border: solid 1px white !important;
@@ -285,6 +296,12 @@ nav .navbar-toggler {
   
   .form-range::-ms-thumb {
     background-color: #6f00ff !important;
+  }
+  
+  .table-product-image-1 {
+      width: 3vw;
+      height: 6vh;
+      border-radius: 0.3rem;
   }
 
 /* -----------      autobuild style end      -----------*/
@@ -337,4 +354,9 @@ nav .navbar-toggler {
     .build-pc-section {
         margin-top: 6rem !important;
     }
+
+    #input-text-group {
+        width: 8rem !important;
+    }
+
 }
