@@ -1,8 +1,9 @@
 from flask import Flask, render_template, jsonify, request
 from logics.admin.IPLocation import get_ip
+from logics.admin.datashare import userdt
 
 app = Flask(__name__)
-
+usrdata = userdt()
 # visitor counter
 
 counter = 0
@@ -42,7 +43,8 @@ def messages():
 
 @app.route('/users')
 def users():
-    return render_template('Admin/users.html')
+    dt = usrdata.getAllUser()
+    return render_template('Admin/users.html', dt=dt)
 
 
 @app.route('/inventory')
