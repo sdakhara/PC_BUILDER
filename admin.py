@@ -1,21 +1,25 @@
 from flask import Flask, render_template, jsonify, request, redirect, url_for
+
 from logics.admin.IPLocation import get_ip
-from logics.admin.datashare import userdt, Authentication
+from logics.admin.datashare import datatransfer, Authentication
 
 app = Flask(__name__)
-usrdata = userdt()
+dataapi = datatransfer()
 verifier = Authentication()
 # visitor counter
 
 counter = 0
+
+
 @app.before_request
 def countVisitor():
     global counter
     counter += 1
-    total = counter/48
+    total = counter / 48
     counterFile = open('counter.txt', 'w')
     counterFile.write(str(total))
     counterFile.close()
+
 
 # count build
 """
@@ -27,53 +31,48 @@ def countBuild():
     print()
 """
 
+
 @app.route('/getip')
 def getIP():
     country = get_ip(request.remote_addr)
     return jsonify(country)
 
 
+class globs:
+    ADMIN = None
+
+
+g = globs()
+
+
 @app.route('/', methods=['GET', 'POST'])
 def home():
-    from sqlalchemy import create_engine, Column
-    from sqlalchemy.ext.declarative import declarative_base
-    from sqlalchemy.orm import sessionmaker
-    from sqlalchemy.types import String, Integer
-
-    engine = create_engine("mysql+pymysql://Sujal:9099@127.0.0.1:3306/testdb")
-    Session = sessionmaker()
-    db = Session(bind=engine)
-    Base = declarative_base()
-
-    class adminloginrecord(Base):
-        __tablename__ = 'adminloginrecord'
-
-        RID = Column(Integer, primary_key=True, autoincrement=True)
-        AdminID = Column(String)
-        AdminName = Column(String)
-        LoginTime = Column(String)
-
-    class admindata(Base):
-        __tablename__ = 'admindata'
-
-        AdminID = Column(String, primary_key=True)
-        AdminName = Column(String)
-        Email = Column(String)
-        Password = Column(String)
-        PhoneNo = Column(String)
-
     if request.method == 'POST':
         email = request.form['email']
         password = request.form['password']
         data = verifier.verify(email, password)
         if data:
+            g.ADMIN = data
             return redirect(url_for('dashboard'))
 
     return render_template('Admin/login.html')
 
+
+@app.route('/logout')
+def logout():
+    g.ADMIN = None
+    return redirect(url_for('home'))
+
+
 @app.route('/dashboard')
 def dashboard():
-    return render_template('Admin/index.html')
+    dt = dataapi.getAllAdmin()
+    last = dataapi.getLastLogin()
+    try:
+        return render_template('Admin/index.html', adminname=g.ADMIN.AdminName, data=dt, last=last)
+    except:
+        return redirect(url_for('home'))
+
 
 @app.route('/messages')
 def messages():
@@ -82,8 +81,7 @@ def messages():
 
 @app.route('/users')
 def users():
-    # dt = usrdata.getAllUser()
-    dt = verifier.verify()
+    dt = dataapi.getAllUser()
     return render_template('Admin/users.html', dt=dt)
 
 
