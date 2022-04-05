@@ -1,4 +1,4 @@
-from datetime import datetime
+from datetime import datetime, date
 from sqlalchemy import create_engine, Column
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import sessionmaker
@@ -38,11 +38,31 @@ class admindata(Base):
     Password = Column(String)
     PhoneNo = Column(String)
 
+class pcdata(Base):
+    __tablename__ = 'pcdata'
+    PCID = Column(String, primary_key=True)
+    CPUID = Column(String)
+    BoardID = Column(String)
+    PSUID = Column(String)
+    RAMID = Column(String)
+    HDDID = Column(String)
+    CabinetID = Column(String)
+    GPUID = Column(String)
+    Price = Column(String)
+    Date = Column(String)
 
-class userdt:
+
+class datatransfer:
     def getAllUser(self):
         return db.query(userdata).all()
-
+    def getAllAdmin(self):
+        return db.query(admindata).all()
+    def getLastLogin(self):
+        return db.query(adminloginrecord).first()
+    def getCountBuildedPC(self):
+        return db.query(pcdata).count()
+    def getTodayBuild(self):
+        return db.query(pcdata).filter_by(Date=date.today()).count()
 
 class Authentication:
     def verify(self, email, password):
@@ -52,4 +72,4 @@ class Authentication:
                 addLog = adminloginrecord(AdminName=dt.AdminName, AdminID=dt.AdminID, LoginTime=datetime.now())
                 db.add(addLog)
                 db.commit()
-                return True
+                return dt

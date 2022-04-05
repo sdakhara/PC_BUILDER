@@ -42,6 +42,7 @@ class globs:
     ADMIN = None
 
 
+
 g = globs()
 
 
@@ -64,12 +65,17 @@ def logout():
     return redirect(url_for('home'))
 
 
+
 @app.route('/dashboard')
 def dashboard():
+
     dt = dataapi.getAllAdmin()
     last = dataapi.getLastLogin()
+    buildedPC = dataapi.getCountBuildedPC()
+    todaysbuild = dataapi.getTodayBuild()
     try:
-        return render_template('Admin/index.html', adminname=g.ADMIN.AdminName, data=dt, last=last)
+        return render_template('Admin/index.html', adminname=g.ADMIN.AdminName, data=dt, last=last, buildedPC=buildedPC,
+                               todaysbuild=todaysbuild)
     except:
         return redirect(url_for('home'))
 
