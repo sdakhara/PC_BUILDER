@@ -1,7 +1,7 @@
 from flask import Flask, render_template, jsonify, request, redirect, url_for
 
-from logics.admin.IPLocation import get_ip
-from logics.admin.datashare import datatransfer, Authentication
+from logics.Admin.IPLocation import get_ip
+from logics.Admin.datashare import datatransfer, Authentication
 
 app = Flask(__name__)
 dataapi = datatransfer()
