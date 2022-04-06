@@ -162,8 +162,8 @@
                                                 <div class="form-check form-check-inline">
                                                     <input class="form-check-input" type="checkbox" id="cpuBrandOther"
                                                         value="option3">
-                                                    <label class="form-check-label text-dark"
-                                                        for="cpuBrandOther">Other</label>
+                                                    <label class="form-check-label text-dark" id="cpuBrandOthers"
+                                                        for="cpuBrandOthers">Other</label>
                                                 </div>
                                             </div>
                                         </div>
@@ -172,7 +172,7 @@
                                     <div class="modal-footer">
                                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close
                                         </button>
-                                        <button type="button" class="btn btn-primary">Apply</button>
+                                        <button type="button" formaction="/autobuild" class="btn btn-primary">Apply</button>
                                     </div>
                                 </div>
                             </div>
@@ -203,14 +203,14 @@
                                             <div class="col-md-4">
                                                 <div class="input-group">
                                                     <span class="input-group-text">Min ₹</span>
-                                                    <input type="text" class="form-control" id="coolerMin"
+                                                    <input type="text" class="form-control" id="coolerMinBudget"
                                                         aria-describedby="inputGroupPrepend2">
                                                 </div>
                                             </div>
                                             <div class="col-md-4">
                                                 <div class="input-group">
                                                     <span class="input-group-text">Max ₹</span>
-                                                    <input type="text" class="form-control" id="coolerMax"
+                                                    <input type="text" class="form-control" id="coolerMaxBudget"
                                                         aria-describedby="inputGroupPrepend2">
                                                 </div>
                                             </div>

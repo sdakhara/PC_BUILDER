@@ -1,19 +1,25 @@
-from flask import Flask, render_template, jsonify, request
-from logics.admin.IPLocation import get_ip
+from flask import Flask, render_template, jsonify, request, redirect, url_for
+
+from logics.Admin.IPLocation import get_ip
+from logics.Admin.datashare import datatransfer, Authentication
 
 app = Flask(__name__)
-
+dataapi = datatransfer()
+verifier = Authentication()
 # visitor counter
 
 counter = 0
+
+
 @app.before_request
 def countVisitor():
     global counter
     counter += 1
-    total = counter/48
+    total = counter / 48
     counterFile = open('counter.txt', 'w')
     counterFile.write(str(total))
     counterFile.close()
+
 
 # count build
 """
@@ -25,14 +31,53 @@ def countBuild():
     print()
 """
 
+
 @app.route('/getip')
 def getIP():
     country = get_ip(request.remote_addr)
     return jsonify(country)
 
-@app.route('/')
+
+class globs:
+    ADMIN = None
+
+
+
+g = globs()
+
+
+@app.route('/', methods=['GET', 'POST'])
 def home():
-    return render_template('Admin/index.html')
+    if request.method == 'POST':
+        email = request.form['email']
+        password = request.form['password']
+        data = verifier.verify(email, password)
+        if data:
+            g.ADMIN = data
+            return redirect(url_for('dashboard'))
+
+    return render_template('Admin/login.html')
+
+
+@app.route('/logout')
+def logout():
+    g.ADMIN = None
+    return redirect(url_for('home'))
+
+
+
+@app.route('/dashboard')
+def dashboard():
+
+    dt = dataapi.getAllAdmin()
+    last = dataapi.getLastLogin()
+    buildedPC = dataapi.getCountBuildedPC()
+    todaysbuild = dataapi.getTodayBuild()
+    try:
+        return render_template('Admin/index.html', adminname=g.ADMIN.AdminName, data=dt, last=last, buildedPC=buildedPC,
+                               todaysbuild=todaysbuild)
+    except:
+        return redirect(url_for('home'))
 
 
 @app.route('/messages')
@@ -42,7 +87,8 @@ def messages():
 
 @app.route('/users')
 def users():
-    return render_template('Admin/users.html')
+    dt = dataapi.getAllUser()
+    return render_template('Admin/users.html', dt=dt)
 
 
 @app.route('/inventory')

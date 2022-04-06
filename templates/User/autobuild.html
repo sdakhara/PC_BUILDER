@@ -63,21 +63,9 @@
     <div class="main-container">
 
         <!-- Price Range Slider (Budget Slider) -->
-        <form action="">
-
-            <div class="budget-slider w-50 mx-auto">
-                <center><label for="customRange1" class="form-label text-light w-75 slider-label fs-5" >Enter Budget</label></center>
-                <input type="range" class="form-range slider-input" id="range-slider" min="5000" max="500000" value="5000">
-
-                <div class="input-group w-25 mx-auto" id="input-text-group">
-                    <div class="input-group-prepend">
-                    <div class="input-group-text">₹</div>
-                    </div>
-                    <input type="number" class="form-control budget-input" id="price-value-input" min="5000" max="500000" placeholder="Enter Budget">
-                    
-                </div>
-                <button type="submit" class="btn btn-outline-pcb mx-auto d-flex justify-content-center mt-2" id="budget-apply-btn">Apply</button>
-            </div>
+        <div class="budget-slider w-50 mx-auto">
+            <center><label for="customRange1" class="form-label text-light w-75 slider-label fs-5" >Enter Budget</label></center>
+            <input type="range" class="form-range slider-input" id="customRange1" min="5000" max="500000" value="50">
 
         </form>
 
@@ -184,6 +172,10 @@
                     </li>
                 </ul>
               </div> -->
+            <div class="budget-input w-25 mx-auto">
+                <span class="input-group-text">₹</span>
+                <input type="text" class="form-control budget-input" aria-describedby="inputGroupPrepend2">
+            </div>
 
         </div>
 
