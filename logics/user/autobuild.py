@@ -16,7 +16,7 @@ class cpudata(Base):
     cpuID = Column(Integer, primary_key=True)
     cpuName = Column(String)
     cpuScore = Column(Float)
-    Price = Column(Integer)
+    price = Column(Integer)
     corecount = Column(Integer)
     clockspeed = Column(String)
     boostclock = Column(String)
@@ -32,7 +32,7 @@ class gpudata(Base):
     gpuID = Column(Integer, primary_key=True)
     gpuName = Column(String)
     gpuScore = Column(Float)
-    Price = Column(Integer)
+    price = Column(Integer)
     chipset = Column(String)
     memory = Column(String)
     coreclock = Column(String)
@@ -49,7 +49,7 @@ class boarddata(Base):
     boardID = Column(Integer, primary_key=True)
     boardName = Column(String)
     boardScore = Column(Float)
-    Price = Column(Integer)
+    price = Column(Integer)
     SocketType = Column(String)
     FormFactor = Column(String)
     RAMType = Column(String)
@@ -65,7 +65,7 @@ class ramdata(Base):
     ramID = Column(Integer, primary_key=True)
     ramName = Column(String)
     ramScore = Column(Float)
-    Price = Column(Integer)
+    price = Column(Integer)
     speed = Column(String)
     modules = Column(String)
     pricepergb = Column(String)
@@ -80,7 +80,7 @@ class hdddata(Base):
     hddID = Column(Integer, primary_key=True)
     hddName = Column(String)
     hddScore = Column(Float)
-    Price = Column(Integer)
+    price = Column(Integer)
     capacity = Column(String)
     pricepergb = Column(String)
     type = Column(String)
@@ -95,7 +95,7 @@ class cabinetdata(Base):
     cabinetID = Column(Integer, primary_key=True)
     cabinetName = Column(String)
     cabinetScore = Column(Float)
-    Price = Column(Integer)
+    price = Column(Integer)
     Type = Column(String)
     Color = Column(String)
     PowerSupply = Column(String)
@@ -109,7 +109,7 @@ class collerdata(Base):
     collerID = Column(Integer, primary_key=True)
     collerName = Column(String)
     collerScore = Column(Float)
-    Price = Column(Integer)
+    price = Column(Integer)
     fanRPM = Column(String)
     noiselevel = Column(String)
     color = Column(String)
@@ -122,7 +122,7 @@ class powersupplydata(Base):
     smpsID = Column(Integer, primary_key=True)
     smpsName = Column(String)
     smpsScore = Column(Float)
-    Price = Column(Integer)
+    price = Column(Integer)
     formfactor = Column(String)
     efficiencyrating = Column(String)
     wattage = Column(String)
@@ -158,9 +158,9 @@ class logic:
                             for cabinet in cabinetData:
                                 for coller in collerData:
                                     for powersupply in powersupplyData:
-                                        expected = cpu.Price + motherboard.Price + ram.Price + hdd.Price + cabinet.Price + coller.Price + powersupply.Price
+                                        expected = cpu.price + motherboard.price + ram.price + hdd.price + cabinet.price + coller.price + powersupply.price
                                         if expected == budget:
-                                            expected = cpu.Price + motherboard.Price + ram.Price + hdd.Price + cabinet.Price + coller.Price + powersupply.Price
+                                            expected = cpu.price + motherboard.price + ram.price + hdd.price + cabinet.price + coller.price + powersupply.price
                                             # print(cpu, motherboard, ram, hdd, cabinet,"this is 0")
                                             resultZero.append([cpu.cpuID, motherboard.boardID, ram.ramID, hdd.hddID, cabinet.cabinetID, coller.cpllarID, powersupply.powersupplyID])
                                             break
@@ -168,13 +168,13 @@ class logic:
                                             if (expected < budget):
                                                 tempRemainBudget = budget-expected
                                                 remainingBudgets.append(tempRemainBudget)
-                                                cpulist = [cpu.cpuID, cpu.cpuName, cpu.cpuScore, cpu.Price]
-                                                boardlist = [motherboard.boardID, motherboard.boardName, motherboard.boardScore, motherboard.Price]
-                                                ramlist = [ram.ramID, ram.ramName, ram.ramScore, ram.Price]
-                                                hddlist = [hdd.hddID, hdd.hddName, hdd.hddScore, hdd.Price]
-                                                cabinetlist = [cabinet.cabinetID, cabinet.cabinetName, cabinet.cabinetScore, cabinet.Price]
-                                                collerlist = [coller.collerID, coller.collerName, coller.collerScore, coller.Price]
-                                                powersupplylist = [powersupply.powersupplyID, powersupply.powersupplyName, powersupply.powersupplyScore, powersupply.Price]
+                                                cpulist = [cpu.cpuID, cpu.cpuName, cpu.cpuScore, cpu.price, cpu.corecount, cpu.clockspeed, cpu.boostclock, cpu.sockettype, cpu.tdp, cpu.integretedgraphics, cpu.smt, cpu.rating]
+                                                boardlist = [motherboard.boardID, motherboard.boardName, motherboard.boardScore, motherboard.price, motherboard.sockettype, motherboard.formfactor, motherboard.ramtype, motherboard.maxram, motherboard.ramslote, motherboard.color, motherboard.rating]
+                                                ramlist = [ram.ramID, ram.ramName, ram.ramScore, ram.price, ram.speed, ram.module, ram.pricepergb, ram.color, ram.firstwordlatency, ram.caslatency, ram.rating]
+                                                hddlist = [hdd.hddID, hdd.hddName, hdd.hddScore, hdd.price, hdd.capacity, hdd.pricepergb, hdd.type, hdd.cache, hdd.formfactor, hdd.interface, hdd.rating]
+                                                cabinetlist = [cabinet.cabinetID, cabinet.cabinetName, cabinet.cabinetScore, cabinet.price, cabinet.type, cabinet.color, cabinet.powersupply, cabinet.sidepanelwindow, cabinet.externalbays, cabinet.internalbays, cabinet.rating]
+                                                collerlist = [coller.collerID, coller.collerName, coller.collerScore, coller.Price, coller.fanRPM, coller.noiselevel, coller.color, coller.radiotorsize, coller.rating]
+                                                powersupplylist = [powersupply.smpsID, powersupply.smpsName, powersupply.smpsScore, powersupply.price, powersupply.formfactor, powersupply.efficiencyrating, powersupply.wattage, powersupply.modular, powersupply.color, powersupply.rating]
                                                 remainingBudget = [tempRemainBudget]
                                                 resultNotZero.append([cpulist, boardlist, ramlist, hddlist, cabinetlist, collerlist, powersupplylist ,remainingBudget])
         if GPUneed:
@@ -186,24 +186,24 @@ class logic:
                                 for cabinet in cabinetData:
                                     for coller in collerData:
                                         for powersupply in powersupplyData:
-                                            expected = cpu.Price + motherboard.Price + ram.Price + hdd.Price + gpu.Price + cabinet.Price + coller.Price + powersupply.Price
+                                            expected = cpu.price + motherboard.price + ram.price + hdd.price + gpu.price + cabinet.price + coller.price + powersupply.price
                                             if expected == budget:
-                                                expected = cpu.Price + motherboard.Price + ram.Price + hdd.Price + gpu.Price + cabinet.Price + coller.Price + powersupply.Price
+                                                expected = cpu.price + motherboard.price + ram.price + hdd.price + gpu.price + cabinet.price + coller.price + powersupply.price
                                                 # print(cpu, motherboard, ram, hdd, cabinet,"this is 0")
-                                                resultZero.append([cpu.cpuID, motherboard.boardID, ram.ramID, hdd.hddID, gpu.gpuIDcabinet.cabinetID, coller.cpllarID, powersupply.powersupplyID])
+                                                resultZero.append([cpu.cpuID, motherboard.boardID, ram.ramID, hdd.hddID, gpu.gpuID, cabinet.cabinetID, coller.cpllarID, powersupply.powersupplyID])
                                                 break
                                             else:
                                                 if (expected < budget):
                                                     tempRemainBudget = budget-expected
                                                     remainingBudgets.append(tempRemainBudget)
-                                                    cpulist = [cpu.cpuID, cpu.cpuName, cpu.cpuScore, cpu.Price]
-                                                    boardlist = [motherboard.boardID, motherboard.boardName, motherboard.boardScore, motherboard.Price]
-                                                    ramlist = [ram.ramID, ram.ramName, ram.ramScore, ram.Price]
-                                                    hddlist = [hdd.hddID, hdd.hddName, hdd.hddScore, hdd.Price]
-                                                    gpulist = [gpu.gpuID, gpu.gpuName, gpu.gpuScore, gpu.Price]
-                                                    cabinetlist = [cabinet.cabinetID, cabinet.cabinetName, cabinet.cabinetScore, cabinet.Price]
-                                                    collerlist = [coller.collerID, coller.collerName, coller.collerScore, coller.Price]
-                                                    powersupplylist = [powersupply.powersupplyID, powersupply.powersupplyName,powersupply.powersupplyScore, powersupply.Price]
+                                                    cpulist = [cpu.cpuID, cpu.cpuName, cpu.cpuScore, cpu.price, cpu.corecount, cpu.clockspeed, cpu.boostclock, cpu.sockettype, cpu.tdp, cpu.integretedgraphics, cpu.smt, cpu.rating]
+                                                    boardlist = [motherboard.boardID, motherboard.boardName, motherboard.boardScore, motherboard.price, motherboard.sockettype, motherboard.formfactor, motherboard.ramtype, motherboard.maxram, motherboard.ramslote, motherboard.color, motherboard.rating]
+                                                    ramlist = [ram.ramID, ram.ramName, ram.ramScore, ram.price, ram.speed, ram.module, ram.pricepergb, ram.color, ram.firstwordlatency, ram.caslatency, ram.rating]
+                                                    hddlist = [hdd.hddID, hdd.hddName, hdd.hddScore, hdd.price, hdd.capacity, hdd.pricepergb, hdd.type, hdd.cache, hdd.formfactor, hdd.interface, hdd.rating]
+                                                    gpulist = [gpu.gpuID, gpu.gpuName, gpu.gpuScore, gpu.price, gpu.chipset, gpu.memory, gpu.coreclock, gpu.boostslock, gpu.color, gpu.lenght, gpu.rating]
+                                                    cabinetlist = [cabinet.cabinetID, cabinet.cabinetName, cabinet.cabinetScore, coller.Price, coller.fanRPM, coller.noiselevel, coller.color, coller.radiotorsize, coller.rating]
+                                                    collerlist = [coller.collerID, coller.collerName, coller.collerScore, coller.Price, coller.fanRPM, coller.noiselevel, coller.color, coller.radiotorsize, coller.rating]
+                                                    powersupplylist = [powersupply.smpsID, powersupply.smpsName,powersupply.smpsScore, powersupply.price, powersupply.formfactor, powersupply.efficiencyrating, powersupply.wattage, powersupply.modular, powersupply.color, powersupply.rating]
                                                     remainingBudget = [tempRemainBudget]
                                                     resultNotZero.append([cpulist, boardlist, ramlist, hddlist, gpulist, cabinetlist, collerlist, powersupplylist, remainingBudget])
         remainingBudgets.sort()
