@@ -415,12 +415,14 @@
                             <div class="card-body">
                                 <div class="d-flex flex-row justify-content-between">
                                     <h4 class="card-title mb-1">Admins</h4>
-                                    <p class="text-muted mb-1">PC Builder</p>
+                                        <form method="POST" id="registeradminform" action="/adminregister">
+                                            <button type="submit" form="registeradminform" formmethod="post" name="addAdminBtn" formaction="/adminregister" class="btn btn-success btn-fw">Add Admin</button>
+                                        </form>
                                 </div>
                                 <div class="row">
                                     <div class="col-12">
                                         <div class="preview-list">
-                                            {% for dt in data %}
+                                            {% for dt in data%}
                                             <div class="preview-item border-bottom">
                                                 <div class="preview-thumbnail">
                                                     <div class="preview-icon bg-primary">
@@ -433,7 +435,7 @@
                                                         <p class="text-muted mb-0">Website Owner</p>
                                                     </div>
                                                     <div class="mr-auto text-sm-right pt-2 pt-sm-0">
-                                                        <p class="text-muted">{{dt.Phone}}</p>
+                                                        <p class="text-muted">{{dt.PhoneNo}}</p>
                                                         <p class="text-muted mb-0">{{dt.Email}}</p>
                                                     </div>
                                                 </div>

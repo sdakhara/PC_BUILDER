@@ -45,7 +45,8 @@ class pcdata(Base):
     BoardID = Column(String)
     PSUID = Column(String)
     RAMID = Column(String)
-    HDDID = Column(String)
+    StorageID = Column(String)
+    CoolerID = Column(String)
     CabinetID = Column(String)
     GPUID = Column(String)
     Price = Column(String)
@@ -64,6 +65,7 @@ class datatransfer:
     def getTodayBuild(self):
         return db.query(pcdata).filter_by(Date=date.today()).count()
 
+
 class Authentication:
     def verify(self, email, password):
         data = db.query(admindata).all()
@@ -73,3 +75,8 @@ class Authentication:
                 db.add(addLog)
                 db.commit()
                 return dt
+
+    def addAdmin(self, adminname, adminpass, adminemail, adminphoneno):
+        newadmin = admindata(AdminName=adminname, Password=adminpass, Email=adminemail, PhoneNo=adminphoneno)
+        db.add(newadmin)
+        db.commit()

@@ -42,7 +42,6 @@ class globs:
     ADMIN = None
 
 
-
 g = globs()
 
 
@@ -65,19 +64,37 @@ def logout():
     return redirect(url_for('home'))
 
 
-
-@app.route('/dashboard')
+@app.route('/dashboard', methods=['GET', 'POST'])
 def dashboard():
-
     dt = dataapi.getAllAdmin()
     last = dataapi.getLastLogin()
     buildedPC = dataapi.getCountBuildedPC()
     todaysbuild = dataapi.getTodayBuild()
+
     try:
         return render_template('Admin/index.html', adminname=g.ADMIN.AdminName, data=dt, last=last, buildedPC=buildedPC,
                                todaysbuild=todaysbuild)
     except:
         return redirect(url_for('home'))
+
+
+@app.route('/adminregister', methods=['GET', 'POST'])
+def adminregister():
+    err = None
+    if request.method == 'POST':
+        adminname = request.form.get('adminname')
+        adminemail = request.form.get('adminemail')
+        adminphoneno = request.form.get('adminphoneno')
+        adminpass = request.form.get('adminpass')
+        adminconpass = request.form.get('adminconpass')
+        currentpass = request.form.get('currentadminpass')
+        if g.ADMIN.Password == currentpass:
+            err = "wrong admin password"
+            if adminpass == adminconpass:
+                verifier.addAdmin(adminname, adminpass, adminemail, adminphoneno)
+            else:
+                err = "Password Didn't match"
+    return render_template('Admin/addadmin.html', err=err)
 
 
 @app.route('/messages')
