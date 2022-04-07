@@ -42,13 +42,13 @@
                 <div class="profile-desc">
                     <div class="profile-pic">
                         <div class="count-indicator">
-                            <img class="img-xs rounded-circle "
-                                 src="{{url_for('static', filename='Admin/assets/images/faces/face15.jpg')}}" alt="">
+<!--                            <img class="img-xs rounded-circle " src="{{url_for('static', filename='Admin/assets/images/faces/face15.jpg')}}" alt="">-->
+                                <i class="mdi mdi-account"></i>
                             <span class="count bg-success"></span>
                         </div>
                         <div class="profile-name">
                             <h5 class="mb-0 font-weight-normal">{{adminname}}</h5>
-                            <span>Gold Member</span>
+                            <span>{{adminrole}}</span>
                         </div>
                     </div>
                     <a href="#" id="profile-dropdown" data-toggle="dropdown"><i class="mdi mdi-dots-vertical"></i></a>
@@ -266,9 +266,7 @@
                     <li class="nav-item dropdown">
                         <a class="nav-link" id="profileDropdown" href="#" data-toggle="dropdown">
                             <div class="navbar-profile">
-                                <img class="img-xs rounded-circle"
-                                     src="{{url_for('static', filename='Admin/assets/images/faces/face15.jpg')}}"
-                                     alt="">
+                               <i class="mdi mdi-account"></i>
                                 <p class="mb-0 d-none d-sm-block navbar-profile-name">{{adminname}}</p>
                                 <i class="mdi mdi-menu-down d-none d-sm-block"></i>
                             </div>
@@ -326,7 +324,7 @@
                                 <div class="row">
                                     <div class="col-9">
                                         <div class="d-flex align-items-center align-self-start">
-                                            <h3 class="mb-0">567</h3>
+                                            <h3 class="mb-0">{{totvisitor}}</h3>
                                             <p class="text-success ml-2 mb-0 font-weight-medium">+11%</p>
                                         </div>
                                     </div>
@@ -366,8 +364,7 @@
                                 <div class="row">
                                     <div class="col-9">
                                         <div class="d-flex align-items-center align-self-start">
-                                            <h3 class="mb-0">44</h3>
-                                            <p class="text-success ml-2 mb-0 font-weight-medium">+3.5%</p>
+                                            <h3 class="mb-0">{{todaysvisit}}</h3>
                                         </div>
                                     </div>
                                     <div class="col-3">
@@ -376,7 +373,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <h6 class="text-muted font-weight-normal">Averege Visits</h6>
+                                <h6 class="text-muted font-weight-normal">Today's Visitor</h6>
                             </div>
                         </div>
                     </div>
@@ -387,24 +384,24 @@
                             <div class="card-body">
                                 <h4 class="card-title">Total Activity</h4>
                                 <!-- <canvas id="transaction-history" class="transaction-chart"></canvas> -->
-                                <canvas id="transaction-history" class="chart" height="50px" width="100px"></canvas>
-                                <!--                                </script>-->
+<!--                                <canvas id="transaction-history" class="chart" height="50px" width="100px"></canvas>-->
+<!--                                                                </script>-->
                                 <div class="bg-gray-dark d-flex d-md-block d-xl-flex flex-row py-3 px-4 px-md-3 px-xl-4 rounded mt-3">
                                     <div class="text-md-center text-xl-left">
                                         <h6 class="mb-1">Builds</h6>
-                                        <p class="text-muted mb-0">07 Jan 2019, 09:12AM</p>
+                                        <p class="text-muted mb-0">{{date}}</p>
                                     </div>
                                     <div class="align-self-center flex-grow text-right text-md-center text-xl-right py-md-2 py-xl-0">
-                                        <h6 class="font-weight-bold mb-0">101</h6>
+                                        <h6 class="font-weight-bold mb-0">{{todaysbuild}}</h6>
                                     </div>
                                 </div>
                                 <div class="bg-gray-dark d-flex d-md-block d-xl-flex flex-row py-3 px-4 px-md-3 px-xl-4 rounded mt-3">
                                     <div class="text-md-center text-xl-left">
                                         <h6 class="mb-1">Total Visitors</h6>
-                                        <p class="text-muted mb-0">07 Jan 2019, 09:12AM</p>
+                                        <p class="text-muted mb-0">{{date}}</p>
                                     </div>
                                     <div class="align-self-center flex-grow text-right text-md-center text-xl-right py-md-2 py-xl-0">
-                                        <h6 class="font-weight-bold mb-0">567</h6>
+                                        <h6 class="font-weight-bold mb-0">{{totvisitor}}</h6>
                                     </div>
                                 </div>
                             </div>
@@ -426,7 +423,7 @@
                                             <div class="preview-item border-bottom">
                                                 <div class="preview-thumbnail">
                                                     <div class="preview-icon bg-primary">
-                                                        <i class="mdi mdi-file-document"></i>
+                                                        <i class="mdi mdi-account"></i>
                                                     </div>
                                                 </div>
                                                 <div class="preview-item-content d-sm-flex flex-grow">
@@ -516,66 +513,22 @@
                                     <p class="text-muted mb-1 small">View all</p>
                                 </div>
                                 <div class="preview-list">
+                                    {% for msg in msgs %}
                                     <div class="preview-item border-bottom">
                                         <div class="preview-thumbnail">
-                                            <img src="{{url_for('static', filename='Admin/assets/images/faces/face6.jpg')}}"
-                                                 alt="image" class="rounded-circle"/>
+                                            <i class="mdi mdi-account"></i>
                                         </div>
                                         <div class="preview-item-content d-flex flex-grow">
                                             <div class="flex-grow">
                                                 <div class="d-flex d-md-block d-xl-flex justify-content-between">
-                                                    <h6 class="preview-subject">Leonard</h6>
-                                                    <p class="text-muted text-small">5 minutes ago</p>
+                                                    <h6 class="preview-subject">{{msg.UserName}}</h6>
+                                                    <p class="text-muted text-small">{{msg.DateTime}}</p>
                                                 </div>
-                                                <p class="text-muted">Well, it seems to be working now.</p>
+                                                <p class="text-muted">{{msg.Message}}</p>
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="preview-item border-bottom">
-                                        <div class="preview-thumbnail">
-                                            <img src="{{url_for('static', filename='Admin/assets/images/faces/face8.jpg')}}"
-                                                 alt="image" class="rounded-circle"/>
-                                        </div>
-                                        <div class="preview-item-content d-flex flex-grow">
-                                            <div class="flex-grow">
-                                                <div class="d-flex d-md-block d-xl-flex justify-content-between">
-                                                    <h6 class="preview-subject">Luella Mills</h6>
-                                                    <p class="text-muted text-small">10 Minutes Ago</p>
-                                                </div>
-                                                <p class="text-muted">Well, it seems to be working now.</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="preview-item border-bottom">
-                                        <div class="preview-thumbnail">
-                                            <img src="{{url_for('static', filename='Admin/assets/images/faces/face9.jpg')}}"
-                                                 alt="image" class="rounded-circle"/>
-                                        </div>
-                                        <div class="preview-item-content d-flex flex-grow">
-                                            <div class="flex-grow">
-                                                <div class="d-flex d-md-block d-xl-flex justify-content-between">
-                                                    <h6 class="preview-subject">Ethel Kelly</h6>
-                                                    <p class="text-muted text-small">2 Hours Ago</p>
-                                                </div>
-                                                <p class="text-muted">Please review the tickets</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="preview-item border-bottom">
-                                        <div class="preview-thumbnail">
-                                            <img src="url_for('static', filename='Admin/assets/images/faces/face11.jpg')}}"
-                                                 alt="image" class="rounded-circle"/>
-                                        </div>
-                                        <div class="preview-item-content d-flex flex-grow">
-                                            <div class="flex-grow">
-                                                <div class="d-flex d-md-block d-xl-flex justify-content-between">
-                                                    <h6 class="preview-subject">Herman May</h6>
-                                                    <p class="text-muted text-small">4 Hours Ago</p>
-                                                </div>
-                                                <p class="text-muted">Thanks a lot. It was easy to fix it .</p>
-                                            </div>
-                                        </div>
-                                    </div>
+                                    {% endfor %}
                                 </div>
                             </div>
                         </div>

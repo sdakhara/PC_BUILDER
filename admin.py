@@ -1,7 +1,7 @@
 from flask import Flask, render_template, jsonify, request, redirect, url_for
-
-from logics.Admin.IPLocation import get_ip
-from logics.Admin.datashare import datatransfer, Authentication
+from datetime import date
+from logics.admin.IPLocation import get_ip
+from logics.admin.datashare import datatransfer, Authentication
 
 app = Flask(__name__)
 dataapi = datatransfer()
@@ -70,10 +70,13 @@ def dashboard():
     last = dataapi.getLastLogin()
     buildedPC = dataapi.getCountBuildedPC()
     todaysbuild = dataapi.getTodayBuild()
-
+    totvisit = dataapi.getTotVisit()
+    todayvisit = dataapi.getTodayVisit()
+    msgs = dataapi.getMessages()
     try:
         return render_template('Admin/index.html', adminname=g.ADMIN.AdminName, data=dt, last=last, buildedPC=buildedPC,
-                               todaysbuild=todaysbuild)
+                               todaysbuild=todaysbuild, adminrole=g.ADMIN.Role, totvisitor=totvisit, todaysvisit=todayvisit,
+                               date=date.today(), msgs=msgs)
     except:
         return redirect(url_for('home'))
 
@@ -81,20 +84,26 @@ def dashboard():
 @app.route('/adminregister', methods=['GET', 'POST'])
 def adminregister():
     err = None
-    if request.method == 'POST':
-        adminname = request.form.get('adminname')
-        adminemail = request.form.get('adminemail')
-        adminphoneno = request.form.get('adminphoneno')
-        adminpass = request.form.get('adminpass')
-        adminconpass = request.form.get('adminconpass')
-        currentpass = request.form.get('currentadminpass')
-        if g.ADMIN.Password == currentpass:
-            err = "wrong admin password"
-            if adminpass == adminconpass:
-                verifier.addAdmin(adminname, adminpass, adminemail, adminphoneno)
+    try:
+        if request.method == 'POST':
+            adminname = request.form.get('adminname')
+            adminemail = request.form.get('adminemail')
+            adminphoneno = request.form.get('adminphoneno')
+            adminpass = request.form.get('adminpass')
+            adminconpass = request.form.get('adminconpass')
+            currentpass = request.form.get('currentadminpass')
+            if g.ADMIN.Password == currentpass:
+                if adminpass == adminconpass:
+                    verifier.addAdmin(adminname, adminpass, adminemail, adminphoneno)
+                    return redirect(url_for('dashboard'))
+                else:
+                    err = "Password Didn't match"
             else:
-                err = "Password Didn't match"
-    return render_template('Admin/addadmin.html', err=err)
+                err = "wrong admin password"
+        return render_template('Admin/addadmin.html', err=err)
+    except:
+        return redirect(url_for('home'))
+
 
 
 @app.route('/messages')
