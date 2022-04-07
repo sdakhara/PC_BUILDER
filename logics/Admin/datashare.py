@@ -32,9 +32,10 @@ class adminloginrecord(Base):
 class admindata(Base):
     __tablename__ = 'admindata'
 
-    AdminID = Column(String, primary_key=True)
+    AdminID = Column(Integer, primary_key=True, autoincrement=True)
     AdminName = Column(String)
     Email = Column(String)
+    Role = Column(String)
     Password = Column(String)
     PhoneNo = Column(String)
 
@@ -52,6 +53,23 @@ class pcdata(Base):
     Price = Column(String)
     Date = Column(String)
 
+class visitordata(Base):
+    __tablename__ = 'visitordata'
+
+    VisitorID = Column(Integer, primary_key=True)
+    VisitorIP = Column(String)
+    Date = Column(String)
+
+class messagedata(Base):
+    __tablename__ = 'messagedata'
+
+    RecordID = Column(Integer, primary_key=True, autoincrement=True)
+    UserID = Column(Integer)
+    UserName = Column(String)
+    UserEmail = Column(String)
+    RequestIP = Column(String)
+    Message = Column(String)
+    DateTime = Column(String)
 
 class datatransfer:
     def getAllUser(self):
@@ -64,7 +82,12 @@ class datatransfer:
         return db.query(pcdata).count()
     def getTodayBuild(self):
         return db.query(pcdata).filter_by(Date=date.today()).count()
-
+    def getTotVisit(self):
+        return  db.query(visitordata).count()
+    def getTodayVisit(self):
+        return db.query(visitordata).filter_by(Date=date.today()).count()
+    def getMessages(self):
+        return db.query(messagedata).all()
 
 class Authentication:
     def verify(self, email, password):
