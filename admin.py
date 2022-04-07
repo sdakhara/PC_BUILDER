@@ -10,7 +10,6 @@ verifier = Authentication()
 
 counter = 0
 
-
 @app.before_request
 def countVisitor():
     global counter
