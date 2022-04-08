@@ -27,8 +27,35 @@ class boarddata(Base):
 
 class cpudata(Base):
     __tablename__ = 'cpudata'
+
+    CPUID = Column(Integer, primary_key=True, autoincrement=True)
+    CPUName = Column(String)
+    Price = Column(Integer)
+    CoreCount = Column(Integer)
+    ClockSpeed = Column(String)
+    BboostClock = Column(String)
+    SocketType = Column(String)
+    TDP = Column(String)
+    IntegretedGraphics = Column(String)
+    SMT = Column(String)
+    Rating = Column(Integer)
+
 class ramdata(Base):
     __tablename__ = 'ramdata'
+
+    RAMID = Column(Integer, primary_key=True, autoincrement=True)
+    RAMName = Column(String)
+    Price = Column(Integer)
+    Type = Column(String)
+    Speed = Column(String)
+    Modules = Column(String)
+    PricePerModule = Column(Integer)
+    SizePerModule = Column(Integer)
+    Color = Column(String)
+    FirstWordLatency = Column(String)
+    CASLatency = Column(String)
+    Rating = Column(Integer)
+
 class cabinetdata(Base):
     __tablename__ = 'cabinetdata'
 
@@ -36,11 +63,8 @@ class cabinetdata(Base):
     Name = Column(String)
     Type = Column(String)
     Color = Column(String)
-    Power = Column(String)
-    Supply = Column(String)
-    Side = Column(String)
-    Panel = Column(String)
-    Window = Column(String)
+    PowerSupply = Column(String)
+    SidePanelWindow= Column(String)
     ExternalBays = Column(String)
     InternalBays = Column(String)
     Rating = Column(String)
@@ -49,18 +73,35 @@ class cabinetdata(Base):
 
 class coolerdata(Base):
     __tablename__ = 'coolerdata'
+
+    CoolerID = Column(Integer, primary_key=True, autoincrement=True)
+    Name = Column(String)
+    Price = Column(Integer)
+    FanRPM = Column(String)
+    NoiseLevel = Column(String)
+    Color = Column(String)
+    RadiotorSize = Column(String)
+    Rating = Column(Integer)
+
+
 class gpudata(Base):
     __tablename__ = 'gpudata'
+
+    GPUID = Column(Integer, primary_key=True, autoincrement=True)
+    Name = Column(String)
+    Price = Column(Integer)
+    Chipset = Column(String)
+    Memory = Column(String)
+    CoreClock = Column(String)
+    BoostClock = Column(String)
+    Color = Column(String)
+    Lenght = Column(Integer)
+    Rating = Column(Integer)
+
+
 class pcrecord(Base):
     __tablename__ = 'pcrecord'
-class psudata(Base):
-    __tablename__ = 'psudata'
-class storagedata(Base):
-    __tablename__ = 'storagedata'
-
-class pcdata(Base):
-    __tablename__ = 'pcdata'
-    PCID = Column(String, primary_key=True)
+    PCID = Column(String, primary_key=True, autoincrement=True)
     CPUID = Column(String)
     BoardID = Column(String)
     PSUID = Column(String)
@@ -72,10 +113,39 @@ class pcdata(Base):
     Price = Column(String)
     Date = Column(String)
 
+
+class psudata(Base):
+    __tablename__ = 'psudata'
+
+    SmpsID = Column(Integer, primary_key=True, autoincrement=True)
+    Name = Column(String)
+    Price = Column(Integer)
+    FormFactor = Column(String)
+    Efficiencyrating = Column(String)
+    Wattage = Column(String)
+    Modular = Column(String)
+    Color = Column(String)
+    Rating = Column(Integer)
+
+
+class storagedata(Base):
+    __tablename__ = 'storagedata'
+
+    StorageID = Column(Integer, primary_key=True, autoincrement=True)
+    Name = Column(String)
+    Price = Column(Integer)
+    Capacity = Column(String)
+    Type = Column(String)
+    Cache = Column(Integer)
+    FormFactor = Column(String)
+    Interface = Column(String)
+    Rating = Column(Integer)
+
+
 class userdata(Base):
     __tablename__ = 'userdata'
 
-    UserID = Column(String, primary_key=True)
+    UserID = Column(String, primary_key=True, autoincrement=True)
     UserName = Column(String)
     Email = Column(String)
     Password = Column(String)
@@ -100,14 +170,15 @@ class adminloginrecord(Base):
     LoginTime = Column(String)
 
 
-
-
 class visitordata(Base):
     __tablename__ = 'visitordata'
 
-    VisitorID = Column(Integer, primary_key=True)
+    VisitorID = Column(Integer, primary_key=True, autoincrement=True)
     VisitorIP = Column(String)
+    UserID = Column(Integer)
+    UserName = Column(String)
     Date = Column(String)
+    Time = Column(String)
 
 
 class userquery(Base):
@@ -119,8 +190,8 @@ class userquery(Base):
     UserEmail = Column(String)
     RequestIP = Column(String)
     Message = Column(String)
-    DateTime = Column(String)
-
+    Date = Column(String)
+    Time = Column(String)
 
 class datatransfer:
     def getAllUser(self):
@@ -133,10 +204,10 @@ class datatransfer:
         return db.query(adminloginrecord).first()
 
     def getCountBuildedPC(self):
-        return db.query(pcdata).count()
+        return db.query(pcrecord).count()
 
     def getTodayBuild(self):
-        return db.query(pcdata).filter_by(Date=date.today()).count()
+        return db.query(pcrecord).filter_by(Date=date.today()).count()
 
     def getTotVisit(self):
         return db.query(visitordata).count()
@@ -145,7 +216,7 @@ class datatransfer:
         return db.query(visitordata).filter_by(Date=date.today()).count()
 
     def getMessages(self):
-        return db.query(messagedata).all()
+        return db.query(userquery).all()
 
 
 class Authentication:
