@@ -106,8 +106,8 @@ def buildpc():
         psuBrandGigabyte = bool(request.form.get('psuBrandGigabyte'))
         psuBrandNZXT = bool(request.form.get('psuBrandNZXT'))
         psuBrandGamdias = bool(request.form.get('psuBrandGamdias'))
-
-    return render_template('User/buildpc.html')
+    cpus = dataapi.getCPUs()
+    return render_template('User/buildpc.html', cpus=cpus)
 
 
 @app.route('/autobuild', methods=['GET', 'POST'])

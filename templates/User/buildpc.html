@@ -9,7 +9,11 @@
     <!-- Include CSS -->
     <link rel="stylesheet" href="{{url_for('static', filename='User/CSS/style.css')}}"/>
     <link rel="stylesheet" href="{{url_for('static', filename='User/CSS/bootstrap.min.css')}}"/>
-    
+    <style>
+        .tebal{
+            color:black;
+        }
+    </style>
     <title>App</title>
 </head>
 
@@ -67,6 +71,7 @@
             <div class="card bg-dark select-component-box" style="height: 8rem;">
                 <div class="card-body">
                     <h5 class="card-title">CPU</h5>
+                    
                     <button type="button" class="btn btn-outline-pcb" data-bs-toggle="modal"
                             data-bs-target="#exampleModal-1">+ Add
                     </button>
@@ -159,7 +164,23 @@
                                                 </div>
                                             </div>
                                         </div>
-                                    
+                                        {% for cpu in cpus %}
+                                        <table>
+                                            <tr>
+                                                <td class="tebal">{{cpu.CPUID}}</td>
+                                                <td class="tebal">{{cpu.CPUName}}</td>
+                                                <td class="tebal">{{cpu.CoreCount}}</td>
+                                                <td class="tebal">{{cpu.ClockSpeed}}</td>
+                                                <td class="tebal">{{cpu.BoostClock}}</td>
+                                                <td class="tebal">{{cpu.SocketType}}</td>
+                                                <td class="tebal">{{cpu.TDP}}</td>
+                                                <td class="tebal">{{cpu.IntegratedGraphics }}</td>
+                                                <td class="tebal">{{cpu.SMT}}</td>
+                                                <td class="tebal">{{cpu.Rating}}</td>
+                                                <td class="tebal">{{cpu.Price}}</td>
+                                            </tr>
+                                        </table>
+                                        {% endfor %}
                                     </div>
                                     <div class="modal-footer">
                                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close

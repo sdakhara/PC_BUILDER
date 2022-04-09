@@ -10,6 +10,7 @@ Session = sessionmaker()
 db = Session(bind=engine)
 Base = declarative_base()
 
+
 class boarddata(Base):
     __tablename__ = 'boarddata'
 
@@ -30,22 +31,22 @@ class cpudata(Base):
 
     CPUID = Column(Integer, primary_key=True, autoincrement=True)
     CPUName = Column(String)
-    Price = Column(Integer)
     CoreCount = Column(Integer)
     ClockSpeed = Column(String)
-    BboostClock = Column(String)
+    BoostClock = Column(String)
     SocketType = Column(String)
     TDP = Column(String)
-    IntegretedGraphics = Column(String)
+    IntegratedGraphics = Column(String)
     SMT = Column(String)
     Rating = Column(Integer)
+    Price = Column(Integer)
+
 
 class ramdata(Base):
     __tablename__ = 'ramdata'
 
     RAMID = Column(Integer, primary_key=True, autoincrement=True)
     RAMName = Column(String)
-    Price = Column(Integer)
     Type = Column(String)
     Speed = Column(String)
     Modules = Column(String)
@@ -55,16 +56,18 @@ class ramdata(Base):
     FirstWordLatency = Column(String)
     CASLatency = Column(String)
     Rating = Column(Integer)
+    Price = Column(Integer)
+
 
 class cabinetdata(Base):
     __tablename__ = 'cabinetdata'
 
     CabinetID = Column(Integer, primary_key=True, autoincrement=True)
-    Name = Column(String)
+    CabinetName = Column(String)
     Type = Column(String)
     Color = Column(String)
     PowerSupply = Column(String)
-    SidePanelWindow= Column(String)
+    SidePanelWindow = Column(String)
     ExternalBays = Column(String)
     InternalBays = Column(String)
     Rating = Column(String)
@@ -75,28 +78,28 @@ class coolerdata(Base):
     __tablename__ = 'coolerdata'
 
     CoolerID = Column(Integer, primary_key=True, autoincrement=True)
-    Name = Column(String)
-    Price = Column(Integer)
+    CoolerName = Column(String)
     FanRPM = Column(String)
     NoiseLevel = Column(String)
     Color = Column(String)
     RadiotorSize = Column(String)
     Rating = Column(Integer)
+    Price = Column(Integer)
 
 
 class gpudata(Base):
     __tablename__ = 'gpudata'
 
     GPUID = Column(Integer, primary_key=True, autoincrement=True)
-    Name = Column(String)
-    Price = Column(Integer)
+    GPUName = Column(String)
     Chipset = Column(String)
     Memory = Column(String)
     CoreClock = Column(String)
     BoostClock = Column(String)
     Color = Column(String)
-    Lenght = Column(Integer)
+    Length = Column(Integer)
     Rating = Column(Integer)
+    Price = Column(Integer)
 
 
 class pcrecord(Base):
@@ -117,11 +120,11 @@ class pcrecord(Base):
 class psudata(Base):
     __tablename__ = 'psudata'
 
-    SmpsID = Column(Integer, primary_key=True, autoincrement=True)
-    Name = Column(String)
+    SMPSID = Column(Integer, primary_key=True, autoincrement=True)
+    PSUName = Column(String)
     Price = Column(Integer)
     FormFactor = Column(String)
-    Efficiencyrating = Column(String)
+    EfficiencyRating = Column(String)
     Wattage = Column(String)
     Modular = Column(String)
     Color = Column(String)
@@ -151,6 +154,7 @@ class userdata(Base):
     Password = Column(String)
     PhoneNo = Column(String)
 
+
 class admindata(Base):
     __tablename__ = 'admindata'
 
@@ -160,6 +164,7 @@ class admindata(Base):
     Role = Column(String)
     Password = Column(String)
     PhoneNo = Column(String)
+
 
 class adminloginrecord(Base):
     __tablename__ = 'adminloginrecord'
@@ -193,6 +198,17 @@ class userquery(Base):
     Date = Column(String)
     Time = Column(String)
 
+
+class componentrequestrecord(Base):
+    __tablename__ = 'componentrequestrecord'
+    RecordID = Column(Integer, primary_key=True, autoincrement=True)
+    UserName = Column(String)
+    UserEmail = Column(String)
+    Message = Column(String)
+    RequestedComponent = Column(String)
+    Status = Column(String)
+
+
 class datatransfer:
     def getAllUser(self):
         return db.query(userdata).all()
@@ -217,6 +233,9 @@ class datatransfer:
 
     def getMessages(self):
         return db.query(userquery).all()
+
+    def getCPUs(self):
+        return db.query(cpudata).all()
 
 
 class Authentication:
