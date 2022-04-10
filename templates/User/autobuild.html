@@ -10,25 +10,24 @@
     <link rel="stylesheet" href="{{url_for('static', filename='User/CSS/style.css')}}" />
     <link rel="stylesheet" href="{{url_for('static', filename='User/CSS/bootstrap.min.css')}}" />
 
-    <title>App</title>
+    <title>PCB | AutoBuild</title>
 </head>
 
 <body>
-
     <!-- Nav-Bar (Header)  -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-transperent fixed-top" id="Navbar">
         <div class="container-fluid" id="container-fluid">
             <a class="navbar-brand" href="#"><img src="{{url_for('static', filename='User/IMG/PCB-LOGO.png')}}" alt=""
-                    width="60"></a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    width="60" /></a>
+            <button class="navbar-toggler" id="menu-btn-res" type="button" onclick="hamburgerOff()"
+                data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false"
+                aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse m-3" id="navbarNav">
-
                 <ul class="navbar-nav nav-container">
                     <li class="nav-item nav-list">
-                        <a class="nav-link" aria-current="page" href='/index'>Home</a>
+                        <a class="nav-link" aria-current="page" href="/index">Home</a>
                     </li>
                     <li class="nav-item nav-list">
                         <a class="nav-link" href="#">Products</a>
@@ -41,44 +40,49 @@
                     </li>
 
                     <li class="nav-item nav-list">
-                        <button class="btn btn-outline-pcb sign-up" type="submit">Sign-Up</button>
-                        <button class="btn btn-outline-pcb log-in" type="submit">Log-In</button>
+                        <button class="btn btn-outline-pcb sign-up" type="submit">
+                            Sign-Up
+                        </button>
+                        <button class="btn btn-outline-pcb log-in" type="submit">
+                            Log-In
+                        </button>
                     </li>
                 </ul>
             </div>
         </div>
     </nav>
 
-
     <div class="build-pc-div">
         <h1 class="build-pc-heading">Build PC</h1>
     </div>
 
-
-
     <p class="components-notice position-absolute start-50 translate-middle-x mt-3">
-        <span id="pc-component-note-span">*</span> You can Build pc Automatically as per your Budget.
+        <span id="pc-component-note-span">*</span> You can Build pc Automatically
+        as per your Budget.
     </p>
 
     <div class="main-container">
-
         <!-- Price Range Slider (Budget Slider) -->
         <form action="">
-
             <div class="budget-slider w-50 mx-auto">
-                <center><label for="customRange1" class="form-label text-light w-75 slider-label fs-5" >Enter Budget</label></center>
-                <input type="range" class="form-range slider-input" id="range-slider" min="5000" max="500000" value="5000">
+                <center>
+                    <label for="customRange1" class="form-label text-light w-75 slider-label fs-5">Enter Budget</label>
+                </center>
+                <input type="range" class="form-range slider-input" id="range-slider" min="5000" max="500000"
+                    value="5000" />
 
                 <div class="input-group w-25 mx-auto" id="input-text-group">
                     <div class="input-group-prepend">
-                    <div class="input-group-text">₹</div>
+                        <div class="input-group-text">₹</div>
                     </div>
-                    <input type="number" class="form-control budget-input" id="price-value-input" min="5000" max="500000" placeholder="Enter Budget">
-                    
+                    <input type="number" class="form-control budget-input" id="price-value-input" min="5000"
+                        max="500000" placeholder="Enter Budget" />
                 </div>
-                <button type="submit" class="btn btn-outline-pcb mx-auto d-flex justify-content-center mt-2" id="budget-apply-btn">Apply</button>
+                <button type="submit" class="btn btn-outline-pcb mx-auto d-flex justify-content-center mt-2"
+                    id="budget-apply-btn">
+                    Apply
+                </button>
             </div>
-
         </form>
 
         <div class="products-table-1 mx-auto table-responsive">
@@ -93,80 +97,94 @@
                     </tr>
                 </thead>
                 <tbody>
-                  <tr>
-                    <th scope="row">CPU</th>
-                    <td>CPU Modal Information</td>
-                    <td>5000 ₹</td>
-                    <td>Free</td>
-                    <td>
-                        <button type="submit" class="btn btn-outline-pcb" id="table-close-btn"><span aria-hidden="true">&times;</span></button>
-                    </td>  
-                  </tr>
-                  <tr>
-                    <th scope="row">CPU Cooler</th>
-                    <td>CPU Info</td>
-                    <td>5000 ₹</td>
-                    <td>Free</td>
-                    <td>
-                        <button type="submit" class="btn btn-outline-pcb" id="table-close-btn"><span aria-hidden="true">&times;</span></button>
-                    </td>
-                  </tr>
-                  <tr>
-                    <th scope="row">Ram</th>
-                    <td>Ram Info</td>
-                    <td>5000 ₹</td>
-                    <td>Free</td>
-                    <td>
-                        <button type="submit" class="btn btn-outline-pcb" id="table-close-btn"><span aria-hidden="true">&times;</span></button>
-                    </td>
-                  </tr>
-                  <tr>
-                    <th scope="row">Graphics Card</th>
-                    <td>GPU Info</td>
-                    <td>5000 ₹</td>
-                    <td>Free</td>
-                    <td>
-                        <button type="submit" class="btn btn-outline-pcb" id="table-close-btn"><span aria-hidden="true">&times;</span></button>
-                    </td>
-                  </tr>
-                  <tr>
-                    <th scope="row">Motherboadr</th>
-                    <td>Motherboard Info</td>
-                    <td>5000 ₹</td>
-                    <td>Free</td>
-                    <td>
-                        <button type="submit" class="btn btn-outline-pcb" id="table-close-btn"><span aria-hidden="true">&times;</span></button>
-                    </td>
-                  </tr>
-                  <tr>
-                    <th scope="row">Storage</th>
-                    <td>Storage Info</td>
-                    <td>5000 ₹</td>
-                    <td>Free</td>
-                    <td>
-                        <button type="submit" class="btn btn-outline-pcb" id="table-close-btn"><span aria-hidden="true">&times;</span></button>
-                    </td>
-                  </tr>
-                  <tr>
-                    <th scope="row">Power Supply</th>
-                    <td>PCU Info</td>
-                    <td>5000 ₹</td>
-                    <td>Free</td>
-                    <td>
-                        <button type="submit" class="btn btn-outline-pcb" id="table-close-btn"><span aria-hidden="true">&times;</span></button>
-                    </td>
-                  </tr>
+                    <tr>
+                        <th scope="row">CPU</th>
+                        <td>CPU Modal Information</td>
+                        <td>5000 ₹</td>
+                        <td>Free</td>
+                        <td>
+                            <button type="submit" class="btn btn-outline-pcb" id="table-close-btn">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th scope="row">CPU Cooler</th>
+                        <td>CPU Info</td>
+                        <td>5000 ₹</td>
+                        <td>Free</td>
+                        <td>
+                            <button type="submit" class="btn btn-outline-pcb" id="table-close-btn">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Ram</th>
+                        <td>Ram Info</td>
+                        <td>5000 ₹</td>
+                        <td>Free</td>
+                        <td>
+                            <button type="submit" class="btn btn-outline-pcb" id="table-close-btn">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Graphics Card</th>
+                        <td>GPU Info</td>
+                        <td>5000 ₹</td>
+                        <td>Free</td>
+                        <td>
+                            <button type="submit" class="btn btn-outline-pcb" id="table-close-btn">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Motherboadr</th>
+                        <td>Motherboard Info</td>
+                        <td>5000 ₹</td>
+                        <td>Free</td>
+                        <td>
+                            <button type="submit" class="btn btn-outline-pcb" id="table-close-btn">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Storage</th>
+                        <td>Storage Info</td>
+                        <td>5000 ₹</td>
+                        <td>Free</td>
+                        <td>
+                            <button type="submit" class="btn btn-outline-pcb" id="table-close-btn">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Power Supply</th>
+                        <td>PCU Info</td>
+                        <td>5000 ₹</td>
+                        <td>Free</td>
+                        <td>
+                            <button type="submit" class="btn btn-outline-pcb" id="table-close-btn">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </td>
+                    </tr>
                 </tbody>
-              </table>
-            
-              <div class="d-flex justify-content-end">
+            </table>
+
+            <div class="d-flex justify-content-end">
                 <ul class="list-group w-25">
-                    <li class="list-group-item bg-dark text-light"><h5>Total Amout :</h5></li>
+                    <li class="list-group-item bg-dark text-light">
+                        <h5>Total Amout :</h5>
+                    </li>
                 </ul>
-              </div>
-
+            </div>
         </div>
-
     </div>
 
     <!-- Include JavaScript -->
@@ -179,6 +197,5 @@
         integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF"
         crossorigin="anonymous"></script>
 </body>
-
 
 </html>

@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="{{url_for('static', filename='User/CSS/style.css')}}"/>
     <link rel="stylesheet" href="{{url_for('static', filename='User/CSS/bootstrap.min.css')}}"/>
     
-    <title>App</title>
+    <title>PCB | BuildPC</title>
 </head>
 
 <body>
@@ -20,8 +20,7 @@
     <div class="container-fluid" id="container-fluid">
         <a class="navbar-brand" href="#"><img src="{{url_for('static', filename='User/IMG/PCB-LOGO.png')}}" alt=""
                                               width="60"></a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <button class="navbar-toggler" id="menu-btn-res" type="button" onclick="hamburgerOff()" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse m-3" id="navbarNav">
