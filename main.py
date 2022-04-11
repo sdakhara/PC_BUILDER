@@ -2,7 +2,7 @@ from flask import Flask, render_template, request
 
 from logics.user.autobuild import logic
 from logics.user.iplogics import ipControl
-from logics.admin.datashare import datatransfer
+from logics.Admin.datashare import datatransfer
 app = Flask(__name__)
 
 logic = logic()
@@ -117,6 +117,15 @@ def autobuild():
         pass
 
     return render_template('User/autobuild.html')
+
+
+@app.route('/about', methods=['GET', 'POST'])
+def about():
+    ipcontrol.getIP(request.remote_addr)
+    if request.method == 'POST':
+        pass
+
+    return render_template('User/about.html')
 
 
 @app.route('/test', methods=['GET', 'POST'])
