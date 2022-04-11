@@ -119,6 +119,15 @@ def autobuild():
     return render_template('User/autobuild.html')
 
 
+@app.route('/about', methods=['GET', 'POST'])
+def about():
+    ipcontrol.getIP(request.remote_addr)
+    if request.method == 'POST':
+        pass
+
+    return render_template('User/about.html')
+
+
 @app.route('/test', methods=['GET', 'POST'])
 def test():
     budget = 0
