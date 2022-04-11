@@ -2,7 +2,7 @@ from flask import Flask, render_template, request
 
 from logics.user.autobuild import logic
 from logics.user.iplogics import ipControl
-from logics.admin.datashare import datatransfer
+from logics.Admin.datashare import datatransfer
 app = Flask(__name__)
 
 logic = logic()
