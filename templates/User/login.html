@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="{{url_for('static', filename='User/CSS/style.css')}}"/>
     <link rel="stylesheet" href="{{url_for('static', filename='User/CSS/bootstrap.min.css')}}"/>
     
-    <title>PCB | Home</title>
+    <title>PCB | Login</title>
 </head>
 
 <body>
@@ -43,126 +43,50 @@
                 </li>
                 
                 <li class="nav-item nav-list">
-                    <a href='/login'>
-                    <button class="btn btn-outline-pcb log-in" type="submit">Log-In</button>
-                    </a>
                 </li>
             </ul>
         
         </div>
 </nav>
 
-<section class="main-page">
-    <video src="{{url_for('static', filename='User/VIDEOS/4.mp4')}}" autoplay muted loop class="video-play"></video>
-    
-    <div class="top-content ml3">
-        <h1>WELCOME TO PC BUILDER</h1>
-        <p>BUILD YOUR DREAM PC NOW</p>
-        <a href='/buildpc'>
-            <button class="btn btn-outline-pcb sign-up" type="submit">Build Now</button>
-        </a>
-        <button class="btn btn-outline-pcb sign-up" type="submit">Explore</button>
-    </div>
-</section>
 
 
-<div class="Explore">
-    
-    <div class="Explore-div">
-        <h1 class="Explore-heading">Explore</h1>
-    </div>
-    
-    <div class="card-group">
-        <div class="card explore-crd">
-            <div class="card-body">
-                <h5 class="card-title">
-                    <img src="{{url_for('static', filename='User/IMG/build.png')}}" alt="" class="cards-icons">
-                    Build PC</h5>
-                <p class="card-text">Build your PC by adding components.</p>
-                <a href='/buildpc'>
-                    <button type="button" class="btn btn-outline-pcb">BUILD NOW</button>
-                </a>
-            </div>
-        </div>
-        
-        <div class="card explore-crd">
-            <div class="card-body">
-                <h5 class="card-titl/e">
-                    <img src="{{url_for('static', filename='User/IMG/customize.png')}}" alt="" class="cards-icons">
-                    Customize</h5>
-                <p class="card-text">Customize the Build which Builded previously.</p>
-                <button type="button" class="btn btn-outline-pcb">CUSTOMIZE</button>
-            </div>
-        </div>
-    </div>
-    
-    <div class="card-group">
-        <div class="card explore-crd">
-            <div class="card-body">
-                <h5 class="card-title">
-                    <img src="{{url_for('static', filename='User/IMG/search-components.png')}}" alt=""
-                         class="cards-icons">
-                    Search Components</h5>
-                <p class="card-text">Search the components which you are looking for.</p>
-                <button type="button" class="btn btn-outline-pcb">SEARCH</button>
-            </div>
-        </div>
-        
-        <div class="card explore-crd">
-            <div class="card-body">
-                <h5 class="card-titl/e">
-                    <img src="{{url_for('static', filename='User/IMG/auto-build.png')}}" alt="" class="cards-icons">
-                    Auto Build</h5>
-                <p class="card-text">Build PC by just entering your budget & needs</p>
-                <a href='/autobuild'>
-                    <button type="button" class="btn btn-outline-pcb">AUTO BUILD</button>
-                </a>
-            </div>
-        </div>
-    </div>
-    
-    <div class="card-group">
-        <div class="card explore-crd">
-            <div class="card-body">
-                <h5 class="card-title">
-                    <img src="{{url_for('static', filename='User/IMG/build-guide.png')}}" alt="" class="cards-icons">
-                    Build Guide</h5>
-                <p class="card-text">Read Build Guide if you dont have enough knowledge about pc build.</p>
-                <button type="button" class="btn btn-outline-pcb">READ GUIDE</button>
-            </div>
-        </div>
-        
-        <div class="card explore-crd">
-            <div class="card-body">
-                <h5 class="card-titl/e">
-                    <img src="{{url_for('static', filename='User/IMG/second-hand-pc.png')}}" alt="" class="cards-icons">
-                    Second Hand PC</h5>
-                <p class="card-text">Buy Second hand PC & Sell PC</p>
-                <button type="button" class="btn btn-outline-pcb">BUY / SELL</button>
-            </div>
-        </div>
-    </div>
-    
-    <div class="card-group">
-        <div class="card explore-crd">
-            <div class="card-body">
-                <h5 class="card-title">
-                    <img src="{{url_for('static', filename='User/IMG/users-build.png')}}" alt="" class="cards-icons">
-                    Users Build</h5>
-                <p class="card-text">View & Rate other users PC Builds</p>
-                <button type="button" class="btn btn-outline-pcb">VIEW / RATE</button>
-            </div>
-        </div>
-        
-        <div class="card explore-crd">
-            <div class="card-body">
-                <h5 class="card-titl/e">Other...</h5>
-                <p class="card-text">st to show that equal height action.</p>
-            </div>
-        </div>
-    </div>
+<div class="text-center text-light login-div">
+<main class="form-signin">
+  <form>
+    <img class="mb-4" src="{{url_for('static', filename='User/IMG/PCB-LOGO.png')}}" alt="" width="72">
+    <h1 class="h3 mb-3 fw-normal">LOG IN</h1>
 
+    <div class="form-floating">
+      <input type="email" class="form-control bg-dark login-input text-light" id="floatingInput" placeholder="name@example.com">
+      <label for="floatingInput">Email address</label>
+    </div>
+    <div class="form-floating">
+      <input type="password" class="form-control bg-dark login-input text-light" id="floatingPassword" placeholder="Password">
+      <label for="floatingPassword">Password</label>
+    </div>
+    <button class="w-100 btn btn-lg btn-outline-pcb" type="submit">Log in</button>
+      <p class="mt-2">Don't have an account? <a href="/signup" id="make-account-a">Sign up</a></p>
+  </form>
+</main>
 </div>
+
+
+
+<!--<section class="main-page">-->
+<!--    <video src="{{url_for('static', filename='User/VIDEOS/4.mp4')}}" autoplay muted loop class="video-play"></video>-->
+<!--    -->
+<!--    <div class="top-content ml3">-->
+<!--        <h1>WELCOME TO PC BUILDER</h1>-->
+<!--        <p>BUILD YOUR DREAM PC NOW</p>-->
+<!--        <a href='/buildpc'>-->
+<!--            <button class="btn btn-outline-pcb sign-up" type="submit">Build Now</button>-->
+<!--        </a>-->
+<!--        <button class="btn btn-outline-pcb sign-up" type="submit">Explore</button>-->
+<!--    </div>-->
+<!--</section>-->
+
+
 
 
 <!-- Footer -->

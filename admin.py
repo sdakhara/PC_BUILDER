@@ -1,47 +1,25 @@
-from flask import Flask, render_template, jsonify, request, redirect, url_for
 from datetime import date
-from logics.Admin.IPLocation import get_ip
-from logics.Admin.datashare import datatransfer, Authentication
 
-app = Flask(__name__)
-dataapi = datatransfer()
-verifier = Authentication()
-# visitor counter
+from flask import Flask, render_template, jsonify, request, redirect, url_for
 
-counter = 0
-
-@app.before_request
-def countVisitor():
-    global counter
-    counter += 1
-    total = counter / 48
-    counterFile = open('counter.txt', 'w')
-    counterFile.write(str(total))
-    counterFile.close()
-
-
-# count build
-"""
-create = 0
-@app.before_request
-def countBuild():
-    global create
-    create = create + # pass variable to build button
-    print()
-"""
-
-
-@app.route('/getip')
-def getIP():
-    country = get_ip(request.remote_addr)
-    return jsonify(country)
+from logics.admin.IPLocation import get_ip
+from logics.admin.datashare import datatransfer, Authentication
 
 
 class globs:
     ADMIN = None
 
 
+app = Flask(__name__)
+dataapi = datatransfer()
+verifier = Authentication()
 g = globs()
+
+
+@app.route('/getip')
+def getIP():
+    country = get_ip(request.remote_addr)
+    return jsonify(country)
 
 
 @app.route('/', methods=['GET', 'POST'])
@@ -74,7 +52,8 @@ def dashboard():
     msgs = dataapi.getMessages()
     try:
         return render_template('Admin/index.html', adminname=g.ADMIN.AdminName, data=dt, last=last, buildedPC=buildedPC,
-                               todaysbuild=todaysbuild, adminrole=g.ADMIN.Role, totvisitor=totvisit, todaysvisit=todayvisit,
+                               todaysbuild=todaysbuild, adminrole=g.ADMIN.Role, totvisitor=totvisit,
+                               todaysvisit=todayvisit,
                                date=date.today(), msgs=msgs)
     except:
         return redirect(url_for('home'))
@@ -102,7 +81,6 @@ def adminregister():
         return render_template('Admin/addadmin.html', err=err)
     except:
         return redirect(url_for('home'))
-
 
 
 @app.route('/messages')
