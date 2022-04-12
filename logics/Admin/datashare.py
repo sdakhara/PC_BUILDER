@@ -237,6 +237,11 @@ class datatransfer:
     def getCPUs(self):
         return db.query(cpudata).all()
 
+    def srchusrname(self, name):
+        return db.query(userdata).filter_by(UserName=name).all()
+
+    def srchusrid(self, id):
+        return db.query(userdata).filter_by(UserID=id).all()
 
 class Authentication:
     def verify(self, email, password):
@@ -251,4 +256,14 @@ class Authentication:
     def addAdmin(self, adminname, adminpass, adminemail, adminphoneno):
         newadmin = admindata(AdminName=adminname, Password=adminpass, Email=adminemail, PhoneNo=adminphoneno)
         db.add(newadmin)
+        db.commit()
+
+    def updateUser(self,userid, username, userphone, useremail, userpass):
+        userdt = userdata(UserID=userid, UserName=username, PhoneNo=userphone, Email=useremail, Password=userpass)
+        db.query(userdata).filter_by(UserID=userid).delete()
+        db.add(userdt)
+        db.commit()
+
+    def deleteUser(self, userid):
+        db.query(userdata).filter_by(UserID=userid).delete()
         db.commit()
