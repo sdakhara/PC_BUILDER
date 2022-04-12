@@ -88,10 +88,41 @@ def messages():
     return render_template('Admin/messages.html')
 
 
-@app.route('/users')
+@app.route('/users', methods=['GET', 'POST'])
 def users():
     dt = dataapi.getAllUser()
+    if request.method == 'POST':
+        name = request.form.get('requesteduser')
+        dt = dataapi.srchusrname(name)
     return render_template('Admin/users.html', dt=dt)
+
+
+@app.route('/usermodify/<userid>', methods=['GET', 'POST'])
+def usermodify(userid):
+    dt = dataapi.srchusrid(userid)
+    return render_template('Admin/usermodify.html', dt=dt)
+
+
+@app.route('/usermodify/<userid>/<username>', methods=['GET', 'POST'])
+def usermodifyreq(userid, username):
+    if request.method == 'POST':
+        isDelete = bool(request.form.get('delete'))
+        isCancel = bool(request.form.get('cancel'))
+        usrname = request.form.get('username')
+        usremail = request.form.get('useremail')
+        usrphone = request.form.get('userphone')
+        usrpass = request.form.get('userpass')
+        if isDelete:
+            verifier.deleteUser(userid)
+            return redirect(url_for('users'))
+        if isCancel:
+            return redirect(url_for('users'))
+
+        verifier.updateUser(userid, usrname, usrphone, usremail, usrpass)
+        return redirect(url_for('users'))
+
+    dt = dataapi.srchusrid(userid)
+    return render_template('Admin/usermodify.html', dt=dt)
 
 
 @app.route('/inventory')

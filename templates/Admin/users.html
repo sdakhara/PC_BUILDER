@@ -351,17 +351,17 @@
                     <div class="col-lg-12 grid-margin stretch-card">
                         <div class="card">
                             <div class="card-body">
-                                <h4 class="card-title">User</h4>
-                                
+                                <h4 class="card-title"><a href="/users" style="text-decoration:none; color:white;">Users</a> </h4>
                                 <form id="searchuser" action="/users" method="post">
                                     <table>
-                                        <tr >
+                                        <tr>
                                             <td>
-                                                <input type="text" class="form-control todo-list-input"
+                                                <input type="text" name="requesteduser" class="form-control todo-list-input"
                                                        placeholder="Search User name"></td>
                                             <td>
-                                                <button style="margin:5PX;" class="add btn btn-primary todo-list-add-btn"
-                                                        form="searchuser" type="submit">Search
+                                                <button style="margin:5PX;"
+                                                        class="add btn btn-primary"
+                                                         type="submit">Search
                                                 </button>
                                             </td>
                                         </tr>
@@ -374,7 +374,6 @@
                                             <th>User name</th>
                                             <th>E-mail</th>
                                             <th>Mobile no</th>
-                                            <th>Status</th>
                                             <th>Password</th>
                                             <th>Modify</th>
                                         </tr>
@@ -385,10 +384,13 @@
                                             <td>{{user.UserName}}</td>
                                             <td>{{user.Email}}</td>
                                             <td>{{user.PhoneNo}}</td>
-                                            <td></td>
                                             <td>{{user.Password}}</td>
                                             <td>
-                                                <button class="add btn btn-primary todo-list-add-btn">Modify</button>
+                                                <form action="/usermodify/{{user.UserID}}" method="POST">
+                                                    <button type="submit"
+                                                            class="add btn btn-primary">Modify
+                                                    </button>
+                                                </form>
                                             </td>
                                         </tr>
                                         {% endfor %}

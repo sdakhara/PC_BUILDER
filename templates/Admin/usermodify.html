@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Corona Admin</title>
+    <!-- plugins:css -->
+    <link rel="stylesheet"
+          href="{{url_for('static', filename='Admin/assets/vendors/mdi/css/materialdesignicons.min.css')}}">
+    <link rel="stylesheet" href="{{url_for('static', filename='Admin/assets/vendors/css/vendor.bundle.base.css')}}">
+    <!-- endinject -->
+    <!-- Plugin css for this page -->
+    <!-- End plugin css for this page -->
+    <!-- inject:css -->
+    <!-- endinject -->
+    <!-- Layout styles -->
+    <link rel="stylesheet" href="{{url_for('static', filename='Admin/assets/css/style.css')}}">
+    <!-- End layout styles -->
+    <link rel="shortcut icon" href="{{url_for('static', filename='Admin/assets/images/favicon.png')}}"/>
+</head>
+<body>
+<div class="container-scroller">
+    <div class="container-fluid page-body-wrapper full-page-wrapper">
+        <div class="row w-100 m-0">
+            <div class="content-wrapper full-page-wrapper d-flex align-items-center auth login-bg">
+                <div class="card col-lg-4 mx-auto">
+                    <div class="card-body px-5 py-5">
+                        <h1 class="card-title text-left mb-3">Update User</h1>
+                        {% for user in dt %}
+                        <form action="/usermodify/{{user.UserID}}/{{user.UserName}}" method="POST">
+                            <div class="form-group">
+                                <label for="exampleInputUsername1">Username</label>
+                                <input type="text" value="{{user.UserName}}" class="form-control" id="exampleInputUsername1"
+                                       name="username" placeholder="Username">
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInputUsername1">Phone No.</label>
+                                <input type="text" value="{{user.PhoneNo}}" class="form-control" id="exampleInputPhone1"
+                                       name="userphone" placeholder="Username">
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInputEmail1">Email address</label>
+                                <input type="email" value="{{user.Email}}" class="form-control" id="exampleInputEmail1"
+                                       name="useremail" placeholder="Email">
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInputPassword1">Password</label>
+                                <input type="text" value="{{user.Password}}" class="form-control" id="exampleInputPassword1"
+                                       name="userpass" placeholder="Password">
+                            </div>
+                            <button type="submit" class="btn btn-primary mr-2">Submit</button>
+                            <button type="submit" name="delete" value="True" class="btn btn-danger">Delete User</button>
+                            <button type="submit" name="cancel" value="True" class="btn btn-dark">Cancel</button>
+                        </form>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+            <!-- content-wrapper ends -->
+        </div>
+        <!-- row ends -->
+    </div>
+    <!-- page-body-wrapper ends -->
+</div>
+<!-- container-scroller -->
+<!-- plugins:js -->
+<script src="{{url_for('static', filename='Admin/assets/vendors/js/vendor.bundle.base.js')}}"></script>
+<!-- endinject -->
+<!-- Plugin js for this page -->
+<!-- End plugin js for this page -->
+<!-- inject:js -->
+<script src="{{url_for('static', filename='Admin/assets/js/off-canvas.js')}}"></script>
+<script src="{{url_for('static', filename='Admin/assets/js/hoverable-collapse.js')}}"></script>
+<script src="{{url_for('static', filename='Admin/assets/js/misc.js')}}"></script>
+<script src="{{url_for('static', filename='Admin/assets/js/settings.js')}}"></script>
+<script src="{{url_for('static', filename='Admin/assets/js/todolist.js')}}"></script>
+<!-- endinject -->
+</body>
+</html>
