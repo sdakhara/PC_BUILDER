@@ -2,8 +2,8 @@ from datetime import date
 
 from flask import Flask, render_template, jsonify, request, redirect, url_for
 
-from logics.admin.IPLocation import get_ip
-from logics.admin.datashare import datatransfer, Authentication
+from logics.Admin.IPLocation import get_ip
+from logics.Admin.datashare import datatransfer, Authentication
 
 
 class globs:
@@ -131,9 +131,17 @@ def inventory():
     req = None
     if request.method == 'POST':
         cpu = request.form.get('cpu')
+        gpu = request.form.get('gpu')
+        ram = request.form.get('ram')
         if cpu == 'cpu':
             req = 'cpu'
             component = dataapi.getCPUs()
+        if gpu == 'gpu':
+            req = 'gpu'
+            component = dataapi.getGPUs()
+        if ram == 'ram':
+            req = 'ram'
+            component = dataapi.getRAMs()
     return render_template('Admin/inventory.html', req=req, component=component)
 
 

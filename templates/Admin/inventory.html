@@ -11,38 +11,37 @@
                             <tbody>
                             <tr>
                                 <td>
-                                    <button type="submit " value="cpu" name="cpu" class="btn btn-primary btn-fw">CPU Data
+                                    <button type="submit" value="cpu" name="cpu" class="btn btn-primary btn-fw">CPU Data
                                     </button>
                                 </td>
                                 <td>
-                                    <button type="button" value="board" class="btn btn-primary btn-fw">Board Data
+                                    <button type="submit" value="board" name="board" class="btn btn-primary btn-fw">Board Data
                                     </button>
                                 </td>
                                 <td>
-                                    <button type="button" value="ram" class="btn btn-primary btn-fw">RAM Data
+                                    <button type="submit" value="ram" name="ram" class="btn btn-primary btn-fw">RAM Data
                                     </button>
                                 </td>
                                 <td>
-                                    <button type="button" value="cooler" class="btn btn-primary btn-fw">Cooler</button>
+                                    <button type="submit" value="cooler" name="cooler" class="btn btn-primary btn-fw">Cooler</button>
                                 </td>
                             
                             </tr>
                             <tr>
                                 <td>
-                                    <button type="button" value="gpu" class="btn btn-primary btn-fw">Graphics Data
+                                    <button type="submit" value="gpu" name="gpu" class="btn btn-primary btn-fw">Graphics Data
                                     </button>
                                 </td>
                                 <td>
-                                    <button type="button" value="storage" class="btn btn-primary btn-fw">Storage Data
+                                    <button type="submit" value="storage" name="storage" class="btn btn-primary btn-fw">Storage Data
                                     </button>
                                 </td>
                                 <td>
-                                    <button type="button" value="cabinet" class="btn btn-primary btn-fw">Cabinet Data
+                                    <button type="submit" value="cabinet" name="cabinet" class="btn btn-primary btn-fw">Cabinet Data
                                     </button>
                                 </td>
                                 <td>
-                                    <button type="button" value="psu" class="btn btn-primary btn-fw">PSU Data
-                                    </button>
+                                    <button type="submit" value="psu" name="psu" class="btn btn-primary btn-fw">PSU Data </button>
                                 </td>
                             </tr>
                             </tbody>
@@ -58,8 +57,6 @@
         <div class="card">
             <div class="card-body">
                 <h4 class="card-title">Basic Table</h4>
-                <p class="card-description"> Add class <code>.table</code>
-                </p>
                 <div class="table-responsive">
                     <table class="table">
                         {% if req == "cpu" %}
@@ -92,6 +89,77 @@
                             <td>{{cpu.SMT}}</td>
                             <td>{{cpu.Rating}}</td>
                             <td>{{cpu.Price}}</td>
+                        </tr>
+                        {% endfor %}
+                        </tbody>
+                        {% endif %}
+
+
+                        {% if req == "gpu" %}
+                        <thead>
+                        <tr>
+                            <th>GPUID</th>
+                            <th>Name</th>
+                            <th>ChipSet</th>
+                            <th>Memory</th>
+                            <th>CoreClock</th>
+                            <th>BoostClock</th>
+                            <th>Color</th>
+                            <th>Length</th>
+                            <th>Rating</th>
+                            <th>Price</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {% for gpu in component %}
+                        <tr>
+                            <td>{{gpu.GPUID}}</td>
+                            <td>{{gpu.Name}}</td>
+                            <td>{{gpu.ChipSet}}</td>
+                            <td>{{gpu.Memory}}</td>
+                            <td>{{gpu.CoreClock}}</td>
+                            <td>{{gpu.BoostClock}}</td>
+                            <td>{{gpu.Color}}</td>
+                            <td>{{gpu.Length}}</td>
+                            <td>{{gpu.Rating}}</td>
+                            <td>{{gpu.Price}}</td>
+                        </tr>
+                        {% endfor %}
+                        </tbody>
+                        {% endif %}
+
+                        {% if req == "ram" %}
+                        <thead>
+                        <tr>
+                            <th>RAMID</th>
+                            <th>RAMName</th>
+                            <th>Type</th>
+                            <th>Speed</th>
+                            <th>Modules</th>
+                            <th>PricePerModule</th>
+                            <th>SizePerModule</th>
+                            <th>Color</th>
+                            <th>FirstWordLatency</th>
+                            <th>CASLatency</th>
+                            <th>Rating</th>
+                            <th>Price</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {% for ram in component %}
+                        <tr>
+                            <td>{{ram.RAMID}}</td>
+                            <td>{{ram.RAMName}}</td>
+                            <td>{{ram.Type}}</td>
+                            <td>{{ram.Speed}}</td>
+                            <td>{{ram.Modules}}</td>
+                            <td>{{ram.PricePerModule}}</td>
+                            <td>{{ram.SizePerModule}}</td>
+                            <td>{{ram.Color}}</td>
+                            <td>{{ram.FirstWordLatency}}</td>
+                            <td>{{ram.CASLatency}}</td>
+                            <td>{{ram.Rating}}</td>
+                            <td>{{ram.Price}}</td>
                         </tr>
                         {% endfor %}
                         </tbody>

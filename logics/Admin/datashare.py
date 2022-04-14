@@ -6,7 +6,7 @@ from sqlalchemy.orm import sessionmaker
 from sqlalchemy.types import String, Integer
 
 
-engine = create_engine("mysql+pymysql://Sujal:9099@127.0.0.1:3306/pc_builder")
+engine = create_engine("mysql+pymysql://root:root@127.0.0.1:3306/pc-builder")
 Session = sessionmaker()
 db = Session(bind=engine)
 Base = declarative_base()
@@ -92,7 +92,7 @@ class gpudata(Base):
     __tablename__ = 'gpudata'
 
     GPUID = Column(Integer, primary_key=True, autoincrement=True)
-    GPUName = Column(String)
+    Name = Column(String)
     Chipset = Column(String)
     Memory = Column(String)
     CoreClock = Column(String)
@@ -243,6 +243,12 @@ class datatransfer:
 
     def getCPUs(self):
         return db.query(cpudata).all()
+
+    def getGPUs(self):
+        return db.query(gpudata).all()
+
+    def getRAMs(self):
+        return db.query(ramdata).all()
 
 class Authentication:
     def verify(self, email, password):
