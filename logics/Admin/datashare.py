@@ -257,6 +257,21 @@ class datatransfer:
     def getRAMs(self):
         return db.query(ramdata).all()
 
+    def getBOARDs(self):
+        return db.query(boarddata).all()
+
+    def getCOOLERs(self):
+        return db.query(coolerdata).all()
+
+    def getSTORAGEs(self):
+        return db.query(storagedata).all()
+
+    def getCABINETs(self):
+        return db.query(cabinetdata).all()
+
+    def getPSUs(self):
+        return db.query(psudata).all()
+
 class Authentication:
     def verifyadmin(self, email, password):
         data = db.query(admindata).all()

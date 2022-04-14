@@ -132,7 +132,12 @@ def inventory():
     if request.method == 'POST':
         cpu = request.form.get('cpu')
         gpu = request.form.get('gpu')
+        board = request.form.get('board')
         ram = request.form.get('ram')
+        cooler = request.form.get('cooler')
+        storage = request.form.get('storage')
+        cabinet = request.form.get('cabinet')
+        psu = request.form.get('psu')
         if cpu == 'cpu':
             req = 'cpu'
             component = dataapi.getCPUs()
@@ -142,6 +147,22 @@ def inventory():
         if ram == 'ram':
             req = 'ram'
             component = dataapi.getRAMs()
+        if board == 'board':
+            req = 'board'
+            component = dataapi.getBOARDs()
+        if cooler == 'cooler':
+            req = 'cooler'
+            component = dataapi.getCOOLERs()
+        if storage == 'storage':
+            req = 'storage'
+            component = dataapi.getSTORAGEs()
+        if cabinet == 'cabinet':
+            req = 'cabinet'
+            component = dataapi.getCABINETs()
+        if psu == 'psu':
+            req = 'psu'
+            component = dataapi.getPSUs()
+
     return render_template('Admin/inventory.html', req=req, component=component)
 
 
