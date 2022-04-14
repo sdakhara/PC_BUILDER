@@ -1,19 +1,40 @@
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, redirect, url_for
 
+from logics.admin.datashare import datatransfer, Authentication
 from logics.user.autobuild import logic
 from logics.user.iplogics import ipControl
-from logics.admin.datashare import datatransfer
-app = Flask(__name__)
 
+
+class globs:
+    USER = None
+
+
+app = Flask(__name__)
+g = globs()
 logic = logic()
 ipcontrol = ipControl()
 dataapi = datatransfer()
+Authenticator = Authentication()
+
 
 # User Routes
 @app.route('/')
 def home():
     ipcontrol.getIP(request.remote_addr)
     return render_template('User/index.html')
+
+
+@app.route('/login', methods=['GET', 'POST'])
+def login():
+    ipcontrol.getIP(request.remote_addr)
+    if request.method == 'POST':
+        useremail = request.form.get('useremail')
+        userpass = request.form.get('userpass')
+        data = Authenticator.verifyuser(useremail, userpass)
+        if data:
+            g.USER = data
+            return redirect(url_for('home'))
+    return render_template('User/login.html')
 
 
 @app.route('/index')
@@ -128,16 +149,6 @@ def about():
     return render_template('User/about.html')
 
 
-
-@app.route('/login', methods=['GET', 'POST'])
-def login():
-    ipcontrol.getIP(request.remote_addr)
-    if request.method == 'POST':
-        pass
-
-    return render_template('User/login.html')
-
-
 @app.route('/signup', methods=['GET', 'POST'])
 def signup():
     ipcontrol.getIP(request.remote_addr)
@@ -145,7 +156,6 @@ def signup():
         pass
 
     return render_template('User/signup.html')
-
 
 
 @app.route('/test', methods=['GET', 'POST'])

@@ -47,30 +47,31 @@
             </ul>
         
         </div>
+    </div>
 </nav>
 
 
-
 <div class="text-center text-light login-div">
-<main class="form-signin">
-  <form>
-    <img class="mb-4" src="{{url_for('static', filename='User/IMG/PCB-LOGO.png')}}" alt="" width="72">
-    <h1 class="h3 mb-3 fw-normal">LOG IN</h1>
-
-    <div class="form-floating">
-      <input type="email" class="form-control bg-dark login-input text-light" id="floatingInput" placeholder="name@example.com">
-      <label for="floatingInput">Email address</label>
-    </div>
-    <div class="form-floating">
-      <input type="password" class="form-control bg-dark login-input text-light" id="floatingPassword" placeholder="Password">
-      <label for="floatingPassword">Password</label>
-    </div>
-    <button class="w-100 btn btn-lg btn-outline-pcb" type="submit">Log in</button>
-      <p class="mt-2">Don't have an account? <a href="/signup" id="make-account-a">Sign up</a></p>
-  </form>
-</main>
+    <main class="form-signin">
+        <form action="/login" method="POST">
+            <img class="mb-4" src="{{url_for('static', filename='User/IMG/PCB-LOGO.png')}}" alt="" width="72">
+            <h1 class="h3 mb-3 fw-normal">LOG IN</h1>
+            
+            <div class="form-floating">
+                <input type="email" name="useremail" class="form-control bg-dark login-input text-light"
+                       id="floatingInput" placeholder="name@example.com">
+                <label for="floatingInput">Email address</label>
+            </div>
+            <div class="form-floating">
+                <input type="password" name="userpass" class="form-control bg-dark login-input text-light"
+                       id="floatingPassword" placeholder="Password">
+                <label for="floatingPassword">Password</label>
+            </div>
+            <button class="w-100 btn btn-lg btn-outline-pcb" type="submit">Log in</button>
+            <p class="mt-2">Don't have an account? <a href="/signup" id="make-account-a">Sign up</a></p>
+        </form>
+    </main>
 </div>
-
 
 
 <!--<section class="main-page">-->
@@ -85,8 +86,6 @@
 <!--        <button class="btn btn-outline-pcb sign-up" type="submit">Explore</button>-->
 <!--    </div>-->
 <!--</section>-->
-
-
 
 
 <!-- Footer -->

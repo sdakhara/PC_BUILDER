@@ -12,7 +12,7 @@ class globs:
 
 app = Flask(__name__)
 dataapi = datatransfer()
-verifier = Authentication()
+Authenticator = Authentication()
 g = globs()
 
 
@@ -27,7 +27,7 @@ def home():
     if request.method == 'POST':
         email = request.form['email']
         password = request.form['password']
-        data = verifier.verify(email, password)
+        data = Authenticator.verifyadmin(email, password)
         if data:
             g.ADMIN = data
             return redirect(url_for('dashboard'))
@@ -72,7 +72,7 @@ def adminregister():
             currentpass = request.form.get('currentadminpass')
             if g.ADMIN.Password == currentpass:
                 if adminpass == adminconpass:
-                    verifier.addAdmin(adminname, adminpass, adminemail, adminphoneno)
+                    Authenticator.addAdmin(adminname, adminpass, adminemail, adminphoneno)
                     return redirect(url_for('dashboard'))
                 else:
                     err = "Password Didn't match"
@@ -113,12 +113,12 @@ def usermodifyreq(userid, username):
         usrphone = request.form.get('userphone')
         usrpass = request.form.get('userpass')
         if isDelete:
-            verifier.deleteUser(userid)
+            Authenticator.deleteUser(userid)
             return redirect(url_for('users'))
         if isCancel:
             return redirect(url_for('users'))
 
-        verifier.updateUser(userid, usrname, usrphone, usremail, usrpass)
+        Authenticator.updateUser(userid, usrname, usrphone, usremail, usrpass)
         return redirect(url_for('users'))
 
     dt = dataapi.srchusrid(userid)
