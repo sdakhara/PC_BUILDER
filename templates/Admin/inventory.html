@@ -11,37 +11,37 @@
                                             <tbody>
                                             <tr>
                                                 <td>
-                                                    <button type="button" class="btn btn-primary btn-fw">CPU Data
+                                                    <button type="button" value="cpu" class="btn btn-primary btn-fw">CPU Data
                                                     </button>
                                                 </td>
                                                 <td>
-                                                    <button type="button" class="btn btn-primary btn-fw">Board Data
+                                                    <button type="button" value="board" class="btn btn-primary btn-fw">Board Data
                                                     </button>
                                                 </td>
                                                 <td>
-                                                    <button type="button" class="btn btn-primary btn-fw">RAM Data
+                                                    <button type="button" value="ram" class="btn btn-primary btn-fw">RAM Data
                                                     </button>
                                                 </td>
                                                 <td>
-                                                    <button type="button" class="btn btn-primary btn-fw">Cooler</button>
+                                                    <button type="button" value="cooler" class="btn btn-primary btn-fw">Cooler</button>
                                                 </td>
                                             
                                             </tr>
                                             <tr>
                                                 <td>
-                                                    <button type="button" class="btn btn-primary btn-fw">Graphics Data
+                                                    <button type="button" value="gpu" class="btn btn-primary btn-fw">Graphics Data
                                                     </button>
                                                 </td>
                                                 <td>
-                                                    <button type="button" class="btn btn-primary btn-fw">Storage Data
+                                                    <button type="button" value="storage" class="btn btn-primary btn-fw">Storage Data
                                                     </button>
                                                 </td>
                                                 <td>
-                                                    <button type="button" class="btn btn-primary btn-fw">Cabinet Data
+                                                    <button type="button" value="cabinet" class="btn btn-primary btn-fw">Cabinet Data
                                                     </button>
                                                 </td>
                                                 <td>
-                                                    <button type="button" class="btn btn-primary btn-fw">PSU Data
+                                                    <button type="button" value="psu" class="btn btn-primary btn-fw">PSU Data
                                                     </button>
                                                 </td>
                                             </tr>
@@ -62,46 +62,43 @@
                                 </p>
                                 <div class="table-responsive">
                                     <table class="table">
+
+
+                                        {% if component == "cpu" %}
                                         <thead>
                                         <tr>
-                                            <th>Profile</th>
-                                            <th>VatNo.</th>
-                                            <th>Created</th>
-                                            <th>Status</th>
+                                            <th>CPUID</th>
+                                            <th>CPUName</th>
+                                            <th>CoreCount</th>
+                                            <th>ClockSpeed</th>
+                                            <th>BoostClock</th>
+                                            <th>SocketType</th>
+                                            <th>TDP</th>
+                                            <th>IntegratedGraphics</th>
+                                            <th>SMT</th>
+                                            <th>Rating</th>
+                                            <th>Price</th>
                                         </tr>
                                         </thead>
                                         <tbody>
+                                        {% for cpu in dt %}
                                         <tr>
-                                            <td>Jacob</td>
-                                            <td>53275531</td>
-                                            <td>12 May 2017</td>
-                                            <td><label class="badge badge-danger">Pending</label></td>
+                                             <td>{{cpu.CPUID}}</td>
+                                             <td>{{cpu.CPUName}}</td>
+                                             <td>{{cpu.CoreCount}}</td>
+                                             <td>{{cpu.ClockSpeed}}</td>
+                                             <td>{{cpu.BoostClock}}</td>
+                                             <td>{{cpu.SocketType}}</td>
+                                             <td>{{cpu.TDP}}</td>
+                                             <td>{{cpu.IntegratedGraphics}}</td>
+                                             <td>{{cpu.SMT}}</td>
+                                             <td>{{cpu.Rating}}</td>
+                                             <td>{{cpu.Price}}</td>
                                         </tr>
-                                        <tr>
-                                            <td>Messsy</td>
-                                            <td>53275532</td>
-                                            <td>15 May 2017</td>
-                                            <td><label class="badge badge-warning">In progress</label></td>
-                                        </tr>
-                                        <tr>
-                                            <td>John</td>
-                                            <td>53275533</td>
-                                            <td>14 May 2017</td>
-                                            <td><label class="badge badge-info">Fixed</label></td>
-                                        </tr>
-                                        <tr>
-                                            <td>Peter</td>
-                                            <td>53275534</td>
-                                            <td>16 May 2017</td>
-                                            <td><label class="badge badge-success">Completed</label></td>
-                                        </tr>
-                                        <tr>
-                                            <td>Dave</td>
-                                            <td>53275535</td>
-                                            <td>20 May 2017</td>
-                                            <td><label class="badge badge-warning">In progress</label></td>
-                                        </tr>
-                                        </tbody>
+                                        {% endfor %}
+                                         </tbody>
+                                        {% endif %}
+
                                     </table>
                                 </div>
                             </div>

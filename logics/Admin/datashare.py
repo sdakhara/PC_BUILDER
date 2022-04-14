@@ -5,7 +5,8 @@ from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import sessionmaker
 from sqlalchemy.types import String, Integer
 
-engine = create_engine("mysql+pymysql://Sujal:9099@127.0.0.1:3306/pc_builder")
+
+engine = create_engine("mysql+pymysql://root:root@127.0.0.1:3306/pc-builder")
 Session = sessionmaker()
 db = Session(bind=engine)
 Base = declarative_base()
@@ -234,14 +235,14 @@ class datatransfer:
     def getMessages(self):
         return db.query(userquery).all()
 
-    def getCPUs(self):
-        return db.query(cpudata).all()
-
     def srchusrname(self, name):
         return db.query(userdata).filter_by(UserName=name).all()
 
     def srchusrid(self, id):
         return db.query(userdata).filter_by(UserID=id).all()
+
+    def getCPUs(self):
+        return db.query(cpudata).all()
 
 class Authentication:
     def verify(self, email, password):
