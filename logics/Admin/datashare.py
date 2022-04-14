@@ -6,7 +6,7 @@ from sqlalchemy.orm import sessionmaker
 from sqlalchemy.types import String, Integer
 
 
-engine = create_engine("mysql+pymysql://root:root@127.0.0.1:3306/pc-builder")
+engine = create_engine("mysql+pymysql://Sujal:9099@127.0.0.1:3306/pc_builder")
 Session = sessionmaker()
 db = Session(bind=engine)
 Base = declarative_base()
