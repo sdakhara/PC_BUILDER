@@ -175,6 +175,13 @@ class adminloginrecord(Base):
     AdminName = Column(String)
     LoginTime = Column(String)
 
+class userloginrecord(Base):
+    __tablename__ = 'userloginrecord'
+
+    RecordID = Column(Integer, primary_key=True, autoincrement=True)
+    UserID = Column(String)
+    UserName = Column(String)
+    LoginTime = Column(String)
 
 class visitordata(Base):
     __tablename__ = 'visitordata'
@@ -251,11 +258,20 @@ class datatransfer:
         return db.query(ramdata).all()
 
 class Authentication:
-    def verify(self, email, password):
+    def verifyadmin(self, email, password):
         data = db.query(admindata).all()
         for dt in data:
             if dt.Email == email and dt.Password == password:
                 addLog = adminloginrecord(AdminName=dt.AdminName, AdminID=dt.AdminID, LoginTime=datetime.now())
+                db.add(addLog)
+                db.commit()
+                return dt
+
+    def verifyuser(self, email, password):
+        data = db.query(userdata).all()
+        for dt in data:
+            if dt.Email == email and dt.Password == password:
+                addLog = userloginrecord(UserName=dt.UserName, UserID=dt.UserID, LoginTime=datetime.now())
                 db.add(addLog)
                 db.commit()
                 return dt
