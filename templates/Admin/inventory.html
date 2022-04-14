@@ -1,108 +1,105 @@
 {% extends "Admin/base.html" %}
 {% block content %}
-                <div class="row">
-                    <div class="col-lg-12 grid-margin stretch-card">
-                        <div class="card">
-                            <div class="card-body">
-                                <h4 class="card-title">Select Inventory to View</h4>
-                                <div class="table-responsive">
-                                    <form method="POST" action="/inventory">
-                                        <table class="table table">
-                                            <tbody>
-                                            <tr>
-                                                <td>
-                                                    <button type="button" value="cpu" class="btn btn-primary btn-fw">CPU Data
-                                                    </button>
-                                                </td>
-                                                <td>
-                                                    <button type="button" value="board" class="btn btn-primary btn-fw">Board Data
-                                                    </button>
-                                                </td>
-                                                <td>
-                                                    <button type="button" value="ram" class="btn btn-primary btn-fw">RAM Data
-                                                    </button>
-                                                </td>
-                                                <td>
-                                                    <button type="button" value="cooler" class="btn btn-primary btn-fw">Cooler</button>
-                                                </td>
-                                            
-                                            </tr>
-                                            <tr>
-                                                <td>
-                                                    <button type="button" value="gpu" class="btn btn-primary btn-fw">Graphics Data
-                                                    </button>
-                                                </td>
-                                                <td>
-                                                    <button type="button" value="storage" class="btn btn-primary btn-fw">Storage Data
-                                                    </button>
-                                                </td>
-                                                <td>
-                                                    <button type="button" value="cabinet" class="btn btn-primary btn-fw">Cabinet Data
-                                                    </button>
-                                                </td>
-                                                <td>
-                                                    <button type="button" value="psu" class="btn btn-primary btn-fw">PSU Data
-                                                    </button>
-                                                </td>
-                                            </tr>
-                                            </tbody>
-                                        </table>
-                                    </form>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+<div class="row">
+    <div class="col-lg-12 grid-margin stretch-card">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title">Select Inventory to View</h4>
+                <div class="table-responsive">
+                    <form method="POST" action="/inventory">
+                        <table class="table table">
+                            <tbody>
+                            <tr>
+                                <td>
+                                    <button type="submit" value="cpu" name="cpu" class="btn btn-primary btn-fw">CPU Data
+                                    </button>
+                                </td>
+                                <td>
+                                    <button type="button" value="board" class="btn btn-primary btn-fw">Board Data
+                                    </button>
+                                </td>
+                                <td>
+                                    <button type="button" value="ram" class="btn btn-primary btn-fw">RAM Data
+                                    </button>
+                                </td>
+                                <td>
+                                    <button type="button" value="cooler" class="btn btn-primary btn-fw">Cooler</button>
+                                </td>
+                            
+                            </tr>
+                            <tr>
+                                <td>
+                                    <button type="button" value="gpu" class="btn btn-primary btn-fw">Graphics Data
+                                    </button>
+                                </td>
+                                <td>
+                                    <button type="button" value="storage" class="btn btn-primary btn-fw">Storage Data
+                                    </button>
+                                </td>
+                                <td>
+                                    <button type="button" value="cabinet" class="btn btn-primary btn-fw">Cabinet Data
+                                    </button>
+                                </td>
+                                <td>
+                                    <button type="button" value="psu" class="btn btn-primary btn-fw">PSU Data
+                                    </button>
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </form>
                 </div>
-                <div class="row">
-                    <div class="col-lg-12 grid-margin stretch-card">
-                        <div class="card">
-                            <div class="card-body">
-                                <h4 class="card-title">Basic Table</h4>
-                                <p class="card-description"> Add class <code>.table</code>
-                                </p>
-                                <div class="table-responsive">
-                                    <table class="table">
-
-
-                                        {% if component == "cpu" %}
-                                        <thead>
-                                        <tr>
-                                            <th>CPUID</th>
-                                            <th>CPUName</th>
-                                            <th>CoreCount</th>
-                                            <th>ClockSpeed</th>
-                                            <th>BoostClock</th>
-                                            <th>SocketType</th>
-                                            <th>TDP</th>
-                                            <th>IntegratedGraphics</th>
-                                            <th>SMT</th>
-                                            <th>Rating</th>
-                                            <th>Price</th>
-                                        </tr>
-                                        </thead>
-                                        <tbody>
-                                        {% for cpu in dt %}
-                                        <tr>
-                                             <td>{{cpu.CPUID}}</td>
-                                             <td>{{cpu.CPUName}}</td>
-                                             <td>{{cpu.CoreCount}}</td>
-                                             <td>{{cpu.ClockSpeed}}</td>
-                                             <td>{{cpu.BoostClock}}</td>
-                                             <td>{{cpu.SocketType}}</td>
-                                             <td>{{cpu.TDP}}</td>
-                                             <td>{{cpu.IntegratedGraphics}}</td>
-                                             <td>{{cpu.SMT}}</td>
-                                             <td>{{cpu.Rating}}</td>
-                                             <td>{{cpu.Price}}</td>
-                                        </tr>
-                                        {% endfor %}
-                                         </tbody>
-                                        {% endif %}
-
-                                    </table>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-lg-12 grid-margin stretch-card">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title">Basic Table</h4>
+                <p class="card-description"> Add class <code>.table</code>
+                </p>
+                <div class="table-responsive">
+                    <table class="table">
+                        {% if req == "cpu" %}
+                        <thead>
+                        <tr>
+                            <th>CPUID</th>
+                            <th>CPUName</th>
+                            <th>CoreCount</th>
+                            <th>ClockSpeed</th>
+                            <th>BoostClock</th>
+                            <th>SocketType</th>
+                            <th>TDP</th>
+                            <th>IntegratedGraphics</th>
+                            <th>SMT</th>
+                            <th>Rating</th>
+                            <th>Price</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {% for cpu in component %}
+                        <tr>
+                            <td>{{cpu.CPUID}}</td>
+                            <td>{{cpu.CPUName}}</td>
+                            <td>{{cpu.CoreCount}}</td>
+                            <td>{{cpu.ClockSpeed}}</td>
+                            <td>{{cpu.BoostClock}}</td>
+                            <td>{{cpu.SocketType}}</td>
+                            <td>{{cpu.TDP}}</td>
+                            <td>{{cpu.IntegratedGraphics}}</td>
+                            <td>{{cpu.SMT}}</td>
+                            <td>{{cpu.Rating}}</td>
+                            <td>{{cpu.Price}}</td>
+                        </tr>
+                        {% endfor %}
+                        </tbody>
+                        {% endif %}
+                    </table>
                 </div>
+            </div>
+        </div>
+    </div>
+</div>
 {% endblock %}

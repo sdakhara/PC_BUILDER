@@ -2,8 +2,8 @@ from datetime import date
 
 from flask import Flask, render_template, jsonify, request, redirect, url_for
 
-from logics.Admin.IPLocation import get_ip
-from logics.Admin.datashare import datatransfer, Authentication
+from logics.admin.IPLocation import get_ip
+from logics.admin.datashare import datatransfer, Authentication
 
 
 class globs:
@@ -125,10 +125,16 @@ def usermodifyreq(userid, username):
     return render_template('Admin/usermodify.html', dt=dt)
 
 
-@app.route('/inventory')
+@app.route('/inventory', methods=['GET', 'POST'])
 def inventory():
     component = None
-    return render_template('Admin/inventory.html', component=component)
+    req = None
+    if request.method == 'POST':
+        cpu = request.form.get('cpu')
+        if cpu == 'cpu':
+            req = 'cpu'
+            component = dataapi.getCPUs()
+    return render_template('Admin/inventory.html', req=req, component=component)
 
 
 @app.route('/statistics')
