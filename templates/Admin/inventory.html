@@ -56,11 +56,11 @@
     <div class="col-lg-12 grid-margin stretch-card">
         <div class="card">
             <div class="card-body">
-                <h4 class="card-title">Basic Table</h4>
                 <div class="table-responsive">
                     <table class="table">
                         {% if req == "cpu" %}
                         <thead>
+                        <h4 class="card-title">CPU DATA</h4>
                         <tr>
                             <th>CPUID</th>
                             <th>CPUName</th>
@@ -97,6 +97,7 @@
 
                         {% if req == "gpu" %}
                         <thead>
+                        <h4 class="card-title">GRAPHICS DATA</h4>
                         <tr>
                             <th>GPUID</th>
                             <th>Name</th>
@@ -130,6 +131,7 @@
 
                         {% if req == "ram" %}
                         <thead>
+                        <h4 class="card-title">RAM DATA</h4>
                         <tr>
                             <th>RAMID</th>
                             <th>RAMName</th>
@@ -167,17 +169,16 @@
 
                         {% if req == "board" %}
                         <thead>
+                        <h4 class="card-title">MOTHERBOARD DATA</h4>
                         <tr>
-                            <th>RAMID</th>
-                            <th>RAMName</th>
-                            <th>Type</th>
-                            <th>Speed</th>
-                            <th>Modules</th>
-                            <th>PricePerModule</th>
-                            <th>SizePerModule</th>
+                            <th>BoardID</th>
+                            <th>BoardName</th>
+                            <th>SocketType</th>
+                            <th>FormFactor</th>
+                            <th>RAMType</th>
+                            <th>MaxRam</th>
+                            <th>RAMSlote</th>
                             <th>Color</th>
-                            <th>FirstWordLatency</th>
-                            <th>CASLatency</th>
                             <th>Rating</th>
                             <th>Price</th>
                         </tr>
@@ -185,18 +186,16 @@
                         <tbody>
                         {% for board in component %}
                         <tr>
-                            <td>{{ram.RAMID}}</td>
-                            <td>{{ram.RAMName}}</td>
-                            <td>{{ram.Type}}</td>
-                            <td>{{ram.Speed}}</td>
-                            <td>{{ram.Modules}}</td>
-                            <td>{{ram.PricePerModule}}</td>
-                            <td>{{ram.SizePerModule}}</td>
-                            <td>{{ram.Color}}</td>
-                            <td>{{ram.FirstWordLatency}}</td>
-                            <td>{{ram.CASLatency}}</td>
-                            <td>{{ram.Rating}}</td>
-                            <td>{{ram.Price}}</td>
+                            <td>{{board.BoardID}}</td>
+                            <td>{{board.BoardName}}</td>
+                            <td>{{board.SocketType}}</td>
+                            <td>{{board.FormFactor}}</td>
+                            <td>{{board.RAMType}}</td>
+                            <td>{{board.MaxRam}}</td>
+                            <td>{{board.RAMSlote}}</td>
+                            <td>{{board.Color}}</td>
+                            <td>{{board.Rating}}</td>
+                            <td>{{board.Price}}</td>
                         </tr>
                         {% endfor %}
                         </tbody>
@@ -204,17 +203,14 @@
 
                         {% if req == "cooler" %}
                         <thead>
+                        <h4 class="card-title">COOLER DATA</h4>
                         <tr>
-                            <th>RAMID</th>
-                            <th>RAMName</th>
-                            <th>Type</th>
-                            <th>Speed</th>
-                            <th>Modules</th>
-                            <th>PricePerModule</th>
-                            <th>SizePerModule</th>
+                            <th>CoolerID</th>
+                            <th>CoolerName</th>
+                            <th>FanRPM</th>
+                            <th>NoiseLevel</th>
                             <th>Color</th>
-                            <th>FirstWordLatency</th>
-                            <th>CASLatency</th>
+                            <th>RadiatorSize</th>
                             <th>Rating</th>
                             <th>Price</th>
                         </tr>
@@ -222,18 +218,14 @@
                         <tbody>
                         {% for cooler in component %}
                         <tr>
-                            <td>{{ram.RAMID}}</td>
-                            <td>{{ram.RAMName}}</td>
-                            <td>{{ram.Type}}</td>
-                            <td>{{ram.Speed}}</td>
-                            <td>{{ram.Modules}}</td>
-                            <td>{{ram.PricePerModule}}</td>
-                            <td>{{ram.SizePerModule}}</td>
-                            <td>{{ram.Color}}</td>
-                            <td>{{ram.FirstWordLatency}}</td>
-                            <td>{{ram.CASLatency}}</td>
-                            <td>{{ram.Rating}}</td>
-                            <td>{{ram.Price}}</td>
+                            <td>{{cooler.CoolerID}}</td>
+                            <td>{{cooler.CoolerName}}</td>
+                            <td>{{cooler.FanRPM}}</td>
+                            <td>{{cooler.NoiseLevel}}</td>
+                            <td>{{cooler.Color}}</td>
+                            <td>{{cooler.RadiatorSize}}</td>
+                            <td>{{cooler.Rating}}</td>
+                            <td>{{cooler.Price}}</td>
                         </tr>
                         {% endfor %}
                         </tbody>
@@ -241,17 +233,15 @@
 
                         {% if req == "storage" %}
                         <thead>
+                        <h4 class="card-title">STORAGE DATA</h4>
                         <tr>
-                            <th>RAMID</th>
-                            <th>RAMName</th>
+                            <th>StorageID</th>
+                            <th>Name</th>
+                            <th>Capacity</th>
                             <th>Type</th>
-                            <th>Speed</th>
-                            <th>Modules</th>
-                            <th>PricePerModule</th>
-                            <th>SizePerModule</th>
-                            <th>Color</th>
-                            <th>FirstWordLatency</th>
-                            <th>CASLatency</th>
+                            <th>Cache</th>
+                            <th>FormFactor</th>
+                            <th>Interface</th>
                             <th>Rating</th>
                             <th>Price</th>
                         </tr>
@@ -259,18 +249,15 @@
                         <tbody>
                         {% for storage in component %}
                         <tr>
-                            <td>{{ram.RAMID}}</td>
-                            <td>{{ram.RAMName}}</td>
-                            <td>{{ram.Type}}</td>
-                            <td>{{ram.Speed}}</td>
-                            <td>{{ram.Modules}}</td>
-                            <td>{{ram.PricePerModule}}</td>
-                            <td>{{ram.SizePerModule}}</td>
-                            <td>{{ram.Color}}</td>
-                            <td>{{ram.FirstWordLatency}}</td>
-                            <td>{{ram.CASLatency}}</td>
-                            <td>{{ram.Rating}}</td>
-                            <td>{{ram.Price}}</td>
+                            <td>{{storage.StorageID}}</td>
+                            <td>{{storage.Name}}</td>
+                            <td>{{storage.Capacity}}</td>
+                            <td>{{storage.Type}}</td>
+                            <td>{{storage.Cache}}</td>
+                            <td>{{storage.FormFactor}}</td>
+                            <td>{{storage.Interface}}</td>
+                            <td>{{storage.Rating}}</td>
+                            <td>{{storage.Price}}</td>
                         </tr>
                         {% endfor %}
                         </tbody>
@@ -278,17 +265,16 @@
 
                         {% if req == "cabinet" %}
                         <thead>
+                        <h4 class="card-title">CABINET DATA</h4>
                         <tr>
-                            <th>RAMID</th>
-                            <th>RAMName</th>
+                            <th>CabinetID</th>
+                            <th>Name</th>
                             <th>Type</th>
-                            <th>Speed</th>
-                            <th>Modules</th>
-                            <th>PricePerModule</th>
-                            <th>SizePerModule</th>
                             <th>Color</th>
-                            <th>FirstWordLatency</th>
-                            <th>CASLatency</th>
+                            <th>PowerSupply</th>
+                            <th>SidePanelWindow</th>
+                            <th>ExternalBays</th>
+                            <th>InternalBays</th>
                             <th>Rating</th>
                             <th>Price</th>
                         </tr>
@@ -296,18 +282,16 @@
                         <tbody>
                         {% for cabinet in component %}
                         <tr>
-                            <td>{{ram.RAMID}}</td>
-                            <td>{{ram.RAMName}}</td>
-                            <td>{{ram.Type}}</td>
-                            <td>{{ram.Speed}}</td>
-                            <td>{{ram.Modules}}</td>
-                            <td>{{ram.PricePerModule}}</td>
-                            <td>{{ram.SizePerModule}}</td>
-                            <td>{{ram.Color}}</td>
-                            <td>{{ram.FirstWordLatency}}</td>
-                            <td>{{ram.CASLatency}}</td>
-                            <td>{{ram.Rating}}</td>
-                            <td>{{ram.Price}}</td>
+                            <td>{{cabinet.CabinetID}}</td>
+                            <td>{{cabinet.Name}}</td>
+                            <td>{{cabinet.Type}}</td>
+                            <td>{{cabinet.Color}}</td>
+                            <td>{{cabinet.PowerSupply}}</td>
+                            <td>{{cabinet.SidePanelWindow}}</td>
+                            <td>{{cabinet.ExternalBays}}</td>
+                            <td>{{cabinet.InternalBays}}</td>
+                            <td>{{cabinet.Rating}}</td>
+                            <td>{{cabinet.Price}}</td>
                         </tr>
                         {% endfor %}
                         </tbody>
@@ -315,17 +299,15 @@
 
                         {% if req == "psu" %}
                         <thead>
+                        <h4 class="card-title">POWERSUPPLY DATA</h4>
                         <tr>
-                            <th>RAMID</th>
-                            <th>RAMName</th>
-                            <th>Type</th>
-                            <th>Speed</th>
-                            <th>Modules</th>
-                            <th>PricePerModule</th>
-                            <th>SizePerModule</th>
+                            <th>SmpsID</th>
+                            <th>Name</th>
+                            <th>FormFactor</th>
+                            <th>EfficiencyRating</th>
+                            <th>Wattage</th>
+                            <th>Moduler</th>
                             <th>Color</th>
-                            <th>FirstWordLatency</th>
-                            <th>CASLatency</th>
                             <th>Rating</th>
                             <th>Price</th>
                         </tr>
@@ -333,18 +315,15 @@
                         <tbody>
                         {% for psu in component %}
                         <tr>
-                            <td>{{ram.RAMID}}</td>
-                            <td>{{ram.RAMName}}</td>
-                            <td>{{ram.Type}}</td>
-                            <td>{{ram.Speed}}</td>
-                            <td>{{ram.Modules}}</td>
-                            <td>{{ram.PricePerModule}}</td>
-                            <td>{{ram.SizePerModule}}</td>
-                            <td>{{ram.Color}}</td>
-                            <td>{{ram.FirstWordLatency}}</td>
-                            <td>{{ram.CASLatency}}</td>
-                            <td>{{ram.Rating}}</td>
-                            <td>{{ram.Price}}</td>
+                            <td>{{psu.SmpsID}}</td>
+                            <td>{{psu.Name}}</td>
+                            <td>{{psu.FormFactor}}</td>
+                            <td>{{psu.EfficiencyRating}}</td>
+                            <td>{{psu.Wattage}}</td>
+                            <td>{{psu.Moduler}}</td>
+                            <td>{{psu.Color}}</td>
+                            <td>{{psu.Rating}}</td>
+                            <td>{{psu.Price}}</td>
                         </tr>
                         {% endfor %}
                         </tbody>

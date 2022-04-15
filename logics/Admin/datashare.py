@@ -64,7 +64,7 @@ class cabinetdata(Base):
     __tablename__ = 'cabinetdata'
 
     CabinetID = Column(Integer, primary_key=True, autoincrement=True)
-    CabinetName = Column(String)
+    Name = Column(String)
     Type = Column(String)
     Color = Column(String)
     PowerSupply = Column(String)
@@ -83,7 +83,7 @@ class coolerdata(Base):
     FanRPM = Column(String)
     NoiseLevel = Column(String)
     Color = Column(String)
-    RadiotorSize = Column(String)
+    RadiatorSize = Column(String)
     Rating = Column(Integer)
     Price = Column(Integer)
 
@@ -122,7 +122,7 @@ class psudata(Base):
     __tablename__ = 'psudata'
 
     SMPSID = Column(Integer, primary_key=True, autoincrement=True)
-    PSUName = Column(String)
+    Name = Column(String)
     Price = Column(Integer)
     FormFactor = Column(String)
     EfficiencyRating = Column(String)
