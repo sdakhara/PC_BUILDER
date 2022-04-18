@@ -1,12 +1,11 @@
 from datetime import datetime, date
-
+from logics.admin.sorter import *
 from sqlalchemy import create_engine, Column
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import sessionmaker
 from sqlalchemy.types import String, Integer
 
-
-engine = create_engine("mysql+pymysql://root:root@127.0.0.1:3306/pc-builder")
+engine = create_engine("mysql+pymysql://Sujal:9099@127.0.0.1:3306/pc_builder")
 Session = sessionmaker()
 db = Session(bind=engine)
 Base = declarative_base()
@@ -64,7 +63,7 @@ class cabinetdata(Base):
     __tablename__ = 'cabinetdata'
 
     CabinetID = Column(Integer, primary_key=True, autoincrement=True)
-    Name = Column(String)
+    CabinetName = Column(String)
     Type = Column(String)
     Color = Column(String)
     PowerSupply = Column(String)
@@ -92,7 +91,7 @@ class gpudata(Base):
     __tablename__ = 'gpudata'
 
     GPUID = Column(Integer, primary_key=True, autoincrement=True)
-    Name = Column(String)
+    GPUName = Column(String)
     Chipset = Column(String)
     Memory = Column(String)
     CoreClock = Column(String)
@@ -121,8 +120,8 @@ class pcrecord(Base):
 class psudata(Base):
     __tablename__ = 'psudata'
 
-    SMPSID = Column(Integer, primary_key=True, autoincrement=True)
-    Name = Column(String)
+    SmpsID = Column(Integer, primary_key=True, autoincrement=True)
+    SmpsName = Column(String)
     Price = Column(Integer)
     FormFactor = Column(String)
     EfficiencyRating = Column(String)
@@ -136,7 +135,7 @@ class storagedata(Base):
     __tablename__ = 'storagedata'
 
     StorageID = Column(Integer, primary_key=True, autoincrement=True)
-    Name = Column(String)
+    StorageName = Column(String)
     Price = Column(Integer)
     Capacity = Column(String)
     Type = Column(String)
@@ -175,6 +174,7 @@ class adminloginrecord(Base):
     AdminName = Column(String)
     LoginTime = Column(String)
 
+
 class userloginrecord(Base):
     __tablename__ = 'userloginrecord'
 
@@ -182,6 +182,7 @@ class userloginrecord(Base):
     UserID = Column(String)
     UserName = Column(String)
     LoginTime = Column(String)
+
 
 class visitordata(Base):
     __tablename__ = 'visitordata'
@@ -248,29 +249,46 @@ class datatransfer:
     def srchusrid(self, id):
         return db.query(userdata).filter_by(UserID=id).all()
 
-    def getCPUs(self):
+    def getCPUs(self, list=False):
+        if list:
+            return sortcpu(db.query(cpudata).all())
         return db.query(cpudata).all()
 
-    def getGPUs(self):
+    def getGPUs(self, list=False):
+        if list:
+            return sortgpu(db.query(gpudata).all())
         return db.query(gpudata).all()
 
-    def getRAMs(self):
+    def getRAMs(self, list=False):
+        if list:
+            return sortram(db.query(ramdata).all())
         return db.query(ramdata).all()
 
-    def getBOARDs(self):
+    def getBOARDs(self, list=False):
+        if list:
+            return sortboard(db.query(boarddata).all())
         return db.query(boarddata).all()
 
-    def getCOOLERs(self):
+    def getCOOLERs(self, list=False):
+        if list:
+            return sortcooler(db.query(coolerdata).all())
         return db.query(coolerdata).all()
 
-    def getSTORAGEs(self):
+    def getSTORAGEs(self, list=False):
+        if list:
+            return sorthdd(db.query(storagedata).all())
         return db.query(storagedata).all()
 
-    def getCABINETs(self):
+    def getCABINETs(self, list=False):
+        if list:
+            return sortcabinet(db.query(cabinetdata).all())
         return db.query(cabinetdata).all()
 
-    def getPSUs(self):
+    def getPSUs(self, list=False):
+        if list:
+            return sortpsu(db.query(psudata).all())
         return db.query(psudata).all()
+
 
 class Authentication:
     def verifyadmin(self, email, password):
@@ -296,7 +314,7 @@ class Authentication:
         db.add(newadmin)
         db.commit()
 
-    def updateUser(self,userid, username, userphone, useremail, userpass):
+    def updateUser(self, userid, username, userphone, useremail, userpass):
         userdt = userdata(UserID=userid, UserName=username, PhoneNo=userphone, Email=useremail, Password=userpass)
         db.query(userdata).filter_by(UserID=userid).delete()
         db.add(userdt)

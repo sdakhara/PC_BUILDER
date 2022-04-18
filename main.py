@@ -127,8 +127,8 @@ def buildpc():
         psuBrandGigabyte = bool(request.form.get('psuBrandGigabyte'))
         psuBrandNZXT = bool(request.form.get('psuBrandNZXT'))
         psuBrandGamdias = bool(request.form.get('psuBrandGamdias'))
-    cpus = dataapi.getCPUs()
-    return render_template('User/buildpc.html', cpus=cpus)
+    # cpus = dataapi.getCPUs()
+    return render_template('User/buildpc.html')
 
 
 @app.route('/autobuild', methods=['GET', 'POST'])
@@ -136,7 +136,6 @@ def autobuild():
     ipcontrol.getIP(request.remote_addr)
     if request.method == 'POST':
         pass
-
     return render_template('User/autobuild.html')
 
 
