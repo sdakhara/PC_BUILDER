@@ -127,8 +127,8 @@ def buildpc():
         psuBrandGigabyte = bool(request.form.get('psuBrandGigabyte'))
         psuBrandNZXT = bool(request.form.get('psuBrandNZXT'))
         psuBrandGamdias = bool(request.form.get('psuBrandGamdias'))
-    cpus = dataapi.getCPUs()
-    return render_template('User/buildpc.html', cpus=cpus)
+    # cpus = dataapi.getCPUs()
+    return render_template('User/buildpc.html')
 
 
 @app.route('/autobuild', methods=['GET', 'POST'])
@@ -165,6 +165,24 @@ def buildguide():
         pass
 
     return render_template('User/buildguide.html')
+
+
+@app.route('/viewbuilds', methods=['GET', 'POST'])
+def viewbuilds():
+    ipcontrol.getIP(request.remote_addr)
+    if request.method == 'POST':
+        pass
+
+    return render_template('User/viewbuilds.html')
+
+
+@app.route('/buildhistory', methods=['GET', 'POST'])
+def buildhistory():
+    ipcontrol.getIP(request.remote_addr)
+    if request.method == 'POST':
+        pass
+
+    return render_template('User/buildhistory.html')
 
 
 @app.route('/test', methods=['GET', 'POST'])
