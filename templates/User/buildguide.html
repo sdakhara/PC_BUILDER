@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Include CSS -->
+    <link rel="stylesheet" href="{{url_for('static', filename='User/CSS/style.css')}}" />
+    <link rel="stylesheet" href="{{url_for('static', filename='User/CSS/bootstrap.min.css')}}" />
+
+    <title>PCB | BuildGuide</title>
+</head>
+
+<body>
+    <!-- Nav-Bar (Header)  -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-transperent fixed-top" id="Navbar">
+        <div class="container-fluid" id="container-fluid">
+            <a class="navbar-brand" href="#"><img src="{{url_for('static', filename='User/IMG/PCB-LOGO.png')}}" alt=""
+                    width="60" /></a>
+            <button class="navbar-toggler" id="menu-btn-res" type="button" onclick="hamburgerOff()"
+                data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse m-3" id="navbarNav">
+                <ul class="navbar-nav nav-container">
+                    <li class="nav-item nav-list">
+                        <a class="nav-link" aria-current="page" href="/index">Home</a>
+                    </li>
+                    <li class="nav-item nav-list">
+                        <a class="nav-link" href="#">Products</a>
+                    </li>
+                    <li class="nav-item nav-list active">
+                        <a class="nav-link" href="#">About-Us</a>
+                    </li>
+                    <li class="nav-item nav-list">
+                        <a class="nav-link" href="#">Contact</a>
+                    </li>
+
+                    <li class="nav-item nav-list">
+                        <button class="btn btn-outline-pcb sign-up" type="submit">
+                            Sign-Up
+                        </button>
+                        <button class="btn btn-outline-pcb log-in" type="submit">
+                            Log-In
+                        </button>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="build-pc-div">
+        <h1 class="build-pc-heading">Build Guide</h1>
+    </div>
+
+    <div class="components-notice mt-5 ms-auto me-auto p-4">
+        <p class="fs-3">Business PC:-</p>
+        <img src="{{url_for('static', filename='User/IMG/businesspc.jpg')}}" class="rounded w-25 h-25 mb-2"
+            alt="business pc picture" id="guide-img">
+        <p class="fs-6 text-justify">
+            Regardless of what kind of PC you’re building (Business or office), the components you need are going to be
+            . You’ll need a motherboard, a central processing unit (CPU), storage, memory, a power supply, a case, and a
+            monitor. The only thing you might not need if you're mostly using this PC for Business tasks is a GPU
+            (graphics processing unit),it's not necessary. That’s a lot of stuff! Here's a little breakdown of what each
+            component does, along with some hardware recommendations.
+        </p>
+    </div>
+
+    <div class="components-notice mt-5 ms-auto me-auto p-4">
+        <p class="fs-3">Gaming PC:-</p>
+        <img src="{{url_for('static', filename='User/IMG/gamingpc.jpg')}}" class="rounded w-25 h-25 mb-2"
+            alt="gaming pc picture" id="guide-img">
+        <p class="fs-6 text-justify">
+            Regardless of what kind of PC you’re building (Business or office), the components you need are going to be
+            . You’ll need a motherboard, a central processing unit (CPU), storage, memory, a power supply, a case, and a
+            monitor. The only thing you might not need if you're mostly using this PC for Business tasks is a GPU
+            (graphics processing unit),it's not necessary. That’s a lot of stuff! Here's a little breakdown of what each
+            component does, along with some hardware recommendations.
+        </p>
+    </div>
+
+    <div class="components-notice mt-5 ms-auto me-auto p-4">
+        <p class="fs-3">Normal PC:-</p>
+        <img src="{{url_for('static', filename='User/IMG/businesspc.jpg')}}" class="rounded w-25 h-25 mb-2"
+            alt="normal pc picture" id="guide-img">
+        <p class="fs-6 text-justify">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid facilis est fugit eaque inventore illum
+            impedit consequatur, non, ex corrupti quidem perferendis obcaecati velit! Lorem ipsum dolor, sit amet
+            consectetur adipisicing elit. Cum natus temporibus earum ratione totam ut exercitationem. Modi, dolorum quam
+            ea veniam in nam? Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sint natus aliquam debitis,
+            ratione eligendi eaque. Lorem ipsum, dolor s cumque molestiae rem.
+        </p>
+    </div>
+
+    <p class="fs-3 text-center text-light mt-5">Suggested Hardware (Gaming and Business):-</p>
+    <div class="components-notice mt-5 ms-auto me-auto p-4">
+        <p class="fs-3">Motherboard:-</p>
+        <img src="{{url_for('static', filename='User/IMG/motherboard.jpg')}}" class="rounded w-25 h-25 mb-2"
+            alt="normal pc picture" id="guide-img">
+        <p class="fs-6 text-justify">
+            Every other component plugs into this circuit board. It’s the highway they use to communicate and
+            collaborate. They come in different sizes and configurations, and each one looks a little different, but
+            they all fill the same function. Make sure you know which processor you want before you buy a motherboard.
+        </p>
+        <p class="fs-5 mt-5">Buying advice:-</p>
+        <p class="fs-6 text-justify">
+            Motherboards are less scarce than the other components on this list. We try to keep this list updated
+            regularly with prices that aren't too much higher than MSRP, but if any of the prices here skyrockets
+            between updates, shop around. Your chances of finding a reasonably priced motherboard are much better than
+            your chances of finding a good price on a GPU.
+        </p>
+        <ul class="list-group list-group-flush" id="guide-ul-1">
+            <li class="list-group-item bg-dark text-light">1:- &nbsp; ASUS ROG Strix B450-F (AM4 Socket): For a rig
+                designed for 1080p gaming, start here.</li>
+            <li class="list-group-item bg-dark text-light">2:- &nbsp; MSI MPG Z490 (LGA 1200 Socket): This one is great
+                for Intel processors and mid-tier machines.</li>
+            <li class="list-group-item bg-dark text-light">3:- &nbsp; ASUS ROG Maximus Hero (LGA 1200 Socket): As its
+                name suggests, this is a high-performance motherboard for gaming machines. If you're picking up an Intel
+                i9 processor, this is our recommendation.</li>
+            <li class="list-group-item bg-dark text-light">4:- &nbsp; MSI MPG Z590 GAMING CARBON WIFI ATX (LGA 1200
+                Socket): This motherboard is intuitive to use and lends a badass carbon-fiber feel to your overall
+                build. There are plenty of dedicated RGB options for fans and other lighting, and the metal heat sinks
+                tie your whole aesthetic together.</li>
+        </ul>
+    </div>
+
+    <div class="components-notice mt-5 ms-auto me-auto p-4">
+        <p class="fs-3">Processor (CPU):-</p>
+        <img src="{{url_for('static', filename='User/IMG/cpu.jpg')}}" class="rounded w-25 h-25 mb-2"
+            alt="normal pc picture" id="guide-img">
+        <p class="fs-6 text-justify">
+            This is the brain of your computer. It sockets directly into the motherboard, and it’s the single most
+            important component of your PC. That doesn’t mean it has to be the most expensive (we’ll get to that later).
+            If the CPU doesn't mention including thermal paste, get some. Don't eat your CPU. I know it looks tasty, but
+            it's not actually food.
+        </p>
+        <p class="fs-5 mt-5">Buying advice:-</p>
+        <p class="fs-6 text-justify">
+            You're going to see the highest markups on your CPU and GPU. But these prices will move around quite a bit,
+            so keep checking back if you can't afford the component you want at the moment.
+        </p>
+        <ul class="list-group list-group-flush" id="guide-ul-1">
+            <li class="list-group-item bg-dark text-light">1:- &nbsp; AMD Ryzen 3 3200G 4-Core 3.6 GHz: Since 1080p
+                gaming isn't particularly CPU-intensive, this is a good all-around choice. It pairs well with the
+                included Wraith cooler, but the CoolerMaster Hyper 212 is also a good choice.</li>
+            <li class="list-group-item bg-dark text-light">2:- &nbsp; Intel Core i5-11400 6-Core 2.6 GHz: Intel's latest
+                i5 offerings are a great choice for everyday workloads and won't get bogged down by your games, as long
+                as you have the GPU horsepower to pull most of that weight. It's also available at Amazon.</li>
+            <li class="list-group-item bg-dark text-light">3:- &nbsp; Intel Core i7-10700K 8-Core 3.8 GHz: An Intel i7
+                will see you through most heavy workday tasks and 4K gaming. It works well with an NZXT Kraken M22
+                Liquid Cooler.</li>
+            <li class="list-group-item bg-dark text-light">4:- &nbsp; Intel Core i9-11900K 8-Core 3.5 GHz: Intel's
+                high-end gaming option, the 11th-gen Core i9, is an incredibly versatile performer. This thing pushes
+                games to their absolute limit and shreds content creation workloads.</li>
+            <li class="list-group-item bg-dark text-light">5:- &nbsp; Ryzen 9 5950X 16-core 3.4 GHz: AMD's 16-core
+                behemoth is a killer CPU for high-end 4K or 144-Hz gaming, but it can be hard to find right now. Use it
+                with NZXT's Kraken X72 Liquid Cooler.</li>
+            <li class="list-group-item bg-dark text-light">6:- &nbsp; MSI MAG CoreLiquid 360R 78.73 CFM Liquid CPU
+                Cooler: This beast of a liquid cooler can be tricky to fit in, so figure out where you want to place it
+                before you start your build. The RGB fans are bright and gorgeous, and the heat sink has a rotating
+                dragon emblem that can be customized using a 3D printer. More important, the cooler is nearly silent,
+                and it kept temps in their ideal range (or lower) even when pushing my rig to the limit.</li>
+        </ul>
+    </div>
+
+    <div class="components-notice mt-5 ms-auto me-auto p-4">
+        <p class="fs-3">Graphics Card(GPU):-</p>
+        <img src="{{url_for('static', filename='User/IMG/gpu.jpg')}}" class="rounded w-25 h-25 mb-2"
+            alt="normal pc picture" id="guide-img">
+        <p class="fs-6 text-justify">
+            If you’ll be playing games on this PC, you’ll need a graphics processing unit (also called a graphics card).
+            This is a specialized processor that’s designed and optimized for handling visual data like the graphics in
+            games. It's also used in video and photo editing and other graphics-intensive tasks.
+        </p>
+        <p class="fs-5 mt-5">Buying advice:-</p>
+        <p class="fs-6 text-justify">
+            These cards are tough to find in stock (or at a reasonable price) at the moment, so you may have to wait a
+            while. Graphics cards are among the most in-demand PC components right now, and their prices are way higher
+            than they should be. That's why the picks on this list are generally mid- to high-end. If you're going to
+            pay through the nose for a graphics card, make sure it's a good one.
+        </p>
+        <ul class="list-group list-group-flush" id="guide-ul-1">
+            <li class="list-group-item bg-dark text-light">1:- &nbsp; MSI GeForce RTX 2060: If you're looking to get
+                into medium- to high-end gaming, this card strikes a good balance between power and price.</li>
+            <li class="list-group-item bg-dark text-light">2:- &nbsp; Asus ROG Strix RTX 3060: Nvidia’s 30-series
+                graphics cards are often out of stock due to the global chip shortage, but if you can find one for a
+                reasonable price, the RTX 3060 is a killer 1080p and 1440p gaming graphics card.</li>
+            <li class="list-group-item bg-dark text-light">3:- &nbsp; Radeon RX 6600: The RX 6600 is a really solid pick
+                for 1080p gaming on an AMD chip.</li>
+            <li class="list-group-item bg-dark text-light">4:- &nbsp; Radeon RX 6800 XT: If you're going all-out, the RX
+                6800 XT is my top choice right now. It's a beast of a GPU that can handle anything you throw at it. Even
+                Cyberpunk 2077 at full 4K resolution.</li>
+        </ul>
+    </div>
+
+    <div class="components-notice mt-5 ms-auto me-auto p-4">
+        <p class="fs-3">Storage :-</p>
+        <img src="{{url_for('static', filename='User/IMG/ssd.jpg')}}" class="rounded w-25 h-25 mb-2"
+            alt="normal pc picture" id="guide-img">
+        <p class="fs-6 text-justify">
+            This is your PC’s walk-in closet. This is where you store all your files, your games, your movies, your
+            documents, your photos, your everything. You can always add more storage later.
+        </p>
+        <p class="fs-5 mt-5">Buying advice:-</p>
+        <ul class="list-group list-group-flush" id="guide-ul-1">
+            <li class="list-group-item bg-dark text-light">1:- &nbsp; Western Digital Black 1TB PCIe Internal SSD: This
+                lightning-fast NVMe drive is a good option for nearly any gaming system. It has incredible read and
+                write speeds of up to 7,000 and 5,300 megabytes per second respectively, making it fast enough to not
+                only store all of your games, but possibly your operating system as well. It's also available in M.2
+                varieties.</li>
+            <li class="list-group-item bg-dark text-light">2:- &nbsp; Samsung 980 Pro M.2 SSD: Samsung's M.2 drives are
+                always a good choice. They're quick, durable, and itty-bitty (about the size of a stick of gum), so they
+                can pair with just about any other internal SSD you'd like. Most motherboards have an M.2 slot either on
+                the front of the board or around back, and you don't even have to mess with any cables. This one clocks
+                in at around 6,980 MB/s read speed, and 4,876 MB/s write speed.</li>
+            <li class="list-group-item bg-dark text-light">3:- &nbsp; Samsung 970 Evo M.2 SSD: The Evo line is cheaper
+                though a bit slower, but it's still an excellent buy for any build. This M.2 drive tops out at around
+                3,500 MB/s read speed and 3,300 MB/s write speed. Slower than others on this list but still pretty
+                quick—quick enough for gaming for sure. If you're on a budget, go with the Evo.</li>
+            <li class="list-group-item bg-dark text-light">4:- &nbsp; Corsair MP600 M.2 SSD: Corsair's MP600 drive comes
+                with a built-in heat sink to keep temperatures down while it transfers your data at blazing speeds. It
+                features a 4,950 MB/s read speed and 4,250 MB/s write speed.</li>
+            <li class="list-group-item bg-dark text-light">5:- &nbsp; WD Blue 1-TB Internal SSD: It's reasonably quick,
+                with plenty of storage space but with max read speeds of 560 MB/S and write speeds of 530 MB/s, this
+                Wester Digital model is better for a secondary storage drive—not the one you run games or your operating
+                system off of.</li>
+        </ul>
+    </div>
+
+    <div class="components-notice mt-5 ms-auto me-auto p-4">
+        <p class="fs-3">Memory(RAM):-</p>
+        <img src="{{url_for('static', filename='User/IMG/ram.jpg')}}" class="rounded w-25 h-25 mb-2"
+            alt="normal pc picture" id="guide-img">
+        <p class="fs-6 text-justify">
+            You’ll see a lot of the same terms when you’re looking at memory and storage, but they’re very different.
+            Memory is more like that one table you toss things on to deal with later. It’s scratch paper; it’s
+            short-term. It’s very important, though, because software uses memory to cache (temporarily store) data in a
+            place where it can be retrieved quickly.
+        </p>
+        <p class="fs-5 mt-5">Buying advice:-</p>
+        <ul class="list-group list-group-flush" id="guide-ul-1">
+            <li class="list-group-item bg-dark text-light">1:- &nbsp; Corsair Vengeance LPX 16-GB 288-Pin RAM: High-end
+                gaming rigs always go for 32 or 64 gigabytes of RAM, but a good old pair of 8-GB sticks will see you
+                through most 1080p games and everyday tasks.</li>
+            <li class="list-group-item bg-dark text-light">2:- &nbsp; G.Skill Ripjaws V Series 32-GB 288-Pin RAM: With
+                this much RAM, you should be pretty well set for everyday tasks and gaming.</li>
+            <li class="list-group-item bg-dark text-light">3:- &nbsp; Corsair Dominator Platinum 64-GB 288-Pin RAM: If
+                you need extra heft for content creation or high-end gaming, consider stepping up to 64 GB of RAM.</li>
+        </ul>
+    </div>
+
+    <div class="components-notice mt-5 ms-auto me-auto p-4">
+        <p class="fs-3">Power Supply(PSU):-</p>
+        <img src="{{url_for('static', filename='User/IMG/pcu.jpg')}}" class="rounded w-25 h-25 mb-2"
+            alt="normal pc picture" id="guide-img">
+        <p class="fs-6 text-justify">
+            Your power supply unit is a little box that keeps the electricity running to every component. It determines
+            how quick and powerful your PC can be. The faster it is, the more power it needs, and you always want to
+            have a little more than you need, just in case. Just like GPUs, PSUs are also in and out of stock right now.
+        </p>
+        <p class="fs-5 mt-5">Buying advice:-</p>
+        <ul class="list-group list-group-flush" id="guide-ul-1">
+            <li class="list-group-item bg-dark text-light">1:- &nbsp; EVGA SuperNOVA 750 GA Power Supply: You should
+                always err on the side of having more power than you need, and this unit will provide exactly that.</li>
+            <li class="list-group-item bg-dark text-light">2:- &nbsp; NZXT E850 850-Watt Power Supply: This 850-watt
+                power supply should provide enough horsepower to run even the most high-end and demanding builds.</li>
+            <li class="list-group-item bg-dark text-light">3:- &nbsp; EVGA SuperNOVA 1,000-Watt Power Supply: For PCs
+                with multiple graphics cards or a whole lot of storage, EVGA's 1,000-watt PSU is a good pick.</li>
+        </ul>
+    </div>
+
+    <div class="components-notice mt-5 ms-auto me-auto p-4">
+        <p class="fs-3">Case & Cooler:-</p>
+        <img src="{{url_for('static', filename='User/IMG/cabinate.jpg')}}" class="rounded w-25 h-25 mb-2"
+            alt="normal pc picture" id="guide-img">
+        <p class="fs-6 text-justify">
+            Your case is just what it sounds like. It’s a metal box. It might be covered in glass panels and etched
+            aluminum, but inside it’s just a big metal box that holds everything together. Make sure you match it up
+            with your motherboard size. For example, if you have an ATX motherboard, you need an ATX (or “full-size”)
+            case.
+        </p>
+        <p class="fs-5 mt-5">Buying advice:-</p>
+        <ul class="list-group list-group-flush" id="guide-ul-1">
+            <li class="list-group-item bg-dark text-light">1:- &nbsp; Corsair Obsidian Series ATX Full Tower: There are
+                lots of kinds of cases. Some are super small, others are enormous. And your decision will ultimately
+                come down to the design you like as much as anything else. If you're unsure what to get, this one is
+                great for your first build. Other case manufacturers we like are NZXT, Fractal, Phanteks, Cooler Master,
+                and Lian Li.</li>
+            <li class="list-group-item bg-dark text-light">2:- &nbsp; NZXT H710i ATX Mid-Tower: This is one of my faves.
+                It has a slick aesthetic and slightly compact silhouette without compromising cooling capability or
+                accessibility.</li>
+            <li class="list-group-item bg-dark text-light">3:- &nbsp; MSI Gungnir 100 ATX Mid-Tower Case: This
+                budget-friendly case is a solid option for most people. Be aware that it'll be a tight fit—there's
+                almost no wiggle room for bulky cables or hyperspecific configurations. It looks nicer than you'd think
+                for the money, and the RGB button syncs up your lights with very little effort. The smokey tempered
+                glass allows them to shine through without turning your office into an EDM show.</li>
+        </ul>
+    </div>
+
+    <div class="components-notice mt-5 ms-auto me-auto p-4">
+        <p class="fs-3">Operating System :-</p>
+        <img src="{{url_for('static', filename='User/IMG/os.jpg')}}" class="rounded w-25 h-25 mb-2"
+            alt="normal pc picture" id="guide-img">
+        <p class="fs-6 text-justify">
+            When you build a PC, you don't automatically have Windows included. You'll have to buy a license from
+            Microsoft or another vendor and make a USB key to install it. Or you can check out the newly released
+            Windows 11. Here’s a little more information about what all you get out of the newest version of Windows.
+        </p>
+    </div>
+
+    <div class="components-notice mt-5 ms-auto me-auto p-4">
+        <p class="fs-3">Putting It All Together:-</p>
+        <img src="{{url_for('static', filename='User/IMG/pcbuilding.jpg')}}" class="rounded w-25 h-25 mb-2"
+            alt="normal pc picture" id="guide-img">
+        <p class="fs-6 text-justify">
+            The internal layout of every gaming PC is a little different, so we're not going to get too far into the
+            weeds here. Your best bet for specific instructions for your hardware will be referencing your manuals and
+            searching for your components on YouTube. It can be super helpful to actually see a person handle and
+            install your exact hardware, especially when you're stuck and can't quite figure out what the hell your
+            manual is talking about. But here are some general tips for putting all these components together. First,
+            prep yourself a clean workspace. This can be a dining room table, a cleared-off desk—just any surface big
+            enough for your case to lay flat on its side, with ample room around it for the rest of your components.
+            You’ll also need a Phillips-head screwdriver that will fit the screws on your case. When you put these parts
+            together, be sure to discharge any static buildup and work on a nonmetallic surface like a wooden table. Or
+            you could just assemble the motherboard on top of the cardboard box it comes in. Most of the components you
+            bought are going to come with instruction manuals; keep them handy. We’re going to start with the
+            motherboard, so open up the instruction manual to the installation page. It can be pretty
+            intimidating—there’s a lot to look at—but think of all this as a big Lego set. Each piece fits into each
+            other piece. For the motherboard, your first job is going to be seating your CPU.
+        </p>
+    </div>
+
+    <div class="components-notice mt-5 ms-auto me-auto p-4">
+        <p class="fs-3">Installing Your CPU:-</p>
+        <p class="fs-6 text-justify">
+            Depending on what kind of CPU you purchased (Intel or AMD), the chip will have either little prongs on one
+            side (don’t touch them) or little golden contacts on one side (don’t touch them). Seriously, don’t touch
+            that side of your chip. Oils from your fingertips can damage the contacts, or you might bend a pin. Do
+            either one and your processor becomes nothing more than an expensive hunk of silicon.
+
+            Seating your processor is pretty easy. First, double-check your motherboard’s instructions and make sure
+            you’ve unlocked the processor socket. It’ll be a big square with a bunch of little holes (or contacts), with
+            a lever or button beside it. Your motherboard’s instructions will say explicitly how to unlock the socket so
+            you can put your processor in without any issues.
+
+            Once you’ve confirmed that it’s unlocked and ready, just find which corner of your processor has a little
+            golden triangle and line it up with the same symbol on your motherboard’s processor socket. Gently lower the
+            processor into the socket, then gently flip the latch or locking mechanism. You shouldn’t have to fight it.
+            If you have to press really hard, double-check that the processor is socketed correctly.
+
+            Next, you’re going to need your thermal paste. That little tiny plastic syringe of silvery goo is very
+            important for this next step. Now that your processor is seated, take a look at the shiny square of silicon
+            in the center of it. That’s where your heat sink is going to sit. Your processor came with a heat sink, and
+            on one side of it, you’ll see a copper circle. You’re going to be putting the heat sink directly on top of
+            the processor after we apply the thermal paste, with the silicone square and the copper circle lining up
+            perfectly.
+
+            Go ahead and carefully squeeze a tiny ball (no bigger than a pea) of thermal paste onto the silicon square
+            on your processor. You’ll want it as close to the center as you can get.
+
+            Now line up your heat sink with the screws surrounding your processor, and gently lower it into place.
+            You’re gonna squish the thermal paste, and the goal here is to create a thin layer covering the back of your
+            processor. It’s OK if it oozes a little bit, but if it oozes out and over the edge of the processor, you
+            used too much. Get some isopropyl alcohol, dab it on a lint-free wipe, and wipe the processor and heat sink.
+            Wait till they’re thoroughly dry and try again.
+
+            If it looks all right, screw your heat sink into place. Flip back to your motherboard instruction book and
+            find the right place near the processor socket to plug in your heat sink’s cooling fan. It should be very
+            close to your processor socket. Once you’ve found it, plug it in—congratulations, you just installed a CPU.
+            This was the hardest part, and it’s over. Good job!
+        </p>
+    </div>
+
+    <div class="components-notice mt-5 ms-auto me-auto p-4">
+        <p class="fs-3">Installing Your Storage and Memory:-</p>
+        <p class="fs-6 text-justify">
+            Memory is maybe the easiest thing to install. See those vertical little sockets beside the CPU? Line up your sticks of RAM and slot them in, starting from the left-hand slot. They’ll lock into place once you’ve seated them properly. If you have two sticks of RAM, make sure to skip a slot between them. Your motherboard manual should say which slots to use. For your hard drive or solid-state drive (SSD), find an empty bay in the front-facing part of your case. Slide your drive in and screw it into place. If you have an M.2 drive (a tiny SSD about the size of a stick of gum), there should be a place on the motherboard where you slot it in directly. Check out your motherboard’s manual to see where the M.2 slot is if you can't find it.
+        </p>
+    </div>
+
+    <div class="components-notice mt-5 ms-auto me-auto p-4">
+        <p class="fs-3">Installing Your Motherboard and Power Supply:-</p>
+        <p class="fs-6 text-justify">
+            The rest of this is formulaic. Start by putting your motherboard into your case. Consult your motherboard’s instructions, line up the screw holes in the case with the ones on your motherboard, and get to work. Next, you’ll want to install your power supply. There should be a spot for it near the top or bottom of the case, a big square spot that will fit your supply perfectly. If you’re having trouble finding it, look at the back of your case: There’ll be a big empty square. That’s where the power supply goes (and where you’ll plug in your PC when you’re all done). Once you've found its home, slot it in and screw it into place. Make sure all the snaky cables coming out of the power supply will reach your motherboard with room to spare. Don’t plug in anything yet; we’re going to come back to the power supply in a bit.
+        </p>
+    </div>
+
+    <div class="components-notice mt-5 ms-auto me-auto p-4">
+        <p class="fs-3">Installing Your Graphics Card:-</p>
+        <p class="fs-6 text-justify">
+            Your GPU is going to be pretty big. Even a modestly powerful GPU like the GTX 1060 is large compared to your other components. That means how it fits into your case is important. Once you put your GPU in there, space is going to start getting tight. Flip open your motherboard’s instruction book again and look for a PCIe slot. It’s going to be a horizontal slot with a little plastic latch beside it, near the middle or bottom of your motherboard. That’s where the GPU plugs in. All you need to do is identify the back of your GPU (the side with the HDMI and DisplayPorts), line that up with the back of your case, and push the GPU into the horizontal slot. It should lock into place easily enough; if it doesn’t, make sure you’re inserting it correctly. Find another one of those tiny little screws and fasten your GPU to the case. There’s a little spot for that on the same piece of metal with the HDMI ports. It should be easy to find.	Now, take a look at the cables coming out of your power supply. There should be a few that look like they could fit into the square (or rectangular) socket on the side of your GPU. It should look like six or eight little holes in a rectangle shape. If you’re having trouble, take a look at this video from hardware manufacturer Asus. Some of the specifics will be different, but it’s a great look at how to install a GPU.
+        </p>
+    </div>
+
+    <div class="components-notice mt-5 ms-auto me-auto p-4">
+        <p class="fs-3">Ribbon Cables:-</p>
+        <p class="fs-6 text-justify">
+            The motherboard needs to be hooked into all your devices. The power supply unit I used in this build is what's called fully modular, which means that you can select the cables you need and leave the rest off to eliminate clutter. Otherwise, power supplies have a ton of cables, and you'll have to deal with the unused power connections dangling inside your case. You'll need to connect the PSU to the SSD and the motherboard. You also need to plug the motherboard into your case—the power buttons, audio plugs, and USB ports on the front of your case. There are special headers for each kind of plug scattered around the board, so you'll want to check your manual for the location and function of each grouping of pins. These tiny pins need to be plugged in a certain way, and they're unbelievably minuscule. There's also a hookup for the case's fan—in the case I used there was one header on the motherboard but three fans installed. Then there's the SATA cable for your SSD, which plugs into the motherboard. This part of your build really depends on the hardware you purchased, so consult the manuals for each component to ensure you've correctly plugged it into your motherboard and the power supply.
+        </p>
+    </div>
+
+    <div class="components-notice mt-5 ms-auto me-auto p-4">
+        <p class="fs-3">Boot It Up and Install Windows:-</p>
+        <p class="fs-6 text-justify">
+            The final stage of your build is a simple one: Hit your power button. If the PC whirs to life, you probably put it together perfectly! If it doesn't, don't despair. There are a lot of potential problems that could cause a PC to fail to boot up for the first time. This video from Kingston goes over some pitfalls that might cause you some headaches, so if you're not able to boot your PC, give it a watch and retrace your steps. There's also a chance you could have received faulty components. This video goes over some tips on how to check your parts. In general, if you’re having trouble with a specific component, YouTube is your friend. There are tons of helpful PC-building tutorials If it started up just fine, the next step is super easy: Turn it off. Remember that Windows flash drive you made earlier? Plug it into the PC and boot it up again. If you set it up right, your computer should just do its thing and get started installing Windows. If not, you might need to open your BIOS (check your motherboard's manual for how to do that) and set the USB drive to be a “boot device” first. Here's a brief rundown of that process (start at step 3).
+        </p>
+    </div>
+
+    <div class="components-notice mt-5 ms-auto me-auto p-4">
+        <p class="fs-3">You Did It! 👍</p>
+        <p class="fs-6 text-justify">
+            Congratulations on building your first PC. It's a bit of a pain, but it's a great way to spend an afternoon. Or a couple of days, depending on how many unforeseen headaches you run into. Seeing as the pandemic hasn’t totally gone away, you can use your new PC to help you spend all those extra indoor hours productively (or just grinding out loot in Warframe).
+        </p>
+    </div>
+
+
+
+
+    <!-- Footer -->
+
+    <div class="main-footer-class bg-dark text-light">
+        <div class="container">
+            <footer class="py-5">
+                <div class="row">
+                    <div class="col-2">
+                        <h5>Links</h5>
+                        <ul class="nav flex-column">
+                            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Home</a></li>
+                            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Features</a></li>
+                            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Pricing</a></li>
+                            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">FAQs</a></li>
+                            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">About</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="col-2">
+                        <h5>Links</h5>
+                        <ul class="nav flex-column">
+                            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Home</a></li>
+                            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Features</a></li>
+                            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Pricing</a></li>
+                            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">FAQs</a></li>
+                            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">About</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="col-2">
+                        <h5>Links</h5>
+                        <ul class="nav flex-column">
+                            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Home</a></li>
+                            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Features</a></li>
+                            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Pricing</a></li>
+                            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">FAQs</a></li>
+                            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">About</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="col-4 offset-1">
+                        <div class="d-flex w-100 gap-2 ms-5">
+                            <img src="{{url_for('static', filename='User/IMG/PCB-LOGO.png')}}" alt=""
+                                class="footer-logo">
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="d-flex justify-content-center py-4 my-4 border-top">
+                    <p>&copy; 2022 PC BUILDER, Inc. All rights reserved.</p>
+                </div>
+            </footer>
+        </div>
+    </div>
+
+    <!-- Footer Ends Here -->
+
+
+
+
+
+    <!-- Include JavaScript -->
+    <script src="{{url_for('static', filename='User/JS/index.js')}}"></script>
+    <script src="{{url_for('static', filename='User/JS/bootstrap.min.js')}}"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
+        integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"
+        integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
