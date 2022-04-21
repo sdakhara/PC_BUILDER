@@ -15,6 +15,7 @@ class boarddata(Base):
     __tablename__ = 'boarddata'
 
     BoardID = Column(Integer, primary_key=True, autoincrement=True)
+    BoardBrand = Column(String)
     BoardName = Column(String)
     SocketType = Column(String)
     FormFactor = Column(String)
@@ -30,6 +31,7 @@ class cpudata(Base):
     __tablename__ = 'cpudata'
 
     CPUID = Column(Integer, primary_key=True, autoincrement=True)
+    CPUBrand = Column(String)
     CPUName = Column(String)
     CoreCount = Column(Integer)
     ClockSpeed = Column(String)
@@ -46,6 +48,7 @@ class ramdata(Base):
     __tablename__ = 'ramdata'
 
     RAMID = Column(Integer, primary_key=True, autoincrement=True)
+    RAMBrand = Column(String)
     RAMName = Column(String)
     Type = Column(String)
     Speed = Column(String)
@@ -63,6 +66,7 @@ class cabinetdata(Base):
     __tablename__ = 'cabinetdata'
 
     CabinetID = Column(Integer, primary_key=True, autoincrement=True)
+    CabinetBrand = Column(String)
     CabinetName = Column(String)
     Type = Column(String)
     Color = Column(String)
@@ -78,6 +82,7 @@ class coolerdata(Base):
     __tablename__ = 'coolerdata'
 
     CoolerID = Column(Integer, primary_key=True, autoincrement=True)
+    CoolerBrand = Column(String)
     CoolerName = Column(String)
     FanRPM = Column(String)
     NoiseLevel = Column(String)
@@ -91,6 +96,7 @@ class gpudata(Base):
     __tablename__ = 'gpudata'
 
     GPUID = Column(Integer, primary_key=True, autoincrement=True)
+    GPUBrand = Column(String)
     GPUName = Column(String)
     Chipset = Column(String)
     Memory = Column(String)
@@ -121,6 +127,7 @@ class psudata(Base):
     __tablename__ = 'psudata'
 
     SmpsID = Column(Integer, primary_key=True, autoincrement=True)
+    SmpsBrand = Column(String)
     SmpsName = Column(String)
     Price = Column(Integer)
     FormFactor = Column(String)
@@ -135,6 +142,7 @@ class storagedata(Base):
     __tablename__ = 'storagedata'
 
     StorageID = Column(Integer, primary_key=True, autoincrement=True)
+    StorageBrand = Column(String)
     StorageName = Column(String)
     Price = Column(Integer)
     Capacity = Column(String)
