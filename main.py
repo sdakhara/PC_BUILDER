@@ -1,6 +1,6 @@
 from flask import Flask, render_template, request, redirect, url_for
 
-from logics.admin.datashare import datatransfer, Authentication
+from logics.Admin.datashare import datatransfer, Authentication
 from logics.user.autobuild import logic
 from logics.user.iplogics import ipControl
 
@@ -155,6 +155,33 @@ def signup():
         pass
 
     return render_template('User/signup.html')
+
+
+@app.route('/buildguide', methods=['GET', 'POST'])
+def buildguide():
+    ipcontrol.getIP(request.remote_addr)
+    if request.method == 'POST':
+        pass
+
+    return render_template('User/buildguide.html')
+
+
+@app.route('/viewbuilds', methods=['GET', 'POST'])
+def viewbuilds():
+    ipcontrol.getIP(request.remote_addr)
+    if request.method == 'POST':
+        pass
+
+    return render_template('User/viewbuilds.html')
+
+
+@app.route('/buildhistory', methods=['GET', 'POST'])
+def buildhistory():
+    ipcontrol.getIP(request.remote_addr)
+    if request.method == 'POST':
+        pass
+
+    return render_template('User/buildhistory.html')
 
 
 @app.route('/test', methods=['GET', 'POST'])

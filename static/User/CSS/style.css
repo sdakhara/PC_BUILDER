@@ -384,6 +384,16 @@ nav .navbar-toggler {
 /* -----------      autobuild style end      -----------*/
 
 
+#guide-ul-1 {
+    text-align: start;
+    margin-top: 2rem;
+}
+
+#history-container {
+    margin-top: 5% !important;
+}
+
+
 
 
 
@@ -444,6 +454,11 @@ nav .navbar-toggler {
 
     #input-text-group {
         width: 8rem !important;
+    }
+
+    #guide-img {
+        width: 15rem !important;
+        height: 8rem !important;
     }
 
 }

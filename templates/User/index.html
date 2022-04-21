@@ -87,11 +87,11 @@
         
         <div class="card explore-crd">
             <div class="card-body">
-                <h5 class="card-titl/e">
-                    <img src="{{url_for('static', filename='User/IMG/customize.png')}}" alt="" class="cards-icons">
-                    Customize</h5>
-                <p class="card-text">Customize the Build which Builded previously.</p>
-                <button type="button" class="btn btn-outline-pcb">CUSTOMIZE</button>
+                <h5 class="card-title">
+                    <img src="{{url_for('static', filename='User/IMG/users-build.png')}}" alt="" class="cards-icons">
+                    Users Build</h5>
+                <p class="card-text">View & Rate other users PC Builds</p>
+                <button type="button" class="btn btn-outline-pcb">VIEW / RATE</button>
             </div>
         </div>
     </div>
@@ -128,7 +128,9 @@
                     <img src="{{url_for('static', filename='User/IMG/build-guide.png')}}" alt="" class="cards-icons">
                     Build Guide</h5>
                 <p class="card-text">Read Build Guide if you dont have enough knowledge about pc build.</p>
-                <button type="button" class="btn btn-outline-pcb">READ GUIDE</button>
+                <a href='/buildguide'>
+                    <button type="button" class="btn btn-outline-pcb">READ GUIDE</button>
+                </a>
             </div>
         </div>
         
@@ -142,22 +144,27 @@
             </div>
         </div>
     </div>
-    
+
     <div class="card-group">
         <div class="card explore-crd">
             <div class="card-body">
                 <h5 class="card-title">
-                    <img src="{{url_for('static', filename='User/IMG/users-build.png')}}" alt="" class="cards-icons">
-                    Users Build</h5>
-                <p class="card-text">View & Rate other users PC Builds</p>
-                <button type="button" class="btn btn-outline-pcb">VIEW / RATE</button>
+                    <img src="{{url_for('static', filename='User/IMG/build-guide.png')}}" alt="" class="cards-icons">
+                    Your Builds</h5>
+                <p class="card-text">See Your Previous Builded PCs History</p>
+                <a href='/viewbuilds'>
+                    <button type="button" class="btn btn-outline-pcb">View NOW</button>
+                </a>
             </div>
         </div>
         
         <div class="card explore-crd">
             <div class="card-body">
-                <h5 class="card-titl/e">Other...</h5>
-                <p class="card-text">st to show that equal height action.</p>
+                <h5 class="card-titl/e">
+                    <img src="{{url_for('static', filename='User/IMG/second-hand-pc.png')}}" alt="" class="cards-icons">
+                    Other</h5>
+                <p class="card-text">Lorem ipsum dolor sit amet elit.</p>
+                <button type="button" class="btn btn-outline-pcb">BUY / SELL</button>
             </div>
         </div>
     </div>

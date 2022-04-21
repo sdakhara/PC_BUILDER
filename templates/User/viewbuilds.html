@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Include CSS -->
+    <link rel="stylesheet" href="{{url_for('static', filename='User/CSS/style.css')}}" />
+    <link rel="stylesheet" href="{{url_for('static', filename='User/CSS/bootstrap.min.css')}}" />
+
+    <title>App</title>
+</head>
+
+<body>
+    <!-- Nav-Bar (Header)  -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-transperent fixed-top" id="Navbar">
+        <div class="container-fluid" id="container-fluid">
+            <a class="navbar-brand" href="#"><img src="{{url_for('static', filename='User/IMG/PCB-LOGO.png')}}" alt=""
+                    width="60" /></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse m-3" id="navbarNav">
+                <ul class="navbar-nav nav-container">
+                    <li class="nav-item nav-list">
+                        <a class="nav-link" aria-current="page" href="/index">Home</a>
+                    </li>
+                    <li class="nav-item nav-list">
+                        <a class="nav-link" href="#">Products</a>
+                    </li>
+                    <li class="nav-item nav-list">
+                        <a class="nav-link" href="#">About-Us</a>
+                    </li>
+                    <li class="nav-item nav-list">
+                        <a class="nav-link" href="#">Contact</a>
+                    </li>
+
+                    <li class="nav-item nav-list">
+                        <button class="btn btn-outline-pcb sign-up" type="submit">
+                            Sign-Up
+                        </button>
+                        <button class="btn btn-outline-pcb log-in" type="submit">
+                            Log-In
+                        </button>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="build-pc-div">
+        <h1 class="build-pc-heading">Your Builds</h1>
+    </div>
+
+    <p class="components-notice position-absolute start-50 translate-middle-x mt-3">
+        <span id="pc-component-note-span">*</span> Your Previous Builded PCs.
+    </p>
+
+    <div class="main-container" id="history-container">
+        <div class="yourbuilds-container">
+
+            <div class="card bg-dark mx-auto w-75">
+                <div class="card-body">
+                    <p class="build-name fs-5 float-start">Your Builded PC Name</p>
+                    <button type="button" class="btn btn-outline-pcb float-end ms-1">Delete</button>
+
+                    <a href='/buildhistory'>
+                        <button type="button" class="btn btn-outline-pcb float-end">View</button>
+                    </a>
+                </div>
+            </div>
+
+            <div class="card bg-dark mx-auto w-75">
+                <div class="card-body">
+                    <p class="build-name fs-5 float-start">Your Builded PC Name</p>
+                    <button type="button" class="btn btn-outline-pcb float-end ms-1">Delete</button>
+
+                    <a href='/buildhistory'>
+                        <button type="button" class="btn btn-outline-pcb float-end">View</button>
+                    </a>
+                </div>
+            </div>
+            
+            <div class="card bg-dark mx-auto w-75">
+                <div class="card-body">
+                    <p class="build-name fs-5 float-start">Your Builded PC Name</p>
+                    <button type="button" class="btn btn-outline-pcb float-end ms-1">Delete</button>
+
+                    <a href='/buildhistory'>
+                        <button type="button" class="btn btn-outline-pcb float-end">View</button>
+                    </a>
+                </div>
+            </div>
+
+
+
+        </div>
+    </div>
+
+    <!-- Include JavaScript -->
+    <script src="{{url_for('static', filename='User/JS/index.js')}}"></script>
+    <script src="{{url_for('static', filename='User/JS/bootstrap.min.js')}}"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
+        integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"
+        integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
