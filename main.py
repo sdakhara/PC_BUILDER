@@ -1,6 +1,6 @@
 from flask import Flask, render_template, request, redirect, url_for
 
-from logics.Admin.datashare import datatransfer, Authentication
+from logics.admin.datashare import Authentication
 from logics.user.autobuild import logic
 from logics.user.iplogics import ipControl
 
@@ -13,7 +13,7 @@ app = Flask(__name__)
 g = globs()
 logic = logic()
 ipcontrol = ipControl()
-dataapi = datatransfer()
+# dataapi = datatransfer()
 Authenticator = Authentication()
 
 
@@ -144,7 +144,6 @@ def about():
     ipcontrol.getIP(request.remote_addr)
     if request.method == 'POST':
         pass
-
     return render_template('User/about.html')
 
 
@@ -180,23 +179,7 @@ def buildhistory():
     ipcontrol.getIP(request.remote_addr)
     if request.method == 'POST':
         pass
-
     return render_template('User/buildhistory.html')
-
-
-@app.route('/test', methods=['GET', 'POST'])
-def test():
-    budget = 0
-    cpu = 0
-    ram = 0
-    hdd = 0
-    if request.method == 'POST':
-        budget = request.form.get('budget')
-        cpu = request.form.get('CPU')
-        ram = request.form.get('RAM')
-        hdd = request.form.get('HDD')
-    return render_template('User/testHTMLs/logictest.html',
-                           data=logic.buildpc(int(budget), bool(cpu), bool(ram), bool(hdd)))
 
 
 if __name__ == '__main__':

@@ -267,14 +267,14 @@ class datatransfer:
             return sortgpu(db.query(gpudata).all())
         return db.query(gpudata).all()
 
-    def getRAMs(self, list=False):
+    def getRAMs(self, ramtype, list=False):
         if list:
-            return sortram(db.query(ramdata).all())
+            return sortram(db.query(ramdata).filter_by(Type=ramtype).all())
         return db.query(ramdata).all()
 
-    def getBOARDs(self, list=False):
+    def getBOARDs(self,sockettype, list=False):
         if list:
-            return sortboard(db.query(boarddata).all())
+            return sortboard(db.query(boarddata).filter_by(SocketType=sockettype).all())
         return db.query(boarddata).all()
 
     def getCOOLERs(self, list=False):

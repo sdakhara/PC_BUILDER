@@ -5,7 +5,7 @@ def srt(e):
 def sortcpu(cpuobj):
     cpuData = []
     for cpu in cpuobj:
-        cpulist = [cpu.CPUID, cpu.CPUName, cpu.CoreCount, cpu.ClockSpeed,
+        cpulist = [cpu.CPUID, cpu.CPUBrand, cpu.CPUName, cpu.CoreCount, cpu.ClockSpeed,
                    cpu.BoostClock, cpu.SocketType, cpu.TDP,
                    cpu.IntegratedGraphics, cpu.SMT, cpu.Rating, cpu.Price]
         cpuData.append(cpulist)
@@ -16,7 +16,7 @@ def sortcpu(cpuobj):
 def sortgpu(gpuobj):
     gpuData = []
     for gpu in gpuobj:
-        gpulist = [gpu.GPUID, gpu.GPUName, gpu.Chipset, gpu.Memory,
+        gpulist = [gpu.GPUID, gpu.GPUBrand, gpu.GPUName, gpu.Chipset, gpu.Memory,
                    gpu.CoreClock, gpu.BoostClock, gpu.Color, gpu.Length,
                    gpu.Rating, gpu.Price
                    ]
@@ -28,7 +28,7 @@ def sortgpu(gpuobj):
 def sortram(ramobj):
     ramData = []
     for ram in ramobj:
-        ramlist = [ram.RAMID, ram.RAMName, ram.Type, ram.Speed, ram.Modules,
+        ramlist = [ram.RAMID, ram.RAMBrand, ram.RAMName, ram.Type, ram.Speed, ram.Modules,
                    ram.PricePerModule, ram.SizePerModule, ram.Color,
                    ram.FirstWordLatency, ram.CASLatency, ram.Rating, ram.Price
                    ]
@@ -40,7 +40,7 @@ def sortram(ramobj):
 def sortboard(boardobj):
     boardData = []
     for board in boardobj:
-        boardlist = [board.BoardID, board.BoardName, board.SocketType,
+        boardlist = [board.BoardID, board.BoardBrand, board.BoardName, board.SocketType,
                      board.FormFactor, board.RAMType, board.MaxRam,
                      board.RAMSlots, board.Color, board.Rating, board.Price]
         boardData.append(boardlist)
@@ -51,7 +51,7 @@ def sortboard(boardobj):
 def sortcooler(coolerobj):
     coolerData = []
     for cooler in coolerobj:
-        coolerlist = [cooler.CoolerID, cooler.CoolerName, cooler.FanRPM,
+        coolerlist = [cooler.CoolerID, cooler.CoolerBrand, cooler.CoolerName, cooler.FanRPM,
                       cooler.NoiseLevel, cooler.Color, cooler.RadiatorSize,
                       cooler.Rating, cooler.Price]
         coolerData.append(coolerlist)
@@ -62,7 +62,7 @@ def sortcooler(coolerobj):
 def sorthdd(hddobj):
     hddData = []
     for storage in hddobj:
-        storagelist = [storage.StorageID, storage.StorageName, storage.Capacity,
+        storagelist = [storage.StorageID, storage.StorageBrand, storage.StorageName, storage.Capacity,
                        storage.Type, storage.Cache, storage.FormFactor,
                        storage.Interface, storage.Rating, storage.Price]
         hddData.append(storagelist)
@@ -73,7 +73,7 @@ def sorthdd(hddobj):
 def sortcabinet(cabobj):
     cabData = []
     for cabinet in cabobj:
-        cabinetlist = [cabinet.CabinetID, cabinet.CabinetName, cabinet.Type,
+        cabinetlist = [cabinet.CabinetID, cabinet.CabinetBrand, cabinet.CabinetName, cabinet.Type,
                        cabinet.Color, cabinet.PowerSupply,
                        cabinet.SidePanelWindow, cabinet.ExternalBays,
                        cabinet.InternalBays, cabinet.Rating, cabinet.Price
@@ -86,7 +86,7 @@ def sortcabinet(cabobj):
 def sortpsu(psuobj):
     psuData = []
     for psu in psuobj:
-        powersupplylist = [psu.SmpsID, psu.SmpsName, psu.FormFactor,
+        powersupplylist = [psu.SmpsID, psu.SmpsBrand, psu.SmpsName, psu.FormFactor,
                            psu.EfficiencyRating, psu.Wattage, psu.Modular,
                            psu.Color, psu.Rating, psu.Price
                            ]

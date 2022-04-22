@@ -2,47 +2,54 @@ from logics.admin.datashare import datatransfer
 
 dataapi = datatransfer()
 cpus = dataapi.getCPUs(True)
-boards = dataapi.getBOARDs(True)
+# boards = dataapi.getBOARDs(True)
 hdds = dataapi.getSTORAGEs(True)
-rams = dataapi.getRAMs(True)
+# rams = dataapi.getRAMs(True)
 gpus = dataapi.getGPUs(True)
 
 
 class logic:
     def autobuild(self, budget):
         new = []
-        expected = None
-        for cpu in cpus:
-            expected = cpu[-1]
-            print('1')
-            if cpu[-1] > budget or cpu[-1] > expected:
-                continue
-            for board in boards:
-                expected = cpu[-1] + board[-1]
-                print('2')
-                if board[-1] > budget or board[-1] > expected:
+        for cpu in dataapi.getCPUs(True):
+            tempBudget = budget
+            tempBudget -= cpu[-1]
+            for board in dataapi.getBOARDs(cpu[6], True):
+                if board[-1] > tempBudget:
                     continue
-                for hdd in hdds:
-                    print('3')
-                    expected = cpu[-1] + board[-1] + hdd[-1]
-                    if hdd[-1] > budget or hdd[-1] > expected:
+                else:
+                    tempBudget -= board[-1]
+                for ram in dataapi.getRAMs(board[5], True):
+                    if ram[-1] > tempBudget:
                         continue
-                    for ram in rams:
-                        expected = cpu[-1] + board[-1] + hdd[-1] + ram[-1]
-                        print('4')
-                        if ram[-1] > budget or ram[-1] > expected:
+                    else:
+                        tempBudget -= ram[-1]
+                    for hdd in dataapi.getSTORAGEs(True):
+                        if hdd[-1] > tempBudget:
                             continue
-                        for gpu in gpus:
-                            expected = cpu[-1] + board[-1] + hdd[-1] + ram[-1] + gpu[-1]
-                            print('5')
-                            if ram[-1] > budget or ram[-1] > expected:
+                        else:
+                            tempBudget -= hdd[-1]
+                        for psu in dataapi.getPSUs(True):
+                            if psu[-1] > tempBudget:
                                 continue
-                            if expected <= budget:
-                                new.append([cpu, board, hdd, ram, gpu])
+                            else:
+                                tempBudget -= psu[-1]
+                            for cabinet in dataapi.getCABINETs(True):
+                                if cabinet[-1] > tempBudget:
+                                    continue
+                                else:
+                                    tempBudget -= cabinet[-1]
+                                if cpu[-1]+board[-1]+ram[-1]+hdd[-1]+psu[-1]+cabinet[-1] < budget:
+                                    new.append([cpu, board, ram, hdd, psu, cabinet,cpu[-1]+board[-1]+ram[-1]+hdd[-1]+psu[-1]+cabinet[-1]])
+                                    print('pc added')
+                                    break
         return new
 
-i = logic()
-n = i.autobuild(8000)
-for pc in n:
-    print('1')
-    print(pc)
+if __name__ == '__main__':
+    i = logic()
+    n = i.autobuild(50000)
+    for pcs in n:
+        print('++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++')
+        for pc in pcs:
+            print(pc)
+    print(len(n))
