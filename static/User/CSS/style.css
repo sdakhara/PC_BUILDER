@@ -389,8 +389,26 @@ nav .navbar-toggler {
     margin-top: 2rem;
 }
 
+
+/* Previous Build History page style */
+
 #history-container {
     margin-top: 5% !important;
+}
+
+/* Search Component Page Style */
+
+.search-input {
+    border-color: #6f00ff !important;
+}
+
+.search-result-ul {
+    border: solid #6f00ff 1px !important;
+}
+
+.search-result-ul > li {
+    background-color: #212529 !important;
+    color: white !important;
 }
 
 

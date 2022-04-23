@@ -1,4 +1,4 @@
-
+// JS-1 : Menu Toggle fixed
 function hamburgerOn(){
 
         var x = document.getElementById("navbarNav");
@@ -22,8 +22,7 @@ function hamburgerOff(){
 }
 
 
-// NavBar Color Change When Page Scroll
-// JS-1 : NavBar Color Change When Page Scroll
+// JS-2 : NavBar Color Change When Page Scroll
 window.onscroll = function () {
   scrollFunction();
 };
@@ -38,8 +37,8 @@ function scrollFunction() {
   }
 }
 
-// Change Input Value When Slider Slides And Change Value of Slider When We Enter Input
-// JS-1 : Change Input Value When Slider Slides And Change Value of Slider When We Enter Input
+
+// JS-3 : Change Input Value When Slider Slides And Change Value of Slider When We Enter Input
 
 var Slider = document.getElementById("range-slider");
 var PriceInput = document.getElementById("price-value-input");
@@ -56,7 +55,9 @@ function updateInput() {
 
 Slider.addEventListener("input", updateInput);
 
-// JS-1 : it clicks the submit button when user press enter in input field
+
+
+// JS-4 : it clicks the submit button when user press enter in input field
 var ipOnSubmit = document.getElementById("price-value-input");
 ipOnSubmit.addEventListener("keyup", function (event) {
   if (event.keyCode === 13) {

@@ -185,6 +185,15 @@ def buildhistory():
     return render_template('User/buildhistory.html')
 
 
+@app.route('/searchparts', methods=['GET', 'POST'])
+def searchparts():
+    ipcontrol.getIP(request.remote_addr)
+    if request.method == 'POST':
+        pass
+
+    return render_template('User/searchparts.html')
+
+
 @app.route('/test', methods=['GET', 'POST'])
 def test():
     budget = 0
