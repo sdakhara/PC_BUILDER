@@ -1,9 +1,10 @@
 from datetime import date
+from flask_session import Session
 
 from flask import Flask, render_template, jsonify, request, redirect, url_for
 
-from logics.Admin.IPLocation import get_ip
-from logics.Admin.datashare import datatransfer, Authentication
+from logics.admin.IPLocation import get_ip
+from logics.admin.datashare import datatransfer, Authentication
 
 
 class globs:
@@ -11,6 +12,9 @@ class globs:
 
 
 app = Flask(__name__)
+app.config["SESSION_PERMANENT"] = False
+app.config["SESSION_TYPE"] = "filesystem"
+Session(app)
 dataapi = datatransfer()
 Authenticator = Authentication()
 g = globs()
