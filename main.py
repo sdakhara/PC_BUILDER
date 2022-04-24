@@ -182,7 +182,6 @@ def buildhistory():
     return render_template('User/buildhistory.html')
 
 
-<<<<<<< HEAD
 @app.route('/searchparts', methods=['GET', 'POST'])
 def searchparts():
     ipcontrol.getIP(request.remote_addr)
@@ -218,7 +217,5 @@ def test():
                            data=logic.buildpc(int(budget), bool(cpu), bool(ram), bool(hdd)))
 
 
-=======
->>>>>>> dbe7cdd561ac7a7e8018b416d0b19aa0c897069f
 if __name__ == '__main__':
     app.run(debug=True)
