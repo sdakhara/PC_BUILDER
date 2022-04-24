@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="https://fonts.sandbox.google.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
 
 
-    <title>PCB | Search Parts</title>
+    <title>PCB | Second Hand PC</title>
 </head>
 
 <body>
@@ -54,34 +54,45 @@
     </nav>
 
     <div class="build-pc-div">
-        <h1 class="build-pc-heading">Search Components</h1>
+        <h1 class="build-pc-heading">Second Hand PC</h1>
     </div>
 
+    <div class="sell-pc-container components-notice mx-auto">
+        <p class="mt-3">
+            <span id="pc-component-note-span">*</span> If you want to sell your pc , press the button below.<br>
+        </p>
+        <button class="btn btn-outline-pcb log-in mb-2" type="submit">Sell Now</button>
+    </div>
     
+
     <div class="main-container">
-
-        <div class="searchbar-container mt-5">
-            <div class="input-group w-75 mx-auto">
-                <span class="input-group-text bg-dark text-light search-input material-symbols-outlined">search</span>
-                <input type="text" class="form-control search-input text-light bg-dark" aria-describedby="inputGroupPrepend"
-                    placeholder="Search Components">
+    
+        <div class="row w-100">
+    
+            <div class="col-sm-6">
+                <div class="card bg-dark w-50">
+                    <img src="{{url_for('static', filename='User/IMG/ram.jpg')}}" class="rounded d-block mx-auto w-100 h-25"
+                        alt="...">
+                    <div class="card-body">
+                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
+                            card's
+                            content.</p>
+                    </div>
+                </div>
             </div>
-        </div>
-
-        <div class="searchresult-div mx-auto w-75">
-            <div class="search-result-list mt-4">
-                <ul class="list-group search-result-ul">
-                    <li class="list-group-item">An active item</li>
-                    <li class="list-group-item">A second item</li>
-                    <li class="list-group-item">A third item</li>
-                    <li class="list-group-item">A fourth item</li>
-                    <li class="list-group-item">An active item</li>
-                    <li class="list-group-item">A second item</li>
-                    <li class="list-group-item">A third item</li>
-                    <li class="list-group-item">A fourth item</li>
-                    <li class="list-group-item">And a fifth one</li>
-                </ul>
+    
+            <div class="col-sm-6">
+                <div class="card bg-dark w-50">
+                    <img src="{{url_for('static', filename='User/IMG/ram.jpg')}}" class="rounded d-block mx-auto w-100 h-25"
+                        alt="...">
+                    <div class="card-body">
+                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
+                            card's
+                            content.</p>
+                    </div>
+                </div>
             </div>
+    
         </div>
 
     </div>

@@ -194,6 +194,17 @@ def searchparts():
     return render_template('User/searchparts.html')
 
 
+@app.route('/secondhandpc', methods=['GET', 'POST'])
+def secondhandpc():
+    ipcontrol.getIP(request.remote_addr)
+    if request.method == 'POST':
+        pass
+
+    return render_template('User/secondhandpc.html')
+
+
+
+
 @app.route('/test', methods=['GET', 'POST'])
 def test():
     budget = 0
