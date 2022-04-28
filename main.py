@@ -200,6 +200,15 @@ def secondhandpc():
     return render_template('User/secondhandpc.html')
 
 
+@app.route('/sell', methods=['GET', 'POST'])
+def sell():
+    ipcontrol.getIP(request.remote_addr)
+    if request.method == 'POST':
+        pass
+
+    return render_template('User/sellpc.html')
+
+
 
 if __name__ == '__main__':
     app.run(debug=True)
