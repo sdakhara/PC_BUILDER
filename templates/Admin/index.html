@@ -389,10 +389,10 @@
                                 {% for country in countrys%}
                                 <tr>
                                     <td>
-                                        <i class="flag-icon flag-icon-in"></i>
+                                        <i class="flag-icon flag-icon-{{country.countryIcon}}"></i>
                                     </td>
-                                    <td>{{coutry.country}}</td>
-                                    <td>{{country.count}}</td>
+                                    <td>{{country.countryName}}</td>
+                                    <td>{{country.visitorsCount}}</td>
                                 </tr>
                                 {% endfor %}
                                 </tbody>
