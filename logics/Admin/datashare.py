@@ -270,9 +270,9 @@ class datatransfer:
     def srchusrid(self, id):
         return db.query(userdata).filter_by(UserID=id).all()
 
-    def getCPUs(self, list=False):
+    def getCPUs(self, sockettype, list=False):
         if list:
-            return sortcpu(db.query(cpudata).all())
+            return sortcpu(db.query(cpudata).filter_by(SocketType=sockettype).all())
         return db.query(cpudata).all()
 
     def getGPUs(self, list=False):
@@ -285,9 +285,9 @@ class datatransfer:
             return sortram(db.query(ramdata).filter_by(Type=ramtype).all())
         return db.query(ramdata).all()
 
-    def getBOARDs(self, sockettype=None, list=False):
+    def getBOARDs(self, list=False):
         if list:
-            return sortboard(db.query(boarddata).filter_by(SocketType=sockettype).all())
+            return sortboard(db.query(boarddata).all())
         return db.query(boarddata).all()
 
     def getCOOLERs(self, list=False):

@@ -136,7 +136,7 @@ def autobuild():
     ipcontrol.getIP(request.remote_addr)
     if request.method == 'POST':
         pass
-    pcs = logic.autobuild(30000)
+    pcs = logic.autobuild(50000)
     return render_template('User/autobuild.html', pcs=pcs)
 
 
