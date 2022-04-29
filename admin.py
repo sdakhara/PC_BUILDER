@@ -92,9 +92,6 @@ def adminregister():
 def messages():
     return render_template('Admin/messages.html')
 
-@app.route('/countrys', method=['GET','POST'])
-def countrys():
-    return render_template('Admin/index.html')
 
 @app.route('/users', methods=['GET', 'POST'])
 def users():
