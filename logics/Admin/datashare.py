@@ -1,11 +1,13 @@
 from datetime import datetime, date
-from logics.Admin.sorter import *
+
 from sqlalchemy import create_engine, Column
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import sessionmaker
 from sqlalchemy.types import String, Integer
 
-engine = create_engine("mysql+pymysql://root:root@127.0.0.1:3306/pc-builder")
+from logics.admin.sorter import *
+
+engine = create_engine("mysql+pymysql://Sujal:9099@127.0.0.1:3306/pc_builder")
 Session = sessionmaker()
 db = Session(bind=engine)
 Base = declarative_base()
@@ -203,7 +205,6 @@ class visitordata(Base):
     Time = Column(String)
 
 
-
 class userquery(Base):
     __tablename__ = 'userquery'
 
@@ -230,10 +231,9 @@ class componentrequestrecord(Base):
 class countrydata(Base):
     __tablename__ = 'countrydata'
     countryID = Column(Integer, primary_key=True, autoincrement=True)
-    icon = Column(String)
-    country = Column(String)
-    count = Column(String)
-
+    countryName = Column(String)
+    countryIcon = Column(String)
+    visitorsCount = Column(String)
 
 
 class datatransfer:
@@ -280,12 +280,12 @@ class datatransfer:
             return sortgpu(db.query(gpudata).all())
         return db.query(gpudata).all()
 
-    def getRAMs(self, ramtype, list=False):
+    def getRAMs(self, ramtype=None, list=False):
         if list:
             return sortram(db.query(ramdata).filter_by(Type=ramtype).all())
         return db.query(ramdata).all()
 
-    def getBOARDs(self,sockettype, list=False):
+    def getBOARDs(self, sockettype=None, list=False):
         if list:
             return sortboard(db.query(boarddata).filter_by(SocketType=sockettype).all())
         return db.query(boarddata).all()
