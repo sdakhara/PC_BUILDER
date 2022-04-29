@@ -54,10 +54,11 @@ def dashboard():
     totvisit = dataapi.getTotVisit()
     todayvisit = dataapi.getTodayVisit()
     msgs = dataapi.getMessages()
+    countrys = dataapi.getcountrydata()
     try:
         return render_template('Admin/index.html', adminname=g.ADMIN.AdminName, data=dt, last=last, buildedPC=buildedPC,
                                todaysbuild=todaysbuild, adminrole=g.ADMIN.Role, totvisitor=totvisit,
-                               todaysvisit=todayvisit,
+                               todaysvisit=todayvisit, countrys=countrys,
                                date=date.today(), msgs=msgs)
     except:
         return redirect(url_for('home'))
@@ -91,9 +92,9 @@ def adminregister():
 def messages():
     return render_template('Admin/messages.html')
 
-# @app.route('/countrys', method=['GET','POST'])
-# def countrys():
-#     return render_template('Admin/index.html')
+@app.route('/countrys', method=['GET','POST'])
+def countrys():
+    return render_template('Admin/index.html')
 
 @app.route('/users', methods=['GET', 'POST'])
 def users():
