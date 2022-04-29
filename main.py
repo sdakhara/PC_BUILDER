@@ -136,7 +136,8 @@ def autobuild():
     ipcontrol.getIP(request.remote_addr)
     if request.method == 'POST':
         pass
-    return render_template('User/autobuild.html')
+    pcs = logic.autobuild(30000)
+    return render_template('User/autobuild.html', pcs=pcs)
 
 
 @app.route('/about', methods=['GET', 'POST'])
@@ -180,6 +181,34 @@ def buildhistory():
     if request.method == 'POST':
         pass
     return render_template('User/buildhistory.html')
+
+
+@app.route('/searchparts', methods=['GET', 'POST'])
+def searchparts():
+    ipcontrol.getIP(request.remote_addr)
+    if request.method == 'POST':
+        pass
+
+    return render_template('User/searchparts.html')
+
+
+@app.route('/secondhandpc', methods=['GET', 'POST'])
+def secondhandpc():
+    ipcontrol.getIP(request.remote_addr)
+    if request.method == 'POST':
+        pass
+
+    return render_template('User/secondhandpc.html')
+
+
+@app.route('/sell', methods=['GET', 'POST'])
+def sell():
+    ipcontrol.getIP(request.remote_addr)
+    if request.method == 'POST':
+        pass
+
+    return render_template('User/sellpc.html')
+
 
 
 if __name__ == '__main__':
