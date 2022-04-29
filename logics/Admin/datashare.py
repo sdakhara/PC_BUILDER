@@ -1,11 +1,11 @@
 from datetime import datetime, date
-from logics.admin.sorter import *
+from logics.Admin.sorter import *
 from sqlalchemy import create_engine, Column
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import sessionmaker
 from sqlalchemy.types import String, Integer
 
-engine = create_engine("mysql+pymysql://Sujal:9099@127.0.0.1:3306/pc_builder")
+engine = create_engine("mysql+pymysql://root:root@127.0.0.1:3306/pc-builder")
 Session = sessionmaker()
 db = Session(bind=engine)
 Base = declarative_base()

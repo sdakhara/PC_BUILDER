@@ -1,4 +1,4 @@
-from logics.admin.datashare import datatransfer
+from logics.Admin.datashare import datatransfer
 
 dataapi = datatransfer()
 cpus = dataapi.getCPUs(True)
