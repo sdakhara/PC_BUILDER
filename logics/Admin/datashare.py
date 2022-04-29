@@ -1,11 +1,11 @@
 from datetime import datetime, date
-from logics.admin.sorter import *
+from logics.Admin.sorter import *
 from sqlalchemy import create_engine, Column
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import sessionmaker
 from sqlalchemy.types import String, Integer
 
-engine = create_engine("mysql+pymysql://Sujal:9099@127.0.0.1:3306/pc_builder")
+engine = create_engine("mysql+pymysql://root:root@127.0.0.1:3306/pc-builder")
 Session = sessionmaker()
 db = Session(bind=engine)
 Base = declarative_base()
@@ -203,6 +203,7 @@ class visitordata(Base):
     Time = Column(String)
 
 
+
 class userquery(Base):
     __tablename__ = 'userquery'
 
@@ -226,6 +227,15 @@ class componentrequestrecord(Base):
     Status = Column(String)
 
 
+class countrydata(Base):
+    __tablename__ = 'countrydata'
+    countryID = Column(Integer, primary_key=True, autoincrement=True)
+    icon = Column(String)
+    country = Column(String)
+    count = Column(String)
+
+
+
 class datatransfer:
     def getAllUser(self):
         return db.query(userdata).all()
@@ -247,6 +257,9 @@ class datatransfer:
 
     def getTodayVisit(self):
         return db.query(visitordata).filter_by(Date=date.today()).count()
+
+    def getcountrydata(self):
+        return db.query(countrydata).all()
 
     def getMessages(self):
         return db.query(userquery).all()
