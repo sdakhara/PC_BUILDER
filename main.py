@@ -1,6 +1,6 @@
 from flask import Flask, render_template, request, redirect, url_for
 
-from logics.Admin.datashare import Authentication
+from logics.admin.datashare import Authentication
 from logics.user.autobuild import logic
 from logics.user.iplogics import ipControl
 

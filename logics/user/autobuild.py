@@ -1,50 +1,58 @@
-from logics.Admin.datashare import datatransfer
+from random import choice
+
+from logics.admin.datashare import datatransfer
 
 dataapi = datatransfer()
+
 
 class logic:
     def autobuild(self, budget):
         new = []
-        for cpu in dataapi.getCPUs(True):
-            tempBudget = budget
-            tempBudget -= cpu[-1]
-            budoncpu = tempBudget
-            for board in dataapi.getBOARDs(cpu[13], True):
-                if board[-1] > budoncpu:
-                    continue
-                else:
-                    tempBudget -= board[-1]
-                    budonboard = tempBudget
-                for ram in dataapi.getRAMs(board[11], True):
-                    if ram[-1] > budonboard:
-                        continue
-                    else:
-                        tempBudget -= ram[-1]
-                        budonram = tempBudget
-                    for hdd in dataapi.getSTORAGEs(True):
-                        if hdd[-1] > budonram:
-                            continue
-                        else:
-                            tempBudget -= hdd[-1]
-                            budonstorage = tempBudget
-                        for psu in dataapi.getPSUs(True):
-                            if psu[-1] > budonstorage:
-                                continue
-                            else:
-                                tempBudget -= psu[-1]
-                                budonpsu = tempBudget
-                            for cabinet in dataapi.getCABINETs(True):
-                                if cabinet[-1] > budonpsu:
-                                    continue
-                                else:
-                                    tempBudget -= cabinet[-1]
-                                if cpu[-1]+board[-1]+ram[-1]+hdd[-1]+psu[-1]+cabinet[-1] < budget:
-                                    new.append([cpu, board, ram, hdd, psu, cabinet,[cpu[-1]+board[-1]+ram[-1]+hdd[-1]+psu[-1]+cabinet[-1]]])
-                                    print('pc added')
-                                    break
+        board = dataapi.getBOARDs(True)
+        hdd = dataapi.getSTORAGEs(True)
+        psu = dataapi.getPSUs(True)
+        cabinet = dataapi.getCABINETs(True)
+        for counter in range(1000):
+            brd = choice(board)
+            cpu = dataapi.getCPUs(brd[7], True)
+            c = choice(cpu)
+            ram = dataapi.getRAMs(brd[11], True)
+            rm = choice(ram)
+            strg = choice(hdd)
+            pu = choice(psu)
+            cab = choice(cabinet)
+            if c[-1] + brd[-1] + rm[-1] + strg[-1] + pu[-1] + cab[-1] <= budget:
+                new.append([cpu, board, ram, hdd, psu, cabinet])
+                print('pc added')
+
+        #
+        # for cpu in dataapi.getCPUs(True):
+        #     if counter > 100:
+        #         continue
+        #     for board in dataapi.getBOARDs(cpu[13], True):
+        #         if counter > 100:
+        #             continue
+        #         for ram in dataapi.getRAMs(board[11], True):
+        #             if counter > 100:
+        #                 continue
+        #             for hdd in dataapi.getSTORAGEs(True):
+        #                 if counter > 100:
+        #                     continue
+        #                 for psu in dataapi.getPSUs(True):
+        #                     if counter > 100:
+        #                         continue
+        #                     for cabinet in dataapi.getCABINETs(True):
+        #                         if counter > 100:
+        #                             continue
+        #                         if cpu[-1] + board[-1] + ram[-1] + hdd[-1] + psu[-1] + cabinet[-1] <= budget:
+        #                             new.append([cpu, board, ram, hdd, psu, cabinet])
+        #                             print('pc added')
+        #                             counter += 1
+        #                             break
 
         new.reverse()
         return new
+
 
 if __name__ == '__main__':
     i = logic()
