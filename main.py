@@ -136,7 +136,8 @@ def autobuild():
     ipcontrol.getIP(request.remote_addr)
     if request.method == 'POST':
         pass
-    return render_template('User/autobuild.html')
+    pcs = logic.autobuild(30000)
+    return render_template('User/autobuild.html', pcs=pcs)
 
 
 @app.route('/about', methods=['GET', 'POST'])
