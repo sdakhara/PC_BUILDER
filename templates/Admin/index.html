@@ -386,6 +386,8 @@
                         <div class="table-responsive">
                             <table class="table">
                                 <tbody>
+                                {% for visitor in visitors%}
+                                {% if visitor[3]=='germany'%}
                                 <tr>
                                     <td>
                                         <i class="flag-icon flag-icon-in"></i>
@@ -393,6 +395,26 @@
                                     <td>India</td>
                                     <td class="text-right"> 1500</td>
                                 </tr>
+                                {%endif%}
+                                {% if visitor[3]=='india'%}
+                                <tr>
+                                    <td>
+                                        <i class="flag-icon flag-icon-in"></i>
+                                    </td>
+                                    <td>India</td>
+                                    <td class="text-right"> 1500</td>
+                                </tr>
+                                {%endif%}
+                                {% if visitor[3]=='brazil'%}
+                                <tr>
+                                    <td>
+                                        <i class="flag-icon flag-icon-in"></i>
+                                    </td>
+                                    <td>India</td>
+                                    <td class="text-right"> 1500</td>
+                                </tr>
+                                {%endif%}
+                                {% endfor %}
                                 </tbody>
                             </table>
                         </div>
