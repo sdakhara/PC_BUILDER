@@ -418,6 +418,11 @@ nav .navbar-toggler {
     margin-top: 2rem !important;
 }
 
+/* sell pc page style */
+
+
+
+
 /* 
 .second-hand-pc-cards {
     margin-top: 10rem !important;
@@ -489,4 +494,16 @@ nav .navbar-toggler {
         height: 8rem !important;
     }
 
+    #sell-card-img {
+        margin-left: 2% !important;
+        margin-right: 2% !important;
+        width: 90% !important;
+    }
+
+    #sell-info-card {
+        margin-top: 2rem !important;
+        width: 90% !important;
+        /* margin-left: 2% !important; */
+        margin-right: 8% !important;
+    }
 }

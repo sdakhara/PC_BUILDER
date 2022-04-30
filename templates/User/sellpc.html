@@ -57,26 +57,54 @@
         <h1 class="build-pc-heading">Sell PC</h1>
     </div>
 
-    <div class="sell-pc-container components-notice mx-auto">
-        <p class="mt-3">
-            <span id="pc-component-note-span">*</span> all informations required & Upload clear good Photo.
-        </p>
-    </div>
-    
-
     <div class="main-container mt-5">
         
-        <div class="selling-pc-img">
-            <img src="{{url_for('static', filename='User/IMG/ssd.jpg')}}" class="rounded float-start" style="height: 25%;width: 50%;" alt="...">
+        <div class="selling-pc-img ms-4">
+            <img src="{{url_for('static', filename='User/IMG/ssd.jpg')}}" class="rounded float-start" style="height: 65vh;width: 48%;" id="sell-card-img" alt="...">
+                <div class="card-body bg-dark float-end w-50 mh-100 me-3 rounded" style="height: auto;" id="sell-info-card"> 
+                    <div class="sell-card-info mx-auto">
+                        <h5 class="card-title">Information</h5>
+                        <table class="table table-bordered text-light mt-4" id="products-table-1">
+                            <tbody>
+                                <tr>
+                                    <th scope="row">CPU</th>
+                                    <td>CPU Modal Information</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Power Supply</th>
+                                    <td>Lorem ipsum dolorpellat excepturit. Magni nihil cupiditate suscipit.</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Power Supply</th>
+                                    <td>PCU Info</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Power Supply</th>
+                                    <td>PCU Info</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Power Supply</th>
+                                    <td>PCU Info</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Power Supply</th>
+                                    <td>PCU Info</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Power Supply</th>
+                                    <td>PCU Info</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Power Supply</th>
+                                    <td>PCU Info</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <button class="btn btn-outline-pcb log-in" type="submit">Contact Seller</button>
+                </div>
         </div>
-        <div class="card bg-dark float-end">
-            <div class="card-body">
-                <h5 class="card-title">Deal Title</h5>
-                <h5 class="card-title">₹ 14500</h5>
-                <p class="card-text">Description About Selling Deal</p>
-                <button class="btn btn-outline-pcb log-in mb-2" type="submit">View Deal</button>
-            </div>
-        </div>
+
 
     </div>
 
