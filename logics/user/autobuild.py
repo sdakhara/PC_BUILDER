@@ -1,6 +1,6 @@
 from random import choice
 
-from logics.admin.datashare import datatransfer
+from logics.Admin.datashare import datatransfer
 
 dataapi = datatransfer()
 
