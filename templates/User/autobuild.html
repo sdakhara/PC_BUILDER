@@ -86,18 +86,98 @@
     </form>
     
     <div class="products-table-1 mx-auto table-responsive">
-        {% for pc in pcs %}
+
         <table class="table table-bordered text-light" id="products-table-1">
-            <thead>
-            <tr>
-                pcs
-            </tr>
-            </thead>
-            <tbody>
-            <tr>{{pc[0][0]}}</tr>
-            </tbody>
-        </table>
-        {% endfor %}
+                <thead>
+                    <tr>
+                        <th scope="col">Component</th>
+                        <th scope="col">Picked</th>
+                        <th scope="col">Price</th>
+                        <th scope="col">Shipping</th>
+                        <th scope="col">Cencel / Add</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th scope="row">CPU</th>
+                        <td>CPU Modal Information</td>
+                        <td>5000 ₹</td>
+                        <td>Free</td>
+                        <td>
+                            <button type="submit" class="btn btn-outline-pcb" id="table-close-btn">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th scope="row">CPU Cooler</th>
+                        <td>CPU Info</td>
+                        <td>5000 ₹</td>
+                        <td>Free</td>
+                        <td>
+                            <button type="submit" class="btn btn-outline-pcb" id="table-close-btn">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Ram</th>
+                        <td>Ram Info</td>
+                        <td>5000 ₹</td>
+                        <td>Free</td>
+                        <td>
+                            <button type="submit" class="btn btn-outline-pcb" id="table-close-btn">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Graphics Card</th>
+                        <td>GPU Info</td>
+                        <td>5000 ₹</td>
+                        <td>Free</td>
+                        <td>
+                            <button type="submit" class="btn btn-outline-pcb" id="table-close-btn">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Motherboadr</th>
+                        <td>Motherboard Info</td>
+                        <td>5000 ₹</td>
+                        <td>Free</td>
+                        <td>
+                            <button type="submit" class="btn btn-outline-pcb" id="table-close-btn">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Storage</th>
+                        <td>Storage Info</td>
+                        <td>5000 ₹</td>
+                        <td>Free</td>
+                        <td>
+                            <button type="submit" class="btn btn-outline-pcb" id="table-close-btn">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Power Supply</th>
+                        <td>PCU Info</td>
+                        <td>5000 ₹</td>
+                        <td>Free</td>
+                        <td>
+                            <button type="submit" class="btn btn-outline-pcb" id="table-close-btn">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
         <div class="d-flex justify-content-end">
             <ul class="list-group w-25">
                 <li class="list-group-item bg-dark text-light">
