@@ -1,6 +1,6 @@
 from flask import Flask, render_template, request, redirect, url_for
 
-from logics.admin.datashare import Authentication
+from logics.admin.datashare import Authentication, datatransfer
 from logics.user.autobuild import logic
 from logics.user.iplogics import ipControl
 
@@ -13,7 +13,7 @@ app = Flask(__name__)
 g = globs()
 logic = logic()
 ipcontrol = ipControl()
-# dataapi = datatransfer()
+dataapi = datatransfer()
 Authenticator = Authentication()
 
 
@@ -127,8 +127,8 @@ def buildpc():
         psuBrandGigabyte = bool(request.form.get('psuBrandGigabyte'))
         psuBrandNZXT = bool(request.form.get('psuBrandNZXT'))
         psuBrandGamdias = bool(request.form.get('psuBrandGamdias'))
-    # cpus = dataapi.getCPUs()
-    return render_template('User/buildpc.html')
+    cpus = dataapi.getCPUs()
+    return render_template('User/buildpc.html', cpus=cpus)
 
 
 @app.route('/autobuild', methods=['GET', 'POST'])
@@ -208,7 +208,6 @@ def sell():
         pass
 
     return render_template('User/sellpc.html')
-
 
 
 if __name__ == '__main__':

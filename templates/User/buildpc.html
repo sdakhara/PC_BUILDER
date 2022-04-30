@@ -2,932 +2,971 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
+    <meta charset="UTF-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    
     <!-- Include CSS -->
-    <link rel="stylesheet" href="{{url_for('static', filename='User/CSS/style.css')}}" />
-    <link rel="stylesheet" href="{{url_for('static', filename='User/CSS/bootstrap.min.css')}}" />
-    <link rel="stylesheet" href="https://fonts.sandbox.google.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
-
+    <link rel="stylesheet" href="{{url_for('static', filename='User/CSS/style.css')}}"/>
+    <link rel="stylesheet" href="{{url_for('static', filename='User/CSS/bootstrap.min.css')}}"/>
+    <link rel="stylesheet"
+          href="https://fonts.sandbox.google.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0"/>
+    <style>
+        table{
+            color: black;
+        }
+    </style>
     <title>App</title>
 </head>
 
 <body>
 
-    <!-- Nav-Bar (Header)  -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-transperent fixed-top" id="Navbar">
-        <div class="container-fluid" id="container-fluid">
-            <a class="navbar-brand" href="#"><img src="{{url_for('static', filename='User/IMG/PCB-LOGO.png')}}" alt=""
-                    width="60"></a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+<!-- Nav-Bar (Header)  -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-transperent fixed-top" id="Navbar">
+    <div class="container-fluid" id="container-fluid">
+        <a class="navbar-brand" href="#"><img src="{{url_for('static', filename='User/IMG/PCB-LOGO.png')}}" alt=""
+                                              width="60"></a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
                 aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse m-3" id="navbarNav">
-
-                <ul class="navbar-nav nav-container">
-                    <li class="nav-item nav-list">
-                        <a class="nav-link" aria-current="page" href='/index'>Home</a>
-                    </li>
-                    <li class="nav-item nav-list">
-                        <a class="nav-link" href="#">Products</a>
-                    </li>
-                    <li class="nav-item nav-list">
-                        <a class="nav-link" href="#">About-Us</a>
-                    </li>
-                    <li class="nav-item nav-list">
-                        <a class="nav-link" href="#">Contact</a>
-                    </li>
-
-                    <li class="nav-item nav-list">
-                        <button class="btn btn-outline-pcb sign-up" type="submit">Sign-Up</button>
-                        <button class="btn btn-outline-pcb log-in" type="submit">Log-In</button>
-                    </li>
-                </ul>
-            </div>
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse m-3" id="navbarNav">
+            
+            <ul class="navbar-nav nav-container">
+                <li class="nav-item nav-list">
+                    <a class="nav-link" aria-current="page" href='/index'>Home</a>
+                </li>
+                <li class="nav-item nav-list">
+                    <a class="nav-link" href="#">Products</a>
+                </li>
+                <li class="nav-item nav-list">
+                    <a class="nav-link" href="#">About-Us</a>
+                </li>
+                <li class="nav-item nav-list">
+                    <a class="nav-link" href="#">Contact</a>
+                </li>
+                
+                <li class="nav-item nav-list">
+                    <button class="btn btn-outline-pcb sign-up" type="submit">Sign-Up</button>
+                    <button class="btn btn-outline-pcb log-in" type="submit">Log-In</button>
+                </li>
+            </ul>
         </div>
-    </nav>
-
-
-    <div class="build-pc-div">
-        <h1 class="build-pc-heading">Build PC</h1>
     </div>
+</nav>
 
 
-    <p class="components-notice position-absolute start-50 translate-middle-x mt-3">
-        <span id="pc-component-note-span">*</span> You can view components as per your selected category.
-    </p>
+<div class="build-pc-div">
+    <h1 class="build-pc-heading">Build PC</h1>
+</div>
 
-    <div class="main-container">
-        <div class="build-pc-section">
 
-            <!-- 1 -->
-            <div class="card-group">
-                <div class="card bg-dark select-component-box">
-                    <div class="card-body">
-                        <h5 class="card-title">CPU</h5>
-                        <button type="button" class="btn btn-outline-pcb" data-bs-toggle="modal"
+<p class="components-notice position-absolute start-50 translate-middle-x mt-3">
+    <span id="pc-component-note-span">*</span> You can view components as per your selected category.
+</p>
+
+<div class="main-container">
+    <div class="build-pc-section">
+        
+        <!-- 1 -->
+        <div class="card-group">
+            <div class="card bg-dark select-component-box">
+                <div class="card-body">
+                    <h5 class="card-title">CPU</h5>
+                    <button type="button" class="btn btn-outline-pcb" data-bs-toggle="modal"
                             data-bs-target="#exampleModal-1">+ Add
-                        </button>
-                        <!-- Modal -->
-                        <div class="modal fade" id="exampleModal-1" tabindex="-1" aria-labelledby="exampleModalLabel"
-                            aria-hidden="true">
-                            <div class="modal-dialog">
-                                <div class="modal-content">
-                                    <form action="/buildpc" method="POST">
-                                        <div class="modal-header">
-                                            <h5 class="modal-title text-dark">Select CPU</h5>
-                                            <button type="button" class="btn-close" data-bs-dismiss="modal"
+                    </button>
+                    <!-- Modal -->
+                    <div class="modal fade" id="exampleModal-1" tabindex="-1" aria-labelledby="exampleModalLabel"
+                         aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content ">
+                                <form action="/buildpc" method="POST">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title text-dark">Select CPU</h5>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal"
                                                 aria-label="Close"></button>
-                                        </div>
-                                        <div class="modal-body">
-
-                                            <div class="row d-flex justify-content-center">
-                                                <div class="col-md-4">
-                                                    <div class="input-group">
-                                                        <span class="input-group-text">Min ₹</span>
-                                                        <input type="text" class="form-control" name="cpuMinBudget"
-                                                            aria-describedby="inputGroupPrepend2">
-                                                    </div>
-                                                </div>
-                                                <div class="col-md-4">
-                                                    <div class="input-group">
-                                                        <span class="input-group-text">Max ₹</span>
-                                                        <input type="text" class="form-control" name="cpuMaxBudget"
-                                                            aria-describedby="inputGroupPrepend2">
-                                                    </div>
-                                                </div>
-                                            </div>
-
-                                            <div class="border border-black mt-2">
-                                                <p class="text-dark fw-bold">Core Selection</p>
-
-
-                                                <div class="core-row-1">
-                                                    <div class="form-check form-check-inline">
-                                                        <input class="form-check-input" type="checkbox"
-                                                            name="cpuCoreSingle" value="True">
-                                                        <label class="form-check-label text-dark">Single</label>
-                                                    </div>
-                                                    <div class="form-check form-check-inline">
-                                                        <input class="form-check-input" type="checkbox"
-                                                            name="cpuCoreDual" value="True">
-                                                        <label class="form-check-label text-dark">Dual</label>
-                                                    </div>
-                                                </div>
-
-                                                <div class="core-row-2">
-                                                    <div class="form-check form-check-inline">
-                                                        <input class="form-check-input" type="checkbox"
-                                                            name="cpuCoreQuad" value="True">
-                                                        <label class="form-check-label text-dark">Quad</label>
-                                                    </div>
-                                                    <div class="form-check form-check-inline">
-                                                        <input class="form-check-input" type="checkbox"
-                                                            name="cpuCoreHexa" value="True">
-                                                        <label class="form-check-label text-dark">Hexa</label>
-                                                    </div>
-                                                    <div class="form-check form-check-inline">
-                                                        <input class="form-check-input" type="checkbox"
-                                                            name="cpuCoreOcta" value="True">
-                                                        <label class="form-check-label text-dark">Octa</label>
-                                                    </div>
-                                                </div>
-
-                                            </div>
-
-                                            <div class="border border-black mt-2">
-                                                <p class="text-dark fw-bold">Brand Selection</p>
-
-
-                                                <div class="brand-row-1">
-                                                    <div class="form-check form-check-inline">
-                                                        <input class="form-check-input" type="checkbox"
-                                                            name="cpuBrandAMD" value="True">
-                                                        <label class="form-check-label text-dark">AMD</label>
-                                                    </div>
-                                                    <div class="form-check form-check-inline">
-                                                        <input class="form-check-input" type="checkbox"
-                                                            name="cpuBrandIntel" value="True">
-                                                        <label class="form-check-label text-dark">Intel</label>
-                                                    </div>
-                                                    <div class="form-check form-check-inline">
-                                                        <input class="form-check-input" type="checkbox"
-                                                            name="cpuBrandOther" value="True">
-                                                        <label class="form-check-label text-dark">Other</label>
-                                                    </div>
-                                                </div>
-                                            </div>
-
-                                        </div>
-                                        <div class="modal-footer">
-                                            <button type="button" class="btn btn-secondary"
-                                                data-bs-dismiss="modal">Close
-                                            </button>
-                                            <button type="button" formaction="/autobuild" class="btn btn-primary">Apply
-                                            </button>
-                                        </div>
-                                    </form>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-
-                <div class="card bg-dark select-component-box">
-                    <div class="card-body">
-                        <h5 class="card-title">CPU Cooler</h5>
-                        <button type="button" class="btn btn-outline-pcb" data-bs-toggle="modal"
-                            data-bs-target="#exampleModal-2">+ Add
-                        </button>
-                        <!-- Modal -->
-                        <div class="modal fade" id="exampleModal-2" tabindex="-1" aria-labelledby="exampleModalLabel"
-                            aria-hidden="true">
-                            <div class="modal-dialog">
-                                <div class="modal-content">
-                                    <form action="/buildpc" method="POST">
-                                        <div class="modal-header">
-                                            <h5 class="modal-title text-dark">Select CPU Cooler</h5>
-                                            <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                                aria-label="Close"></button>
-                                        </div>
-                                        <div class="modal-body">
-
-                                            <div class="row d-flex justify-content-center">
-                                                <div class="col-md-4">
-                                                    <div class="input-group">
-                                                        <span class="input-group-text">Min ₹</span>
-                                                        <input type="text" class="form-control" name="coolerMinBudget"
-                                                            aria-describedby="inputGroupPrepend2">
-                                                    </div>
-                                                </div>
-                                                <div class="col-md-4">
-                                                    <div class="input-group">
-                                                        <span class="input-group-text">Max ₹</span>
-                                                        <input type="text" class="form-control" name="coolerMaxBudget"
-                                                            aria-describedby="inputGroupPrepend2">
-                                                    </div>
-                                                </div>
-                                            </div>
-
-                                            <div class="border border-black mt-2">
-                                                <p class="text-dark fw-bold">Brand Selection</p>
-
-
-                                                <div class="brand-row-1">
-                                                    <div class="form-check form-check-inline">
-                                                        <input class="form-check-input" type="checkbox"
-                                                            name="coolerBrandNoctua" value="True">
-                                                        <label class="form-check-label text-dark">Noctua</label>
-                                                    </div>
-                                                    <div class="form-check form-check-inline">
-                                                        <input class="form-check-input" type="checkbox"
-                                                            name="coolerBrandCoolerMaster" value="True">
-                                                        <label class="form-check-label text-dark">Cooler Master</label>
-                                                    </div>
-                                                    <div class="form-check form-check-inline">
-                                                        <input class="form-check-input" type="checkbox"
-                                                            name="coolerBrandDeepCool" value="True">
-                                                        <label class="form-check-label text-dark">DeepCool</label>
-                                                    </div>
-                                                    <div class="form-check form-check-inline">
-                                                        <input class="form-check-input" type="checkbox"
-                                                            name="coolerBrandArctic" value="True">
-                                                        <label class="form-check-label text-dark">Arctic</label>
-                                                    </div>
-                                                    <div class="form-check form-check-inline">
-                                                        <input class="form-check-input" type="checkbox"
-                                                            name="coolerBrandCorsair" value="True">
-                                                        <label class="form-check-label text-dark">Corsair</label>
-                                                    </div>
-                                                    <div class="form-check form-check-inline">
-                                                        <input class="form-check-input" type="checkbox"
-                                                            name="coolerBrandZebronics" value="True">
-                                                        <label class="form-check-label text-dark">Zebronics</label>
-                                                    </div>
-                                                    <div class="form-check form-check-inline">
-                                                        <input class="form-check-input" type="checkbox"
-                                                            name="coolerBrandMSI" value="True">
-                                                        <label class="form-check-label text-dark">MSI</label>
-                                                    </div>
-                                                    <div class="form-check form-check-inline">
-                                                        <input class="form-check-input" type="checkbox"
-                                                            name="coolerBrandAMD" value="True">
-                                                        <label class="form-check-label text-dark">AMD</label>
-                                                    </div>
-                                                    <div class="form-check form-check-inline">
-                                                        <input class="form-check-input" type="checkbox"
-                                                            name="coolerBrandIntel" value="True">
-                                                        <label class="form-check-label text-dark">Intel</label>
-                                                    </div>
-                                                    <div class="form-check form-check-inline">
-                                                        <input class="form-check-input" type="checkbox"
-                                                            name="coolerBrandOthers" value="True">
-                                                        <label class="form-check-label text-dark">Other</label>
-                                                    </div>
-                                                </div>
-                                            </div>
-
-                                        </div>
-                                        <div class="modal-footer">
-                                            <button type="button" class="btn btn-secondary"
-                                                data-bs-dismiss="modal">Close
-                                            </button>
-                                            <button type="button" class="btn btn-primary">Apply</button>
-                                        </div>
-                                    </form>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-            <!-- 1 end -->
-
-
-            <!-- 2 -->
-            <div class="card-group">
-                <div class="card bg-dark select-component-box">
-                    <div class="card-body">
-                        <h5 class="card-title">RAM</h5>
-                        <button type="button" class="btn btn-outline-pcb" data-bs-toggle="modal"
-                            data-bs-target="#exampleModal-3">+ Add
-                        </button>
-                        <!-- Modal -->
-                        <div class="modal fade" id="exampleModal-3" tabindex="-1" aria-labelledby="exampleModalLabel"
-                            aria-hidden="true">
-                            <div class="modal-dialog">
-                                <div class="modal-content">
-                                    <form action="/buildpc" method="POST">
-                                        <div class="modal-header">
-                                            <h5 class="modal-title text-dark">Select RAM</h5>
-                                            <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                                aria-label="Close"></button>
-                                        </div>
-                                        <div class="modal-body">
-
-                                            <div class="row d-flex justify-content-center">
-                                                <div class="col-md-4">
-                                                    <div class="input-group">
-                                                        <span class="input-group-text">Min ₹</span>
-                                                        <input type="text" class="form-control" name="ramMinBudget"
-                                                            aria-describedby="inputGroupPrepend2">
-                                                    </div>
-                                                </div>
-                                                <div class="col-md-4">
-                                                    <div class="input-group">
-                                                        <span class="input-group-text">Max ₹</span>
-                                                        <input type="text" class="form-control" name="ramMaxBudget"
-                                                            aria-describedby="inputGroupPrepend2">
-                                                    </div>
-                                                </div>
-                                            </div>
-
-                                            <div class="border border-black mt-2">
-                                                <p class="text-dark fw-bold">Type Selection</p>
-
-
-                                                <div class="type-row-1">
-                                                    <div class="form-check form-check-inline">
-                                                        <input class="form-check-input" type="checkbox"
-                                                            name="ramTypeDDR" value="True">
-                                                        <label class="form-check-label text-dark">DDR</label>
-                                                    </div>
-                                                    <div class="form-check form-check-inline">
-                                                        <input class="form-check-input" type="checkbox"
-                                                            name="ramTypeDDR2" value="True">
-                                                        <label class="form-check-label text-dark">DDR-2</label>
-                                                    </div>
-                                                    <div class="form-check form-check-inline">
-                                                        <input class="form-check-input" type="checkbox"
-                                                            name="ramTypeDDR3" value="True">
-                                                        <label class="form-check-label text-dark">DDR-3</label>
-                                                    </div>
-                                                </div>
-
-                                                <div class="type-row-2">
-                                                    <div class="form-check form-check-inline">
-                                                        <input class="form-check-input" type="checkbox"
-                                                            name="ramTypeDDR4" value="True">
-                                                        <label class="form-check-label text-dark">DDR-4</label>
-                                                    </div>
-                                                    <div class="form-check form-check-inline">
-                                                        <input class="form-check-input" type="checkbox"
-                                                            name="ramTypeDDR5" value="True">
-                                                        <label class="form-check-label text-dark">DDR-5</label>
-                                                    </div>
-                                                </div>
-                                            </div>
-
-                                            <div class="border border-black mt-2">
-                                                <p class="text-dark fw-bold">Brand Selection</p>
-
-
-                                                <div class="brand-row-1">
-                                                    <div class="form-check form-check-inline">
-                                                        <input class="form-check-input" type="checkbox"
-                                                            name="ramBrandHyperX" value="True">
-                                                        <label class="form-check-label text-dark">HyperX</label>
-                                                    </div>
-                                                    <div class="form-check form-check-inline">
-                                                        <input class="form-check-input" type="checkbox"
-                                                            name="ramBrandCrucial" value="True">
-                                                        <label class="form-check-label text-dark">Crucial</label>
-                                                    </div>
-                                                    <div class="form-check form-check-inline">
-                                                        <input class="form-check-input" type="checkbox"
-                                                            name="ramBrandCorsair" value="True">
-                                                        <label class="form-check-label text-dark">Corsair</label>
-                                                    </div>
-                                                    <div class="form-check form-check-inline">
-                                                        <input class="form-check-input" type="checkbox"
-                                                            name="ramBrandADATA" value="True">
-                                                        <label class="form-check-label text-dark">A-DATA</label>
-                                                    </div>
-                                                    <div class="form-check form-check-inline">
-                                                        <input class="form-check-input" type="checkbox"
-                                                            name="ramBrandSamsung" value="True">
-                                                        <label class="form-check-label text-dark">Samsung</label>
-                                                    </div>
-                                                    <div class="form-check form-check-inline">
-                                                        <input class="form-check-input" type="checkbox"
-                                                            name="ramBrandKingston" value="True">
-                                                        <label class="form-check-label text-dark">Kingston</label>
-                                                    </div>
-                                                    <div class="form-check form-check-inline">
-                                                        <input class="form-check-input" type="checkbox"
-                                                            name="ramBrandGigabyte" value="True">
-                                                        <label class="form-check-label text-dark">GIGABYTE</label>
-                                                    </div>
-                                                    <div class="form-check form-check-inline">
-                                                        <input class="form-check-input" type="checkbox"
-                                                            name="ramBrandHP" value="True">
-                                                        <label class="form-check-label text-dark">HP</label>
-                                                    </div>
-                                                    <div class="form-check form-check-inline">
-                                                        <input class="form-check-input" type="checkbox"
-                                                            name="ramBrandAcer" value="True">
-                                                        <label class="form-check-label text-dark">Acer</label>
-                                                    </div>
-                                                    <div class="form-check form-check-inline">
-                                                        <input class="form-check-input" type="checkbox"
-                                                            name="ramBrandOthers" value="True">
-                                                        <label class="form-check-label text-dark">Other</label>
-                                                    </div>
-                                                </div>
-                                            </div>
-
-
-                                        </div>
-                                        <div class="modal-footer">
-                                            <button type="button" class="btn btn-secondary"
-                                                data-bs-dismiss="modal">Close
-                                            </button>
-                                            <button type="button" class="btn btn-primary">Apply</button>
-                                        </div>
-                                    </form>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="card bg-dark select-component-box">
-                    <div class="card-body">
-                        <h5 class="card-title">Graphics Card</h5>
-                        <button type="button" class="btn btn-outline-pcb" data-bs-toggle="modal"
-                            data-bs-target="#exampleModal-4">+ Add
-                        </button>
-                        <!-- Modal -->
-                        <div class="modal fade" id="exampleModal-4" tabindex="-1" aria-labelledby="exampleModalLabel"
-                            aria-hidden="true">
-                            <div class="modal-dialog">
-                                <div class="modal-content">
-                                    <form action="/buildpc" method="POST">
-                                        <div class="modal-header">
-                                            <h5 class="modal-title text-dark">Select Graphics Card</h5>
-                                            <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                                aria-label="Close"></button>
-                                        </div>
-                                        <div class="modal-body">
-
-                                            <div class="row d-flex justify-content-center">
-                                                <div class="col-md-4">
-                                                    <div class="input-group">
-                                                        <span class="input-group-text">Min ₹</span>
-                                                        <input type="text" class="form-control" name="gpuMinBudget"
-                                                            aria-describedby="inputGroupPrepend2">
-                                                    </div>
-                                                </div>
-                                                <div class="col-md-4">
-                                                    <div class="input-group">
-                                                        <span class="input-group-text">Max ₹</span>
-                                                        <input type="text" class="form-control" name="gpuMaxBudget"
-                                                            aria-describedby="inputGroupPrepend2">
-                                                    </div>
-                                                </div>
-                                            </div>
-
-                                            <div class="border border-black mt-2">
-                                                <p class="text-dark fw-bold">Interface Selection</p>
-
-
-                                                <div class="Interface-row-1">
-                                                    <div class="form-check form-check-inline">
-                                                        <input class="form-check-input" type="checkbox"
-                                                            name="gpuInterfacePCI" value="True">
-                                                        <label class="form-check-label text-dark">PCI</label>
-                                                    </div>
-                                                    <div class="form-check form-check-inline">
-                                                        <input class="form-check-input" type="checkbox"
-                                                            name="gpuInterfaceAGP" value="True">
-                                                        <label class="form-check-label text-dark">AGP</label>
-                                                    </div>
-                                                </div>
-                                            </div>
-
-                                            <div class="border border-black mt-2">
-                                                <p class="text-dark fw-bold">Brand Selection</p>
-
-                                                <div class="brand-row-1">
-                                                    <div class="form-check form-check-inline">
-                                                        <input class="form-check-input" type="checkbox"
-                                                            name="gpuBrandAsus" value="True">
-                                                        <label class="form-check-label text-dark">Asus</label>
-                                                    </div>
-                                                    <div class="form-check form-check-inline">
-                                                        <input class="form-check-input" type="checkbox"
-                                                            name="gpuBrandZotac" value="True">
-                                                        <label class="form-check-label text-dark">Zotac</label>
-                                                    </div>
-                                                    <div class="form-check form-check-inline">
-                                                        <input class="form-check-input" type="checkbox"
-                                                            name="gpuBrandGigabyte" value="True">
-                                                        <label class="form-check-label text-dark">Gigabyte</label>
-                                                    </div>
-                                                </div>
-
-                                                <div class="brand-row-2">
-                                                    <div class="form-check form-check-inline">
-                                                        <input class="form-check-input" type="checkbox"
-                                                            name="gpuBrandMSI" value="True">
-                                                        <label class="form-check-label text-dark">MSI</label>
-                                                    </div>
-                                                    <div class="form-check form-check-inline">
-                                                        <input class="form-check-input" type="checkbox"
-                                                            name="gpuBrandNvidia" value="True">
-                                                        <label class="form-check-label text-dark">Nvidia</label>
-                                                    </div>
-                                                    <div class="form-check form-check-inline">
-                                                        <input class="form-check-input" type="checkbox"
-                                                            name="gpuBrandOthers" value="True">
-                                                        <label class="form-check-label text-dark">Other</label>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="modal-footer">
-                                            <button type="button" class="btn btn-secondary"
-                                                data-bs-dismiss="modal">Close
-                                            </button>
-                                            <button type="button" class="btn btn-primary">Apply</button>
-                                        </div>
-                                    </form>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- 2 end -->
-
-            <!-- 3 -->
-            <div class="card-group">
-                <div class="card bg-dark select-component-box">
-                    <div class="card-body">
-                        <h5 class="card-title">Motherboard</h5>
-                        <button type="button" class="btn btn-outline-pcb" data-bs-toggle="modal"
-                            data-bs-target="#exampleModal-5">+ Add
-                        </button>
-                        <!-- Modal -->
-                        <div class="modal fade" id="exampleModal-5" tabindex="-1" aria-labelledby="exampleModalLabel"
-                            aria-hidden="true">
-                            <div class="modal-dialog">
-                                <div class="modal-content">
-                                    <form action="/buildpc" method="POST">
-                                        <div class="modal-header">
-                                            <h5 class="modal-title text-dark">Select Motherboard</h5>
-                                            <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                                aria-label="Close"></button>
-                                        </div>
-                                        <div class="modal-body">
-
-                                            <div class="row d-flex justify-content-center">
-                                                <div class="col-md-4">
-                                                    <div class="input-group">
-                                                        <span class="input-group-text">Min ₹</span>
-                                                        <input type="text" class="form-control" name="boardMinBudget"
-                                                            aria-describedby="inputGroupPrepend2">
-                                                    </div>
-                                                </div>
-                                                <div class="col-md-4">
-                                                    <div class="input-group">
-                                                        <span class="input-group-text">Max ₹</span>
-                                                        <input type="text" class="form-control" name="boardMaxBudget"
-                                                            aria-describedby="inputGroupPrepend2">
-                                                    </div>
-                                                </div>
-                                            </div>
-
-                                            <div class="border border-black mt-2">
-                                                <p class="text-dark fw-bold">Memory Type Selection</p>
-
-
-                                                <div class="memory-row-1">
-                                                    <div class="form-check form-check-inline">
-                                                        <input class="form-check-input" type="checkbox"
-                                                            name="boardRAMDDR" value="True">
-                                                        <label class="form-check-label text-dark">DDR</label>
-                                                    </div>
-                                                    <div class="form-check form-check-inline">
-                                                        <input class="form-check-input" type="checkbox"
-                                                            name="boardRAMDDR2" value="True">
-                                                        <label class="form-check-label text-dark">DDR-2</label>
-                                                    </div>
-                                                    <div class="form-check form-check-inline">
-                                                        <input class="form-check-input" type="checkbox"
-                                                            name="boardRAMDDR3" value="True">
-                                                        <label class="form-check-label text-dark">DDR-3</label>
-                                                    </div>
-                                                </div>
-
-                                                <div class="memory-row-2">
-                                                    <div class="form-check form-check-inline">
-                                                        <input class="form-check-input" type="checkbox"
-                                                            name="boardRAMDDR4" value="True">
-                                                        <label class="form-check-label text-dark">DDR-4</label>
-                                                    </div>
-                                                    <div class="form-check form-check-inline">
-                                                        <input class="form-check-input" type="checkbox"
-                                                            name="boardRAMDDR5" value="True">
-                                                        <label class="form-check-label text-dark">DDR-5</label>
-                                                    </div>
-                                                </div>
-                                            </div>
-
-                                            <div class="border border-black mt-2">
-                                                <p class="text-dark fw-bold">Brand Selection</p>
-
-                                                <div class="brand-row-1">
-                                                    <div class="form-check form-check-inline">
-                                                        <input class="form-check-input" type="checkbox"
-                                                            name="boardBrandAsus" value="True">
-                                                        <label class="form-check-label text-dark">Asus</label>
-                                                    </div>
-                                                    <div class="form-check form-check-inline">
-                                                        <input class="form-check-input" type="checkbox"
-                                                            name="boardBrandMSI" value="True">
-                                                        <label class="form-check-label text-dark">MSI</label>
-                                                    </div>
-                                                    <div class="form-check form-check-inline">
-                                                        <input class="form-check-input" type="checkbox"
-                                                            name="boardBrandGigabyte" value="True">
-                                                        <label class="form-check-label text-dark">Gigabyte</label>
-                                                    </div>
-                                                </div>
-
-                                                <div class="brand-row-2">
-                                                    <div class="form-check form-check-inline">
-                                                        <input class="form-check-input" type="checkbox"
-                                                            name="boardBrandIntel" value="True">
-                                                        <label class="form-check-label text-dark">Intel</label>
-                                                    </div>
-                                                    <div class="form-check form-check-inline">
-                                                        <input class="form-check-input" type="checkbox"
-                                                            name="boardBrandZebronics" value="True">
-                                                        <label class="form-check-label text-dark">Zebronics</label>
-                                                    </div>
-                                                    <div class="form-check form-check-inline">
-                                                        <input class="form-check-input" type="checkbox"
-                                                            name="boardBrandAorus" value="True">
-                                                        <label class="form-check-label text-dark">Aorus</label>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="modal-footer">
-                                            <button type="button" class="btn btn-secondary"
-                                                data-bs-dismiss="modal">Close
-                                            </button>
-                                            <button type="button" class="btn btn-primary">Apply</button>
-                                        </div>
-                                    </form>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="card bg-dark select-component-box">
-                    <div class="card-body">
-                        <h5 class="card-title">Storage</h5>
-                        <button type="button" class="btn btn-outline-pcb" data-bs-toggle="modal"
-                            data-bs-target="#exampleModal-6">+ Add
-                        </button>
-                        <!-- Modal -->
-                        <div class="modal fade" id="exampleModal-6" tabindex="-1" aria-labelledby="exampleModalLabel"
-                            aria-hidden="true">
-                            <div class="modal-dialog">
-                                <div class="modal-content">
-                                    <form action="/buildpc" method="POST">
-                                        <div class="modal-header">
-                                            <h5 class="modal-title text-dark">Select Storage</h5>
-                                            <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                                aria-label="Close"></button>
-                                        </div>
-                                        <div class="modal-body">
-
-                                            <div class="row d-flex justify-content-center">
-                                                <div class="col-md-4">
-                                                    <div class="input-group">
-                                                        <span class="input-group-text">Min ₹</span>
-                                                        <input type="text" class="form-control" name="storageMinBudget"
-                                                            aria-describedby="inputGroupPrepend2">
-                                                    </div>
-                                                </div>
-                                                <div class="col-md-4">
-                                                    <div class="input-group">
-                                                        <span class="input-group-text">Max ₹</span>
-                                                        <input type="text" class="form-control" name="storageMaxBudget"
-                                                            aria-describedby="inputGroupPrepend2">
-                                                    </div>
-                                                </div>
-                                            </div>
-
-                                            <div class="border border-black mt-2">
-                                                <p class="text-dark fw-bold">Brand Selection</p>
-
-                                                <div class="brand-row-1">
-                                                    <div class="form-check form-check-inline">
-                                                        <input class="form-check-input" type="checkbox"
-                                                            name="storageBrandCrucial" value="True">
-                                                        <label class="form-check-label text-dark">Crucial</label>
-                                                    </div>
-                                                    <div class="form-check form-check-inline">
-                                                        <input class="form-check-input" type="checkbox"
-                                                            name="storageBrandSamsung" value="True">
-                                                        <label class="form-check-label text-dark">Samsung</label>
-                                                    </div>
-                                                    <div class="form-check form-check-inline">
-                                                        <input class="form-check-input" type="checkbox"
-                                                            name="storageBrandWD" value="True">
-                                                        <label class="form-check-label text-dark">WD</label>
-                                                    </div>
-                                                    <div class="form-check form-check-inline">
-                                                        <input class="form-check-input" type="checkbox"
-                                                            name="storageBrandGigabyte" value="True">
-                                                        <label class="form-check-label text-dark">GIGABYTE</label>
-                                                    </div>
-                                                </div>
-
-                                                <div class="brand-row-2">
-                                                    <div class="form-check form-check-inline">
-                                                        <input class="form-check-input" type="checkbox"
-                                                            name="storageBrandSeagate" value="True">
-                                                        <label class="form-check-label text-dark">Seagate</label>
-                                                    </div>
-                                                    <div class="form-check form-check-inline">
-                                                        <input class="form-check-input" type="checkbox"
-                                                            name="storageBrandKingston" value="True">
-                                                        <label class="form-check-label text-dark">Kingston</label>
-                                                    </div>
-                                                    <div class="form-check form-check-inline">
-                                                        <input class="form-check-input" type="checkbox"
-                                                            name="storageBrandHP" value="True">
-                                                        <label class="form-check-label text-dark">HP</label>
-                                                    </div>
-                                                    <div class="form-check form-check-inline">
-                                                        <input class="form-check-input" type="checkbox"
-                                                            name="storageBrandAcer" value="True">
-                                                        <label class="form-check-label text-dark">Acer</label>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="modal-footer">
-                                            <button type="button" class="btn btn-secondary"
-                                                data-bs-dismiss="modal">Close
-                                            </button>
-                                            <button type="button" class="btn btn-primary">Apply</button>
-                                        </div>
-                                    </form>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- 3 end -->
-
-                <!-- 4 -->
-                <div class="card-group">
-                    <div class="card bg-dark select-component-box">
-                        <div class="card-body">
-                            <h5 class="card-title">Power Supply</h5>
-                            <button type="button" class="btn btn-outline-pcb" data-bs-toggle="modal"
-                                data-bs-target="#exampleModal-7">+ Add
-                            </button>
-                            <!-- Modal -->
-                            <div class="modal fade" id="exampleModal-7" tabindex="-1"
-                                aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                <div class="modal-dialog">
-                                    <div class="modal-content">
-                                        <form action="/buildpc" method="POST">
-                                            <div class="modal-header">
-                                                <h5 class="modal-title text-dark">Select Power Supply</h5>
-                                                <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                                    aria-label="Close"></button>
-                                            </div>
-                                            <div class="modal-body">
-
-                                                <div class="row d-flex justify-content-center">
-                                                    <div class="col-md-4">
-                                                        <div class="input-group">
-                                                            <span class="input-group-text">Min ₹</span>
-                                                            <input type="text" class="form-control" name="psuMinBudget"
-                                                                aria-describedby="inputGroupPrepend2">
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-md-4">
-                                                        <div class="input-group">
-                                                            <span class="input-group-text">Max ₹</span>
-                                                            <input type="text" class="form-control" name="psuMaxBudget"
-                                                                aria-describedby="inputGroupPrepend2">
-                                                        </div>
-                                                    </div>
-                                                </div>
-
-                                                <div class="border border-black mt-2">
-                                                    <p class="text-dark fw-bold">Brand Selection</p>
-
-
-                                                    <div class="brand-row-1">
-                                                        <div class="form-check form-check-inline">
-                                                            <input class="form-check-input" type="checkbox"
-                                                                name="psuBrandCorsair" value="True">
-                                                            <label class="form-check-label text-dark">Corsair</label>
-                                                        </div>
-                                                        <div class="form-check form-check-inline">
-                                                            <input class="form-check-input" type="checkbox"
-                                                                name="psuBrandArtis" value="True">
-                                                            <label class="form-check-label text-dark">Artis</label>
-                                                        </div>
-                                                        <div class="form-check form-check-inline">
-                                                            <input class="form-check-input" type="checkbox"
-                                                                name="psuBrandCoolerMaster" value="True">
-                                                            <label class="form-check-label text-dark">Cooler
-                                                                Master</label>
-                                                        </div>
-                                                    </div>
-
-                                                    <div class="brand-row-2">
-                                                        <div class="form-check form-check-inline">
-                                                            <input class="form-check-input" type="checkbox"
-                                                                name="psuBrandAsus" value="True">
-                                                            <label class="form-check-label text-dark">Asus</label>
-                                                        </div>
-                                                        <div class="form-check form-check-inline">
-                                                            <input class="form-check-input" type="checkbox"
-                                                                name="psuBrandDeepCool" value="True">
-                                                            <label class="form-check-label text-dark">Deepcool</label>
-                                                        </div>
-                                                    </div>
-
-                                                    <div class="brand-row-3">
-                                                        <div class="form-check form-check-inline">
-                                                            <input class="form-check-input" type="checkbox"
-                                                                name="psuBrandGigabyte" value="True">
-                                                            <label class="form-check-label text-dark">Gigabyte</label>
-                                                        </div>
-                                                        <div class="form-check form-check-inline">
-                                                            <input class="form-check-input" type="checkbox"
-                                                                name="psuBrandNZXT" value="True">
-                                                            <label class="form-check-label text-dark">NZXT</label>
-                                                        </div>
-                                                        <div class="form-check form-check-inline">
-                                                            <input class="form-check-input" type="checkbox"
-                                                                name="psuBrandGamdias" value="True">
-                                                            <label class="form-check-label text-dark">GAMDIAS</label>
-                                                        </div>
-                                                    </div>
-                                                </div>
-
-                                            </div>
-                                            <div class="modal-footer">
-                                                <button type="button" class="btn btn-secondary"
-                                                    data-bs-dismiss="modal">Close
-                                                </button>
-                                                <button type="button" class="btn btn-primary">Apply</button>
-                                            </div>
-                                        </form>
                                     </div>
-                                </div>
+                                    <div class="modal-body">
+                                        
+                                        <div class="row d-flex justify-content-center">
+                                            <div class="col-md-4">
+                                                <div class="input-group">
+                                                    <span class="input-group-text">Min ₹</span>
+                                                    <input type="text" class="form-control" name="cpuMinBudget"
+                                                           aria-describedby="inputGroupPrepend2">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <div class="input-group">
+                                                    <span class="input-group-text">Max ₹</span>
+                                                    <input type="text" class="form-control" name="cpuMaxBudget"
+                                                           aria-describedby="inputGroupPrepend2">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="border border-black mt-2">
+                                            <p class="text-dark fw-bold">Core Selection</p>
+                                            
+                                            
+                                            <div class="core-row-1">
+                                                <div class="form-check form-check-inline">
+                                                    <input class="form-check-input" type="checkbox"
+                                                           name="cpuCoreSingle" value="True">
+                                                    <label class="form-check-label text-dark">Single</label>
+                                                </div>
+                                                <div class="form-check form-check-inline">
+                                                    <input class="form-check-input" type="checkbox"
+                                                           name="cpuCoreDual" value="True">
+                                                    <label class="form-check-label text-dark">Dual</label>
+                                                </div>
+                                            </div>
+                                            
+                                            <div class="core-row-2">
+                                                <div class="form-check form-check-inline">
+                                                    <input class="form-check-input" type="checkbox"
+                                                           name="cpuCoreQuad" value="True">
+                                                    <label class="form-check-label text-dark">Quad</label>
+                                                </div>
+                                                <div class="form-check form-check-inline">
+                                                    <input class="form-check-input" type="checkbox"
+                                                           name="cpuCoreHexa" value="True">
+                                                    <label class="form-check-label text-dark">Hexa</label>
+                                                </div>
+                                                <div class="form-check form-check-inline">
+                                                    <input class="form-check-input" type="checkbox"
+                                                           name="cpuCoreOcta" value="True">
+                                                    <label class="form-check-label text-dark">Octa</label>
+                                                </div>
+                                            </div>
+                                        
+                                        </div>
+                                        
+                                        <div class="border border-black mt-2">
+                                            <p class="text-dark fw-bold">Brand Selection</p>
+                                            
+                                            
+                                            <div class="brand-row-1">
+                                                <div class="form-check form-check-inline">
+                                                    <input class="form-check-input" type="checkbox"
+                                                           name="cpuBrandAMD" value="True">
+                                                    <label class="form-check-label text-dark">AMD</label>
+                                                </div>
+                                                <div class="form-check form-check-inline">
+                                                    <input class="form-check-input" type="checkbox"
+                                                           name="cpuBrandIntel" value="True">
+                                                    <label class="form-check-label text-dark">Intel</label>
+                                                </div>
+                                                <div class="form-check form-check-inline">
+                                                    <input class="form-check-input" type="checkbox"
+                                                           name="cpuBrandOther" value="True">
+                                                    <label class="form-check-label text-dark">Other</label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        
+                                        <table border="1">
+                                            <thead>
+                                            <tr>
+                                                <th>CPU Brand</th>
+                                                <th>CPU Name</th>
+                                                <th>Core Count</th>
+                                                <th>Clock Speed</th>
+                                                <th>Boost Clock</th>
+                                                <th>Socket Type</th>
+                                                <th>TDP</th>
+                                                <th>Integrated Graphics</th>
+                                                <th>SMT</th>
+                                                <th>Price</th>
+                                            </tr>
+                                            </thead>
+                                            
+                                            <tbody>
+                                                {%for cpu in cpus%}
+                                            <tr>
+                                                <td>{{cpu.CPUBrand}}</td>
+                                                <td>{{cpu.CPUName}}</td>
+                                                <td>{{cpu.CoreCount}}</td>
+                                                <td>{{cpu.ClockSpeed}}</td>
+                                                <td>{{cpu.BoostClock}}</td>
+                                                <td>{{cpu.SocketType}}</td>
+                                                <td>{{cpu.TDP}}</td>
+                                                <td>{{cpu.IntegratedGraphics}}</td>
+                                                <td>{{cpu.SMT}}</td>
+                                                <td>{{cpu.Price}}</td>
+                                            </tr>
+                                            {% endfor %}
+                                            </tbody>
+                                        </table>
+                                       
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary"
+                                                data-bs-dismiss="modal">Close
+                                        </button>
+                                        <button type="button" formaction="/autobuild" class="btn btn-primary">Apply
+                                        </button>
+                                    </div>
+                                </form>
                             </div>
                         </div>
-                    </div>
-
-                    <div class="card bg-dark select-component-box">
-                        <div class="card-body">
-                            <h5 class="card-title">Power Supply</h5>
-                            <a href='/buildpc'>
-                                <button type="button" class="btn btn-outline-pcb">+ Add</button>
-                            </a>
-                        </div>
-                        
                     </div>
                 </div>
-                <!-- 4 end -->
-
-
-                <!-- 5 -->
-                <div class="card-group">
-                    <div class="card bg-dark select-component-box">
-                        <div class="card-body">
-                            <div class="selection-head">
-                                <h5 class="card-title">Selected CPU</h5>
-                                <h6 class="card-title">CPU information that user selects</h6>
-
-                                <h6 class="card-title">Cost: ₹9000</h6>
-                                <button type="button" class="btn btn-outline-pcb">
-                                    <span class="material-symbols-outlined mt-1">delete_forever</span>
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="card bg-dark select-component-box">
-                        <div class="card-body">
-                            <div class="selection-head">
-                                <h5 class="card-title">Selected CPU</h5>
-                                <h6 class="card-title">CPU information that user selects</h6>
-
-                                <h6 class="card-title">Cost: ₹9000</h6>
-                                <button type="button" class="btn btn-outline-pcb">
-                                    <span class="material-symbols-outlined mt-1">delete_forever</span>
-                                </button>
+            </div>
+            
+            
+            <div class="card bg-dark select-component-box">
+                <div class="card-body">
+                    <h5 class="card-title">CPU Cooler</h5>
+                    <button type="button" class="btn btn-outline-pcb" data-bs-toggle="modal"
+                            data-bs-target="#exampleModal-2">+ Add
+                    </button>
+                    <!-- Modal -->
+                    <div class="modal fade" id="exampleModal-2" tabindex="-1" aria-labelledby="exampleModalLabel"
+                         aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <form action="/buildpc" method="POST">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title text-dark">Select CPU Cooler</h5>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                aria-label="Close"></button>
+                                    </div>
+                                    <div class="modal-body">
+                                        
+                                        <div class="row d-flex justify-content-center">
+                                            <div class="col-md-4">
+                                                <div class="input-group">
+                                                    <span class="input-group-text">Min ₹</span>
+                                                    <input type="text" class="form-control" name="coolerMinBudget"
+                                                           aria-describedby="inputGroupPrepend2">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <div class="input-group">
+                                                    <span class="input-group-text">Max ₹</span>
+                                                    <input type="text" class="form-control" name="coolerMaxBudget"
+                                                           aria-describedby="inputGroupPrepend2">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="border border-black mt-2">
+                                            <p class="text-dark fw-bold">Brand Selection</p>
+                                            
+                                            
+                                            <div class="brand-row-1">
+                                                <div class="form-check form-check-inline">
+                                                    <input class="form-check-input" type="checkbox"
+                                                           name="coolerBrandNoctua" value="True">
+                                                    <label class="form-check-label text-dark">Noctua</label>
+                                                </div>
+                                                <div class="form-check form-check-inline">
+                                                    <input class="form-check-input" type="checkbox"
+                                                           name="coolerBrandCoolerMaster" value="True">
+                                                    <label class="form-check-label text-dark">Cooler Master</label>
+                                                </div>
+                                                <div class="form-check form-check-inline">
+                                                    <input class="form-check-input" type="checkbox"
+                                                           name="coolerBrandDeepCool" value="True">
+                                                    <label class="form-check-label text-dark">DeepCool</label>
+                                                </div>
+                                                <div class="form-check form-check-inline">
+                                                    <input class="form-check-input" type="checkbox"
+                                                           name="coolerBrandArctic" value="True">
+                                                    <label class="form-check-label text-dark">Arctic</label>
+                                                </div>
+                                                <div class="form-check form-check-inline">
+                                                    <input class="form-check-input" type="checkbox"
+                                                           name="coolerBrandCorsair" value="True">
+                                                    <label class="form-check-label text-dark">Corsair</label>
+                                                </div>
+                                                <div class="form-check form-check-inline">
+                                                    <input class="form-check-input" type="checkbox"
+                                                           name="coolerBrandZebronics" value="True">
+                                                    <label class="form-check-label text-dark">Zebronics</label>
+                                                </div>
+                                                <div class="form-check form-check-inline">
+                                                    <input class="form-check-input" type="checkbox"
+                                                           name="coolerBrandMSI" value="True">
+                                                    <label class="form-check-label text-dark">MSI</label>
+                                                </div>
+                                                <div class="form-check form-check-inline">
+                                                    <input class="form-check-input" type="checkbox"
+                                                           name="coolerBrandAMD" value="True">
+                                                    <label class="form-check-label text-dark">AMD</label>
+                                                </div>
+                                                <div class="form-check form-check-inline">
+                                                    <input class="form-check-input" type="checkbox"
+                                                           name="coolerBrandIntel" value="True">
+                                                    <label class="form-check-label text-dark">Intel</label>
+                                                </div>
+                                                <div class="form-check form-check-inline">
+                                                    <input class="form-check-input" type="checkbox"
+                                                           name="coolerBrandOthers" value="True">
+                                                    <label class="form-check-label text-dark">Other</label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary"
+                                                data-bs-dismiss="modal">Close
+                                        </button>
+                                        <button type="button" class="btn btn-primary">Apply</button>
+                                    </div>
+                                </form>
                             </div>
                         </div>
                     </div>
                 </div>
-                <!-- 5 end -->
-
-
+            </div>
+        
+        </div>
+        <!-- 1 end -->
+        
+        
+        <!-- 2 -->
+        <div class="card-group">
+            <div class="card bg-dark select-component-box">
+                <div class="card-body">
+                    <h5 class="card-title">RAM</h5>
+                    <button type="button" class="btn btn-outline-pcb" data-bs-toggle="modal"
+                            data-bs-target="#exampleModal-3">+ Add
+                    </button>
+                    <!-- Modal -->
+                    <div class="modal fade" id="exampleModal-3" tabindex="-1" aria-labelledby="exampleModalLabel"
+                         aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <form action="/buildpc" method="POST">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title text-dark">Select RAM</h5>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                aria-label="Close"></button>
+                                    </div>
+                                    <div class="modal-body">
+                                        
+                                        <div class="row d-flex justify-content-center">
+                                            <div class="col-md-4">
+                                                <div class="input-group">
+                                                    <span class="input-group-text">Min ₹</span>
+                                                    <input type="text" class="form-control" name="ramMinBudget"
+                                                           aria-describedby="inputGroupPrepend2">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <div class="input-group">
+                                                    <span class="input-group-text">Max ₹</span>
+                                                    <input type="text" class="form-control" name="ramMaxBudget"
+                                                           aria-describedby="inputGroupPrepend2">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="border border-black mt-2">
+                                            <p class="text-dark fw-bold">Type Selection</p>
+                                            
+                                            
+                                            <div class="type-row-1">
+                                                <div class="form-check form-check-inline">
+                                                    <input class="form-check-input" type="checkbox"
+                                                           name="ramTypeDDR" value="True">
+                                                    <label class="form-check-label text-dark">DDR</label>
+                                                </div>
+                                                <div class="form-check form-check-inline">
+                                                    <input class="form-check-input" type="checkbox"
+                                                           name="ramTypeDDR2" value="True">
+                                                    <label class="form-check-label text-dark">DDR-2</label>
+                                                </div>
+                                                <div class="form-check form-check-inline">
+                                                    <input class="form-check-input" type="checkbox"
+                                                           name="ramTypeDDR3" value="True">
+                                                    <label class="form-check-label text-dark">DDR-3</label>
+                                                </div>
+                                            </div>
+                                            
+                                            <div class="type-row-2">
+                                                <div class="form-check form-check-inline">
+                                                    <input class="form-check-input" type="checkbox"
+                                                           name="ramTypeDDR4" value="True">
+                                                    <label class="form-check-label text-dark">DDR-4</label>
+                                                </div>
+                                                <div class="form-check form-check-inline">
+                                                    <input class="form-check-input" type="checkbox"
+                                                           name="ramTypeDDR5" value="True">
+                                                    <label class="form-check-label text-dark">DDR-5</label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="border border-black mt-2">
+                                            <p class="text-dark fw-bold">Brand Selection</p>
+                                            
+                                            
+                                            <div class="brand-row-1">
+                                                <div class="form-check form-check-inline">
+                                                    <input class="form-check-input" type="checkbox"
+                                                           name="ramBrandHyperX" value="True">
+                                                    <label class="form-check-label text-dark">HyperX</label>
+                                                </div>
+                                                <div class="form-check form-check-inline">
+                                                    <input class="form-check-input" type="checkbox"
+                                                           name="ramBrandCrucial" value="True">
+                                                    <label class="form-check-label text-dark">Crucial</label>
+                                                </div>
+                                                <div class="form-check form-check-inline">
+                                                    <input class="form-check-input" type="checkbox"
+                                                           name="ramBrandCorsair" value="True">
+                                                    <label class="form-check-label text-dark">Corsair</label>
+                                                </div>
+                                                <div class="form-check form-check-inline">
+                                                    <input class="form-check-input" type="checkbox"
+                                                           name="ramBrandADATA" value="True">
+                                                    <label class="form-check-label text-dark">A-DATA</label>
+                                                </div>
+                                                <div class="form-check form-check-inline">
+                                                    <input class="form-check-input" type="checkbox"
+                                                           name="ramBrandSamsung" value="True">
+                                                    <label class="form-check-label text-dark">Samsung</label>
+                                                </div>
+                                                <div class="form-check form-check-inline">
+                                                    <input class="form-check-input" type="checkbox"
+                                                           name="ramBrandKingston" value="True">
+                                                    <label class="form-check-label text-dark">Kingston</label>
+                                                </div>
+                                                <div class="form-check form-check-inline">
+                                                    <input class="form-check-input" type="checkbox"
+                                                           name="ramBrandGigabyte" value="True">
+                                                    <label class="form-check-label text-dark">GIGABYTE</label>
+                                                </div>
+                                                <div class="form-check form-check-inline">
+                                                    <input class="form-check-input" type="checkbox"
+                                                           name="ramBrandHP" value="True">
+                                                    <label class="form-check-label text-dark">HP</label>
+                                                </div>
+                                                <div class="form-check form-check-inline">
+                                                    <input class="form-check-input" type="checkbox"
+                                                           name="ramBrandAcer" value="True">
+                                                    <label class="form-check-label text-dark">Acer</label>
+                                                </div>
+                                                <div class="form-check form-check-inline">
+                                                    <input class="form-check-input" type="checkbox"
+                                                           name="ramBrandOthers" value="True">
+                                                    <label class="form-check-label text-dark">Other</label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    
+                                    
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary"
+                                                data-bs-dismiss="modal">Close
+                                        </button>
+                                        <button type="button" class="btn btn-primary">Apply</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="card bg-dark select-component-box">
+                <div class="card-body">
+                    <h5 class="card-title">Graphics Card</h5>
+                    <button type="button" class="btn btn-outline-pcb" data-bs-toggle="modal"
+                            data-bs-target="#exampleModal-4">+ Add
+                    </button>
+                    <!-- Modal -->
+                    <div class="modal fade" id="exampleModal-4" tabindex="-1" aria-labelledby="exampleModalLabel"
+                         aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <form action="/buildpc" method="POST">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title text-dark">Select Graphics Card</h5>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                aria-label="Close"></button>
+                                    </div>
+                                    <div class="modal-body">
+                                        
+                                        <div class="row d-flex justify-content-center">
+                                            <div class="col-md-4">
+                                                <div class="input-group">
+                                                    <span class="input-group-text">Min ₹</span>
+                                                    <input type="text" class="form-control" name="gpuMinBudget"
+                                                           aria-describedby="inputGroupPrepend2">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <div class="input-group">
+                                                    <span class="input-group-text">Max ₹</span>
+                                                    <input type="text" class="form-control" name="gpuMaxBudget"
+                                                           aria-describedby="inputGroupPrepend2">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="border border-black mt-2">
+                                            <p class="text-dark fw-bold">Interface Selection</p>
+                                            
+                                            
+                                            <div class="Interface-row-1">
+                                                <div class="form-check form-check-inline">
+                                                    <input class="form-check-input" type="checkbox"
+                                                           name="gpuInterfacePCI" value="True">
+                                                    <label class="form-check-label text-dark">PCI</label>
+                                                </div>
+                                                <div class="form-check form-check-inline">
+                                                    <input class="form-check-input" type="checkbox"
+                                                           name="gpuInterfaceAGP" value="True">
+                                                    <label class="form-check-label text-dark">AGP</label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="border border-black mt-2">
+                                            <p class="text-dark fw-bold">Brand Selection</p>
+                                            
+                                            <div class="brand-row-1">
+                                                <div class="form-check form-check-inline">
+                                                    <input class="form-check-input" type="checkbox"
+                                                           name="gpuBrandAsus" value="True">
+                                                    <label class="form-check-label text-dark">Asus</label>
+                                                </div>
+                                                <div class="form-check form-check-inline">
+                                                    <input class="form-check-input" type="checkbox"
+                                                           name="gpuBrandZotac" value="True">
+                                                    <label class="form-check-label text-dark">Zotac</label>
+                                                </div>
+                                                <div class="form-check form-check-inline">
+                                                    <input class="form-check-input" type="checkbox"
+                                                           name="gpuBrandGigabyte" value="True">
+                                                    <label class="form-check-label text-dark">Gigabyte</label>
+                                                </div>
+                                            </div>
+                                            
+                                            <div class="brand-row-2">
+                                                <div class="form-check form-check-inline">
+                                                    <input class="form-check-input" type="checkbox"
+                                                           name="gpuBrandMSI" value="True">
+                                                    <label class="form-check-label text-dark">MSI</label>
+                                                </div>
+                                                <div class="form-check form-check-inline">
+                                                    <input class="form-check-input" type="checkbox"
+                                                           name="gpuBrandNvidia" value="True">
+                                                    <label class="form-check-label text-dark">Nvidia</label>
+                                                </div>
+                                                <div class="form-check form-check-inline">
+                                                    <input class="form-check-input" type="checkbox"
+                                                           name="gpuBrandOthers" value="True">
+                                                    <label class="form-check-label text-dark">Other</label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary"
+                                                data-bs-dismiss="modal">Close
+                                        </button>
+                                        <button type="button" class="btn btn-primary">Apply</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
+        <!-- 2 end -->
+        
+        <!-- 3 -->
+        <div class="card-group">
+            <div class="card bg-dark select-component-box">
+                <div class="card-body">
+                    <h5 class="card-title">Motherboard</h5>
+                    <button type="button" class="btn btn-outline-pcb" data-bs-toggle="modal"
+                            data-bs-target="#exampleModal-5">+ Add
+                    </button>
+                    <!-- Modal -->
+                    <div class="modal fade" id="exampleModal-5" tabindex="-1" aria-labelledby="exampleModalLabel"
+                         aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <form action="/buildpc" method="POST">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title text-dark">Select Motherboard</h5>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                aria-label="Close"></button>
+                                    </div>
+                                    <div class="modal-body">
+                                        
+                                        <div class="row d-flex justify-content-center">
+                                            <div class="col-md-4">
+                                                <div class="input-group">
+                                                    <span class="input-group-text">Min ₹</span>
+                                                    <input type="text" class="form-control" name="boardMinBudget"
+                                                           aria-describedby="inputGroupPrepend2">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <div class="input-group">
+                                                    <span class="input-group-text">Max ₹</span>
+                                                    <input type="text" class="form-control" name="boardMaxBudget"
+                                                           aria-describedby="inputGroupPrepend2">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="border border-black mt-2">
+                                            <p class="text-dark fw-bold">Memory Type Selection</p>
+                                            
+                                            
+                                            <div class="memory-row-1">
+                                                <div class="form-check form-check-inline">
+                                                    <input class="form-check-input" type="checkbox"
+                                                           name="boardRAMDDR" value="True">
+                                                    <label class="form-check-label text-dark">DDR</label>
+                                                </div>
+                                                <div class="form-check form-check-inline">
+                                                    <input class="form-check-input" type="checkbox"
+                                                           name="boardRAMDDR2" value="True">
+                                                    <label class="form-check-label text-dark">DDR-2</label>
+                                                </div>
+                                                <div class="form-check form-check-inline">
+                                                    <input class="form-check-input" type="checkbox"
+                                                           name="boardRAMDDR3" value="True">
+                                                    <label class="form-check-label text-dark">DDR-3</label>
+                                                </div>
+                                            </div>
+                                            
+                                            <div class="memory-row-2">
+                                                <div class="form-check form-check-inline">
+                                                    <input class="form-check-input" type="checkbox"
+                                                           name="boardRAMDDR4" value="True">
+                                                    <label class="form-check-label text-dark">DDR-4</label>
+                                                </div>
+                                                <div class="form-check form-check-inline">
+                                                    <input class="form-check-input" type="checkbox"
+                                                           name="boardRAMDDR5" value="True">
+                                                    <label class="form-check-label text-dark">DDR-5</label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="border border-black mt-2">
+                                            <p class="text-dark fw-bold">Brand Selection</p>
+                                            
+                                            <div class="brand-row-1">
+                                                <div class="form-check form-check-inline">
+                                                    <input class="form-check-input" type="checkbox"
+                                                           name="boardBrandAsus" value="True">
+                                                    <label class="form-check-label text-dark">Asus</label>
+                                                </div>
+                                                <div class="form-check form-check-inline">
+                                                    <input class="form-check-input" type="checkbox"
+                                                           name="boardBrandMSI" value="True">
+                                                    <label class="form-check-label text-dark">MSI</label>
+                                                </div>
+                                                <div class="form-check form-check-inline">
+                                                    <input class="form-check-input" type="checkbox"
+                                                           name="boardBrandGigabyte" value="True">
+                                                    <label class="form-check-label text-dark">Gigabyte</label>
+                                                </div>
+                                            </div>
+                                            
+                                            <div class="brand-row-2">
+                                                <div class="form-check form-check-inline">
+                                                    <input class="form-check-input" type="checkbox"
+                                                           name="boardBrandIntel" value="True">
+                                                    <label class="form-check-label text-dark">Intel</label>
+                                                </div>
+                                                <div class="form-check form-check-inline">
+                                                    <input class="form-check-input" type="checkbox"
+                                                           name="boardBrandZebronics" value="True">
+                                                    <label class="form-check-label text-dark">Zebronics</label>
+                                                </div>
+                                                <div class="form-check form-check-inline">
+                                                    <input class="form-check-input" type="checkbox"
+                                                           name="boardBrandAorus" value="True">
+                                                    <label class="form-check-label text-dark">Aorus</label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary"
+                                                data-bs-dismiss="modal">Close
+                                        </button>
+                                        <button type="button" class="btn btn-primary">Apply</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="card bg-dark select-component-box">
+                <div class="card-body">
+                    <h5 class="card-title">Storage</h5>
+                    <button type="button" class="btn btn-outline-pcb" data-bs-toggle="modal"
+                            data-bs-target="#exampleModal-6">+ Add
+                    </button>
+                    <!-- Modal -->
+                    <div class="modal fade" id="exampleModal-6" tabindex="-1" aria-labelledby="exampleModalLabel"
+                         aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <form action="/buildpc" method="POST">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title text-dark">Select Storage</h5>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                aria-label="Close"></button>
+                                    </div>
+                                    <div class="modal-body">
+                                        
+                                        <div class="row d-flex justify-content-center">
+                                            <div class="col-md-4">
+                                                <div class="input-group">
+                                                    <span class="input-group-text">Min ₹</span>
+                                                    <input type="text" class="form-control" name="storageMinBudget"
+                                                           aria-describedby="inputGroupPrepend2">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <div class="input-group">
+                                                    <span class="input-group-text">Max ₹</span>
+                                                    <input type="text" class="form-control" name="storageMaxBudget"
+                                                           aria-describedby="inputGroupPrepend2">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="border border-black mt-2">
+                                            <p class="text-dark fw-bold">Brand Selection</p>
+                                            
+                                            <div class="brand-row-1">
+                                                <div class="form-check form-check-inline">
+                                                    <input class="form-check-input" type="checkbox"
+                                                           name="storageBrandCrucial" value="True">
+                                                    <label class="form-check-label text-dark">Crucial</label>
+                                                </div>
+                                                <div class="form-check form-check-inline">
+                                                    <input class="form-check-input" type="checkbox"
+                                                           name="storageBrandSamsung" value="True">
+                                                    <label class="form-check-label text-dark">Samsung</label>
+                                                </div>
+                                                <div class="form-check form-check-inline">
+                                                    <input class="form-check-input" type="checkbox"
+                                                           name="storageBrandWD" value="True">
+                                                    <label class="form-check-label text-dark">WD</label>
+                                                </div>
+                                                <div class="form-check form-check-inline">
+                                                    <input class="form-check-input" type="checkbox"
+                                                           name="storageBrandGigabyte" value="True">
+                                                    <label class="form-check-label text-dark">GIGABYTE</label>
+                                                </div>
+                                            </div>
+                                            
+                                            <div class="brand-row-2">
+                                                <div class="form-check form-check-inline">
+                                                    <input class="form-check-input" type="checkbox"
+                                                           name="storageBrandSeagate" value="True">
+                                                    <label class="form-check-label text-dark">Seagate</label>
+                                                </div>
+                                                <div class="form-check form-check-inline">
+                                                    <input class="form-check-input" type="checkbox"
+                                                           name="storageBrandKingston" value="True">
+                                                    <label class="form-check-label text-dark">Kingston</label>
+                                                </div>
+                                                <div class="form-check form-check-inline">
+                                                    <input class="form-check-input" type="checkbox"
+                                                           name="storageBrandHP" value="True">
+                                                    <label class="form-check-label text-dark">HP</label>
+                                                </div>
+                                                <div class="form-check form-check-inline">
+                                                    <input class="form-check-input" type="checkbox"
+                                                           name="storageBrandAcer" value="True">
+                                                    <label class="form-check-label text-dark">Acer</label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary"
+                                                data-bs-dismiss="modal">Close
+                                        </button>
+                                        <button type="button" class="btn btn-primary">Apply</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 3 end -->
+            
+            <!-- 4 -->
+            <div class="card-group">
+                <div class="card bg-dark select-component-box">
+                    <div class="card-body">
+                        <h5 class="card-title">Power Supply</h5>
+                        <button type="button" class="btn btn-outline-pcb" data-bs-toggle="modal"
+                                data-bs-target="#exampleModal-7">+ Add
+                        </button>
+                        <!-- Modal -->
+                        <div class="modal fade" id="exampleModal-7" tabindex="-1"
+                             aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <form action="/buildpc" method="POST">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title text-dark">Select Power Supply</h5>
+                                            <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                    aria-label="Close"></button>
+                                        </div>
+                                        <div class="modal-body">
+                                            
+                                            <div class="row d-flex justify-content-center">
+                                                <div class="col-md-4">
+                                                    <div class="input-group">
+                                                        <span class="input-group-text">Min ₹</span>
+                                                        <input type="text" class="form-control" name="psuMinBudget"
+                                                               aria-describedby="inputGroupPrepend2">
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <div class="input-group">
+                                                        <span class="input-group-text">Max ₹</span>
+                                                        <input type="text" class="form-control" name="psuMaxBudget"
+                                                               aria-describedby="inputGroupPrepend2">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            
+                                            <div class="border border-black mt-2">
+                                                <p class="text-dark fw-bold">Brand Selection</p>
+                                                
+                                                
+                                                <div class="brand-row-1">
+                                                    <div class="form-check form-check-inline">
+                                                        <input class="form-check-input" type="checkbox"
+                                                               name="psuBrandCorsair" value="True">
+                                                        <label class="form-check-label text-dark">Corsair</label>
+                                                    </div>
+                                                    <div class="form-check form-check-inline">
+                                                        <input class="form-check-input" type="checkbox"
+                                                               name="psuBrandArtis" value="True">
+                                                        <label class="form-check-label text-dark">Artis</label>
+                                                    </div>
+                                                    <div class="form-check form-check-inline">
+                                                        <input class="form-check-input" type="checkbox"
+                                                               name="psuBrandCoolerMaster" value="True">
+                                                        <label class="form-check-label text-dark">Cooler
+                                                            Master</label>
+                                                    </div>
+                                                </div>
+                                                
+                                                <div class="brand-row-2">
+                                                    <div class="form-check form-check-inline">
+                                                        <input class="form-check-input" type="checkbox"
+                                                               name="psuBrandAsus" value="True">
+                                                        <label class="form-check-label text-dark">Asus</label>
+                                                    </div>
+                                                    <div class="form-check form-check-inline">
+                                                        <input class="form-check-input" type="checkbox"
+                                                               name="psuBrandDeepCool" value="True">
+                                                        <label class="form-check-label text-dark">Deepcool</label>
+                                                    </div>
+                                                </div>
+                                                
+                                                <div class="brand-row-3">
+                                                    <div class="form-check form-check-inline">
+                                                        <input class="form-check-input" type="checkbox"
+                                                               name="psuBrandGigabyte" value="True">
+                                                        <label class="form-check-label text-dark">Gigabyte</label>
+                                                    </div>
+                                                    <div class="form-check form-check-inline">
+                                                        <input class="form-check-input" type="checkbox"
+                                                               name="psuBrandNZXT" value="True">
+                                                        <label class="form-check-label text-dark">NZXT</label>
+                                                    </div>
+                                                    <div class="form-check form-check-inline">
+                                                        <input class="form-check-input" type="checkbox"
+                                                               name="psuBrandGamdias" value="True">
+                                                        <label class="form-check-label text-dark">GAMDIAS</label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-secondary"
+                                                    data-bs-dismiss="modal">Close
+                                            </button>
+                                            <button type="button" class="btn btn-primary">Apply</button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="card bg-dark select-component-box">
+                    <div class="card-body">
+                        <h5 class="card-title">Power Supply</h5>
+                        <a href='/buildpc'>
+                            <button type="button" class="btn btn-outline-pcb">+ Add</button>
+                        </a>
+                    </div>
+                
+                </div>
+            </div>
+            <!-- 4 end -->
+            
+            
+            <!-- 5 -->
+            <div class="card-group">
+                <div class="card bg-dark select-component-box">
+                    <div class="card-body">
+                        <div class="selection-head">
+                            <h5 class="card-title">Selected CPU</h5>
+                            <h6 class="card-title">CPU information that user selects</h6>
+                            
+                            <h6 class="card-title">Cost: ₹9000</h6>
+                            <button type="button" class="btn btn-outline-pcb">
+                                <span class="material-symbols-outlined mt-1">delete_forever</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="card bg-dark select-component-box">
+                    <div class="card-body">
+                        <div class="selection-head">
+                            <h5 class="card-title">Selected CPU</h5>
+                            <h6 class="card-title">CPU information that user selects</h6>
+                            
+                            <h6 class="card-title">Cost: ₹9000</h6>
+                            <button type="button" class="btn btn-outline-pcb">
+                                <span class="material-symbols-outlined mt-1">delete_forever</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- 5 end -->
+        
+        
+        </div>
     </div>
+</div>
 
 
 <!-- Footer -->
@@ -987,15 +1026,13 @@
 <!-- Footer Ends Here -->
 
 
-
-
-    <!-- Include JavaScript -->
-    <script src="{{url_for('static', filename='User/JS/index.js')}}"></script>
-    <script src="{{url_for('static', filename='User/JS/bootstrap.min.js')}}"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
+<!-- Include JavaScript -->
+<script src="{{url_for('static', filename='User/JS/index.js')}}"></script>
+<script src="{{url_for('static', filename='User/JS/bootstrap.min.js')}}"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
         integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p"
         crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"
         integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF"
         crossorigin="anonymous"></script>
 </body>

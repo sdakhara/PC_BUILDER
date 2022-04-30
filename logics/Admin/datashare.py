@@ -270,7 +270,7 @@ class datatransfer:
     def srchusrid(self, id):
         return db.query(userdata).filter_by(UserID=id).all()
 
-    def getCPUs(self, sockettype, list=False):
+    def getCPUs(self, sockettype=None, list=False):
         if list:
             return sortcpu(db.query(cpudata).filter_by(SocketType=sockettype).all())
         return db.query(cpudata).all()
