@@ -210,6 +210,15 @@ def sell():
     return render_template('User/sellpc.html')
 
 
+@app.route('/usersbuilds', methods=['GET', 'POST'])
+def usersbuilds():
+    ipcontrol.getIP(request.remote_addr)
+    if request.method == 'POST':
+        pass
+
+    return render_template('User/usersbuilds.html')
+
+
 
 if __name__ == '__main__':
     app.run(debug=True)
