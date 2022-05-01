@@ -1,8 +1,8 @@
 from datetime import date
 
 from flask import Flask, render_template, jsonify, request, redirect, url_for
-from flask_session import Session
 
+from flask_session import Session
 from logics.Admin.IPLocation import get_ip
 from logics.Admin.datashare import datatransfer, Authentication
 
@@ -85,15 +85,6 @@ def adminregister():
             else:
                 err = "wrong Admin password"
         return render_template('Admin/addadmin.html', err=err)
-    except:
-        return redirect(url_for('home'))
-
-
-@app.route('/messages')
-def messages():
-    msgs = dataapi.getMessages()
-    try:
-        return render_template('Admin/messages.html', msgs=msgs, adminname=g.ADMIN.AdminName, adminrole=g.ADMIN.Role)
     except:
         return redirect(url_for('home'))
 
@@ -184,6 +175,23 @@ def inventory():
     try:
         return render_template('Admin/inventory.html', adminname=g.ADMIN.AdminName, adminrole=g.ADMIN.Role, req=req,
                                component=component)
+    except:
+        return redirect(url_for('home'))
+
+
+@app.route('/messages')
+def messages():
+    msgs = dataapi.getMessages()
+    try:
+        return render_template('Admin/messages.html', msgs=msgs, adminname=g.ADMIN.AdminName, adminrole=g.ADMIN.Role)
+    except:
+        return redirect(url_for('home'))
+
+
+@app.route('/messages/<userid>', methods=['GET', 'POST'])
+def message_response(userid):
+    try:
+        return render_template('Admin/message_response.html')
     except:
         return redirect(url_for('home'))
 

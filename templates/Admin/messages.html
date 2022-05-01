@@ -21,6 +21,7 @@
                         <td>{{msg.UserEmail}}</td>
                         <td>{{msg.Message}}</td>
                         <td><p>{{msg.Date}}</p></td>
+                        <td><form action="/messages/{{msg.UserID}}" method="POST"><button value="Reply" type="submit" class="btn btn-success">Reply</button></form></td>
                     </tr>
                     {% endfor %}
                     </tbody>
