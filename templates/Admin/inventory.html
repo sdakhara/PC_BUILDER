@@ -15,7 +15,8 @@
                                     </button>
                                 </td>
                                 <td>
-                                    <button type="submit" value="board" name="board" class="btn btn-primary btn-fw">Board Data
+                                    <button type="submit" value="board" name="board" class="btn btn-primary btn-fw">
+                                        Board Data
                                     </button>
                                 </td>
                                 <td>
@@ -23,25 +24,32 @@
                                     </button>
                                 </td>
                                 <td>
-                                    <button type="submit" value="cooler" name="cooler" class="btn btn-primary btn-fw">Cooler</button>
+                                    <button type="submit" value="cooler" name="cooler" class="btn btn-primary btn-fw">
+                                        Cooler
+                                    </button>
                                 </td>
                             
                             </tr>
                             <tr>
                                 <td>
-                                    <button type="submit" value="gpu" name="gpu" class="btn btn-primary btn-fw">Graphics Data
+                                    <button type="submit" value="gpu" name="gpu" class="btn btn-primary btn-fw">Graphics
+                                        Data
                                     </button>
                                 </td>
                                 <td>
-                                    <button type="submit" value="storage" name="storage" class="btn btn-primary btn-fw">Storage Data
+                                    <button type="submit" value="storage" name="storage" class="btn btn-primary btn-fw">
+                                        Storage Data
                                     </button>
                                 </td>
                                 <td>
-                                    <button type="submit" value="cabinet" name="cabinet" class="btn btn-primary btn-fw">Cabinet Data
+                                    <button type="submit" value="cabinet" name="cabinet" class="btn btn-primary btn-fw">
+                                        Cabinet Data
                                     </button>
                                 </td>
                                 <td>
-                                    <button type="submit" value="psu" name="psu" class="btn btn-primary btn-fw">PSU Data </button>
+                                    <button type="submit" value="psu" name="psu" class="btn btn-primary btn-fw">PSU
+                                        Data
+                                    </button>
                                 </td>
                             </tr>
                             </tbody>
@@ -60,9 +68,8 @@
                     <table class="table">
                         {% if req == "cpu" %}
                         <thead>
-                        <h4 class="card-title" style="color:#151B54;">CPU DATA</h4>
+                        <h4 class="card-title">CPU DATA</h4>
                         <tr>
-                            <th>CPUID</th>
                             <th>CPUName</th>
                             <th>CoreCount</th>
                             <th>ClockSpeed</th>
@@ -70,36 +77,30 @@
                             <th>SocketType</th>
                             <th>TDP</th>
                             <th>IntegratedGraphics</th>
-                            <th>SMT</th>
-                            <th>Rating</th>
                             <th>Price</th>
                         </tr>
                         </thead>
                         <tbody>
                         {% for cpu in component %}
                         <tr>
-                            <td>{{cpu.CPUID}}</td>
                             <td>{{cpu.CPUName}}</td>
-                            <td>{{cpu.CoreCount}}</td>
+                            <td style="text-align: center;">{{cpu.CoreCount}}</td>
                             <td>{{cpu.ClockSpeed}}</td>
                             <td>{{cpu.BoostClock}}</td>
                             <td>{{cpu.SocketType}}</td>
                             <td>{{cpu.TDP}}</td>
                             <td>{{cpu.IntegratedGraphics}}</td>
-                            <td>{{cpu.SMT}}</td>
-                            <td>{{cpu.Rating}}</td>
                             <td>{{cpu.Price}}</td>
                         </tr>
                         {% endfor %}
                         </tbody>
                         {% endif %}
-
-
+                        
+                        
                         {% if req == "gpu" %}
                         <thead>
-                        <h4 class="card-title" style="color:#151B54;">GRAPHICS DATA</h4>
+                        <h4 class="card-title">GRAPHICS DATA</h4>
                         <tr>
-                            <th>GPUID</th>
                             <th>Name</th>
                             <th>ChipSet</th>
                             <th>Memory</th>
@@ -107,33 +108,29 @@
                             <th>BoostClock</th>
                             <th>Color</th>
                             <th>Length</th>
-                            <th>Rating</th>
                             <th>Price</th>
                         </tr>
                         </thead>
                         <tbody>
                         {% for gpu in component %}
                         <tr>
-                            <td>{{gpu.GPUID}}</td>
-                            <td>{{gpu.Name}}</td>
-                            <td>{{gpu.ChipSet}}</td>
+                            <td>{{gpu.GPUName}}</td>
+                            <td>{{gpu.Chipset}}</td>
                             <td>{{gpu.Memory}}</td>
                             <td>{{gpu.CoreClock}}</td>
                             <td>{{gpu.BoostClock}}</td>
                             <td>{{gpu.Color}}</td>
                             <td>{{gpu.Length}}</td>
-                            <td>{{gpu.Rating}}</td>
                             <td>{{gpu.Price}}</td>
                         </tr>
                         {% endfor %}
                         </tbody>
                         {% endif %}
-
+                        
                         {% if req == "ram" %}
                         <thead>
-                        <h4 class="card-title" style="color:#151B54;">RAM DATA</h4>
+                        <h4 class="card-title">RAM DATA</h4>
                         <tr>
-                            <th>RAMID</th>
                             <th>RAMName</th>
                             <th>Type</th>
                             <th>Speed</th>
@@ -142,36 +139,30 @@
                             <th>SizePerModule</th>
                             <th>Color</th>
                             <th>FirstWordLatency</th>
-                            <th>CASLatency</th>
-                            <th>Rating</th>
                             <th>Price</th>
                         </tr>
                         </thead>
                         <tbody>
                         {% for ram in component %}
                         <tr>
-                            <td>{{ram.RAMID}}</td>
                             <td>{{ram.RAMName}}</td>
                             <td>{{ram.Type}}</td>
-                            <td>{{ram.Speed}}</td>
-                            <td>{{ram.Modules}}</td>
+                            <td>{{ram.Speed}}Mz</td>
+                            <td style="text-align: center;">{{ram.Modules}}</td>
                             <td>{{ram.PricePerModule}}</td>
-                            <td>{{ram.SizePerModule}}</td>
+                            <td style="text-align: center;">{{ram.SizePerModule}}</td>
                             <td>{{ram.Color}}</td>
                             <td>{{ram.FirstWordLatency}}</td>
-                            <td>{{ram.CASLatency}}</td>
-                            <td>{{ram.Rating}}</td>
                             <td>{{ram.Price}}</td>
                         </tr>
                         {% endfor %}
                         </tbody>
                         {% endif %}
-
+                        
                         {% if req == "board" %}
                         <thead>
-                        <h4 class="card-title" style="color:#151B54;">MOTHERBOARD DATA</h4>
+                        <h4 class="card-title">MOTHERBOARD DATA</h4>
                         <tr>
-                            <th>BoardID</th>
                             <th>BoardName</th>
                             <th>SocketType</th>
                             <th>FormFactor</th>
@@ -179,150 +170,127 @@
                             <th>MaxRam</th>
                             <th>RAMSlote</th>
                             <th>Color</th>
-                            <th>Rating</th>
                             <th>Price</th>
                         </tr>
                         </thead>
                         <tbody>
                         {% for board in component %}
                         <tr>
-                            <td>{{board.BoardID}}</td>
                             <td>{{board.BoardName}}</td>
                             <td>{{board.SocketType}}</td>
                             <td>{{board.FormFactor}}</td>
                             <td>{{board.RAMType}}</td>
                             <td>{{board.MaxRam}}</td>
-                            <td>{{board.RAMSlote}}</td>
+                            <td style="text-align: center;">{{board.RAMSlots}}</td>
                             <td>{{board.Color}}</td>
-                            <td>{{board.Rating}}</td>
                             <td>{{board.Price}}</td>
                         </tr>
                         {% endfor %}
                         </tbody>
                         {% endif %}
-
+                        
                         {% if req == "cooler" %}
                         <thead>
-                        <h4 class="card-title" style="color:#151B54;">COOLER DATA</h4>
+                        <h4 class="card-title">COOLER DATA</h4>
                         <tr>
-                            <th>CoolerID</th>
                             <th>CoolerName</th>
                             <th>FanRPM</th>
                             <th>NoiseLevel</th>
                             <th>Color</th>
                             <th>RadiatorSize</th>
-                            <th>Rating</th>
                             <th>Price</th>
                         </tr>
                         </thead>
                         <tbody>
                         {% for cooler in component %}
                         <tr>
-                            <td>{{cooler.CoolerID}}</td>
                             <td>{{cooler.CoolerName}}</td>
                             <td>{{cooler.FanRPM}}</td>
                             <td>{{cooler.NoiseLevel}}</td>
                             <td>{{cooler.Color}}</td>
                             <td>{{cooler.RadiatorSize}}</td>
-                            <td>{{cooler.Rating}}</td>
                             <td>{{cooler.Price}}</td>
                         </tr>
                         {% endfor %}
                         </tbody>
                         {% endif %}
-
+                        
                         {% if req == "storage" %}
                         <thead>
-                        <h4 class="card-title" style="color:#151B54;">STORAGE DATA</h4>
+                        <h4 class="card-title">STORAGE DATA</h4>
                         <tr>
-                            <th>StorageID</th>
                             <th>Name</th>
                             <th>Capacity</th>
                             <th>Type</th>
                             <th>Cache</th>
                             <th>FormFactor</th>
                             <th>Interface</th>
-                            <th>Rating</th>
                             <th>Price</th>
                         </tr>
                         </thead>
                         <tbody>
                         {% for storage in component %}
                         <tr>
-                            <td>{{storage.StorageID}}</td>
-                            <td>{{storage.Name}}</td>
+                            <td>{{storage.StorageName}}</td>
                             <td>{{storage.Capacity}}</td>
                             <td>{{storage.Type}}</td>
                             <td>{{storage.Cache}}</td>
                             <td>{{storage.FormFactor}}</td>
                             <td>{{storage.Interface}}</td>
-                            <td>{{storage.Rating}}</td>
                             <td>{{storage.Price}}</td>
                         </tr>
                         {% endfor %}
                         </tbody>
                         {% endif %}
-
+                        
                         {% if req == "cabinet" %}
                         <thead>
-                        <h4 class="card-title" style="color:#151B54;">CABINET DATA</h4>
+                        <h4 class="card-title">CABINET DATA</h4>
                         <tr>
-                            <th>CabinetID</th>
                             <th>Name</th>
                             <th>Type</th>
                             <th>Color</th>
-                            <th>PowerSupply</th>
                             <th>SidePanelWindow</th>
-                            <th>ExternalBays</th>
-                            <th>InternalBays</th>
-                            <th>Rating</th>
+                            <th>External/Internal Bays</th>
                             <th>Price</th>
                         </tr>
                         </thead>
                         <tbody>
                         {% for cabinet in component %}
                         <tr>
-                            <td>{{cabinet.CabinetID}}</td>
-                            <td>{{cabinet.Name}}</td>
+                            <td>{{cabinet.CabinetName}}</td>
                             <td>{{cabinet.Type}}</td>
                             <td>{{cabinet.Color}}</td>
-                            <td>{{cabinet.PowerSupply}}</td>
                             <td>{{cabinet.SidePanelWindow}}</td>
-                            <td>{{cabinet.ExternalBays}}</td>
-                            <td>{{cabinet.InternalBays}}</td>
-                            <td>{{cabinet.Rating}}</td>
+                            <td style="text-align: center;">{{cabinet.ExternalBays}}/{{cabinet.InternalBays}}</td>
                             <td>{{cabinet.Price}}</td>
                         </tr>
                         {% endfor %}
                         </tbody>
                         {% endif %}
-
+                        
                         {% if req == "psu" %}
                         <thead>
-                        <h4 class="card-title" style="color:#151B54;">POWERSUPPLY DATA</h4>
+                        <h4 class="card-title">POWERSUPPLY DATA</h4>
                         <tr>
-                            <th>SmpsID</th>
                             <th>Name</th>
                             <th>FormFactor</th>
                             <th>EfficiencyRating</th>
                             <th>Wattage</th>
                             <th>Moduler</th>
                             <th>Color</th>
-                            <th>Rating</th>
                             <th>Price</th>
                         </tr>
                         </thead>
                         <tbody>
                         {% for psu in component %}
                         <tr>
-                            <td>{{psu.SmpsID}}</td>
-                            <td>{{psu.Name}}</td>
+                            <td>{{psu.SmpsName}}</td>
                             <td>{{psu.FormFactor}}</td>
                             <td>{{psu.EfficiencyRating}}</td>
                             <td>{{psu.Wattage}}</td>
-                            <td>{{psu.Moduler}}</td>
+                            <td>{{psu.Modular}}</td>
                             <td>{{psu.Color}}</td>
-                            <td>{{psu.Rating}}</td>
                             <td>{{psu.Price}}</td>
                         </tr>
                         {% endfor %}

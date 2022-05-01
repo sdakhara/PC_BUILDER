@@ -1,7 +1,7 @@
 from datetime import date
-from flask_session import Session
 
 from flask import Flask, render_template, jsonify, request, redirect, url_for
+from flask_session import Session
 
 from logics.Admin.IPLocation import get_ip
 from logics.Admin.datashare import datatransfer, Authentication
@@ -56,8 +56,9 @@ def dashboard():
     msgs = dataapi.getMessages()
     countrys = dataapi.getcountrydata()
     try:
-        return render_template('Admin/index.html', adminname=g.ADMIN.AdminName, data=dt, last=last, buildedPC=buildedPC,
-                               todaysbuild=todaysbuild, adminrole=g.ADMIN.Role, totvisitor=totvisit,
+        return render_template('Admin/index.html', adminname=g.ADMIN.AdminName, adminrole=g.ADMIN.Role, data=dt,
+                               last=last, buildedPC=buildedPC,
+                               todaysbuild=todaysbuild, totvisitor=totvisit,
                                todaysvisit=todayvisit, countrys=countrys,
                                date=date.today(), msgs=msgs)
     except:
@@ -90,7 +91,11 @@ def adminregister():
 
 @app.route('/messages')
 def messages():
-    return render_template('Admin/messages.html')
+    msgs = dataapi.getMessages()
+    try:
+        return render_template('Admin/messages.html', msgs=msgs, adminname=g.ADMIN.AdminName, adminrole=g.ADMIN.Role)
+    except:
+        return redirect(url_for('home'))
 
 
 @app.route('/users', methods=['GET', 'POST'])
@@ -99,13 +104,19 @@ def users():
     if request.method == 'POST':
         name = request.form.get('requesteduser')
         dt = dataapi.srchusrname(name)
-    return render_template('Admin/users.html', dt=dt)
+    try:
+        return render_template('Admin/users.html', adminname=g.ADMIN.AdminName, adminrole=g.ADMIN.Role, dt=dt)
+    except:
+        return redirect(url_for('home'))
 
 
 @app.route('/usermodify/<userid>', methods=['GET', 'POST'])
 def usermodify(userid):
     dt = dataapi.srchusrid(userid)
-    return render_template('Admin/usermodify.html', dt=dt)
+    try:
+        return render_template('Admin/usermodify.html', adminname=g.ADMIN.AdminName, adminrole=g.ADMIN.Role, dt=dt)
+    except:
+        return redirect(url_for('home'))
 
 
 @app.route('/usermodify/<userid>/<username>', methods=['GET', 'POST'])
@@ -127,7 +138,10 @@ def usermodifyreq(userid, username):
         return redirect(url_for('users'))
 
     dt = dataapi.srchusrid(userid)
-    return render_template('Admin/usermodify.html', dt=dt)
+    try:
+        return render_template('Admin/usermodify.html', dt=dt)
+    except:
+        return redirect(url_for('home'))
 
 
 @app.route('/inventory', methods=['GET', 'POST'])
@@ -167,18 +181,11 @@ def inventory():
         if psu == 'psu':
             req = 'psu'
             component = dataapi.getPSUs()
-
-    return render_template('Admin/inventory.html', req=req, component=component)
-
-
-@app.route('/statistics')
-def statistics():
-    return render_template('Admin/statistics.html')
-
-
-@app.route('/system')
-def system():
-    return render_template('Admin/system.html')
+    try:
+        return render_template('Admin/inventory.html', adminname=g.ADMIN.AdminName, adminrole=g.ADMIN.Role, req=req,
+                               component=component)
+    except:
+        return redirect(url_for('home'))
 
 
 if __name__ == '__main__':
