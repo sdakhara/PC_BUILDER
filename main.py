@@ -219,6 +219,15 @@ def usersbuilds():
     return render_template('User/usersbuilds.html')
 
 
+@app.route('/ratebuilds', methods=['GET', 'POST'])
+def ratebuilds():
+    ipcontrol.getIP(request.remote_addr)
+    if request.method == 'POST':
+        pass
+
+    return render_template('User/ratebuilds.html')
+
+
 
 if __name__ == '__main__':
     app.run(debug=True)

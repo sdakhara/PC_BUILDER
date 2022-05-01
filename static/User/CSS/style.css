@@ -418,15 +418,15 @@ nav .navbar-toggler {
     margin-top: 2rem !important;
 }
 
-/* sell pc page style */
 
 
+/* rate Builds style */
+.comments-avtar {
+    height: 2.8rem;
+    width: 2.8rem;
+    float: left !important;
+}
 
-
-/* 
-.second-hand-pc-cards {
-    margin-top: 10rem !important;
-} */
 
 
 
@@ -503,7 +503,6 @@ nav .navbar-toggler {
     #sell-info-card {
         margin-top: 2rem !important;
         width: 90% !important;
-        /* margin-left: 2% !important; */
         margin-right: 8% !important;
     }
 }

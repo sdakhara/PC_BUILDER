@@ -65,3 +65,4 @@ ipOnSubmit.addEventListener("keyup", function (event) {
     document.getElementById("budget-apply-btn").click();
   }
 });
+
