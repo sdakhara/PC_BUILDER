@@ -9,19 +9,20 @@
     <!-- Include CSS -->
     <link rel="stylesheet" href="{{url_for('static', filename='User/CSS/style.css')}}"/>
     <link rel="stylesheet" href="{{url_for('static', filename='User/CSS/bootstrap.min.css')}}"/>
+    <link rel="stylesheet" href="https://fonts.sandbox.google.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
     
     <title>PCB | Home</title>
 </head>
 
 <body>
-
-
-<!-- Nav-Bar (Header)  -->
-<nav class="navbar navbar-expand-lg navbar-dark bg-transperent fixed-top" id="Navbar">
-    <div class="container-fluid" id="container-fluid">
-        <a class="navbar-brand" href="#"><img src="{{url_for('static', filename='User/IMG/PCB-LOGO.png')}}" alt=""
-                                              width="60"></a>
-        <button class="navbar-toggler" id="menu-btn-res" type="button" onclick="hamburgerOff()"
+    
+    
+    <!-- Nav-Bar (Header)  -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-transperent fixed-top" id="Navbar">
+        <div class="container-fluid" id="container-fluid">
+            <a class="navbar-brand" href="/index"><img src="{{url_for('static', filename='User/IMG/PCB-LOGO.png')}}" alt=""
+                width="60"></a>
+                <button class="navbar-toggler" id="menu-btn-res" type="button" onclick="hamburgerOff()"
                 data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false"
                 aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -33,194 +34,181 @@
                     <a class="nav-link" aria-current="page" href="/index">Home</a>
                 </li>
                 <li class="nav-item nav-list">
-                    <a class="nav-link" href="#">Products</a>
+                    <a class="nav-link" href="/searchparts">Products</a>
                 </li>
                 <li class="nav-item nav-list">
                     <a class="nav-link" href="/about">About-Us</a>
                 </li>
                 <li class="nav-item nav-list">
-                    <a class="nav-link" href="#">Contact</a>
+                    <a class="nav-link" href="/contact">Contact</a>
                 </li>
                 
                 <li class="nav-item nav-list">
                     <a href='/login'>
-                    <button class="btn btn-outline-pcb log-in" type="submit">Log-In</button>
+                        <button class="btn btn-outline-pcb log-in" type="submit">Log-In</button>
                     </a>
                 </li>
             </ul>
-        
+            
         </div>
-</nav>
-
-<section class="main-page">
-    <video src="{{url_for('static', filename='User/VIDEOS/4.mp4')}}" autoplay muted loop class="video-play"></video>
+    </nav>
     
-    <div class="top-content ml3">
-        <h1>WELCOME TO PC BUILDER</h1>
-        <p>BUILD YOUR DREAM PC NOW</p>
-        <a href='/buildpc'><button class="btn btn-outline-pcb sign-up" type="submit">Build Now</button></a>
-        <button class="btn btn-outline-pcb sign-up" type="submit">Explore</button>
-    </div>
-</section>
-
-
-<div class="Explore">
+    <section class="main-page">
+        <video src="{{url_for('static', filename='User/VIDEOS/4.mp4')}}" autoplay muted loop class="video-play"></video>
+        
+        <div class="top-content ml3">
+            <h1>WELCOME TO PC BUILDER</h1>
+            <p>BUILD YOUR DREAM PC NOW</p>
+            <a href='/buildpc'><button class="btn btn-outline-pcb sign-up" type="submit">Build Now</button></a>
+        </div>
+    </section>
     
-    <div class="Explore-div">
-        <h1 class="Explore-heading">Explore</h1>
-    </div>
     
-    <div class="card-group">
-        <div class="card explore-crd">
-            <div class="card-body">
-                <h5 class="card-title">
-                    <img src="{{url_for('static', filename='User/IMG/build.png')}}" alt="" class="cards-icons">
-                    Build PC</h5>
-                <p class="card-text">Build your PC by adding components.</p>
-                <a href='/buildpc'>
-                    <button type="button" class="btn btn-outline-pcb">BUILD NOW</button>
-                </a>
-            </div>
+    <div class="Explore">
+        
+        <div class="Explore-div">
+            <h1 class="Explore-heading">Explore</h1>
         </div>
         
-        <div class="card explore-crd">
-            <div class="card-body">
-                <h5 class="card-title">
-                    <img src="{{url_for('static', filename='User/IMG/users-build.png')}}" alt="" class="cards-icons">
-                    Users Build</h5>
-                <p class="card-text">View & Rate other users PC Builds</p>
-                <a href='/usersbuilds'>
-                    <button type="button" class="btn btn-outline-pcb">VIEW / RATE</button>
-                </a>
-            </div>
-        </div>
-    </div>
-    
-    <div class="card-group">
-        <div class="card explore-crd">
-            <div class="card-body">
-                <h5 class="card-title">
-                    <img src="{{url_for('static', filename='User/IMG/search-components.png')}}" alt=""
-                         class="cards-icons">
-                    Search Components</h5>
-                <p class="card-text">Search the components which you are looking for.</p>
-                <a href='/searchparts'>
-                    <button type="button" class="btn btn-outline-pcb">SEARCH</button>
-                </a>                    
-            </div>
-        </div>
-        
-        <div class="card explore-crd">
-            <div class="card-body">
-                <h5 class="card-titl/e">
-                    <img src="{{url_for('static', filename='User/IMG/auto-build.png')}}" alt="" class="cards-icons">
-                    Auto Build</h5>
-                <p class="card-text">Build PC by just entering your budget & needs</p>
-                <a href='/autobuild'>
-                    <button type="button" class="btn btn-outline-pcb">AUTO BUILD</button>
-                </a>
-            </div>
-        </div>
-    </div>
-    
-    <div class="card-group">
-        <div class="card explore-crd">
-            <div class="card-body">
-                <h5 class="card-title">
-                    <img src="{{url_for('static', filename='User/IMG/build-guide.png')}}" alt="" class="cards-icons">
-                    Build Guide</h5>
-                <p class="card-text">Read Build Guide if you dont have enough knowledge about pc build.</p>
-                <a href='/buildguide'>
-                    <button type="button" class="btn btn-outline-pcb">READ GUIDE</button>
-                </a>
-            </div>
-        </div>
-        
-        <div class="card explore-crd">
-            <div class="card-body">
-                <h5 class="card-titl/e">
-                    <img src="{{url_for('static', filename='User/IMG/second-hand-pc.png')}}" alt="" class="cards-icons">
-                    Second Hand PC</h5>
-                <p class="card-text">Buy Second hand PC & Sell PC</p>
-                <a href='/secondhandpc'>
-                    <button type="button" class="btn btn-outline-pcb">BUY / SELL</button>
-                </a>
-            </div>
-        </div>
-    </div>
-
-    <div class="card-group">
-        <div class="card explore-crd">
-            <div class="card-body">
-                <h5 class="card-title">
-                    <img src="{{url_for('static', filename='User/IMG/build-guide.png')}}" alt="" class="cards-icons">
-                    Your Builds</h5>
-                <p class="card-text">See Your Previous Builded PCs History</p>
-                <a href='/viewbuilds'>
-                    <button type="button" class="btn btn-outline-pcb">View NOW</button>
-                </a>
-            </div>
-        </div>
-        
-        <div class="card explore-crd">
-            <div class="card-body">
-                <h5 class="card-titl/e">
-                    <img src="{{url_for('static', filename='User/IMG/second-hand-pc.png')}}" alt="" class="cards-icons">
-                    Other</h5>
-                <p class="card-text">Lorem ipsum dolor sit amet elit.</p>
-                <button type="button" class="btn btn-outline-pcb">BUY / SELL</button>
-            </div>
-        </div>
-    </div>
-
-</div>
-
-
-<!-- Footer -->
-
-<div class="main-footer-class bg-dark text-light">
-    <div class="container">
-        <footer class="py-5">
-            <div class="row">
-                <div class="col-2">
-                    <h5>Links</h5>
-                    <ul class="nav flex-column">
-                        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Home</a></li>
-                        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Products</a></li>
-                        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">About-Us</a></li>
-                        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">FAQs</a></li>
-                        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">About</a></li>
-                    </ul>
+        <div class="card-group">
+            <div class="card explore-crd">
+                <div class="card-body">
+                    <h5 class="card-title">
+                        <img src="{{url_for('static', filename='User/IMG/build.png')}}" alt="" class="cards-icons">
+                        Build PC</h5>
+                        <p class="card-text">Build your PC by adding components.</p>
+                        <a href='/buildpc'>
+                            <button type="button" class="btn btn-outline-pcb">BUILD NOW</button>
+                        </a>
+                    </div>
                 </div>
                 
-                <div class="col-2">
-                    <h5>Links</h5>
-                    <ul class="nav flex-column">
-                        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Home</a></li>
-                        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Features</a></li>
-                        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Pricing</a></li>
-                        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">FAQs</a></li>
-                        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">About</a></li>
-                    </ul>
+                <div class="card explore-crd">
+                    <div class="card-body">
+                        <h5 class="card-title">
+                            <img src="{{url_for('static', filename='User/IMG/users-build.png')}}" alt="" class="cards-icons">
+                            Users Build</h5>
+                            <p class="card-text">View & Rate other users PC Builds</p>
+                            <a href='/usersbuilds'>
+                                <button type="button" class="btn btn-outline-pcb">VIEW / RATE</button>
+                            </a>
+                        </div>
+                    </div>
                 </div>
                 
-                <div class="col-2">
-                    <h5>Links</h5>
-                    <ul class="nav flex-column">
-                        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Home</a></li>
-                        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Features</a></li>
-                        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Pricing</a></li>
-                        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">FAQs</a></li>
-                        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">About</a></li>
-                    </ul>
-                </div>
+                <div class="card-group">
+                    <div class="card explore-crd">
+                        <div class="card-body">
+                            <h5 class="card-title">
+                                <img src="{{url_for('static', filename='User/IMG/search-components.png')}}" alt=""
+                                class="cards-icons">
+                                Search Components</h5>
+                                <p class="card-text">Search the components which you are looking for.</p>
+                                <a href='/searchparts'>
+                                    <button type="button" class="btn btn-outline-pcb">SEARCH</button>
+                                </a>                    
+                            </div>
+                        </div>
+                        
+                        <div class="card explore-crd">
+                            <div class="card-body">
+                                <h5 class="card-titl/e">
+                                    <img src="{{url_for('static', filename='User/IMG/auto-build.png')}}" alt="" class="cards-icons">
+                                    Auto Build</h5>
+                                    <p class="card-text">Build PC by just entering your budget & needs</p>
+                                    <a href='/autobuild'>
+                                        <button type="button" class="btn btn-outline-pcb">AUTO BUILD</button>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="card-group">
+                            <div class="card explore-crd">
+                                <div class="card-body">
+                                    <h5 class="card-title">
+                                        <img src="{{url_for('static', filename='User/IMG/build-guide.png')}}" alt="" class="cards-icons">
+                                        Build Guide</h5>
+                                        <p class="card-text">Read Build Guide if you dont have enough knowledge about pc build.</p>
+                                        <a href='/buildguide'>
+                                            <button type="button" class="btn btn-outline-pcb">READ GUIDE</button>
+                                        </a>
+                                    </div>
+                                </div>
+                                
+                                <div class="card explore-crd">
+                                    <div class="card-body">
+                                        <h5 class="card-titl/e">
+                                            <img src="{{url_for('static', filename='User/IMG/second-hand-pc.png')}}" alt="" class="cards-icons">
+                                            Second Hand PC</h5>
+                                            <p class="card-text">Buy Second hand PC & Sell PC</p>
+                                            <a href='/secondhandpc'>
+                                                <button type="button" class="btn btn-outline-pcb">BUY / SELL</button>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="card-group mx-auto">
+                                    <div class="card explore-crd">
+                                        <div class="card-body">
+                                            <span class="material-symbols-outlined fs-1">handyman</span>
+                                            <h5 class="card-title">
+                                                <!-- <img src="{{url_for('static', filename='User/IMG/build-guide.png')}}" alt="" class="cards-icons"> -->
+                                                Your Builds</h5>
+                                                <p class="card-text">See Your Previous Builded PCs History</p>
+                                                <a href='/viewbuilds'>
+                                                    <button type="button" class="btn btn-outline-pcb">View NOW</button>
+                                                </a>
+                                            </div>
+                                        </div>
+                                        
+                                    </div>
+                                    
+                                </div>
+                                
+                                
+                                <!-- Footer -->
+                                
+                                <div class="main-footer-class bg-dark text-light">
+                                    <div class="container">
+                                        <footer class="py-5">
+                                            <div class="row">
+                                                <div class="col-2">
+                                                    <h5>Links</h5>
+                                                    <ul class="nav flex-column">
+                                                        <li class="nav-item mb-2"><a href="/index" class="nav-link p-0 text-muted">Home</a></li>
+                                                        <li class="nav-item mb-2"><a href="/searchparts" class="nav-link p-0 text-muted">Products</a></li>
+                                                        <li class="nav-item mb-2"><a href="/about" class="nav-link p-0 text-muted">About-Us</a></li>
+                                                        <li class="nav-item mb-2"><a href="" class="nav-link p-0 text-muted">Contact-Us</a></li>
+                                                    </ul>
+                                                </div>
+                                                
+                                                <div class="col-2">
+                                                    <h5>Links</h5>
+                                                    <ul class="nav flex-column">
+                                                        <li class="nav-item mb-2"><a href="/buildpc" class="nav-link p-0 text-muted">Build PC</a></li>
+                                                        <li class="nav-item mb-2"><a href="usersbuilds" class="nav-link p-0 text-muted">Users Build</a></li>
+                                                        <li class="nav-item mb-2"><a href="/viewbuilds" class="nav-link p-0 text-muted">Your Builds</a></li>
+                                                        <li class="nav-item mb-2"><a href="/autobuild" class="nav-link p-0 text-muted">Auto Build</a></li>
+                                                    </ul>
+                                                </div>
+                                                
+                                                <div class="col-2">
+                                                    <h5>Links</h5>
+                                                    <ul class="nav flex-column">
+                                                        <li class="nav-item mb-2"><a href="/searchparts" class="nav-link p-0 text-muted">Search Components</a></li>
+                                                        <li class="nav-item mb-2"><a href="/secondhandpc" class="nav-link p-0 text-muted">Second Hand PC</a></li>
+                                                        <li class="nav-item mb-2"><a href="/buildguide" class="nav-link p-0 text-muted">Build Guide</a></li>
+                                                    </ul>
+                                                </div>
                 
                 <div class="col-4 offset-1">
                     <div class="d-flex w-100 gap-2 ms-5">
                         <img src="{{url_for('static', filename='User/IMG/PCB-LOGO.png')}}" alt="" class="footer-logo">
                     </div>
                 </div>
-            
+                
             </div>
             
             <div class="d-flex justify-content-center py-4 my-4 border-top">
@@ -237,11 +225,11 @@
 <script src="{{url_for('static', filename='User/JS/index.js')}}"></script>
 <script src="{{url_for('static', filename='User/JS/bootstrap.min.js')}}"></script>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
-        integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p"
-        crossorigin="anonymous"></script>
+integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p"
+crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"
-        integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF"
-        crossorigin="anonymous"></script>
+integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF"
+crossorigin="anonymous"></script>
 </body>
 
 
