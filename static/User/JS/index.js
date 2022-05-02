@@ -68,8 +68,7 @@ ipOnSubmit.addEventListener("keyup", function (event) {
 
 
 
-// 
-
+// JS-5 : Counts Like when click On like button 
 function likeBtn() {
   var likeCount = document.getElementById("likeCount").innerHTML;
   var increasedLike = parseInt(likeCount,10) + 1;

@@ -343,6 +343,12 @@ nav .navbar-toggler {
 
 
 
+/* about */
+#member-card {
+    margin: 0px 12px !important;
+    margin-top: 2rem !important;
+}
+
 
 
 /* -----------      autobuild style      -----------*/
@@ -426,6 +432,17 @@ nav .navbar-toggler {
     width: 2.8rem;
     float: left !important;
 }
+/* rate builds style ends */
+
+
+/* Contact us style start */
+
+.contact-input {
+ border-color: #6f00ff !important;
+}
+
+
+/* Contact us style end */
 
 
 
@@ -507,4 +524,10 @@ nav .navbar-toggler {
         width: 90% !important;
         margin-right: 8% !important;
     }
+
+    #member-card{
+        margin: auto !important;
+        margin-top: 1rem !important;
+    }
+
 }
