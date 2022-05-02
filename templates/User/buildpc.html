@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns="http://www.w3.org/1999/html">
 
 <head>
     <meta charset="UTF-8"/>
@@ -15,6 +15,8 @@
         table{
             color: black;
         }
+    
+    
     
     </style>
     <title>App</title>
@@ -86,10 +88,14 @@
                     {% set i=session['cpu'] %}
                     <th scope="row">CPU</th>
                     <td>
-                        <p class="ms-1" style="font-weight: lighter;font-size: 1rem;">{{i[0][4]}}: {{i[0][5]}} | {{i[0][6]}}: {{i[0][7]}}</p>
-                        <p class="ms-1" style="font-weight: lighter;font-size: 1rem;">{{i[0][8]}}: {{i[0][9]}} | {{i[0][10]}}: {{i[0][11]}}</p>
-                        <p class="ms-1" style="font-weight: lighter;font-size: 1rem;">{{i[0][12]}}: {{i[0][13]}} | {{i[0][14]}}: {{i[0][15]}}</p>
-                        <p class="ms-1" style="font-weight: lighter;font-size: 1rem;">{{i[0][16]}}: {{i[0][17]}} | {{i[0][18]}}: {{i[0][19]}}</p>
+                        <p class="ms-1" style="font-weight: lighter;font-size: 1rem;">{{i[0][4]}}: {{i[0][5]}} |
+                            {{i[0][6]}}: {{i[0][7]}}</p>
+                        <p class="ms-1" style="font-weight: lighter;font-size: 1rem;">{{i[0][8]}}: {{i[0][9]}} |
+                            {{i[0][10]}}: {{i[0][11]}}</p>
+                        <p class="ms-1" style="font-weight: lighter;font-size: 1rem;">{{i[0][12]}}: {{i[0][13]}} |
+                            {{i[0][14]}}: {{i[0][15]}}</p>
+                        <p class="ms-1" style="font-weight: lighter;font-size: 1rem;">{{i[0][16]}}: {{i[0][17]}} |
+                            {{i[0][18]}}: {{i[0][19]}}</p>
                     </td>
                     <td></td>
                     <td><strong>{{i[0][-1]}}</strong></td>
@@ -112,16 +118,20 @@
                 </tr>
                 {% endif %}
                 
-<!--                MOTHEBOARD-->
+                <!--                MOTHEBOARD-->
                 {% if session['board'] %}
                 <tr>
                     {% set i=session['board'] %}
                     <th scope="row">MotherBoard</th>
                     <td>
-                        <p class="ms-1" style="font-weight: lighter;font-size: 1rem;">{{i[0][4]}}: {{i[0][5]}} | {{i[0][6]}}: {{i[0][7]}}</p>
-                        <p class="ms-1" style="font-weight: lighter;font-size: 1rem;">{{i[0][8]}}: {{i[0][9]}} | {{i[0][10]}}: {{i[0][11]}}</p>
-                        <p class="ms-1" style="font-weight: lighter;font-size: 1rem;">{{i[0][12]}}: {{i[0][13]}} | {{i[0][14]}}: {{i[0][15]}}</p>
-                        <p class="ms-1" style="font-weight: lighter;font-size: 1rem;">{{i[0][16]}}: {{i[0][17]}} | {{i[0][18]}}: {{i[0][19]}}</p>
+                        <p class="ms-1" style="font-weight: lighter;font-size: 1rem;">{{i[0][4]}}: {{i[0][5]}} |
+                            {{i[0][6]}}: {{i[0][7]}}</p>
+                        <p class="ms-1" style="font-weight: lighter;font-size: 1rem;">{{i[0][8]}}: {{i[0][9]}} |
+                            {{i[0][10]}}: {{i[0][11]}}</p>
+                        <p class="ms-1" style="font-weight: lighter;font-size: 1rem;">{{i[0][12]}}: {{i[0][13]}} |
+                            {{i[0][14]}}: {{i[0][15]}}</p>
+                        <p class="ms-1" style="font-weight: lighter;font-size: 1rem;">{{i[0][16]}}: {{i[0][17]}} |
+                            {{i[0][18]}}: {{i[0][19]}}</p>
                     </td>
                     <td></td>
                     <td><strong>{{i[0][-1]}}</strong></td>
@@ -144,16 +154,20 @@
                 </tr>
                 {% endif %}
                 
-<!--                RAM-->
+                <!--                RAM-->
                 {% if session['ram'] %}
                 <tr>
                     {% set i=session['ram'] %}
                     <th scope="row">RAM</th>
                     <td>
-                        <p class="ms-1" style="font-weight: lighter;font-size: 1rem;">{{i[0][4]}}: {{i[0][5]}} | {{i[0][6]}}: {{i[0][7]}}</p>
-                        <p class="ms-1" style="font-weight: lighter;font-size: 1rem;">{{i[0][8]}}: {{i[0][9]}} | {{i[0][10]}}: {{i[0][11]}}</p>
-                        <p class="ms-1" style="font-weight: lighter;font-size: 1rem;">{{i[0][12]}}: {{i[0][13]}} | {{i[0][14]}}: {{i[0][15]}}</p>
-                        <p class="ms-1" style="font-weight: lighter;font-size: 1rem;">{{i[0][16]}}: {{i[0][17]}} | {{i[0][18]}}: {{i[0][19]}}</p>
+                        <p class="ms-1" style="font-weight: lighter;font-size: 1rem;">{{i[0][4]}}: {{i[0][5]}} |
+                            {{i[0][6]}}: {{i[0][7]}}</p>
+                        <p class="ms-1" style="font-weight: lighter;font-size: 1rem;">{{i[0][8]}}: {{i[0][9]}} |
+                            {{i[0][10]}}: {{i[0][11]}}</p>
+                        <p class="ms-1" style="font-weight: lighter;font-size: 1rem;">{{i[0][12]}}: {{i[0][13]}} |
+                            {{i[0][14]}}: {{i[0][15]}}</p>
+                        <p class="ms-1" style="font-weight: lighter;font-size: 1rem;">{{i[0][16]}}: {{i[0][17]}} |
+                            {{i[0][18]}}: {{i[0][19]}}</p>
                     </td>
                     <td></td>
                     <td><strong>{{i[0][-1]}}</strong></td>
@@ -176,16 +190,20 @@
                 </tr>
                 {% endif %}
                 
-<!--                GRAPHICS CARD-->
+                <!--                GRAPHICS CARD-->
                 {% if session['gpu'] %}
                 <tr>
                     {% set i=session['gpu'] %}
                     <th scope="row">Graphics Card</th>
                     <td>
-                        <p class="ms-1" style="font-weight: lighter;font-size: 1rem;">{{i[0][4]}}: {{i[0][5]}} | {{i[0][6]}}: {{i[0][7]}}</p>
-                        <p class="ms-1" style="font-weight: lighter;font-size: 1rem;">{{i[0][8]}}: {{i[0][9]}} | {{i[0][10]}}: {{i[0][11]}}</p>
-                        <p class="ms-1" style="font-weight: lighter;font-size: 1rem;">{{i[0][12]}}: {{i[0][13]}} | {{i[0][14]}}: {{i[0][15]}}</p>
-                        <p class="ms-1" style="font-weight: lighter;font-size: 1rem;">{{i[0][16]}}: {{i[0][17]}} | {{i[0][18]}}: {{i[0][19]}}</p>
+                        <p class="ms-1" style="font-weight: lighter;font-size: 1rem;">{{i[0][4]}}: {{i[0][5]}} |
+                            {{i[0][6]}}: {{i[0][7]}}</p>
+                        <p class="ms-1" style="font-weight: lighter;font-size: 1rem;">{{i[0][8]}}: {{i[0][9]}} |
+                            {{i[0][10]}}: {{i[0][11]}}</p>
+                        <p class="ms-1" style="font-weight: lighter;font-size: 1rem;">{{i[0][12]}}: {{i[0][13]}} |
+                            {{i[0][14]}}: {{i[0][15]}}</p>
+                        <p class="ms-1" style="font-weight: lighter;font-size: 1rem;">{{i[0][16]}}: {{i[0][17]}} |
+                            {{i[0][18]}}: {{i[0][19]}}</p>
                     </td>
                     <td></td>
                     <td><strong>{{i[0][-1]}}</strong></td>
@@ -208,16 +226,20 @@
                 </tr>
                 {% endif %}
                 
-<!--                STORAGE-->
+                <!--                STORAGE-->
                 {% if session['hdd'] %}
                 <tr>
                     {% set i=session['hdd'] %}
                     <th scope="row">Storage</th>
                     <td>
-                        <p class="ms-1" style="font-weight: lighter;font-size: 1rem;">{{i[0][4]}}: {{i[0][5]}} | {{i[0][6]}}: {{i[0][7]}}</p>
-                        <p class="ms-1" style="font-weight: lighter;font-size: 1rem;">{{i[0][8]}}: {{i[0][9]}} | {{i[0][10]}}: {{i[0][11]}}</p>
-                        <p class="ms-1" style="font-weight: lighter;font-size: 1rem;">{{i[0][12]}}: {{i[0][13]}} | {{i[0][14]}}: {{i[0][15]}}</p>
-                        <p class="ms-1" style="font-weight: lighter;font-size: 1rem;">{{i[0][16]}}: {{i[0][17]}} | {{i[0][18]}}: {{i[0][19]}}</p>
+                        <p class="ms-1" style="font-weight: lighter;font-size: 1rem;">{{i[0][4]}}: {{i[0][5]}} |
+                            {{i[0][6]}}: {{i[0][7]}}</p>
+                        <p class="ms-1" style="font-weight: lighter;font-size: 1rem;">{{i[0][8]}}: {{i[0][9]}} |
+                            {{i[0][10]}}: {{i[0][11]}}</p>
+                        <p class="ms-1" style="font-weight: lighter;font-size: 1rem;">{{i[0][12]}}: {{i[0][13]}} |
+                            {{i[0][14]}}: {{i[0][15]}}</p>
+                        <p class="ms-1" style="font-weight: lighter;font-size: 1rem;">{{i[0][16]}}: {{i[0][17]}} |
+                            {{i[0][18]}}: {{i[0][19]}}</p>
                     </td>
                     <td></td>
                     <td><strong>{{i[0][-1]}}</strong></td>
@@ -240,16 +262,20 @@
                 </tr>
                 {% endif %}
                 
-<!--                SMPS-->
+                <!--                SMPS-->
                 {% if session['psu'] %}
                 <tr>
                     {% set i=session['psu'] %}
                     <th scope="row">SMPS</th>
                     <td>
-                        <p class="ms-1" style="font-weight: lighter;font-size: 1rem;">{{i[0][4]}}: {{i[0][5]}} | {{i[0][6]}}: {{i[0][7]}}</p>
-                        <p class="ms-1" style="font-weight: lighter;font-size: 1rem;">{{i[0][8]}}: {{i[0][9]}} | {{i[0][10]}}: {{i[0][11]}}</p>
-                        <p class="ms-1" style="font-weight: lighter;font-size: 1rem;">{{i[0][12]}}: {{i[0][13]}} | {{i[0][14]}}: {{i[0][15]}}</p>
-                        <p class="ms-1" style="font-weight: lighter;font-size: 1rem;">{{i[0][16]}}: {{i[0][17]}} | {{i[0][18]}}: {{i[0][19]}}</p>
+                        <p class="ms-1" style="font-weight: lighter;font-size: 1rem;">{{i[0][4]}}: {{i[0][5]}} |
+                            {{i[0][6]}}: {{i[0][7]}}</p>
+                        <p class="ms-1" style="font-weight: lighter;font-size: 1rem;">{{i[0][8]}}: {{i[0][9]}} |
+                            {{i[0][10]}}: {{i[0][11]}}</p>
+                        <p class="ms-1" style="font-weight: lighter;font-size: 1rem;">{{i[0][12]}}: {{i[0][13]}} |
+                            {{i[0][14]}}: {{i[0][15]}}</p>
+                        <p class="ms-1" style="font-weight: lighter;font-size: 1rem;">{{i[0][16]}}: {{i[0][17]}} |
+                            {{i[0][18]}}: {{i[0][19]}}</p>
                     </td>
                     <td></td>
                     <td><strong>{{i[0][-1]}}</strong></td>
@@ -271,15 +297,20 @@
                     <td></td>
                 </tr>
                 {% endif %}
+<!--                cabinet-->
                 {% if session['cab'] %}
                 <tr>
                     {% set i=session['cab'] %}
                     <th scope="row">Cabinet</th>
                     <td>
-                        <p class="ms-1" style="font-weight: lighter;font-size: 1rem;">{{i[0][4]}}: {{i[0][5]}} | {{i[0][6]}}: {{i[0][7]}}</p>
-                        <p class="ms-1" style="font-weight: lighter;font-size: 1rem;">{{i[0][8]}}: {{i[0][9]}} | {{i[0][10]}}: {{i[0][11]}}</p>
-                        <p class="ms-1" style="font-weight: lighter;font-size: 1rem;">{{i[0][12]}}: {{i[0][13]}} | {{i[0][14]}}: {{i[0][15]}}</p>
-                        <p class="ms-1" style="font-weight: lighter;font-size: 1rem;">{{i[0][16]}}: {{i[0][17]}} | {{i[0][18]}}: {{i[0][19]}}</p>
+                        <p class="ms-1" style="font-weight: lighter;font-size: 1rem;">{{i[0][4]}}: {{i[0][5]}} |
+                            {{i[0][6]}}: {{i[0][7]}}</p>
+                        <p class="ms-1" style="font-weight: lighter;font-size: 1rem;">{{i[0][8]}}: {{i[0][9]}} |
+                            {{i[0][10]}}: {{i[0][11]}}</p>
+                        <p class="ms-1" style="font-weight: lighter;font-size: 1rem;">{{i[0][12]}}: {{i[0][13]}} |
+                            {{i[0][14]}}: {{i[0][15]}}</p>
+                        <p class="ms-1" style="font-weight: lighter;font-size: 1rem;">{{i[0][16]}}: {{i[0][17]}} |
+                            {{i[0][18]}}: {{i[0][19]}}</p>
                     </td>
                     <td></td>
                     <td><strong>{{i[0][-1]}}</strong></td>
@@ -301,8 +332,49 @@
                     <td></td>
                 </tr>
                 {% endif %}
+               
+<!--                cooler-->
+                {% if session['cooler'] %}
+                <tr>
+                    {% set i=session['cooler'] %}
+                    <th scope="row">Cooler</th>
+                    <td>
+                        <p class="ms-1" style="font-weight: lighter;font-size: 1rem;">{{i[0][4]}}: {{i[0][5]}} |
+                            {{i[0][6]}}: {{i[0][7]}}</p>
+                        <p class="ms-1" style="font-weight: lighter;font-size: 1rem;">{{i[0][8]}}: {{i[0][9]}} |
+                            {{i[0][10]}}: {{i[0][11]}}</p>
+                        <p class="ms-1" style="font-weight: lighter;font-size: 1rem;">{{i[0][12]}}: {{i[0][13]}} |
+                            {{i[0][14]}}: {{i[0][15]}}</p>
+                        <p class="ms-1" style="font-weight: lighter;font-size: 1rem;">{{i[0][16]}}: {{i[0][17]}} |
+                            {{i[0][18]}}: {{i[0][19]}}</p>
+                    </td>
+                    <td></td>
+                    <td><strong>{{i[0][-1]}}</strong></td>
+                    <td></td>
+                </tr>
+                {% endif %}
+                {% if not session['cooler']%}
+                <tr>
+                    <th scope="row">Cooler</th>
+                    <td>
+                        <a href="/cpuselect/cooler">
+                            <button type="submit" class="btn btn-outline-pcb" id="table-close-btn">
+                                Add Component
+                            </button>
+                        </a>
+                    </td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                {% endif %}
                 </tbody>
             </table>
+            <form action="/addthispc">
+            <button type="submit" class="btn btn-outline-pcb" id="table-close-btn">
+                Build PC
+            </button>
+            </form>
         </div>
     </div>
     

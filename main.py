@@ -15,7 +15,7 @@ g = globs()
 logic = logic()
 ipcontrol = ipControl()
 dataapi = datatransfer()
-Authenticator = Authentication()
+authenticator = Authentication()
 
 app.config["SESSION_PERMANENT"] = False
 app.config["SESSION_TYPE"] = "filesystem"
@@ -35,8 +35,9 @@ def login():
     if request.method == 'POST':
         useremail = request.form.get('useremail')
         userpass = request.form.get('userpass')
-        data = Authenticator.verifyuser(useremail, userpass)
+        data = authenticator.verifyuser(useremail, userpass)
         if data:
+            session['user'] = data
             g.USER = data
             return redirect(url_for('home'))
     return render_template('User/login.html')
@@ -60,7 +61,7 @@ def cpuselect(query):
     data = None
     if query == 'cpu':
         data = dataapi.getCPUs()
-        session['cpu']=None
+        session['cpu'] = None
     if query == 'board':
         data = dataapi.getBOARDs()
     if query == 'ram':
@@ -73,6 +74,8 @@ def cpuselect(query):
         data = dataapi.getPSUs()
     if query == 'cab':
         data = dataapi.getCABINETs()
+    if query == 'cooler':
+        data = dataapi.getCOOLERs()
     return render_template('User/cpuselect.html', data=data, type=query)
 
 
@@ -92,8 +95,31 @@ def componentadder(comptype, compid):
         session['psu'] = dataapi.getPSUs(psuid=int(compid))
     if comptype == 'cab':
         session['cab'] = dataapi.getCABINETs(cabid=int(compid))
+    if comptype == 'cooler':
+        session['cooler'] = dataapi.getCOOLERs(coolerid=int(compid))
     return redirect(url_for('buildpc'))
 
+
+@app.route('/addthispc')
+def addthispc():
+    if not g.USER:
+        return redirect('login')
+    if g.USER:
+        userid = g.USER.UserID
+        cpuid = session['cpu'][0][1]
+        boardid = session['board'][0][1]
+        psuid = session['psu'][0][1]
+        ramid = session['ram'][0][1]
+        hddid = session['hdd'][0][1]
+        coolerid = session['cooler'][0][1]
+        cabid = session['cab'][0][1]
+        gpuid = session['gpu'][0][1]
+        price = (session['cpu'][0][-1] + session['board'][0][-1] + session['psu'][0][-1] + session['ram'][0][-1] +
+                 session['hdd'][0][-1] + session['cooler'][0][-1] + session['cab'][0][-1] + session['gpu'][0][-1])
+        authenticator.addpc(userid=userid, cpuid=cpuid, hddid=hddid, boardid=boardid, cabid=cabid, psuid=psuid,
+                            gpuid=gpuid, ramid=ramid, coolerid=coolerid, price=price)
+        session.clear()
+        return redirect(url_for('home'))
 
 
 @app.route('/autobuild', methods=['GET', 'POST'])
@@ -192,6 +218,8 @@ def ratebuilds():
         pass
 
     return render_template('User/ratebuilds.html')
+
+
 @app.route('/contact', methods=['GET', 'POST'])
 def contact():
     ipcontrol.getIP(request.remote_addr)
@@ -199,6 +227,7 @@ def contact():
         pass
 
     return render_template('User/contactus.html')
+
 
 if __name__ == '__main__':
     app.run(debug=True)

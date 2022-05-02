@@ -287,6 +287,36 @@
                 </tr>
                 {% endfor %}
                 {% endif %}
+                {% if type == 'cooler' %}
+                {% for dt in data %}
+                <tr>
+                    <th scope="row text-wrap">
+                        {{dt.CoolerName}}
+                        <div class="cpu-details-1 mt-3 fs-6 d-flex">
+                            <p class="ms-5" style="font-weight: lighter;font-size: 1rem;">Fan RPM:
+                                {{dt.FanRPM}}</p>
+                            <p class="ms-5" style="font-weight: lighter;font-size: 1rem;">Noice Level:
+                                {{dt.NoiseLevel}}</p>
+                        </div>
+                        <div class="cpu-details-2 fs-6 d-flex">
+                            <p class="ms-5" style="font-weight: lighter;font-size: 1rem;">Side Panel:
+                                {{dt.RadiatorSize}}</p>
+                            <p class="ms-5" style="font-weight: lighter;font-size: 1rem;">Colour:
+                                {{dt.Color}}</p>
+                        </div>
+                    </th>
+                    </th>
+                    <td>{{dt.Price}}₹</td>
+                    <td>
+                        <form action="componentadder/cooler/{{dt.CoolerID}}">
+                            <button type="submit" class="btn btn-outline-pcb" id="table-close-btn">
+                                <span class="material-symbols-outlined mt-1">add</span>
+                            </button>
+                        </form>
+                    </td>
+                </tr>
+                {% endfor %}
+                {% endif %}
                 </tbody>
             </table>
         </div>
