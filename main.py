@@ -192,7 +192,13 @@ def ratebuilds():
         pass
 
     return render_template('User/ratebuilds.html')
+@app.route('/contact', methods=['GET', 'POST'])
+def contact():
+    ipcontrol.getIP(request.remote_addr)
+    if request.method == 'POST':
+        pass
 
+    return render_template('User/contactus.html')
 
 if __name__ == '__main__':
     app.run(debug=True)
