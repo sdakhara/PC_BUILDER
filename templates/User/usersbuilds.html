@@ -59,14 +59,39 @@
 
     <div class="main-container">
         
+        
         <div class="card-group mx-auto">
             <div class="card bg-dark">
-                <img src="{{url_for('static', filename='User/IMG/ssd.jpg')}}" class="card-img-top" alt="...">
+                <!-- <img src="{{url_for('static', filename='User/IMG/ssd.jpg')}}" class="card-img-top" alt="..."> -->
+                <div class="mx-auto">
+                    <span class="material-symbols-outlined text-light mt-5" style="font-size: 4rem;">
+                    add
+                    </span>
+                </div>
                 <div class="card-body">
-                    <h5 class="card-title">Build Name</h5>
-                    <h5 class="card-title">₹ 14500</h5>
+                    <h5 class="card-title">Add Your Build</h5>
                     <p class="card-text">Description About this build</p>
-                    <button class="btn btn-outline-pcb log-in mb-2" type="submit">View Build</button>
+                     <button class="btn btn-outline-pcb log-in mb-2" type="submit" data-bs-toggle="modal" data-bs-target="#addbuild">Add Now</button>
+
+                         <!-- Modal -->
+                    <div class="modal fade text-dark" id="addbuild" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                            <h5 class="modal-title text-dark" id="exampleModalLabel">Add Your Build</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <div class="users-builds-cards"></div>
+                            </div>
+                            <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                            <button type="button" class="btn btn-primary">Submit</button>
+                            </div>
+                        </div>
+                        </div>
+                    </div>
+                     
                 </div>
             </div>
             <div class="card bg-dark">
@@ -75,7 +100,9 @@
                     <h5 class="card-title">Deal Title</h5>
                     <h5 class="card-title">₹ 14500</h5>
                     <p class="card-text">Description About Selling Deal</p>
-                    <button class="btn btn-outline-pcb log-in mb-2" type="submit">View Deal</button>
+                    <a href="/ratebuilds">
+                        <button class="btn btn-outline-pcb log-in mb-2" type="submit">View Deal</button>
+                    </a>
                 </div>
             </div>
             <div class="card bg-dark">
