@@ -191,7 +191,8 @@ def messages():
 @app.route('/messages/<userid>', methods=['GET', 'POST'])
 def message_response(userid):
     try:
-        return render_template('Admin/message_response.html')
+        data = dataapi.getMessages()
+        return render_template('Admin/message_response.html', data=data)
     except:
         return redirect(url_for('home'))
 

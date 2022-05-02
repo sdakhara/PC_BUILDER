@@ -63,11 +63,13 @@
 
 <div class="main-container">
     <!-- Price Range Slider (Budget Slider) -->
-    <form action="">
-        <div class="budget-slider w-50 mx-auto">
-            <center>
-                <label for="range-slider" class="form-label text-light w-75 slider-label fs-5">Enter Budget</label>
-            </center>
+    
+    <div class="budget-slider w-50 mx-auto">
+        <center>
+            
+            <label for="range-slider" class="form-label text-light w-75 slider-label fs-5">Enter Budget</label>
+        </center>
+        <form action="autobuild" method="POST">
             <input type="range" class="form-range slider-input" id="range-slider" min="5000" max="500000"
                    value="5000"/>
             
@@ -75,109 +77,120 @@
                 <div class="input-group-prepend">
                     <div class="input-group-text">₹</div>
                 </div>
-                <input type="number" class="form-control budget-input" id="price-value-input" min="5000"
+                <input type="number" name="budget" class="form-control budget-input" id="price-value-input" min="5000"
                        max="500000" placeholder="Enter Budget"/>
             </div>
+            
             <button type="submit" class="btn btn-outline-pcb mx-auto d-flex justify-content-center mt-2"
-                    id="budget-apply-btn">
-                Apply
+                    id="budget-apply-btn">Apply
             </button>
-        </div>
-    </form>
+        </form>
+    </div>
     
+    {% for dt in pcs %}
     <div class="products-table-1 mx-auto table-responsive">
-
+        
         <table class="table table-bordered text-light" id="products-table-1">
-                <thead>
-                    <tr>
-                        <th scope="col">Component</th>
-                        <th scope="col">Picked</th>
-                        <th scope="col">Price</th>
-                        <th scope="col">Shipping</th>
-                        <th scope="col">Cencel / Add</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <th scope="row">CPU</th>
-                        <td>CPU Modal Information</td>
-                        <td>5000 ₹</td>
-                        <td>Free</td>
-                        <td>
-                            <button type="submit" class="btn btn-outline-pcb" id="table-close-btn">
-                                <span aria-hidden="true">&times;</span>
-                            </button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <th scope="row">CPU Cooler</th>
-                        <td>CPU Info</td>
-                        <td>5000 ₹</td>
-                        <td>Free</td>
-                        <td>
-                            <button type="submit" class="btn btn-outline-pcb" id="table-close-btn">
-                                <span aria-hidden="true">&times;</span>
-                            </button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <th scope="row">Ram</th>
-                        <td>Ram Info</td>
-                        <td>5000 ₹</td>
-                        <td>Free</td>
-                        <td>
-                            <button type="submit" class="btn btn-outline-pcb" id="table-close-btn">
-                                <span aria-hidden="true">&times;</span>
-                            </button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <th scope="row">Graphics Card</th>
-                        <td>GPU Info</td>
-                        <td>5000 ₹</td>
-                        <td>Free</td>
-                        <td>
-                            <button type="submit" class="btn btn-outline-pcb" id="table-close-btn">
-                                <span aria-hidden="true">&times;</span>
-                            </button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <th scope="row">Motherboadr</th>
-                        <td>Motherboard Info</td>
-                        <td>5000 ₹</td>
-                        <td>Free</td>
-                        <td>
-                            <button type="submit" class="btn btn-outline-pcb" id="table-close-btn">
-                                <span aria-hidden="true">&times;</span>
-                            </button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <th scope="row">Storage</th>
-                        <td>Storage Info</td>
-                        <td>5000 ₹</td>
-                        <td>Free</td>
-                        <td>
-                            <button type="submit" class="btn btn-outline-pcb" id="table-close-btn">
-                                <span aria-hidden="true">&times;</span>
-                            </button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <th scope="row">Power Supply</th>
-                        <td>PCU Info</td>
-                        <td>5000 ₹</td>
-                        <td>Free</td>
-                        <td>
-                            <button type="submit" class="btn btn-outline-pcb" id="table-close-btn">
-                                <span aria-hidden="true">&times;</span>
-                            </button>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
-
+            <thead>
+            <tr>
+                <th scope="col">Component</th>
+                <th scope="col">Picked</th>
+                <th scope="col">Price</th>
+                <th scope="col">Shipping</th>
+                <th scope="col">Cencel / Add</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <th scope="row">{{dt[1][0]}}</th>
+                <td>{{dt[1][0]}}</td>
+                <td>5000 ₹</td>
+                <td>Free</td>
+                <td>
+                    <button type="submit" class="btn btn-outline-pcb" id="table-close-btn">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </td>
+            </tr>
+            <tr>
+                <th scope="row">{{dt[1][0]}}</th>
+                <td>{{dt}}</td>
+                <td>5000 ₹</td>
+                <td>Free</td>
+                <td>
+                    <button type="submit" class="btn btn-outline-pcb" id="table-close-btn">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </td>
+            </tr>
+            <tr>
+                <th scope="row">{{dt[2][0]}}</th>
+                <td>{{dt}}</td>
+                <td>5000 ₹</td>
+                <td>Free</td>
+                <td>
+                    <button type="submit" class="btn btn-outline-pcb" id="table-close-btn">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </td>
+            </tr>
+            <tr>
+                <th scope="row">{{dt[3][0]}}</th>
+                <td>GPU Info</td>
+                <td>5000 ₹</td>
+                <td>Free</td>
+                <td>
+                    <button type="submit" class="btn btn-outline-pcb" id="table-close-btn">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </td>
+            </tr>
+            <tr>
+                <th scope="row">{{dt[4][0]}}</th>
+                <td>Motherboard Info</td>
+                <td>5000 ₹</td>
+                <td>Free</td>
+                <td>
+                    <button type="submit" class="btn btn-outline-pcb" id="table-close-btn">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </td>
+            </tr>
+            <tr>
+                <th scope="row">{{dt[4][0]}}</th>
+                <td>Storage Info</td>
+                <td>5000 ₹</td>
+                <td>Free</td>
+                <td>
+                    <button type="submit" class="btn btn-outline-pcb" id="table-close-btn">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </td>
+            </tr>
+            <tr>
+                <th scope="row">{{dt[5][0]}}</th>
+                <td>PCU Info</td>
+                <td>5000 ₹</td>
+                <td>Free</td>
+                <td>
+                    <button type="submit" class="btn btn-outline-pcb" id="table-close-btn">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </td>
+            </tr>
+            <tr>
+                <th scope="row">{{dt[6][0]}}</th>
+                <td>PCU Info</td>
+                <td>5000 ₹</td>
+                <td>Free</td>
+                <td>
+                    <button type="submit" class="btn btn-outline-pcb" id="table-close-btn">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </td>
+            </tr>
+            </tbody>
+        </table>
         <div class="d-flex justify-content-end">
             <ul class="list-group w-25">
                 <li class="list-group-item bg-dark text-light">
@@ -190,6 +203,7 @@
         </div>
     
     </div>
+    {% endfor %}
 </div>
 
 

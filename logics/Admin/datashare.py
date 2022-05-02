@@ -261,7 +261,9 @@ class datatransfer:
     def getcountrydata(self):
         return db.query(countrydata).all()
 
-    def getMessages(self):
+    def getMessages(self, userid=None):
+        if userid:
+            return db.query(userquery).filter_by(UserID=userid).all()
         return db.query(userquery).all()
 
     def srchusrname(self, name):
@@ -270,9 +272,11 @@ class datatransfer:
     def srchusrid(self, id):
         return db.query(userdata).filter_by(UserID=id).all()
 
-    def getCPUs(self, sockettype=None, list=False):
+    def getCPUs(self, min=None, max=None, core=None, Brand=None, sockettype=None, list=False):
         if list:
             return sortcpu(db.query(cpudata).filter_by(SocketType=sockettype).all())
+        if min or max:
+            return db.query(cpudata).filter(cpudata.Price < max)
         return db.query(cpudata).all()
 
     def getGPUs(self, list=False):

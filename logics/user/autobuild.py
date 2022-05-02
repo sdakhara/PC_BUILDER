@@ -8,23 +8,24 @@ dataapi = datatransfer()
 class logic:
     def autobuild(self, budget):
         new = []
-        board = dataapi.getBOARDs(True)
-        hdd = dataapi.getSTORAGEs(True)
-        psu = dataapi.getPSUs(True)
-        cabinet = dataapi.getCABINETs(True)
+        board = dataapi.getBOARDs()
+        hdd = dataapi.getSTORAGEs()
+        psu = dataapi.getPSUs()
+        cabinet = dataapi.getCABINETs()
         for counter in range(1000):
             try:
                 brd = choice(board)
-                cpu = dataapi.getCPUs(brd[7], True)
+                cpu = dataapi.getCPUs(sockettype=brd[7], list=True)
                 c = choice(cpu)
-                ram = dataapi.getRAMs(brd[11], True)
+                ram = dataapi.getRAMs(brd[11], list=True)
                 rm = choice(ram)
                 strg = choice(hdd)
                 pu = choice(psu)
                 cab = choice(cabinet)
                 if c[-1] + brd[-1] + rm[-1] + strg[-1] + pu[-1] + cab[-1] <= budget:
-                    new.append([cpu, board, ram, hdd, psu, cabinet])
+                    new.append([c, brd, rm, strg, pu, cab])
                     print('pc added')
+                    break
             except:
                 continue
         return new
