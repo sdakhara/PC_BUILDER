@@ -69,3 +69,9 @@ ipOnSubmit.addEventListener("keyup", function (event) {
 
 
 // 
+
+function likeBtn() {
+  var likeCount = document.getElementById("likeCount").innerHTML;
+  var increasedLike = parseInt(likeCount,10) + 1;
+  document.getElementById("likeCount").innerHTML = increasedLike;
+}
