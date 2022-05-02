@@ -1,5 +1,6 @@
-from flask import Flask, render_template, request, redirect, url_for
+from flask import *
 
+from flask_session import Session
 from logics.Admin.datashare import Authentication, datatransfer
 from logics.user.autobuild import logic
 from logics.user.iplogics import ipControl
@@ -15,6 +16,10 @@ logic = logic()
 ipcontrol = ipControl()
 dataapi = datatransfer()
 Authenticator = Authentication()
+
+app.config["SESSION_PERMANENT"] = False
+app.config["SESSION_TYPE"] = "filesystem"
+Session(app)
 
 
 # User Routes
@@ -46,20 +51,49 @@ def index():
 @app.route('/buildpc', methods=['GET', 'POST'])
 def buildpc():
     ipcontrol.getIP(request.remote_addr)
-    cpu = None
-    if request.method == 'POST':
-        if request.form.get('btn') == 'cpu':
-            cpuMinBudget = int(request.form.get('cpuMinBudget'))
-            cpuMaxBudget = int(request.form.get('cpuMaxBudget'))
-            cpuCoreSingle = bool(request.form.get('cpuCoreSingle '))
-            cpuCoreDual = bool(request.form.get('cpuCoreDual'))
-            cpuCoreQuad = bool(request.form.get('cpuCoreQuad'))
-            cpuCoreHexa = bool(request.form.get('cpuCoreHexa'))
-            cpuCoreOcta = bool(request.form.get('cpuCoreOcta'))
-            cpuBrandAMD = bool(request.form.get('cpuBrandAMD'))
-            cpuBrandIntel = bool(request.form.get('cpuBrandIntel'))
-            cpu = dataapi.getCPUs(min=cpuMinBudget, max=cpuMaxBudget)
-    return render_template('User/buildpc.html', data=cpu)
+    return render_template('User/buildpc.html')
+
+
+@app.route('/cpuselect/<query>', methods=['GET', 'POST'])
+def cpuselect(query):
+    ipcontrol.getIP(request.remote_addr)
+    data = None
+    if query == 'cpu':
+        data = dataapi.getCPUs()
+        session['cpu']=None
+    if query == 'board':
+        data = dataapi.getBOARDs()
+    if query == 'ram':
+        data = dataapi.getRAMs()
+    if query == 'hdd':
+        data = dataapi.getSTORAGEs()
+    if query == 'gpu':
+        data = dataapi.getGPUs()
+    if query == 'psu':
+        data = dataapi.getPSUs()
+    if query == 'cab':
+        data = dataapi.getCABINETs()
+    return render_template('User/cpuselect.html', data=data, type=query)
+
+
+@app.route('/cpuselect/componentadder/<comptype>/<compid>')
+def componentadder(comptype, compid):
+    if comptype == 'cpu':
+        session['cpu'] = dataapi.getCPUs(cpuid=int(compid))
+    if comptype == 'board':
+        session['board'] = dataapi.getBOARDs(boardid=int(compid))
+    if comptype == 'ram':
+        session['ram'] = dataapi.getRAMs(ramid=int(compid))
+    if comptype == 'hdd':
+        session['hdd'] = dataapi.getSTORAGEs(strgid=int(compid))
+    if comptype == 'gpu':
+        session['gpu'] = dataapi.getGPUs(gpuid=int(compid))
+    if comptype == 'psu':
+        session['psu'] = dataapi.getPSUs(psuid=int(compid))
+    if comptype == 'cab':
+        session['cab'] = dataapi.getCABINETs(cabid=int(compid))
+    return redirect(url_for('buildpc'))
+
 
 
 @app.route('/autobuild', methods=['GET', 'POST'])
@@ -158,15 +192,6 @@ def ratebuilds():
         pass
 
     return render_template('User/ratebuilds.html')
-
-
-@app.route('/cpuselect', methods=['GET', 'POST'])
-def cpuselect():
-    ipcontrol.getIP(request.remote_addr)
-    if request.method == 'POST':
-        pass
-
-    return render_template('User/cpuselect.html')
 
 
 if __name__ == '__main__':

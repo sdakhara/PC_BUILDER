@@ -272,46 +272,61 @@ class datatransfer:
     def srchusrid(self, id):
         return db.query(userdata).filter_by(UserID=id).all()
 
-    def getCPUs(self, min=None, max=None, core=None, Brand=None, sockettype=None, list=False):
+    def getCPUs(self, cpuid=None, sockettype=None, list=False):
         if list:
             return sortcpu(db.query(cpudata).filter_by(SocketType=sockettype).all())
-        if min or max:
-            return db.query(cpudata).filter(cpudata.Price < max)
+
+        if cpuid:
+            return sortcpu(db.query(cpudata).filter_by(CPUID=cpuid).all())
         return db.query(cpudata).all()
 
-    def getGPUs(self, list=False):
+    def getGPUs(self,gpuid=None, list=False):
         if list:
             return sortgpu(db.query(gpudata).all())
+        if gpuid:
+            return sortgpu(db.query(gpudata).filter_by(GPUID=gpuid).all())
         return db.query(gpudata).all()
 
-    def getRAMs(self, ramtype=None, list=False):
+    def getRAMs(self,ramid=None, ramtype=None, list=False):
         if list:
             return sortram(db.query(ramdata).filter_by(Type=ramtype).all())
+        if ramid:
+            return sortram(db.query(ramdata).filter_by(RAMID=ramid).all())
         return db.query(ramdata).all()
 
-    def getBOARDs(self, list=False):
+    def getBOARDs(self,boardid=None, list=False):
         if list:
             return sortboard(db.query(boarddata).all())
+        if boardid:
+            return sortboard(db.query(boarddata).filter_by(BoardID=boardid).all())
         return db.query(boarddata).all()
 
-    def getCOOLERs(self, list=False):
+    def getCOOLERs(self,coolerid=None, list=False):
         if list:
             return sortcooler(db.query(coolerdata).all())
+        if coolerid:
+            return sortcooler(db.query(coolerdata).filter_by(CoolerID=coolerid).all())
         return db.query(coolerdata).all()
 
-    def getSTORAGEs(self, list=False):
+    def getSTORAGEs(self,strgid=None, list=False):
         if list:
             return sorthdd(db.query(storagedata).all())
+        if strgid:
+            return sorthdd(db.query(storagedata).filter_by(StorageID=strgid).all())
         return db.query(storagedata).all()
 
-    def getCABINETs(self, list=False):
+    def getCABINETs(self,cabid=None, list=False):
         if list:
             return sortcabinet(db.query(cabinetdata).all())
+        if cabid:
+            return sortcabinet(db.query(cabinetdata).filter_by(CabinetID=cabid).all())
         return db.query(cabinetdata).all()
 
-    def getPSUs(self, list=False):
+    def getPSUs(self,psuid=None, list=False):
         if list:
             return sortpsu(db.query(psudata).all())
+        if psuid:
+            return sortpsu(db.query(psudata).filter_by(SmpsID=psuid).all())
         return db.query(psudata).all()
 
 
