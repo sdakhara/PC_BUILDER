@@ -7,7 +7,7 @@ from sqlalchemy.types import String, Integer
 
 from logics.Admin.sorter import *
 
-engine = create_engine("mysql+pymysql://Sujal:9099@127.0.0.1:3306/pc_builder")
+engine = create_engine("mysql+pymysql://Sujal:9099@127.0.0.1:3306/pc_builder", pool_size=100)
 Session = sessionmaker()
 Base = declarative_base()
 
@@ -351,11 +351,31 @@ class datatransfer:
             return sortpsu(db.query(psudata).filter_by(SmpsID=psuid).all())
         return db.query(psudata).all()
 
-    def getPCS(self):
+    def getPCS(self, pcid=None):
         db = Session(bind=engine)
         pcs = db.query(pcrecord).all()
         new = []
         cpu = board = psu = ram = hdd = cooler = cab = gpu = ['none']
+        if pcid:
+            pc = db.query(pcrecord).filter_by(PCID=pcid).first()
+            if pc.CPUID != 0:
+                cpu = self.getCPUs(cpuid=pc.CPUID)
+            if pc.BoardID != 0:
+                board = self.getBOARDs(boardid=pc.BoardID)
+            if pc.PSUID != 0:
+                psu = self.getPSUs(psuid=pc.PSUID)
+            if pc.RAMID != 0:
+                ram = self.getRAMs(ramid=pc.RAMID)
+            if pc.StorageID != 0:
+                hdd = self.getSTORAGEs(strgid=pc.StorageID)
+            if pc.CoolerID != 0:
+                cooler = self.getCOOLERs(coolerid=pc.CoolerID)
+            if pc.CabinetID != 0:
+                cab = self.getCABINETs(cabid=pc.CabinetID)
+            if pc.GPUID != 0:
+                gpu = self.getGPUs(gpuid=pc.GPUID)
+            new.append([cpu, board, psu, ram, hdd, cooler, cab, gpu, pc.Price, pc.PCID])
+            return new
         for pc in pcs:
             if pc.CPUID != 0:
                 cpu = self.getCPUs(cpuid=pc.CPUID)
@@ -373,7 +393,7 @@ class datatransfer:
                 cab = self.getCABINETs(cabid=pc.CabinetID)
             if pc.GPUID != 0:
                 gpu = self.getGPUs(gpuid=pc.GPUID)
-            new.append([cpu, board, psu, ram, hdd, cooler, cab, gpu, pc.Price])
+            new.append([cpu, board, psu, ram, hdd, cooler, cab, gpu, pc.Price, pc.PCID])
             print('datafound')
             cpu = board = psu = ram = hdd = cooler = cab = gpu = ['none']
         return new

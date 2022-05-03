@@ -253,7 +253,7 @@ def searchparts():
     dt = dataapi.getBOARDs()
     if request.method == 'POST':
         cpuname = request.form.get('cpuname')
-        dt = dataapi.srchcpuname(cpuname)
+        # dt = dataapi.srchcpuname(cpuname)
 
     return render_template('User/searchparts.html', dt=dt)
 
@@ -283,13 +283,11 @@ def usersbuilds():
     return render_template('User/usersbuilds.html', pcs=pcs )
 
 
-@app.route('/ratebuilds', methods=['GET', 'POST'])
-def ratebuilds():
+@app.route('/ratebuilds/<pcid>', methods=['GET', 'POST'])
+def ratebuilds(pcid):
     ipcontrol.getIP(request.remote_addr)
-    if request.method == 'POST':
-        pass
-
-    return render_template('User/ratebuilds.html')
+    pc = dataapi.getPCS(pcid=int(pcid))
+    return render_template('User/ratebuilds.html', pc=pc)
 
 
 @app.route('/contact', methods=['GET', 'POST'])
