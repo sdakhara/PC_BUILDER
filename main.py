@@ -234,10 +234,8 @@ def sell():
 @app.route('/usersbuilds', methods=['GET', 'POST'])
 def usersbuilds():
     ipcontrol.getIP(request.remote_addr)
-    if request.method == 'POST':
-        pass
-
-    return render_template('User/usersbuilds.html')
+    pcs = dataapi.getPCS()
+    return render_template('User/usersbuilds.html', pcs=pcs)
 
 
 @app.route('/ratebuilds', methods=['GET', 'POST'])

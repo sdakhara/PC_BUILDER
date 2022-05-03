@@ -126,7 +126,7 @@
         </div>
         
 
-
+        {% for pc in pcs %}
         <div class="card-group mx-auto">
             <div class="card bg-dark">
                 <img src="{{url_for('static', filename='User/IMG/ssd.jpg')}}" class="card-img-top" alt="...">
@@ -165,7 +165,7 @@
                 </div>
             </div>
         </div>
-
+    {% endfor %}
     </div>
 
 

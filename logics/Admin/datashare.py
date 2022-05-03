@@ -347,7 +347,9 @@ class datatransfer:
         if psuid:
             return sortpsu(db.query(psudata).filter_by(SmpsID=psuid).all())
         return db.query(psudata).all()
-
+    def getPCS(self):
+        db = Session(bind=engine)
+        return db.query(pcrecord).all()
 
 class Authentication:
     def verifyadmin(self, email, password):
