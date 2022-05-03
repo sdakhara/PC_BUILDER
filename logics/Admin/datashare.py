@@ -7,7 +7,7 @@ from sqlalchemy.types import String, Integer
 
 from logics.Admin.sorter import *
 
-engine = create_engine("mysql+pymysql://Sujal:9099@127.0.0.1:3306/pc_builder")
+engine = create_engine("mysql+pymysql://root:root@127.0.0.1:3306/pc-builder")
 Session = sessionmaker()
 Base = declarative_base()
 
@@ -283,13 +283,15 @@ class datatransfer:
         db = Session(bind=engine)
         return db.query(userdata).filter_by(UserID=id).all()
 
-    def getCPUs(self, cpuid=None, sockettype=None, list=False):
+    def getCPUs(self, cpuid=None, sockettype=None, list=False, cpuname=None):
         db = Session(bind=engine)
         if list:
             return sortcpu(db.query(cpudata).filter_by(SocketType=sockettype).all())
 
         if cpuid:
             return sortcpu(db.query(cpudata).filter_by(CPUID=cpuid).all())
+        if cpuname:
+            return sortcpu(db.query(cpudata).filter(CPUName=cpuname.first_name.like('cpuname'%)).all())
         return db.query(cpudata).all()
 
     def getGPUs(self, gpuid=None, list=False):
