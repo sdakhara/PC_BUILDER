@@ -94,7 +94,7 @@
         </form>
     </div>
     
-    {% for dt in pcs %}
+
     <div class="products-table-1 mx-auto table-responsive">
         
         <table class="table table-bordered text-light" id="products-table-1">
@@ -108,6 +108,7 @@
             </tr>
             </thead>
             <tbody>
+            {% for dt in pcs %}
             <tr>
                 <th scope="row">{{dt[1][0]}}</th>
                 <td>{{dt[1][0]}}</td>
@@ -119,83 +120,7 @@
                     </button>
                 </td>
             </tr>
-            <tr>
-                <th scope="row">{{dt[1][0]}}</th>
-                <td>{{dt}}</td>
-                <td>5000 ₹</td>
-                <td>Free</td>
-                <td>
-                    <button type="submit" class="btn btn-outline-pcb" id="table-close-btn">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </td>
-            </tr>
-            <tr>
-                <th scope="row">{{dt[2][0]}}</th>
-                <td>{{dt}}</td>
-                <td>5000 ₹</td>
-                <td>Free</td>
-                <td>
-                    <button type="submit" class="btn btn-outline-pcb" id="table-close-btn">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </td>
-            </tr>
-            <tr>
-                <th scope="row">{{dt[3][0]}}</th>
-                <td>GPU Info</td>
-                <td>5000 ₹</td>
-                <td>Free</td>
-                <td>
-                    <button type="submit" class="btn btn-outline-pcb" id="table-close-btn">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </td>
-            </tr>
-            <tr>
-                <th scope="row">{{dt[4][0]}}</th>
-                <td>Motherboard Info</td>
-                <td>5000 ₹</td>
-                <td>Free</td>
-                <td>
-                    <button type="submit" class="btn btn-outline-pcb" id="table-close-btn">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </td>
-            </tr>
-            <tr>
-                <th scope="row">{{dt[4][0]}}</th>
-                <td>Storage Info</td>
-                <td>5000 ₹</td>
-                <td>Free</td>
-                <td>
-                    <button type="submit" class="btn btn-outline-pcb" id="table-close-btn">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </td>
-            </tr>
-            <tr>
-                <th scope="row">{{dt[5][0]}}</th>
-                <td>PCU Info</td>
-                <td>5000 ₹</td>
-                <td>Free</td>
-                <td>
-                    <button type="submit" class="btn btn-outline-pcb" id="table-close-btn">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </td>
-            </tr>
-            <tr>
-                <th scope="row">{{dt[6][0]}}</th>
-                <td>PCU Info</td>
-                <td>5000 ₹</td>
-                <td>Free</td>
-                <td>
-                    <button type="submit" class="btn btn-outline-pcb" id="table-close-btn">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </td>
-            </tr>
+            {% endfor %}
             </tbody>
         </table>
         <div class="d-flex justify-content-end">
@@ -210,7 +135,7 @@
         </div>
     
     </div>
-    {% endfor %}
+
 </div>
 
 
