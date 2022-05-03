@@ -250,11 +250,12 @@ def buildhistory():
 
 @app.route('/searchparts', methods=['GET', 'POST'])
 def searchparts():
-    ipcontrol.getIP(request.remote_addr)
+    dt = dataapi.getBOARDs()
     if request.method == 'POST':
-        pass
+        cpuname = request.form.get('cpuname')
+        dt = dataapi.srchcpuname(cpuname)
 
-    return render_template('User/searchparts.html')
+    return render_template('User/searchparts.html', dt=dt)
 
 
 @app.route('/secondhandpc', methods=['GET', 'POST'])

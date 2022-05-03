@@ -71,7 +71,7 @@
         <div class="searchbar-container mt-5">
             <div class="input-group w-75 mx-auto">
                 <span class="input-group-text bg-dark text-light search-input material-symbols-outlined">search</span>
-                <input type="text" class="form-control search-input text-light bg-dark" aria-describedby="inputGroupPrepend"
+                <input type="text" name="cpuname" class="form-control search-input text-light bg-dark" aria-describedby="inputGroupPrepend"
                     placeholder="Search Components">
                     <button class="btn btn-outline-pcb log-in" type="submit">Search</button>
             </div>
@@ -80,15 +80,9 @@
         <div class="searchresult-div mx-auto w-75">
             <div class="search-result-list mt-4">
                 <ul class="list-group search-result-ul">
-                    <li class="list-group-item">An active item</li>
-                    <li class="list-group-item">A second item</li>
-                    <li class="list-group-item">A third item</li>
-                    <li class="list-group-item">A fourth item</li>
-                    <li class="list-group-item">An active item</li>
-                    <li class="list-group-item">A second item</li>
-                    <li class="list-group-item">A third item</li>
-                    <li class="list-group-item">A fourth item</li>
-                    <li class="list-group-item">And a fifth one</li>
+                    {% for cpuname in dt %}
+                    <li class="list-group-item">{{cpuname.CPUName}}</li>
+                    {% endfor %}
                 </ul>
             </div>
         </div>

@@ -286,12 +286,13 @@ class datatransfer:
         db = Session(bind=engine)
         if list:
             return sortcpu(db.query(cpudata).filter_by(SocketType=sockettype).all())
+
         if cpuid:
             return sortcpu(db.query(cpudata).filter_by(CPUID=cpuid).all())
+
         if cpuname:
-            return sortcpu(db.query(cpudata).filter(CPUName=cpuname.first_name.like(cpuname+'%')).all())
-        if cpuid:
-            return db.query(cpudata).filter_by(CPUID=cpuid).all()
+            return db.query(cpudata).filter(CPUName=cpuname.first_name.like(cpuname+'%')).all()
+
         return db.query(cpudata).all()
 
     def getGPUs(self, gpuid=None, list=False):
