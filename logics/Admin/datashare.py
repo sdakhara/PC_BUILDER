@@ -158,7 +158,7 @@ class storagedata(Base):
 class userdata(Base):
     __tablename__ = 'userdata'
 
-    UserID = Column(Integer, primary_key=True, autoincrement=True)
+    UserID = Column(String, primary_key=True, autoincrement=True)
     UserName = Column(String)
     Email = Column(String)
     Password = Column(String)
@@ -404,3 +404,10 @@ class Authentication:
             add = userdata(UserName=name, Email=email, Password=password, PhoneNo=phone)
             db.add(add)
             db.commit()
+
+    # def getIP(self, ip):
+    #     db = Session(bind=engine)
+    #     response = requests.get(f"http://ip-api.com/json/{ip}").json()
+    #     userip = visitordata(country=(response['country']))
+    #     db.add(userip)
+    #     db.commit()
