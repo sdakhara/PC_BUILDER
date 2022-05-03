@@ -267,7 +267,7 @@ def contact():
         username = request.form.get('username')
         email = request.form.get('email')
         message = request.form.get('message')
-
+        authenticator.addMsg(username=username,email=email,message=message,ip=request.remote_addr)
     return render_template('User/contactus.html')
 
 

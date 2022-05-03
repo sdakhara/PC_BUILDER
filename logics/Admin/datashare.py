@@ -209,7 +209,6 @@ class userquery(Base):
     __tablename__ = 'userquery'
 
     RecordID = Column(Integer, primary_key=True, autoincrement=True)
-    UserID = Column(Integer)
     UserName = Column(String)
     UserEmail = Column(String)
     RequestIP = Column(String)
@@ -347,9 +346,11 @@ class datatransfer:
         if psuid:
             return sortpsu(db.query(psudata).filter_by(SmpsID=psuid).all())
         return db.query(psudata).all()
+
     def getPCS(self):
         db = Session(bind=engine)
         return db.query(pcrecord).all()
+
 
 class Authentication:
     def verifyadmin(self, email, password):
@@ -400,10 +401,16 @@ class Authentication:
 
     def addUser(self, name, email, password, conpass, phone):
         db = Session(bind=engine)
-        if password==conpass:
+        if password == conpass:
             add = userdata(UserName=name, Email=email, Password=password, PhoneNo=phone)
             db.add(add)
             db.commit()
+
+    def addMsg(self, username, email, message, ip):
+        db = Session(bind=engine)
+        add = userquery(UserName=username, UserEmail=email, Message=message, RequestIP=ip)
+        db.add(add)
+        db.commit()
 
     # def getIP(self, ip):
     #     db = Session(bind=engine)
