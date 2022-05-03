@@ -37,10 +37,16 @@ def login():
         userpass = request.form.get('userpass')
         data = authenticator.verifyuser(useremail, userpass)
         if data:
-            session['user'] = data
-            g.USER = data
+            session['username'] = data.UserName
+            session['userid'] = data.UserID
             return redirect(url_for('home'))
     return render_template('User/login.html')
+
+
+@app.route('/logout')
+def logout():
+    session.clear()
+    return redirect(url_for('home'))
 
 
 @app.route('/index')
@@ -102,20 +108,36 @@ def componentadder(comptype, compid):
 
 @app.route('/addthispc')
 def addthispc():
-    if not g.USER:
+    if not session.get('userid'):
         return redirect('login')
-    if g.USER:
-        userid = g.USER.UserID
-        cpuid = session['cpu'][0][1]
-        boardid = session['board'][0][1]
-        psuid = session['psu'][0][1]
-        ramid = session['ram'][0][1]
-        hddid = session['hdd'][0][1]
-        coolerid = session['cooler'][0][1]
-        cabid = session['cab'][0][1]
-        gpuid = session['gpu'][0][1]
-        price = (session['cpu'][0][-1] + session['board'][0][-1] + session['psu'][0][-1] + session['ram'][0][-1] +
-                 session['hdd'][0][-1] + session['cooler'][0][-1] + session['cab'][0][-1] + session['gpu'][0][-1])
+    if session['userid']:
+        userid = session['userid']
+        price=0
+        cpuid = boardid = psuid = ramid = hddid = coolerid = cabid = gpuid = 0
+        if session.get('cpu'):
+            cpuid = session.get('cpu')[0][1]
+            price+=session['cpu'][0][-1]
+        if session.get('board'):
+            boardid = session.get('board')[0][1]
+            price += session['board'][0][-1]
+        if session.get('psu'):
+            psuid = session.get('psu')[0][1]
+            price += session['psu'][0][-1]
+        if session.get('ram'):
+            ramid = session.get('ram')[0][1]
+            price += session['ram'][0][-1]
+        if session.get('hdd'):
+            hddid = session.get('hdd')[0][1]
+            price += session['hdd'][0][-1]
+        if session.get('cooler'):
+            coolerid = session.get('cooler')[0][1]
+            price += session['cooler'][0][-1]
+        if session.get('cab'):
+            cabid = session.get('cab)')[0][1]
+            price += session['cab'][0][-1]
+        if session.get('gpu'):
+            gpuid = session.get('gpu')[0][1]
+            price += session['gpu'][0][-1]
         authenticator.addpc(userid=userid, cpuid=cpuid, hddid=hddid, boardid=boardid, cabid=cabid, psuid=psuid,
                             gpuid=gpuid, ramid=ramid, coolerid=coolerid, price=price)
         session.clear()

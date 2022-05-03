@@ -9,7 +9,6 @@ from logics.Admin.sorter import *
 
 engine = create_engine("mysql+pymysql://Sujal:9099@127.0.0.1:3306/pc_builder")
 Session = sessionmaker()
-db = Session(bind=engine)
 Base = declarative_base()
 
 
@@ -239,41 +238,53 @@ class countrydata(Base):
 
 class datatransfer:
     def getAllUser(self):
+        db = Session(bind=engine)
         return db.query(userdata).all()
 
     def getAllAdmin(self):
+        db = Session(bind=engine)
         return db.query(admindata).all()
 
     def getLastLogin(self):
+        db = Session(bind=engine)
         return db.query(adminloginrecord).first()
 
     def getCountBuildedPC(self):
+        db = Session(bind=engine)
         return db.query(pcrecord).count()
 
     def getTodayBuild(self):
+        db = Session(bind=engine)
         return db.query(pcrecord).filter_by(Date=date.today()).count()
 
     def getTotVisit(self):
+        db = Session(bind=engine)
         return db.query(visitordata).count()
 
     def getTodayVisit(self):
+        db = Session(bind=engine)
         return db.query(visitordata).filter_by(Date=date.today()).count()
 
     def getcountrydata(self):
+        db = Session(bind=engine)
         return db.query(countrydata).all()
 
     def getMessages(self, userid=None):
+        db = Session(bind=engine)
         if userid:
             return db.query(userquery).filter_by(UserID=userid).all()
         return db.query(userquery).all()
 
     def srchusrname(self, name):
+        db = Session(bind=engine)
         return db.query(userdata).filter_by(UserName=name).all()
 
     def srchusrid(self, id):
+        db = Session(bind=engine)
         return db.query(userdata).filter_by(UserID=id).all()
 
     def getCPUs(self, cpuid=None, sockettype=None, list=False):
+        db = Session(bind=engine)
         if list:
             return sortcpu(db.query(cpudata).filter_by(SocketType=sockettype).all())
 
@@ -282,6 +293,7 @@ class datatransfer:
         return db.query(cpudata).all()
 
     def getGPUs(self, gpuid=None, list=False):
+        db = Session(bind=engine)
         if list:
             return sortgpu(db.query(gpudata).all())
         if gpuid:
@@ -289,6 +301,7 @@ class datatransfer:
         return db.query(gpudata).all()
 
     def getRAMs(self, ramid=None, ramtype=None, list=False):
+        db = Session(bind=engine)
         if list:
             return sortram(db.query(ramdata).filter_by(Type=ramtype).all())
         if ramid:
@@ -296,6 +309,7 @@ class datatransfer:
         return db.query(ramdata).all()
 
     def getBOARDs(self, boardid=None, list=False):
+        db = Session(bind=engine)
         if list:
             return sortboard(db.query(boarddata).all())
         if boardid:
@@ -303,6 +317,7 @@ class datatransfer:
         return db.query(boarddata).all()
 
     def getCOOLERs(self, coolerid=None, list=False):
+        db = Session(bind=engine)
         if list:
             return sortcooler(db.query(coolerdata).all())
         if coolerid:
@@ -310,6 +325,7 @@ class datatransfer:
         return db.query(coolerdata).all()
 
     def getSTORAGEs(self, strgid=None, list=False):
+        db = Session(bind=engine)
         if list:
             return sorthdd(db.query(storagedata).all())
         if strgid:
@@ -317,6 +333,7 @@ class datatransfer:
         return db.query(storagedata).all()
 
     def getCABINETs(self, cabid=None, list=False):
+        db = Session(bind=engine)
         if list:
             return sortcabinet(db.query(cabinetdata).all())
         if cabid:
@@ -324,6 +341,7 @@ class datatransfer:
         return db.query(cabinetdata).all()
 
     def getPSUs(self, psuid=None, list=False):
+        db = Session(bind=engine)
         if list:
             return sortpsu(db.query(psudata).all())
         if psuid:
@@ -333,6 +351,7 @@ class datatransfer:
 
 class Authentication:
     def verifyadmin(self, email, password):
+        db = Session(bind=engine)
         data = db.query(admindata).all()
         for dt in data:
             if dt.Email == email and dt.Password == password:
@@ -342,31 +361,38 @@ class Authentication:
                 return dt
 
     def verifyuser(self, email, password):
+        db = Session(bind=engine)
         data = db.query(userdata).all()
         for dt in data:
             if dt.Email == email and dt.Password == password:
+                db = Session(bind=engine)
                 addLog = userloginrecord(UserName=dt.UserName, UserID=dt.UserID, LoginTime=datetime.now())
                 db.add(addLog)
                 db.commit()
                 return dt
 
     def addAdmin(self, adminname, adminpass, adminemail, adminphoneno):
+        db = Session(bind=engine)
         newadmin = admindata(AdminName=adminname, Password=adminpass, Email=adminemail, PhoneNo=adminphoneno)
         db.add(newadmin)
         db.commit()
 
     def updateUser(self, userid, username, userphone, useremail, userpass):
+        db = Session(bind=engine)
         userdt = userdata(UserID=userid, UserName=username, PhoneNo=userphone, Email=useremail, Password=userpass)
         db.query(userdata).filter_by(UserID=userid).delete()
         db.add(userdt)
         db.commit()
 
     def deleteUser(self, userid):
+        db = Session(bind=engine)
         db.query(userdata).filter_by(UserID=userid).delete()
         db.commit()
 
     def addpc(self, userid, cpuid, boardid, ramid, gpuid, hddid, cabid, psuid, coolerid, price):
+        db = Session(bind=engine)
         add = pcrecord(CPUID=cpuid, BoardID=boardid, UserID=userid, PSUID=psuid, RAMID=ramid, StorageID=hddid,
                        CoolerID=coolerid, CabinetID=cabid, GPUID=gpuid, Price=price, Date=datetime.now())
         db.add(add)
         db.commit()
+
