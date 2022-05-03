@@ -1,5 +1,5 @@
 from datetime import datetime, date
-
+import requests
 from sqlalchemy import create_engine, Column
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import sessionmaker
@@ -398,3 +398,9 @@ class Authentication:
         db.add(add)
         db.commit()
 
+    # def getIP(self, ip):
+    #     db = Session(bind=engine)
+    #     response = requests.get(f"http://ip-api.com/json/{ip}").json()
+    #     userip = visitordata(country=(response['country']))
+    #     db.add(userip)
+    #     db.commit()
