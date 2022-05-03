@@ -289,8 +289,10 @@ class datatransfer:
 
         if cpuid:
             return sortcpu(db.query(cpudata).filter_by(CPUID=cpuid).all())
+
         if cpuname:
-            return sortcpu(db.query(cpudata).filter(CPUName=cpuname.first_name.like('cpuname'%)).all())
+            return db.query(cpudata).filter(CPUName=cpuname.first_name.like(cpuname+'%')).all()
+
         return db.query(cpudata).all()
 
     def getGPUs(self, gpuid=None, list=False):
