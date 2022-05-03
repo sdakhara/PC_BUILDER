@@ -17,41 +17,48 @@
 
 <body>
     <!-- Nav-Bar (Header)  -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-transperent fixed-top" id="Navbar">
-        <div class="container-fluid" id="container-fluid">
-            <a class="navbar-brand" href="#"><img src="{{url_for('static', filename='User/IMG/PCB-LOGO.png')}}" alt=""
-                    width="60" /></a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse m-3" id="navbarNav">
-                <ul class="navbar-nav nav-container">
-                    <li class="nav-item nav-list">
-                        <a class="nav-link" aria-current="page" href="/index">Home</a>
-                    </li>
-                    <li class="nav-item nav-list">
-                        <a class="nav-link" href="#">Products</a>
-                    </li>
-                    <li class="nav-item nav-list">
-                        <a class="nav-link" href="#">About-Us</a>
-                    </li>
-                    <li class="nav-item nav-list">
-                        <a class="nav-link" href="#">Contact</a>
-                    </li>
-
-                    <li class="nav-item nav-list">
-                        <button class="btn btn-outline-pcb sign-up" type="submit">
-                            Sign-Up
-                        </button>
-                        <button class="btn btn-outline-pcb log-in" type="submit">
-                            Log-In
-                        </button>
-                    </li>
-                </ul>
-            </div>
+     <nav class="navbar navbar-expand-lg navbar-dark bg-transperent fixed-top" id="Navbar">
+    <div class="container-fluid" id="container-fluid">
+        <a class="navbar-brand" href="/index"><img src="{{url_for('static', filename='User/IMG/PCB-LOGO.png')}}" alt=""
+                                                   width="60"></a>
+        <button class="navbar-toggler" id="menu-btn-res" type="button" onclick="hamburgerOff()"
+                data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false"
+                aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse m-3" id="navbarNav">
+            
+            <ul class="navbar-nav nav-container">
+                <li class="nav-item nav-list active">
+                    <a class="nav-link" aria-current="page" href="/index">Home</a>
+                </li>
+                <li class="nav-item nav-list">
+                    <a class="nav-link" href="/searchparts">Products</a>
+                </li>
+                <li class="nav-item nav-list">
+                    <a class="nav-link" href="/about">About-Us</a>
+                </li>
+                <li class="nav-item nav-list">
+                    <a class="nav-link" href="/contact">Contact</a>
+                </li>
+                
+                <li class="nav-item nav-list">
+                    {% if not session.get('userid')%}
+                    <a href='/login'>
+                        <button class="btn btn-outline-pcb log-in" type="submit">Log-In</button>
+                    </a>
+                    {% endif%}
+                    {% if session['userid']%}
+                    <a href='/logout'>
+                        <button class="btn btn-outline-pcb log-in" type="submit">Log-Out</button>
+                    </a>
+                    {% endif%}
+                </li>
+            </ul>
+        
         </div>
-    </nav>
+    </div>
+</nav>
 
     <div class="build-pc-div">
         <h1 class="build-pc-heading">Users Builds</h1>
@@ -84,16 +91,19 @@
                             <div class="modal-body">
                                 <div class="users-builds-cards"></div>
                             </div>
+                            
                             <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                             <button type="button" class="btn btn-primary">Submit</button>
                             </div>
+                            
                         </div>
                         </div>
                     </div>
                      
                 </div>
             </div>
+            {% for pc in pcs%}
             <div class="card bg-dark">
                 <img src="{{url_for('static', filename='User/IMG/ssd.jpg')}}" class="card-img-top" alt="...">
                 <div class="card-body">
@@ -105,6 +115,7 @@
                     </a>
                 </div>
             </div>
+            {% endfor %}
             <div class="card bg-dark">
                 <img src="{{url_for('static', filename='User/IMG/ssd.jpg')}}" class="card-img-top" alt="...">
                 <div class="card-body">

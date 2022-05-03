@@ -235,7 +235,7 @@ def sell():
 def usersbuilds():
     ipcontrol.getIP(request.remote_addr)
     pcs = dataapi.getPCS()
-    return render_template('User/usersbuilds.html', pcs=pcs)
+    return render_template('User/usersbuilds.html', pcs=pcs )
 
 
 @app.route('/ratebuilds', methods=['GET', 'POST'])

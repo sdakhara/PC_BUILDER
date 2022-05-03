@@ -17,10 +17,10 @@
 
 
 <!-- Nav-Bar (Header)  -->
-<nav class="navbar navbar-expand-lg navbar-dark bg-transperent fixed-top" id="Navbar">
+ <nav class="navbar navbar-expand-lg navbar-dark bg-transperent fixed-top" id="Navbar">
     <div class="container-fluid" id="container-fluid">
-        <a class="navbar-brand" href="#"><img src="{{url_for('static', filename='User/IMG/PCB-LOGO.png')}}" alt=""
-                                              width="60"></a>
+        <a class="navbar-brand" href="/index"><img src="{{url_for('static', filename='User/IMG/PCB-LOGO.png')}}" alt=""
+                                                   width="60"></a>
         <button class="navbar-toggler" id="menu-btn-res" type="button" onclick="hamburgerOff()"
                 data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false"
                 aria-label="Toggle navigation">
@@ -33,16 +33,26 @@
                     <a class="nav-link" aria-current="page" href="/index">Home</a>
                 </li>
                 <li class="nav-item nav-list">
-                    <a class="nav-link" href="#">Products</a>
+                    <a class="nav-link" href="/searchparts">Products</a>
                 </li>
                 <li class="nav-item nav-list">
                     <a class="nav-link" href="/about">About-Us</a>
                 </li>
                 <li class="nav-item nav-list">
-                    <a class="nav-link" href="#">Contact</a>
+                    <a class="nav-link" href="/contact">Contact</a>
                 </li>
                 
                 <li class="nav-item nav-list">
+                    {% if not session.get('userid')%}
+                    <a href='/login'>
+                        <button class="btn btn-outline-pcb log-in" type="submit">Log-In</button>
+                    </a>
+                    {% endif%}
+                    {% if session['userid']%}
+                    <a href='/logout'>
+                        <button class="btn btn-outline-pcb log-in" type="submit">Log-Out</button>
+                    </a>
+                    {% endif%}
                 </li>
             </ul>
         
@@ -75,7 +85,6 @@
 
 
 <!-- Footer -->
-
 <div class="main-footer-class bg-dark text-light">
     <div class="container">
         <footer class="py-5">
@@ -83,39 +92,43 @@
                 <div class="col-2">
                     <h5>Links</h5>
                     <ul class="nav flex-column">
-                        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Home</a></li>
-                        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Features</a></li>
-                        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Pricing</a></li>
-                        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">FAQs</a></li>
-                        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">About</a></li>
+                        <li class="nav-item mb-2"><a href="/index" class="nav-link p-0 text-muted">Home</a></li>
+                        <li class="nav-item mb-2"><a href="/searchparts" class="nav-link p-0 text-muted">Products</a>
+                        </li>
+                        <li class="nav-item mb-2"><a href="/about" class="nav-link p-0 text-muted">About-Us</a></li>
+                        <li class="nav-item mb-2"><a href="/contact" class="nav-link p-0 text-muted">Contact-Us</a></li>
                     </ul>
                 </div>
                 
                 <div class="col-2">
                     <h5>Links</h5>
                     <ul class="nav flex-column">
-                        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Home</a></li>
-                        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Features</a></li>
-                        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Pricing</a></li>
-                        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">FAQs</a></li>
-                        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">About</a></li>
+                        <li class="nav-item mb-2"><a href="/buildpc" class="nav-link p-0 text-muted">Build PC</a></li>
+                        <li class="nav-item mb-2"><a href="usersbuilds" class="nav-link p-0 text-muted">Users Build</a>
+                        </li>
+                        <li class="nav-item mb-2"><a href="/viewbuilds" class="nav-link p-0 text-muted">Your Builds</a>
+                        </li>
+                        <li class="nav-item mb-2"><a href="/autobuild" class="nav-link p-0 text-muted">Auto Build</a>
+                        </li>
                     </ul>
                 </div>
                 
                 <div class="col-2">
                     <h5>Links</h5>
                     <ul class="nav flex-column">
-                        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Home</a></li>
-                        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Features</a></li>
-                        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Pricing</a></li>
-                        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">FAQs</a></li>
-                        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">About</a></li>
+                        <li class="nav-item mb-2"><a href="/searchparts" class="nav-link p-0 text-muted">Search
+                            Components</a></li>
+                        <li class="nav-item mb-2"><a href="/secondhandpc" class="nav-link p-0 text-muted">Second Hand
+                            PC</a></li>
+                        <li class="nav-item mb-2"><a href="/buildguide" class="nav-link p-0 text-muted">Build Guide</a>
+                        </li>
                     </ul>
                 </div>
                 
                 <div class="col-4 offset-1">
                     <div class="d-flex w-100 gap-2 ms-5">
-                        <img src="{{url_for('static', filename='User/IMG/PCB-LOGO.png')}}" alt="" class="footer-logo">
+                        <a href="/index"><img src="{{url_for('static', filename='User/IMG/PCB-LOGO.png')}}" alt=""
+                                              class="footer-logo"></a>
                     </div>
                 </div>
             
@@ -127,7 +140,6 @@
         </footer>
     </div>
 </div>
-
 <!-- Footer Ends Here -->
 
 
