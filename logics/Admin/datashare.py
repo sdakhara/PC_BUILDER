@@ -7,7 +7,7 @@ from sqlalchemy.types import String, Integer
 
 from logics.Admin.sorter import *
 
-engine = create_engine("mysql+pymysql://root:root@127.0.0.1:3306/pc-builder")
+engine = create_engine("mysql+pymysql://Sujal:9099@127.0.0.1:3306/pc_builder")
 Session = sessionmaker()
 Base = declarative_base()
 
@@ -282,15 +282,16 @@ class datatransfer:
         db = Session(bind=engine)
         return db.query(userdata).filter_by(UserID=id).all()
 
-    def getCPUs(self, cpuid=None, sockettype=None, list=False, cpuname=None):
+    def getCPUs(self, cpuid=None, sockettype=None, xyz=False, list=False, cpuname=None):
         db = Session(bind=engine)
         if list:
             return sortcpu(db.query(cpudata).filter_by(SocketType=sockettype).all())
-
         if cpuid:
             return sortcpu(db.query(cpudata).filter_by(CPUID=cpuid).all())
         if cpuname:
-            return sortcpu(db.query(cpudata).filter(CPUName=cpuname.first_name.like('cpuname'%)).all())
+            return sortcpu(db.query(cpudata).filter(CPUName=cpuname.first_name.like(cpuname+'%')).all())
+        if cpuid:
+            return db.query(cpudata).filter_by(CPUID=cpuid).all()
         return db.query(cpudata).all()
 
     def getGPUs(self, gpuid=None, list=False):
@@ -351,7 +352,30 @@ class datatransfer:
 
     def getPCS(self):
         db = Session(bind=engine)
-        return db.query(pcrecord).all()
+        pcs = db.query(pcrecord).all()
+        new = []
+        cpu = board = psu = ram = hdd = cooler = cab = gpu = ['none']
+        for pc in pcs:
+            if pc.CPUID != 0:
+                cpu = self.getCPUs(cpuid=pc.CPUID)
+            if pc.BoardID != 0:
+                board = self.getBOARDs(boardid=pc.BoardID)
+            if pc.PSUID != 0:
+                psu = self.getPSUs(psuid=pc.PSUID)
+            if pc.RAMID != 0:
+                ram = self.getRAMs(ramid=pc.RAMID)
+            if pc.StorageID != 0:
+                hdd = self.getSTORAGEs(strgid=pc.StorageID)
+            if pc.CoolerID != 0:
+                cooler = self.getCOOLERs(coolerid=pc.CoolerID)
+            if pc.CabinetID != 0:
+                cab = self.getCABINETs(cabid=pc.CabinetID)
+            if pc.GPUID != 0:
+                gpu = self.getGPUs(gpuid=pc.GPUID)
+            new.append([cpu, board, psu, ram, hdd, cooler, cab, gpu, pc.Price])
+            print('datafound')
+            cpu = board = psu = ram = hdd = cooler = cab = gpu = ['none']
+        return new
 
 
 class Authentication:

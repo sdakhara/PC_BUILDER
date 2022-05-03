@@ -114,50 +114,81 @@ def addthispc():
         userid = session['userid']
         price=0
         cpuid = boardid = psuid = ramid = hddid = coolerid = cabid = gpuid = 0
-        if session.get('cpu'):
-            cpuid = session.get('cpu')[0][1]
-            price+=session['cpu'][0][-1]
-        if session.get('board'):
-            boardid = session.get('board')[0][1]
-            price += session['board'][0][-1]
-        if session.get('psu'):
-            psuid = session.get('psu')[0][1]
-            price += session['psu'][0][-1]
-        if session.get('ram'):
-            ramid = session.get('ram')[0][1]
-            price += session['ram'][0][-1]
-        if session.get('hdd'):
-            hddid = session.get('hdd')[0][1]
-            price += session['hdd'][0][-1]
-        if session.get('cooler'):
-            coolerid = session.get('cooler')[0][1]
-            price += session['cooler'][0][-1]
-        if session.get('cab'):
-            cabid = session.get('cab)')[0][1]
-            price += session['cab'][0][-1]
-        if session.get('gpu'):
-            gpuid = session.get('gpu')[0][1]
-            price += session['gpu'][0][-1]
-        authenticator.addpc(userid=userid, cpuid=cpuid, hddid=hddid, boardid=boardid, cabid=cabid, psuid=psuid,
-                            gpuid=gpuid, ramid=ramid, coolerid=coolerid, price=price)
-        if session.get('cpu'):
-            session.pop('cpu')
-        if session.get('board'):
-            session.pop('board')
-        if session.get('ram'):
-            session.pop('ram')
-        if session.get('hdd'):
-            session.pop('hdd')
-        if session.get('psu'):
-            session.pop('psu')
-        if session.get('cooler'):
-            session.pop('cooler')
-        if session.get('cab'):
-            session.pop('cab')
-        if session.get('gpu'):
-            session.pop('gpu')
-        return redirect(url_for('home'))
+        try:
+        # if session.get('cpu'):
+        #     cpuid = session.get('cpu')[0][1]
+        #     price+=session['cpu'][0][-1]
+        # if session.get('board'):
+        #     boardid = session.get('board')[0][1]
+        #     price += session['board'][0][-1]
+        # if session.get('psu'):
+        #     psuid = session.get('psu')[0][1]
+        #     price += session['psu'][0][-1]
+        # if session.get('ram'):
+        #     ramid = session.get('ram')[0][1]
+        #     price += session['ram'][0][-1]
+        # if session.get('hdd'):
+        #     hddid = session.get('hdd')[0][1]
+        #     price += session['hdd'][0][-1]
+        # if session.get('cooler'):
+        #     coolerid = session.get('cooler')[0][1]
+        #     price += session['cooler'][0][-1]
+        # if session.get('cab'):
+        #     cabid = session.get('cab')[0][1]
+        #     price += session['cab'][0][-1]
+        # if session.get('gpu'):
+        #     gpuid = session.get('gpu')[0][1]
+        #     price += session['gpu'][0][-1]
 
+            cpuid = session.get('cpu')[0][1]
+            boardid = session.get('board')[0][1]
+            psuid = session.get('psu')[0][1]
+            ramid = session.get('ram')[0][1]
+            hddid = session.get('hdd')[0][1]
+            coolerid = session.get('cooler')[0][1]
+            cabid = session.get('cab')[0][1]
+            gpuid = session.get('gpu')[0][1]
+            authenticator.addpc(userid=userid, cpuid=cpuid, hddid=hddid, boardid=boardid, cabid=cabid, psuid=psuid,
+                                gpuid=gpuid, ramid=ramid, coolerid=coolerid, price=price)
+            if session.get('cpu'):
+                session.pop('cpu')
+            if session.get('board'):
+                session.pop('board')
+            if session.get('ram'):
+                session.pop('ram')
+            if session.get('hdd'):
+                session.pop('hdd')
+            if session.get('psu'):
+                session.pop('psu')
+            if session.get('cooler'):
+                session.pop('cooler')
+            if session.get('cab'):
+                session.pop('cab')
+            if session.get('gpu'):
+                session.pop('gpu')
+            return redirect(url_for('home'))
+        except:
+            return redirect(url_for('home'))
+
+@app.route('/clearpc')
+def clearpc():
+    if session.get('cpu'):
+        session.pop('cpu')
+    if session.get('board'):
+        session.pop('board')
+    if session.get('ram'):
+        session.pop('ram')
+    if session.get('hdd'):
+        session.pop('hdd')
+    if session.get('psu'):
+        session.pop('psu')
+    if session.get('cooler'):
+        session.pop('cooler')
+    if session.get('cab'):
+        session.pop('cab')
+    if session.get('gpu'):
+        session.pop('gpu')
+    return redirect(url_for('buildpc'))
 
 @app.route('/autobuild', methods=['GET', 'POST'])
 def autobuild():

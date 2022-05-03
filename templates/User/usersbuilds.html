@@ -107,10 +107,11 @@
             <div class="card bg-dark">
                 <img src="{{url_for('static', filename='User/IMG/ssd.jpg')}}" class="card-img-top" alt="...">
                 <div class="card-body">
-                    <h5 class="card-title">Deal Title</h5>
-                    <h5 class="card-title">₹ 14500</h5>
-                    <p class="card-text">Description About Selling Deal</p>
-                    <a href="/ratebuilds">
+                    <h5 class="card-title">{{pc[0][0][5]}}</h5>
+                    <h5 class="card-title">{{pc[1][0][5]}}</h5>
+                    <h5 class="card-title">{{pc[3][0][5]}} {{pc[3][0][11]*pc[3][0][15]}}GB</h5>
+                    <h5 class="card-title">₹ {{pc[-1]}}</h5>
+                    <a href="/ratebuilds/">
                         <button class="btn btn-outline-pcb log-in mb-2" type="submit">View Deal</button>
                     </a>
                 </div>
