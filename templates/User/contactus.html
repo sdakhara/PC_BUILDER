@@ -70,21 +70,21 @@
         </div>
 
         <div class="contact-us-box w-75 bg-dark rounded mx-auto">
-            <form class="contact-form p-4 mt-5">
+            <form action="/contact" method="post" class="contact-form p-4 mt-5">
 
                 <div class="form-floating text text-light">
-                    <input type="text" class="form-control bg-dark login-input text-light" id="floatingInput" placeholder="name" maxlength="17">
+                    <input type="text" name="username" class="form-control bg-dark login-input text-light" id="floatingInput" placeholder="name" maxlength="17">
                     <label for="floatingInput">Username</label>
                 </div>
 
                 <div class="form-floating text text-light mt-2">
-                    <input type="email" class="form-control bg-dark login-input text-light" id="floatingInput" placeholder="email" maxlength="30">
+                    <input type="email" name="email" class="form-control bg-dark login-input text-light" id="floatingInput" placeholder="email" maxlength="30">
                     <label for="floatingInput">Email</label>
                 </div>
 
                 <div class="form-floating text text-light mt-2 mb-2">
                     <!-- <input type="email" class="form-control bg-dark login-input text-light" id="floatingInput" placeholder="message"> -->
-                    <textarea class="form-control bg-dark login-input text-light" aria-label="With textarea" id="floatingInput" placeholder="message" maxlength="550"></textarea>
+                    <textarea name="message" class="form-control bg-dark login-input text-light" aria-label="With textarea" id="floatingInput" placeholder="message" maxlength="550"></textarea>
                     <label for="floatingInput">Message</label>
                 </div>
 

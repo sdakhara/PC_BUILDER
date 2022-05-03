@@ -140,14 +140,22 @@ def addthispc():
             price += session['gpu'][0][-1]
         authenticator.addpc(userid=userid, cpuid=cpuid, hddid=hddid, boardid=boardid, cabid=cabid, psuid=psuid,
                             gpuid=gpuid, ramid=ramid, coolerid=coolerid, price=price)
-        session.pop('cpu')
-        session.pop('board')
-        session.pop('ram')
-        session.pop('hdd')
-        session.pop('psu')
-        session.pop('cooler')
-        session.pop('cab')
-        session.pop('gpu')
+        if session.get('cpu'):
+            session.pop('cpu')
+        if session.get('board'):
+            session.pop('board')
+        if session.get('ram'):
+            session.pop('ram')
+        if session.get('hdd'):
+            session.pop('hdd')
+        if session.get('psu'):
+            session.pop('psu')
+        if session.get('cooler'):
+            session.pop('cooler')
+        if session.get('cab'):
+            session.pop('cab')
+        if session.get('gpu'):
+            session.pop('gpu')
         return redirect(url_for('home'))
 
 
@@ -173,8 +181,13 @@ def about():
 def signup():
     ipcontrol.getIP(request.remote_addr)
     if request.method == 'POST':
-        pass
-
+        name = request.form.get('username')
+        email = request.form.get('email')
+        phone = request.form.get('number')
+        password = request.form.get('password')
+        conpass = request.form.get('conpass')
+        authenticator.addUser(name,email,password,conpass,phone)
+        return redirect('/login')
     return render_template('User/signup.html')
 
 
@@ -251,7 +264,9 @@ def ratebuilds():
 def contact():
     ipcontrol.getIP(request.remote_addr)
     if request.method == 'POST':
-        pass
+        username = request.form.get('username')
+        email = request.form.get('email')
+        message = request.form.get('message')
 
     return render_template('User/contactus.html')
 

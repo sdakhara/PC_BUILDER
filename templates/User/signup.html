@@ -64,27 +64,30 @@
 
 <div class="text-center text-light login-div">
 <main class="form-signin">
-  <form>
+  <form action="/signup" method="post">
     <img class="mb-4" src="{{url_for('static', filename='User/IMG/PCB-LOGO.png')}}" alt="" width="72">
     <h1 class="h3 mb-3 fw-normal">SIGN UP</h1>
 
     <div class="form-floating">
-      <input type="email" class="form-control bg-dark login-input text-light" id="floatingInput" placeholder="name">
+      <input name="username" type="text" class="form-control bg-dark login-input text-light" id="floatingInput" placeholder="name">
       <label for="floatingInput">Username</label>
     </div>
     <div class="form-floating">
-      <input type="password" class="form-control bg-dark login-input text-light" id="floatingPassword" placeholder="email">
+      <input type="email" name="email" class="form-control bg-dark login-input text-light" id="floatingPassword" placeholder="email">
       <label for="floatingPassword">Email</label>
     </div>
+      <div class="form-floating">
+      <input type="number" name="number" class="form-control bg-dark login-input text-light" id="floatingPassword" placeholder="email">
+      <label for="floatingPassword">Phone No.</label>
+    </div>
     <div class="form-floating">
-      <input type="email" class="form-control bg-dark login-input text-light" id="floatingInput" placeholder="password">
+      <input type="password" name="password" class="form-control bg-dark login-input text-light" id="floatingInput" placeholder="password">
       <label for="floatingInput">Password</label>
     </div>
     <div class="form-floating">
-      <input type="password" class="form-control bg-dark login-input text-light" id="floatingPassword" placeholder="Confirm password">
+      <input type="password" name="conpass" class="form-control bg-dark login-input text-light" id="floatingPassword" placeholder="Confirm password">
       <label for="floatingPassword">Confirm Password</label>
     </div>
-    
     <button class="w-100 btn btn-lg btn-outline-pcb" type="submit">Sign Up</button>
       <p class="mt-2">Already have an account? <a href="/login" id="make-account-a">Log in</a></p>
   </form>

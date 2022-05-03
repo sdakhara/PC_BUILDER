@@ -158,7 +158,7 @@ class storagedata(Base):
 class userdata(Base):
     __tablename__ = 'userdata'
 
-    UserID = Column(String, primary_key=True, autoincrement=True)
+    UserID = Column(Integer, primary_key=True, autoincrement=True)
     UserName = Column(String)
     Email = Column(String)
     Password = Column(String)
@@ -398,3 +398,9 @@ class Authentication:
         db.add(add)
         db.commit()
 
+    def addUser(self, name, email, password, conpass, phone):
+        db = Session(bind=engine)
+        if password==conpass:
+            add = userdata(UserName=name, Email=email, Password=password, PhoneNo=phone)
+            db.add(add)
+            db.commit()
