@@ -140,7 +140,14 @@ def addthispc():
             price += session['gpu'][0][-1]
         authenticator.addpc(userid=userid, cpuid=cpuid, hddid=hddid, boardid=boardid, cabid=cabid, psuid=psuid,
                             gpuid=gpuid, ramid=ramid, coolerid=coolerid, price=price)
-        session.clear()
+        session.pop('cpu')
+        session.pop('board')
+        session.pop('ram')
+        session.pop('hdd')
+        session.pop('psu')
+        session.pop('cooler')
+        session.pop('cab')
+        session.pop('gpu')
         return redirect(url_for('home'))
 
 
