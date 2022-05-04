@@ -35,7 +35,6 @@ def home():
         if data:
             g.ADMIN = data
             return redirect(url_for('dashboard'))
-
     return render_template('Admin/login.html')
 
 

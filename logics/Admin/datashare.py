@@ -236,6 +236,10 @@ class countrydata(Base):
 
 
 class datatransfer:
+    def getComponent(self):
+        db = Session(bind=engine)
+        new = db.query(cpudata).filter(cpudata.CPUName.like('AMD%')).all()
+        return new
     def getAllUser(self):
         db = Session(bind=engine)
         return db.query(userdata).all()
@@ -351,7 +355,7 @@ class datatransfer:
             return sortpsu(db.query(psudata).filter_by(SmpsID=psuid).all())
         return db.query(psudata).all()
 
-    def getPCS(self, pcid=None):
+    def getPCS(self, pcid=None, userid=None):
         db = Session(bind=engine)
         pcs = db.query(pcrecord).all()
         new = []
@@ -376,6 +380,29 @@ class datatransfer:
                 gpu = self.getGPUs(gpuid=pc.GPUID)
             new.append([cpu, board, psu, ram, hdd, cooler, cab, gpu, pc.Price, pc.PCID])
             return new
+        if userid:
+            print(userid)
+            pcs = db.query(pcrecord).filter_by(UserID=userid).all()
+            for pc in pcs:
+                if pc.CPUID != 0:
+                    cpu = self.getCPUs(cpuid=pc.CPUID)
+                if pc.BoardID != 0:
+                    board = self.getBOARDs(boardid=pc.BoardID)
+                if pc.PSUID != 0:
+                    psu = self.getPSUs(psuid=pc.PSUID)
+                if pc.RAMID != 0:
+                    ram = self.getRAMs(ramid=pc.RAMID)
+                if pc.StorageID != 0:
+                    hdd = self.getSTORAGEs(strgid=pc.StorageID)
+                if pc.CoolerID != 0:
+                    cooler = self.getCOOLERs(coolerid=pc.CoolerID)
+                if pc.CabinetID != 0:
+                    cab = self.getCABINETs(cabid=pc.CabinetID)
+                if pc.GPUID != 0:
+                    gpu = self.getGPUs(gpuid=pc.GPUID)
+                new.append([cpu, board, psu, ram, hdd, cooler, cab, gpu, pc.Price, pc.PCID])
+            return new
+
         for pc in pcs:
             if pc.CPUID != 0:
                 cpu = self.getCPUs(cpuid=pc.CPUID)
@@ -403,11 +430,13 @@ class Authentication:
     def verifyadmin(self, email, password):
         db = Session(bind=engine)
         data = db.query(admindata).all()
+        print('data found')
         for dt in data:
             if dt.Email == email and dt.Password == password:
-                addLog = adminloginrecord(AdminName=dt.AdminName, AdminID=dt.AdminID, LoginTime=datetime.now())
-                db.add(addLog)
-                db.commit()
+                print('user is ready')
+                # addLog = adminloginrecord(AdminName=dt.AdminName, AdminID=dt.AdminID, LoginTime=datetime.now())
+                # db.add(addLog)
+                # db.commit()
                 return dt
 
     def verifyuser(self, email, password):
@@ -455,7 +484,7 @@ class Authentication:
 
     def addMsg(self, username, email, message, ip):
         db = Session(bind=engine)
-        add = userquery(UserName=username, UserEmail=email, Message=message, RequestIP=ip)
+        add = userquery(UserName=username, UserEmail=email, Message=message, RequestIP=ip, Date=datetime.today())
         db.add(add)
         db.commit()
 
@@ -465,3 +494,8 @@ class Authentication:
     #     userip = visitordata(country=(response['country']))
     #     db.add(userip)
     #     db.commit()
+
+if __name__ == '__main__':
+    d = datatransfer()
+    for i in d.getComponnwt():
+        print(i.CPUName4)

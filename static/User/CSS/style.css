@@ -417,6 +417,10 @@ nav .navbar-toggler {
     color: white !important;
 }
 
+.search-radio {
+    margin-right: 50% !important;
+}
+
 
 /* Second Hand PC Page Style */
 
@@ -528,6 +532,10 @@ nav .navbar-toggler {
     #member-card{
         margin: auto !important;
         margin-top: 1rem !important;
+    }
+
+    #users-pc-card{
+       min-width: 30rem !important;
     }
 
 }

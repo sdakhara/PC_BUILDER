@@ -112,42 +112,51 @@ def addthispc():
         return redirect('login')
     if session['userid']:
         userid = session['userid']
-        price=0
+        price = 0
         cpuid = boardid = psuid = ramid = hddid = coolerid = cabid = gpuid = 0
         try:
-        # if session.get('cpu'):
-        #     cpuid = session.get('cpu')[0][1]
-        #     price+=session['cpu'][0][-1]
-        # if session.get('board'):
-        #     boardid = session.get('board')[0][1]
-        #     price += session['board'][0][-1]
-        # if session.get('psu'):
-        #     psuid = session.get('psu')[0][1]
-        #     price += session['psu'][0][-1]
-        # if session.get('ram'):
-        #     ramid = session.get('ram')[0][1]
-        #     price += session['ram'][0][-1]
-        # if session.get('hdd'):
-        #     hddid = session.get('hdd')[0][1]
-        #     price += session['hdd'][0][-1]
-        # if session.get('cooler'):
-        #     coolerid = session.get('cooler')[0][1]
-        #     price += session['cooler'][0][-1]
-        # if session.get('cab'):
-        #     cabid = session.get('cab')[0][1]
-        #     price += session['cab'][0][-1]
-        # if session.get('gpu'):
-        #     gpuid = session.get('gpu')[0][1]
-        #     price += session['gpu'][0][-1]
+            # if session.get('cpu'):
+            #     cpuid = session.get('cpu')[0][1]
+            #     price+=session['cpu'][0][-1]
+            # if session.get('board'):
+            #     boardid = session.get('board')[0][1]
+            #     price += session['board'][0][-1]
+            # if session.get('psu'):
+            #     psuid = session.get('psu')[0][1]
+            #     price += session['psu'][0][-1]
+            # if session.get('ram'):
+            #     ramid = session.get('ram')[0][1]
+            #     price += session['ram'][0][-1]
+            # if session.get('hdd'):
+            #     hddid = session.get('hdd')[0][1]
+            #     price += session['hdd'][0][-1]
+            # if session.get('cooler'):
+            #     coolerid = session.get('cooler')[0][1]
+            #     price += session['cooler'][0][-1]
+            # if session.get('cab'):
+            #     cabid = session.get('cab')[0][1]
+            #     price += session['cab'][0][-1]
+            # if session.get('gpu'):
+            #     gpuid = session.get('gpu')[0][1]
+            #     price += session['gpu'][0][-1]
 
             cpuid = session.get('cpu')[0][1]
+            price += session['cpu'][0][-1]
             boardid = session.get('board')[0][1]
+            price += session['board'][0][-1]
             psuid = session.get('psu')[0][1]
+            price += session['psu'][0][-1]
             ramid = session.get('ram')[0][1]
+            price += session['ram'][0][-1]
             hddid = session.get('hdd')[0][1]
+            price += session['hdd'][0][-1]
             coolerid = session.get('cooler')[0][1]
+            price += session['cooler'][0][-1]
             cabid = session.get('cab')[0][1]
+            price += session['cab'][0][-1]
             gpuid = session.get('gpu')[0][1]
+            price += session['gpu'][0][-1]
+
             authenticator.addpc(userid=userid, cpuid=cpuid, hddid=hddid, boardid=boardid, cabid=cabid, psuid=psuid,
                                 gpuid=gpuid, ramid=ramid, coolerid=coolerid, price=price)
             if session.get('cpu'):
@@ -166,9 +175,11 @@ def addthispc():
                 session.pop('cab')
             if session.get('gpu'):
                 session.pop('gpu')
+            price = 0
             return redirect(url_for('home'))
         except:
             return redirect(url_for('home'))
+
 
 @app.route('/clearpc')
 def clearpc():
@@ -190,12 +201,16 @@ def clearpc():
         session.pop('gpu')
     return redirect(url_for('buildpc'))
 
+
 @app.route('/autobuild', methods=['GET', 'POST'])
 def autobuild():
     ipcontrol.getIP(request.remote_addr)
-    pcs = [1]
+    pcs = None
     if request.method == 'POST':
-        budget = int(request.form.get('budget'))
+        try:
+            budget = int(request.form.get('budget'))
+        except:
+            return redirect(url_for('autobuild'))
         pcs = logic.autobuild(budget)
     return render_template('User/autobuild.html', pcs=pcs)
 
@@ -217,7 +232,7 @@ def signup():
         phone = request.form.get('number')
         password = request.form.get('password')
         conpass = request.form.get('conpass')
-        authenticator.addUser(name,email,password,conpass,phone)
+        authenticator.addUser(name, email, password, conpass, phone)
         return redirect('/login')
     return render_template('User/signup.html')
 
@@ -233,11 +248,13 @@ def buildguide():
 
 @app.route('/viewbuilds', methods=['GET', 'POST'])
 def viewbuilds():
+    pc = None
     ipcontrol.getIP(request.remote_addr)
-    if request.method == 'POST':
-        pass
-
-    return render_template('User/viewbuilds.html')
+    if not session.get('userid'):
+        return redirect('login')
+    if session['userid']:
+        pc = dataapi.getPCS(userid=session['userid'])
+    return render_template('User/viewbuilds.html', pcs=pc)
 
 
 @app.route('/buildhistory', methods=['GET', 'POST'])
@@ -253,34 +270,22 @@ def searchparts():
     dt = dataapi.getBOARDs()
     if request.method == 'POST':
         cpuname = request.form.get('cpuname')
-        # dt = dataapi.srchcpuname(cpuname)
+        dt = dataapi.getComponent()
 
     return render_template('User/searchparts.html', dt=dt)
 
 
-@app.route('/secondhandpc', methods=['GET', 'POST'])
-def secondhandpc():
-    ipcontrol.getIP(request.remote_addr)
-    if request.method == 'POST':
-        pass
-
-    return render_template('User/secondhandpc.html')
-
-
-@app.route('/sell', methods=['GET', 'POST'])
-def sell():
-    ipcontrol.getIP(request.remote_addr)
-    if request.method == 'POST':
-        pass
-
-    return render_template('User/sellpc.html')
+@app.route('/component', methods=['GET', 'POST'])
+def component():
+    data = dataapi.getCPUs()
+    return render_template('/User/componentdata.html', data=data)
 
 
 @app.route('/usersbuilds', methods=['GET', 'POST'])
 def usersbuilds():
     ipcontrol.getIP(request.remote_addr)
     pcs = dataapi.getPCS()
-    return render_template('User/usersbuilds.html', pcs=pcs )
+    return render_template('User/usersbuilds.html', pcs=pcs)
 
 
 @app.route('/ratebuilds/<pcid>', methods=['GET', 'POST'])
@@ -297,7 +302,7 @@ def contact():
         username = request.form.get('username')
         email = request.form.get('email')
         message = request.form.get('message')
-        authenticator.addMsg(username=username,email=email,message=message,ip=request.remote_addr)
+        authenticator.addMsg(username=username, email=email, message=message, ip=request.remote_addr)
     return render_template('User/contactus.html')
 
 

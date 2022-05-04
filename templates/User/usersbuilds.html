@@ -65,46 +65,9 @@
     </div>
 
     <div class="main-container">
-        
-        
         <div class="card-group mx-auto">
-            <div class="card bg-dark">
-                <!-- <img src="{{url_for('static', filename='User/IMG/ssd.jpg')}}" class="card-img-top" alt="..."> -->
-                <div class="mx-auto">
-                    <span class="material-symbols-outlined text-light mt-5" style="font-size: 4rem;">
-                    add
-                    </span>
-                </div>
-                <div class="card-body">
-                    <h5 class="card-title">Add Your Build</h5>
-                    <p class="card-text">Description About this build</p>
-                     <button class="btn btn-outline-pcb log-in mb-2" type="submit" data-bs-toggle="modal" data-bs-target="#addbuild">Add Now</button>
-
-                         <!-- Modal -->
-                    <div class="modal fade text-dark" id="addbuild" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                        <div class="modal-dialog">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                            <h5 class="modal-title text-dark" id="exampleModalLabel">Add Your Build</h5>
-                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                            </div>
-                            <div class="modal-body">
-                                <div class="users-builds-cards"></div>
-                            </div>
-                            
-                            <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                            <button type="button" class="btn btn-primary">Submit</button>
-                            </div>
-                            
-                        </div>
-                        </div>
-                    </div>
-                     
-                </div>
-            </div>
             {% for pc in pcs%}
-            <div class="card bg-dark">
+            <div class="card bg-dark mx-auto" style="min-width: 25vw;width: 24vw;max-width: 25vw;margin-left: 3rem;" id="users-pc-card">
                 <img src="{{url_for('static', filename='User/IMG/ssd.jpg')}}" class="card-img-top" alt="...">
                 <div class="card-body">
                     <h5 class="card-title">{{pc[0][0][5]}}</h5>
@@ -117,69 +80,61 @@
                 </div>
             </div>
             {% endfor %}
-            <div class="card bg-dark">
-                <img src="{{url_for('static', filename='User/IMG/ssd.jpg')}}" class="card-img-top" alt="...">
-                <div class="card-body">
-                    <h5 class="card-title">Deal Title</h5>
-                    <h5 class="card-title">₹ 14500</h5>
-                    <p class="card-text">Description About Selling Deal</p>
-                    <button class="btn btn-outline-pcb log-in mb-2" type="submit">View Deal</button>
-                </div>
-            </div>
-            <div class="card bg-dark">
-                <img src="{{url_for('static', filename='User/IMG/ssd.jpg')}}" class="card-img-top" alt="...">
-                <div class="card-body">
-                    <h5 class="card-title">Deal Title</h5>
-                    <h5 class="card-title">₹ 14500</h5>
-                    <p class="card-text">Description About Selling Deal</p>
-                    <button class="btn btn-outline-pcb log-in mb-2" type="submit">View Deal</button>
-                </div>
-            </div>
         </div>
-        
-
-        {% for pc in pcs %}
-        <div class="card-group mx-auto">
-            <div class="card bg-dark">
-                <img src="{{url_for('static', filename='User/IMG/ssd.jpg')}}" class="card-img-top" alt="...">
-                <div class="card-body">
-                    <h5 class="card-title">Deal Title</h5>
-                    <h5 class="card-title">₹ 14500</h5>
-                    <p class="card-text">Description About Selling Deal</p>
-                    <button class="btn btn-outline-pcb log-in mb-2" type="submit">View Deal</button>
-                </div>
-            </div>
-            <div class="card bg-dark">
-                <img src="{{url_for('static', filename='User/IMG/ssd.jpg')}}" class="card-img-top" alt="...">
-                <div class="card-body">
-                    <h5 class="card-title">Deal Title</h5>
-                    <h5 class="card-title">₹ 14500</h5>
-                    <p class="card-text">Description About Selling Deal</p>
-                    <button class="btn btn-outline-pcb log-in mb-2" type="submit">View Deal</button>
-                </div>
-            </div>
-            <div class="card bg-dark">
-                <img src="{{url_for('static', filename='User/IMG/ssd.jpg')}}" class="card-img-top" alt="...">
-                <div class="card-body">
-                    <h5 class="card-title">Deal Title</h5>
-                    <h5 class="card-title">₹ 14500</h5>
-                    <p class="card-text">Description About Selling Deal</p>
-                    <button class="btn btn-outline-pcb log-in mb-2" type="submit">View Deal</button>
-                </div>
-            </div>
-            <div class="card bg-dark">
-                <img src="{{url_for('static', filename='User/IMG/ssd.jpg')}}" class="card-img-top" alt="...">
-                <div class="card-body">
-                    <h5 class="card-title">Deal Title</h5>
-                    <h5 class="card-title">₹ 14500</h5>
-                    <p class="card-text">Description About Selling Deal</p>
-                    <button class="btn btn-outline-pcb log-in mb-2" type="submit">View Deal</button>
-                </div>
-            </div>
-        </div>
-    {% endfor %}
     </div>
 
+<!-- Footer -->
+<div class="main-footer-class bg-dark text-light">
+    <div class="container">
+        <footer class="py-5">
+            <div class="row">
+                <div class="col-2">
+                    <ul class="nav flex-column">
+                        <li class="nav-item mb-2"><a href="/index" class="nav-link p-0 text-muted">Home</a></li>
+                        <li class="nav-item mb-2"><a href="/searchparts" class="nav-link p-0 text-muted">Products</a>
+                        </li>
+                        <li class="nav-item mb-2"><a href="/about" class="nav-link p-0 text-muted">About-Us</a></li>
+                        <li class="nav-item mb-2"><a href="/contact" class="nav-link p-0 text-muted">Contact-Us</a></li>
+                    </ul>
+                </div>
+                
+                <div class="col-2">
+                    <ul class="nav flex-column">
+                        <li class="nav-item mb-2"><a href="/buildpc" class="nav-link p-0 text-muted">Build PC</a></li>
+                        <li class="nav-item mb-2"><a href="usersbuilds" class="nav-link p-0 text-muted">Users Build</a>
+                        </li>
+                        <li class="nav-item mb-2"><a href="/viewbuilds" class="nav-link p-0 text-muted">Your Builds</a>
+                        </li>
+                        <li class="nav-item mb-2"><a href="/autobuild" class="nav-link p-0 text-muted">Auto Build</a>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="col-2">
+                    <ul class="nav flex-column">
+                        <li class="nav-item mb-2"><a href="/searchparts" class="nav-link p-0 text-muted">Search
+                            Components</a></li>
+                        <li class="nav-item mb-2"><a href="/buildguide" class="nav-link p-0 text-muted">Build Guide</a>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="col-4 offset-1">
+                    <div class="d-flex w-100 gap-2 ms-5">
+                        <a href="/index"><img src="{{url_for('static', filename='User/IMG/PCB-LOGO.png')}}" alt=""
+                                              class="footer-logo"></a>
+                    </div>
+                </div>
+            
+            </div>
+            
+            <div class="d-flex justify-content-center py-4 my-4 border-top">
+                <p>&copy; 2022 PC BUILDER, Inc. All rights reserved.</p>
+            </div>
+        </footer>
+    </div>
+</div>
+<!-- Footer Ends Here -->
 
 
 
