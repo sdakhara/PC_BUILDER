@@ -236,10 +236,51 @@ class countrydata(Base):
 
 
 class datatransfer:
-    def getComponent(self):
+    def getComponent(self, component, srchtxt=None, id=None):
         db = Session(bind=engine)
-        new = db.query(cpudata).filter(cpudata.CPUName.like('AMD%')).all()
-        return new
+        data = None
+        if component == 'cpu':
+            if srchtxt:
+                data = db.query(cpudata).filter(cpudata.CPUName.like('%' + srchtxt + '%')).all()
+            if id:
+                data = db.query(cpudata).filter_by(CPUID=id).first()
+        if component == 'board':
+            if srchtxt:
+                data = db.query(boarddata).filter(boarddata.BoardName.like('%' + srchtxt + '%')).all()
+            if id:
+                data = db.query(boarddata).filter_by(BoardID=id).first()
+        if component == 'ram':
+            if srchtxt:
+                data = db.query(ramdata).filter(ramdata.RAMName.like('%' + srchtxt + '%')).all()
+            if id:
+                data = db.query(ramdata).filter_by(RAMID=id).first()
+        if component == 'gpu':
+            if srchtxt:
+                data = db.query(gpudata).filter(gpudata.GPUName.like('%' + srchtxt + '%')).all()
+            if id:
+                data = db.query(gpudata).filter_by(GPUID=id).first()
+        if component == 'cooler':
+            if srchtxt:
+                data = db.query(coolerdata).filter(coolerdata.CoolerName.like('%' + srchtxt + '%')).all()
+            if id:
+                data = db.query(coolerdata).filter_by(CoolerID=id).first()
+        if component == 'cab':
+            if srchtxt:
+                data = db.query(cabinetdata).filter(cabinetdata.CabinetName.like('%' + srchtxt + '%')).all()
+            if id:
+                data = db.query(cabinetdata).filter_by(CabinetID=id).first()
+        if component == 'hdd':
+            if srchtxt:
+                data = db.query(storagedata).filter(storagedata.StorageName.like('%' + srchtxt + '%')).all()
+            if id:
+                data = db.query(storagedata).filter_by(StorageID=id).first()
+        if component == 'psu':
+            if srchtxt:
+                data = db.query(psudata).filter(psudata.SmpsName.like('%' + srchtxt + '%')).all()
+            if id:
+                data = db.query(psudata).filter_by(SmpsID=id).first()
+        return data
+
     def getAllUser(self):
         db = Session(bind=engine)
         return db.query(userdata).all()
@@ -295,7 +336,7 @@ class datatransfer:
             return sortcpu(db.query(cpudata).filter_by(CPUID=cpuid).all())
 
         if cpuname:
-            return db.query(cpudata).filter(CPUName=cpuname.first_name.like(cpuname+'%')).all()
+            return db.query(cpudata).filter(CPUName=cpuname.first_name.like(cpuname + '%')).all()
 
         return db.query(cpudata).all()
 
@@ -494,6 +535,7 @@ class Authentication:
     #     userip = visitordata(country=(response['country']))
     #     db.add(userip)
     #     db.commit()
+
 
 if __name__ == '__main__':
     d = datatransfer()

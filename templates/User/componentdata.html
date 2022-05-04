@@ -68,7 +68,7 @@
 <div class="main-container mt-5">
     
     <div class="selling-pc-img ms-4">
-        <img src="{{url_for('static', filename='User/IMG/ssd.jpg')}}" class="rounded float-start"
+        <img src="{{url_for('static', filename='User/IMG/pc.jpg')}}" class="rounded float-start"
              style="height: 65vh;width: 48%;" id="sell-card-img" alt="...">
         <div class="card-body bg-dark float-end w-50 mh-100 me-3 rounded" style="height: auto;" id="sell-info-card">
             <div class="sell-card-info mx-auto">
@@ -76,39 +76,234 @@
                 <h6 class="card-title">Processor</h6>
                 <table class="table table-bordered text-light mt-4" id="products-table-1">
                     <tbody>
+                    {% if data %}
+                    {% if comp=='cpu' %}
                     <tr>
                         <th scope="row">CPU Name</th>
-                        <td>Intel Core i9-10900X</td>
+                        <td>{{data.CPUName}}</td>
                     </tr>
-                    10	3.7 GHz	4.7 GHz	LGA2066	165 W	None	Yes	-1	44761
-
+                    
                     <tr>
-                        <th scope="row">Core </th>
-                        <td>10</td>
+                        <th scope="row">Core</th>
+                        <td>{{data.CoreCount}}</td>
                     </tr>
                     <tr>
                         <th scope="row">Clock Speed</th>
-                        <td>3.7 GHz</td>
-                    </tr>
-                    <tr>
-                        <th scope="row">Socket Type</th>
-                        <td>LGA2066</td>
+                        <td>{{data.ClockSpeed}}</td>
                     </tr>
                     <tr>
                         <th scope="row">Boost Clock Speed</th>
-                        <td>4.7 GHz</td>
+                        <td>{{data.BoostClock}}</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Socket Type</th>
+                        <td>{{data.SocketType}}</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">TDP</th>
+                        <td>{{data.TDP}}</td>
                     </tr>
                     <tr>
                         <th scope="row">Integrated Graphics</th>
-                        <td>None
+                        <td>{{data.IntegratedGraphics}}
                         </td>
                     </tr>
                     <tr>
                         <th scope="row">Price</th>
-                        <td>44761</td>
+                        <td>{{data.Price}}</td>
+                    </tr>
+                    {% endif %}
+                    {% if comp=='board' %}
+                    <tr>
+                        <th scope="row">MotherBoard Name</th>
+                        <td>{{data.BoardName}}</td>
                     </tr>
                     
+                    <tr>
+                        <th scope="row">Socket Type</th>
+                        <td>{{data.SocketType}}</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Form Factor</th>
+                        <td>{{data.FormFactor}}</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">RAM Type</th>
+                        <td>{{data.RAMType}}</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Max RAM</th>
+                        <td>{{data.MaxRam}}</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">RAM Slots</th>
+                        <td>{{data.RAMSlots}}
+                        </td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Price</th>
+                        <td>{{data.Price}}</td>
+                    </tr>
+                    {% endif %}
+                    {% if comp=='gpu' %}
+                    <tr>
+                        <th scope="row">Graphics Card Name</th>
+                        <td>{{data.GPUName}}</td>
+                    </tr>
                     
+                    <tr>
+                        <th scope="row">Chipset</th>
+                        <td>{{data.Chipset}}</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Memory</th>
+                        <td>{{data.Memory}}</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Clock Speed</th>
+                        <td>{{data.CoreClock}}</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Boost Clock Speed</th>
+                        <td>{{data.BoostClock}}</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Price</th>
+                        <td>{{data.Price}}</td>
+                    </tr>
+                    {% endif %}
+                    {% if comp=='ram' %}
+                    <tr>
+                        <th scope="row">RAM Name</th>
+                        <td>{{data.RAMName}}</td>
+                    </tr>
+                    
+                    <tr>
+                        <th scope="row">Type</th>
+                        <td>{{data.Type}}</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Speed</th>
+                        <td>{{data.Speed}}MHz</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Size</th>
+                        <td>{{data.SizePerModule}}GB</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">First Word Latency</th>
+                        <td>{{data.FirstWordLatency}}</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Price</th>
+                        <td>{{data.PricePerModule}}</td>
+                    </tr>
+                    {% endif %}
+                    {% if comp=='cooler' %}
+                    <tr>
+                        <th scope="row">Cooler Name</th>
+                        <td>{{data.CoolerName}}</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Radiator Size</th>
+                        <td>{{data.RadiatorSize}}</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Fan RPM</th>
+                        <td>{{data.FanRPM}}</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Noise Level</th>
+                        <td>{{data.NoiseLevel}}</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Price</th>
+                        <td>{{data.Price}}</td>
+                    </tr>
+                    {% endif %}
+                    {% if comp=='psu' %}
+                    <tr>
+                        <th scope="row">Power Supply Name</th>
+                        <td>{{data.SmpsName}}</td>
+                    </tr>
+                    
+                    <tr>
+                        <th scope="row">Form Factor</th>
+                        <td>{{data.FormFactor}}</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Efficiency Rating</th>
+                        <td>{{data.EfficiencyRating}}</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Wattage</th>
+                        <td>{{data.Wattage}}</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Price</th>
+                        <td>{{data.Price}}</td>
+                    </tr>
+                    {% endif %}
+                    {% if comp=='cab' %}
+                    <tr>
+                        <th scope="row">cabinet Name</th>
+                        <td>{{data.CabinetName}}</td>
+                    </tr>
+                    
+                    <tr>
+                        <th scope="row">Form Factor</th>
+                        <td>{{data.Type}}</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Side Panel</th>
+                        <td>{{data.SidePanelWindow}}</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Internal Bays</th>
+                        <td>{{data.InternalBays}}</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">External Bays</th>
+                        <td>{{data.ExternalBays}}</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Price</th>
+                        <td>{{data.Price}}</td>
+                    </tr>
+                    {% endif %}
+                    {% if comp=='hdd' %}
+                    <tr>
+                        <th scope="row">Storage Name</th>
+                        <td>{{data.StorageName}}</td>
+                    </tr>
+                    
+                    <tr>
+                        <th scope="row">Storage Capacity</th>
+                        <td>{{data.Capacity}}</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Type</th>
+                        <td>{{data.Type}}</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Cache</th>
+                        <td>{{data.Cache}}</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Form Factor</th>
+                        <td>{{data.FormFactor}}</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Interface</th>
+                        <td>{{data.Interface}}
+                        </td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Price</th>
+                        <td>{{data.Price}}</td>
+                    </tr>
+                    {% endif %}
+                    {% endif %}
                     </tbody>
                 </table>
             </div>

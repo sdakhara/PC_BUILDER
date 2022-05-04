@@ -380,21 +380,26 @@
                 {% endif %}
                 </tbody>
             </table>
-            <form action="/addthispc">
-            <button type="submit" class="btn btn-outline-pcb" id="table-close-btn">
-                Build PC
-            </button>
-            </form>
-            <form action="/clearpc">
-            <button type="submit" class="btn btn-outline-pcb" id="table-close-btn">
-                Clear PC
-            </button>
-            </form>
-            <form action="/autobuild">
-            <button type="submit" class="btn btn-outline-pcb" id="table-close-btn">
-                Autobuild
-            </button>
-            </form>
+
+            <div class="d-flex justify-content-center mt-4" style="">
+                <form action="/addthispc" class="me-3 ms-3">
+                <button type="submit" class="btn btn-outline-pcb" id="table-close-btn">
+                    Build PC
+                </button>
+                </form>
+
+                <form action="/clearpc" class="me-3 ms-3">
+                <button type="submit" class="btn btn-outline-pcb" id="table-close-btn">
+                    Clear PC
+                </button>
+                </form>
+
+                <form action="/autobuild" class="me-3 ms-3">
+                <button type="submit" class="btn btn-outline-pcb" id="table-close-btn">
+                    Autobuild
+                </button>
+                </form>
+            </div>
         </div>
     </div>
     

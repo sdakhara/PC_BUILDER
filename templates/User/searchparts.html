@@ -68,11 +68,11 @@
 
 
 <div class="main-container">
-    
+    <form action="/searchparts" method="post">
     <div class="searchbar-container mt-5">
         <div class="input-group w-75 mx-auto">
             <span class="input-group-text bg-dark text-light search-input material-symbols-outlined">search</span>
-            <input type="text" name="cpuname" class="form-control search-input text-light bg-dark"
+            <input type="text" name="searchtext" class="form-control search-input text-light bg-dark"
                    aria-describedby="inputGroupPrepend"
                    placeholder="Search Components">
             <button class="btn btn-outline-pcb log-in" type="submit">Search</button>
@@ -83,58 +83,100 @@
         <div class="card-body">
             <div class="radio-container-1">
                 <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1"
-                           value="option1">
+                    <input  class="form-check-input" type="radio" name="component" id="inlineRadio1"
+                           value="cpu">
                     <label class="form-check-label" for="inlineRadio1">CPU</label>
                 </div>
                 <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2"
-                           value="option2">
+                    <input class="form-check-input" type="radio" name="component" id="inlineRadio2"
+                           value="gpu">
                     <label class="form-check-label" for="inlineRadio2">Graphics Card</label>
                 </div>
                 <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio3"
-                           value="option3">
+                    <input class="form-check-input" type="radio" name="component" id="inlineRadio3"
+                           value="ram">
                     <label class="form-check-label" for="inlineRadio3">Ram</label>
                 </div>
                 <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio3"
-                           value="option4">
+                    <input class="form-check-input" type="radio" name="component" id="inlineRadio3"
+                           value="psu">
                     <label class="form-check-label" for="inlineRadio3">Power Supply</label>
                 </div>
             </div>
             <div class="radio-container-2">
                 <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1"
-                           value="option1">
+                    <input class="form-check-input" type="radio" name="component" id="inlineRadio1"
+                           value="hdd">
                     <label class="form-check-label" for="inlineRadio1">Storage</label>
                 </div>
                 <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2"
-                           value="option2">
-                    <label class="form-check-label" for="inlineRadio2">Cabinate</label>
+                    <input class="form-check-input" type="radio" name="component" id="inlineRadio2"
+                           value="cooler">
+                    <label class="form-check-label" for="inlineRadio2">Cooler</label>
                 </div>
                 <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio3"
-                           value="option3">
+                    <input class="form-check-input" type="radio" name="component" id="inlineRadio3"
+                           value="cab">
                     <label class="form-check-label" for="inlineRadio3">Cabinate</label>
                 </div>
                 <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio3"
-                           value="option4">
+                    <input class="form-check-input" type="radio" name="component" id="inlineRadio3"
+                           value="board">
                     <label class="form-check-label" for="inlineRadio3">Motherboard</label>
                 </div>
             </div>
         </div>
     </div>
-    
+    </form>
     
     <div class="searchresult-div mx-auto w-75">
         <div class="search-result-list mt-4">
             <ul class="list-group search-result-ul">
-                {% for cpuname in dt %}
-                <li class="list-group-item">{{cpuname.CPUName}}</li>
+                {% if dt %}
+                {% if comp=='cpu' %}
+                {% for data in dt %}
+                <li class="list-group-item"><a href="/showcomponent/cpu/{{data.CPUID}}">{{data.CPUName}}</a></li>
                 {% endfor %}
+                {% endif %}
+                {% if comp=='board' %}
+                {% for data in dt %}
+                <li class="list-group-item"><a href="/showcomponent/board/{{data.BoardID}}">{{data.BoardName}}</a></li>
+                {% endfor %}
+                {% endif %}
+                {% if comp=='ram' %}
+                {% for data in dt %}
+                <li class="list-group-item"><a href="/showcomponent/ram/{{data.RAMID}}">{{data.RAMName}}</a></li>
+                {% endfor %}
+                {% endif %}
+                {% if comp=='hdd' %}
+                {% for data in dt %}
+                <li class="list-group-item"><a href="/showcomponent/hdd/{{data.StorageID}}">{{data.StorageName}}</a></li>
+                {% endfor %}
+                {% endif %}
+                {% if comp=='gpu' %}
+                {% for data in dt %}
+                <li class="list-group-item"><a href="/showcomponent/gpu/{{data.GPUID}}">{{data.GPUName}}</a></li>
+                {% endfor %}
+                {% endif %}
+                {% if comp=='cooler' %}
+                {% for data in dt %}
+                <li class="list-group-item"><a href="/showcomponent/cooler/{{data.CoolerID}}">{{data.CoolerName}}</a></li>
+                {% endfor %}
+                {% endif %}
+                {% if comp=='cab' %}
+                {% for data in dt %}
+                <li class="list-group-item"><a href="/showcomponent/cab/{{data.CabinetID}}">{{data.CabinetName}}</a></li>
+                {% endfor %}
+                {% endif %}
+                {% if comp=='psu' %}
+                {% for data in dt %}
+                <li class="list-group-item"><a href="/showcomponent/psu/{{data.SmpsID}}">{{data.SmpsName}}</a></li>
+                {% endfor %}
+                {% endif %}
+                {% endif %}
+                {% if data=='None' %}
+                <li class="list-group-item">Please select valid component type</li>
+                {% endif %}
             </ul>
         </div>
     </div>

@@ -267,18 +267,24 @@ def buildhistory():
 
 @app.route('/searchparts', methods=['GET', 'POST'])
 def searchparts():
-    dt = dataapi.getBOARDs()
+    comp=None
+    dt = None
     if request.method == 'POST':
-        cpuname = request.form.get('cpuname')
-        dt = dataapi.getComponent()
+        comp = request.form.get('component')
+        txt = request.form.get('searchtext')
+        if not comp:
+            return render_template('User/searchparts.html',data='None')
+        dt = dataapi.getComponent(component=comp,srchtxt=txt)
+        print(comp)
+        print(txt)
+    return render_template('User/searchparts.html', dt=dt,comp=comp)
 
-    return render_template('User/searchparts.html', dt=dt)
 
 
-@app.route('/component', methods=['GET', 'POST'])
-def component():
-    data = dataapi.getCPUs()
-    return render_template('/User/componentdata.html', data=data)
+@app.route('/showcomponent/<comp>/<id>', methods=['GET', 'POST'])
+def component(comp,id):
+    data = dataapi.getComponent(component=comp, id=id)
+    return render_template('/User/componentdata.html', data=data, comp=comp)
 
 
 @app.route('/usersbuilds', methods=['GET', 'POST'])
