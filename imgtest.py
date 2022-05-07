@@ -1,4 +1,4 @@
-import base64
+
 
 from flask import Flask, render_template, request
 from sqlalchemy import create_engine, Integer, BLOB, Column
@@ -30,5 +30,5 @@ def home():
         db.commit()
     return render_template('new.html')
 
-
+# mmmm
 app.run(debug=True)
