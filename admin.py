@@ -3,7 +3,6 @@ from datetime import date
 from flask import Flask, render_template, jsonify, request, redirect, url_for
 
 from flask_session import Session
-from logics.Admin.IPLocation import get_ip
 from logics.Admin.datashare import datatransfer, Authentication
 
 
@@ -19,11 +18,6 @@ dataapi = datatransfer()
 Authenticator = Authentication()
 g = globs()
 
-
-@app.route('/getip')
-def getIP():
-    country = get_ip(request.remote_addr)
-    return jsonify(country)
 
 
 @app.route('/', methods=['GET', 'POST'])
@@ -186,14 +180,6 @@ def messages():
     except:
         return redirect(url_for('home'))
 
-
-@app.route('/messages/<userid>', methods=['GET', 'POST'])
-def message_response(userid):
-    try:
-        data = dataapi.getMessages()
-        return render_template('Admin/message_response.html', data=data)
-    except:
-        return redirect(url_for('home'))
 
 
 if __name__ == '__main__':

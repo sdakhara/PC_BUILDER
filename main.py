@@ -3,7 +3,6 @@ from flask import *
 from flask_session import Session
 from logics.Admin.datashare import Authentication, datatransfer
 from logics.user.autobuild import logic
-from logics.user.iplogics import ipControl
 
 
 class globs:
@@ -13,7 +12,6 @@ class globs:
 app = Flask(__name__)
 g = globs()
 logic = logic()
-ipcontrol = ipControl()
 dataapi = datatransfer()
 authenticator = Authentication()
 
@@ -25,13 +23,11 @@ Session(app)
 # User Routes
 @app.route('/')
 def home():
-    ipcontrol.getIP(request.remote_addr)
     return render_template('User/index.html')
 
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():
-    ipcontrol.getIP(request.remote_addr)
     if request.method == 'POST':
         useremail = request.form.get('useremail')
         userpass = request.form.get('userpass')
@@ -51,19 +47,16 @@ def logout():
 
 @app.route('/index')
 def index():
-    ipcontrol.getIP(request.remote_addr)
     return render_template('User/index.html')
 
 
 @app.route('/buildpc', methods=['GET', 'POST'])
 def buildpc():
-    ipcontrol.getIP(request.remote_addr)
     return render_template('User/buildpc.html')
 
 
 @app.route('/cpuselect/<query>', methods=['GET', 'POST'])
 def cpuselect(query):
-    ipcontrol.getIP(request.remote_addr)
     data = None
     if query == 'cpu':
         data = dataapi.getCPUs()
@@ -115,31 +108,6 @@ def addthispc():
         price = 0
         cpuid = boardid = psuid = ramid = hddid = coolerid = cabid = gpuid = 0
         try:
-            # if session.get('cpu'):
-            #     cpuid = session.get('cpu')[0][1]
-            #     price+=session['cpu'][0][-1]
-            # if session.get('board'):
-            #     boardid = session.get('board')[0][1]
-            #     price += session['board'][0][-1]
-            # if session.get('psu'):
-            #     psuid = session.get('psu')[0][1]
-            #     price += session['psu'][0][-1]
-            # if session.get('ram'):
-            #     ramid = session.get('ram')[0][1]
-            #     price += session['ram'][0][-1]
-            # if session.get('hdd'):
-            #     hddid = session.get('hdd')[0][1]
-            #     price += session['hdd'][0][-1]
-            # if session.get('cooler'):
-            #     coolerid = session.get('cooler')[0][1]
-            #     price += session['cooler'][0][-1]
-            # if session.get('cab'):
-            #     cabid = session.get('cab')[0][1]
-            #     price += session['cab'][0][-1]
-            # if session.get('gpu'):
-            #     gpuid = session.get('gpu')[0][1]
-            #     price += session['gpu'][0][-1]
-
             cpuid = session.get('cpu')[0][1]
             price += session['cpu'][0][-1]
             boardid = session.get('board')[0][1]
@@ -204,7 +172,6 @@ def clearpc():
 
 @app.route('/autobuild', methods=['GET', 'POST'])
 def autobuild():
-    ipcontrol.getIP(request.remote_addr)
     pcs = None
     if request.method == 'POST':
         try:
@@ -215,9 +182,15 @@ def autobuild():
     return render_template('User/autobuild.html', pcs=pcs)
 
 
+@app.route('/addpc/<cpu>/<board>/<ram>/<hdd>/<psu>/<cab>/<price>')
+def addpc(cpu, board, ram, hdd, psu, cab, price):
+    authenticator.addautobuild(userid=session.get('userid'), cpuid=cpu, boardid=board, ramid=ram, hddid=hdd, psuid=psu,
+                               cabid=cab, price=price)
+    return redirect(url_for('viewbuilds'))
+
+
 @app.route('/about', methods=['GET', 'POST'])
 def about():
-    ipcontrol.getIP(request.remote_addr)
     if request.method == 'POST':
         pass
     return render_template('User/about.html')
@@ -225,7 +198,6 @@ def about():
 
 @app.route('/signup', methods=['GET', 'POST'])
 def signup():
-    ipcontrol.getIP(request.remote_addr)
     if request.method == 'POST':
         name = request.form.get('username')
         email = request.form.get('email')
@@ -239,7 +211,6 @@ def signup():
 
 @app.route('/buildguide', methods=['GET', 'POST'])
 def buildguide():
-    ipcontrol.getIP(request.remote_addr)
     if request.method == 'POST':
         pass
 
@@ -249,7 +220,6 @@ def buildguide():
 @app.route('/viewbuilds', methods=['GET', 'POST'])
 def viewbuilds():
     pc = None
-    ipcontrol.getIP(request.remote_addr)
     if not session.get('userid'):
         return redirect('login')
     if session['userid']:
@@ -259,7 +229,6 @@ def viewbuilds():
 
 @app.route('/buildhistory', methods=['GET', 'POST'])
 def buildhistory():
-    ipcontrol.getIP(request.remote_addr)
     if request.method == 'POST':
         pass
     return render_template('User/buildhistory.html')
@@ -267,43 +236,39 @@ def buildhistory():
 
 @app.route('/searchparts', methods=['GET', 'POST'])
 def searchparts():
-    comp=None
+    comp = None
     dt = None
     if request.method == 'POST':
         comp = request.form.get('component')
         txt = request.form.get('searchtext')
         if not comp:
-            return render_template('User/searchparts.html',data='None')
-        dt = dataapi.getComponent(component=comp,srchtxt=txt)
+            return render_template('User/searchparts.html', data='None')
+        dt = dataapi.getComponent(component=comp, srchtxt=txt)
         print(comp)
         print(txt)
-    return render_template('User/searchparts.html', dt=dt,comp=comp)
-
+    return render_template('User/searchparts.html', dt=dt, comp=comp)
 
 
 @app.route('/showcomponent/<comp>/<id>', methods=['GET', 'POST'])
-def component(comp,id):
+def component(comp, id):
     data = dataapi.getComponent(component=comp, id=id)
     return render_template('/User/componentdata.html', data=data, comp=comp)
 
 
 @app.route('/usersbuilds', methods=['GET', 'POST'])
 def usersbuilds():
-    ipcontrol.getIP(request.remote_addr)
     pcs = dataapi.getPCS()
     return render_template('User/usersbuilds.html', pcs=pcs)
 
 
 @app.route('/ratebuilds/<pcid>', methods=['GET', 'POST'])
 def ratebuilds(pcid):
-    ipcontrol.getIP(request.remote_addr)
     pc = dataapi.getPCS(pcid=int(pcid))
     return render_template('User/ratebuilds.html', pc=pc)
 
 
 @app.route('/contact', methods=['GET', 'POST'])
 def contact():
-    ipcontrol.getIP(request.remote_addr)
     if request.method == 'POST':
         username = request.form.get('username')
         email = request.form.get('email')

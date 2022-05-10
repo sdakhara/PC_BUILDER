@@ -158,7 +158,7 @@ class storagedata(Base):
 class userdata(Base):
     __tablename__ = 'userdata'
 
-    UserID = Column(String, primary_key=True, autoincrement=True)
+    UserID = Column(Integer, primary_key=True, autoincrement=True)
     UserName = Column(String)
     Email = Column(String)
     Password = Column(String)
@@ -509,6 +509,13 @@ class Authentication:
         db.query(userdata).filter_by(UserID=userid).delete()
         db.commit()
 
+    def addautobuild(self, userid, cpuid, boardid, ramid, hddid, cabid, psuid, price):
+        db = Session(bind=engine)
+        add = pcrecord(CPUID=cpuid, BoardID=boardid, UserID=userid, PSUID=psuid, RAMID=ramid, StorageID=hddid,
+                       CabinetID=cabid, Price=price, Date=datetime.now())
+        db.add(add)
+        db.commit()
+
     def addpc(self, userid, cpuid, boardid, ramid, gpuid, hddid, cabid, psuid, coolerid, price):
         db = Session(bind=engine)
         add = pcrecord(CPUID=cpuid, BoardID=boardid, UserID=userid, PSUID=psuid, RAMID=ramid, StorageID=hddid,
@@ -535,9 +542,3 @@ class Authentication:
     #     userip = visitordata(country=(response['country']))
     #     db.add(userip)
     #     db.commit()
-
-
-if __name__ == '__main__':
-    d = datatransfer()
-    for i in d.getComponnwt():
-        print(i.CPUName4)
