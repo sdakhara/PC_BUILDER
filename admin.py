@@ -1,6 +1,6 @@
 from datetime import date
 
-from flask import Flask, render_template, jsonify, request, redirect, url_for
+from flask import Flask, render_template, request, redirect, url_for
 
 from flask_session import Session
 from logics.Admin.datashare import datatransfer, Authentication
