@@ -1,6 +1,6 @@
 from flask import *
 
-from flask_session import Session
+# from flask_session import Session
 from logics.Admin.datashare import Authentication, datatransfer
 from logics.user.autobuild import logic
 
@@ -17,7 +17,7 @@ authenticator = Authentication()
 
 app.config["SESSION_PERMANENT"] = False
 app.config["SESSION_TYPE"] = "filesystem"
-Session(app)
+# Session(app)
 
 
 # User Routes
